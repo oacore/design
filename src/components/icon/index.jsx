@@ -37,10 +37,7 @@ const mapNameToModule = name => {
 const Icon = React.memo(({ iconType }) => {
   const icon = mapNameToModule(iconType)
   return (
-    <svg
-      className="oadesign-icon"
-      viewBox={`${icon.viewBox}`}
-    >
+    <svg className="oadesign-icon" viewBox={`${icon.viewBox}`}>
       <use xlinkHref={`#${icon.id}`} />
     </svg>
   )

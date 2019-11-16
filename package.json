@@ -48,9 +48,11 @@
   },
   "scripts": {
     "lint": "eslint --ignore-path .gitignore --ext .js,.jsx src",
+    "format": "eslint --ignore-path .gitignore --ext .js,.jsx --fix .",
     "build": "babel src --out-dir dist",
     "build:docs": "styleguidist build",
     "dev": "styleguidist server",
-    "start": "webpack --mode=production"
+    "start": "webpack --mode=production",
+    "now-build": "npm run build:docs"
   }
 }

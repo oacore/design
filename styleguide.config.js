@@ -11,7 +11,7 @@ module.exports = {
       sections: [
         {
           name: 'Utilities',
-          components: () => ['src/components/Icon/index.jsx'],
+          components: ['src/components/icon/index.jsx'],
         },
       ],
     },
