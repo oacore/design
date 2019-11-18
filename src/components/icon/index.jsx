@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import './index.css'
 import PropTypes from 'prop-types'
 import DownloadIcon from './assets/download.svg'
 import OutlineIcon from './assets/outline.svg'
