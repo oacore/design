@@ -3,51 +3,29 @@ import PropTypes from 'prop-types'
 
 import { icon as iconClassName } from './index.css'
 
-import DownloadIcon from './assets/download.svg'
-import OutlineIcon from './assets/outline.svg'
-import ThumbnailsIcon from './assets/thumbnails.svg'
-import PaperInfoIcon from './assets/paper_info.svg'
-import PrintIcon from './assets/print.svg'
-import ShareIcon from './assets/share.svg'
-import LeftArrowIcon from './assets/left-arrow.svg'
-import RightArrowIcon from './assets/right-arrow.svg'
-import RotateIcon from './assets/rotate.svg'
-import ZoomInIcon from './assets/zoom-in.svg'
-import ZoomOutIcon from './assets/zoom-out.svg'
-import CoreSymbolIcon from './assets/core-symbol.svg'
-
-const iconMap = {
-  'core-symbol': CoreSymbolIcon,
-  download: DownloadIcon,
-  outline: OutlineIcon,
-  thumbnails: ThumbnailsIcon,
-  'paper-info': PaperInfoIcon,
-  print: PrintIcon,
-  share: ShareIcon,
-  'left-arrow': LeftArrowIcon,
-  'right-arrow': RightArrowIcon,
-  'zoom-in': ZoomInIcon,
-  'zoom-out': ZoomOutIcon,
-  rotate: RotateIcon,
-}
-
-const mapNameToModule = name => {
-  if (!(name in iconMap)) throw new Error(`Icon ${name} not found`)
-  return iconMap[name]
-}
-
-const Icon = React.memo(({ iconType }) => {
-  const icon = mapNameToModule(iconType)
-  return (
-    <svg className={iconClassName} viewBox={`${icon.viewBox}`}>
-      <use xlinkHref={`#${icon.id}`} />
-    </svg>
-  )
-})
+/**
+ * The component creates an inline SVG image based on
+ * `src` and `alt` attributes.
+ */
+const Icon = ({ src, alt, ...restProps }) => (
+  <svg className={iconClassName} role="img" {...restProps}>
+    <title>{alt}</title>
+    <use href={src} />
+  </svg>
+)
 
 Icon.propTypes = {
-  /** The name of a icon */
-  iconType: PropTypes.oneOf(Object.keys(iconMap)).isRequired,
+  /**
+   * Icon location
+   *
+   * It can be either an icon referrence to a sprite, e.g. `#alert`
+   * or full icon path for any other icon.
+   */
+  src: PropTypes.string.isRequired,
+  /**
+   * Alternative text for accessibility
+   */
+  alt: PropTypes.string.isRequired,
 }
 
 export default Icon
