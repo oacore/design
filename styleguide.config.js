@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'OACore Design',
+  title: 'CORE Design Engine',
   usageMode: 'expand',
   sections: [
     {
