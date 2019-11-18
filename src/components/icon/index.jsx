@@ -1,6 +1,8 @@
 import React from 'react'
-import './index.css'
 import PropTypes from 'prop-types'
+
+import { icon as iconClassName } from './index.css'
+
 import DownloadIcon from './assets/download.svg'
 import OutlineIcon from './assets/outline.svg'
 import ThumbnailsIcon from './assets/thumbnails.svg'
@@ -37,7 +39,7 @@ const mapNameToModule = name => {
 const Icon = React.memo(({ iconType }) => {
   const icon = mapNameToModule(iconType)
   return (
-    <svg className="oadesign-icon" viewBox={`${icon.viewBox}`}>
+    <svg className={iconClassName} viewBox={`${icon.viewBox}`}>
       <use xlinkHref={`#${icon.id}`} />
     </svg>
   )
