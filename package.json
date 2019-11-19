@@ -59,7 +59,8 @@
     "build:js": "babel src --out-dir dist --verbose",
     "build:css": "postcss src/**/*.css --base src --dir dist",
     "build:docs": "styleguidist build",
-    "build": "npm run build:css && npm run build:js && npm run build:docs",
+    "build:svg": "svgo -f src -o dist -r --disable=removeViewBox --enable=removeDimensions",
+    "build": "npm run build:svg && npm run build:css && npm run build:js && npm run build:docs",
     "dev": "styleguidist server",
     "start": "webpack --mode=production",
     "now-build": "npm run build:docs"
