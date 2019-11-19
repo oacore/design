@@ -22,4 +22,6 @@ module.exports = {
       linkHover: '#924300',
     },
   },
+
+  assetsDir: 'dist/assets',
 }
