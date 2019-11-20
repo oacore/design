@@ -1,0 +1,97 @@
+/*!
+ * Typography
+ *
+ * This is a file copied from Bootstrap and pasted here with really few changes.
+ * PostCSS does not process it properly.
+ */
+
+/* Headings */
+
+:global .h1 {
+  @extend h1;
+}
+
+:global .h2 {
+  @extend h2;
+}
+
+:global .h3 {
+  @extend h3;
+}
+
+:global .h4 {
+  @extend h4;
+}
+
+:global .h5 {
+  @extend h5;
+}
+
+:global .h6 {
+  @extend h6;
+}
+
+:global .lead {
+  font-size: var(--lead-font-size);
+  font-weight: var(--lead-font-weight);
+}
+
+// Type display classes
+:global .display-1 {
+  font-size: var(--display1-size);
+  font-weight: var(--display1-weight);
+  line-height: var(--display-line-height);
+}
+:global .display-2 {
+  font-size: var(--display2-size);
+  font-weight: var(--display2-weight);
+  line-height: var(--display-line-height);
+}
+:global .display-3 {
+  font-size: var(--display3-size);
+  font-weight: var(--display3-weight);
+  line-height: var(--display-line-height);
+}
+:global .display-4 {
+  font-size: var(--display4-size);
+  font-weight: var(--display4-weight);
+  line-height: var(--display-line-height);
+}
+
+/* Emphasis */
+
+:global .small {
+  @extend small;
+}
+
+:global .mark {
+  @extend mark;
+}
+
+/* Lists */
+
+:global .list-unstyled {
+  // @include list-unstyled();
+}
+
+// Inline turns list items into inline-block
+:global .list-inline {
+  // stylelint-disable prettier/prettier
+  @extend :global .list-unstyled;
+}
+
+:global .list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: var(--list-inline-padding);
+  }
+}
+
+/* Misc */
+
+// Builds on `abbr`
+:global .initialism {
+  font-size: var(--initialism-font-size);
+  text-transform: uppercase;
+}
