@@ -24,4 +24,5 @@ module.exports = {
   },
 
   assetsDir: 'dist/assets',
+  styleguideDir: 'public',
 }
