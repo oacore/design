@@ -22,4 +22,6 @@ module.exports = {
       linkHover: '#924300',
     },
   },
+
+  styleguideDir: 'public',
 }
