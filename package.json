@@ -2,9 +2,13 @@
   "name": "@oacore/design",
   "version": "0.0.1",
   "description": "CORE Design Engine (CODE) is our shared components library",
-  "main": "dist/index.js",
   "author": "CORE Team (core.ac.uk)",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/oacore/design.git"
+  },
+  "main": "dist/index.js",
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
