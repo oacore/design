@@ -61,7 +61,6 @@
     "build:docs": "styleguidist build",
     "build": "npm run build:css && npm run build:js && npm run build:docs",
     "dev": "styleguidist server",
-    "start": "webpack --mode=production",
-    "now-build": "npm run build:docs"
+    "start": "webpack --mode=production"
   }
 }
