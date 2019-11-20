@@ -62,6 +62,8 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore --ext .js,.jsx src",
     "format": "eslint --ignore-path .gitignore --ext .js,.jsx --fix .",
+    "clean": "if [ -d dist ]; then rm -r dist; fi",
+    "prebuild": "npm run clean",
     "build:js": "babel src --out-dir dist --verbose",
     "build:css": "postcss src/**/*.css --base src --dir dist",
     "build:docs": "styleguidist build",
