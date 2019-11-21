@@ -77,7 +77,7 @@
     "clean": "if [ -d dist ]; then rm -r dist; fi",
     "prebuild": "npm run clean",
     "build:js": "babel src --out-dir dist --verbose",
-    "build:css": "postcss src/**/*.css --base src --dir dist",
+    "build:css": "postcss \"src/**/*.css\" --base src --dir dist --verbose",
     "build:svg:source": "svgo -f src -o dist -r --disable=removeViewBox --enable=removeDimensions",
     "build:svg:sprite": "svgstore dist/assets/icons/* | svgo -i - -o dist/assets/icons.svg --disable=removeUselessDefs,cleanupIDs",
     "build:svg": "run-s build:svg:source build:svg:sprite",
