@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, prettier/prettier */
 const presetEnv = require('postcss-preset-env')
 
+const extend = require('postcss-extend')
 const calc = require('postcss-calc')
 const cssModules = require('postcss-modules')
 const stripInlineComments = require('postcss-strip-inline-comments')
@@ -19,6 +20,7 @@ module.exports = {
     presetEnv({
       importFrom: 'src/foundation/variables.css',
     }),
+    extend(),
     nano({
       preset: ['default', {
         rawCache: false,
