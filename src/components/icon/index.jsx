@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { icon as iconClassName } from './index.css'
+import iconClassNames from './index.css'
 
 /**
  * The component creates an inline SVG image based on
  * `src` and `alt` attributes.
  */
 const Icon = ({ src, alt, ...restProps }) => (
-  <svg className={iconClassName} role="img" {...restProps}>
+  <svg className={iconClassNames.icon} role="img" {...restProps}>
     <title>{alt}</title>
     <use href={src} />
   </svg>

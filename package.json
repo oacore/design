@@ -84,7 +84,6 @@
     "build:lib": "run-p build:js build:css build:svg",
     "build:docs": "styleguidist build",
     "build": "run-s build:lib build:docs",
-    "dev": "styleguidist server",
-    "start": "webpack --mode=production"
+    "dev": "styleguidist server"
   }
 }
