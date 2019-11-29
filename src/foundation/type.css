@@ -1,97 +1,231 @@
-/*!
- * Typography
- *
- * This is a file copied from Bootstrap and pasted here with really few changes.
- * PostCSS does not process it properly.
- */
+:root {
+  --headings-color: var(--gray-900);
+  --code-color: inherit;
+  --kbd-color: var(--gray-900);
+  --kbd-bg: var(--gray-50);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+    'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-base, 400);
+  line-height: var(--line-height-base, 1.5);
+  color: var(--body-color, #000);
+  background-color: var(--body-bg, #fff);
+}
 
 /* Headings */
 
-:global .h1 {
-  @extend h1;
+%heading {
+  font-family: var(--headings-font-family);
+  font-weight: var(--headings-font-weight, 600);
+  line-height: var(--headings-line-height, 1.25);
+  color: var(--headings-color);
 }
 
-:global .h2 {
-  @extend h2;
+h1 {
+  @extend %heading;
+  font-size: var(--h1-font-size, 1.5rem);
+  line-height: var(--h1-line-height, 1);
 }
 
-:global .h3 {
-  @extend h3;
+h2 {
+  @extend %heading;
+  font-size: var(--h2-font-size, 1.25rem);
+  line-height: var(--h2-line-height, 1.2);
 }
 
-:global .h4 {
-  @extend h4;
+h3 {
+  @extend %heading;
+  font-size: var(--h3-font-size, 1rem);
+  line-height: var(--h3-line-height, 1.5);
 }
 
-:global .h5 {
-  @extend h5;
+h4 {
+  @extend %heading;
+  font-size: var(--h4-font-size, 0.875rem);
+  line-height: var(--h4-line-height, 1.7143);
 }
 
-:global .h6 {
-  @extend h6;
+h5 {
+  @extend %heading;
+  font-size: var(--h5-font-size, 0.875rem);
+  line-height: var(--h5-line-height, 1.7143);
 }
 
-:global .lead {
-  font-size: var(--lead-font-size);
-  font-weight: var(--lead-font-weight);
+h6 {
+  @extend %heading;
+  font-size: var(--h6-font-size, 0.875rem);
+  line-height: var(--h6-line-height, 1.7143);
 }
 
-// Type display classes
-:global .display-1 {
-  font-size: var(--display1-size);
-  font-weight: var(--display1-weight);
-  line-height: var(--display-line-height);
+:global(.display) {
+  --h1-font-size: 6rem;
+  --h1-line-height: 1;
+  --h2-font-size: 4rem;
+  --h2-line-height: 1;
+  --h3-font-size: 3rem;
+  --h3-line-height: 1;
+  --h4-font-size: 2rem;
+  --h4-line-height: 1.5;
+  --h5-font-size: 1.5rem;
+  --h5-line-height: 1;
+  --h6-font-size: 1.25rem;
+  --h6-line-height: 1.2;
 }
-:global .display-2 {
-  font-size: var(--display2-size);
-  font-weight: var(--display2-weight);
-  line-height: var(--display-line-height);
+
+/* Links */
+
+a:link,
+a:visited {
+  color: var(--link-color, var(--primary));
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--link-hover-color, var(--primary-dark));
+    text-decoration: var(--link-hover-decoration, underline);
+  }
+
+  &:active {
+    color: var(--link-active-color);
+    text-decoration: var(--link-active-decoration);
+  }
 }
-:global .display-3 {
-  font-size: var(--display3-size);
-  font-weight: var(--display3-weight);
-  line-height: var(--display-line-height);
-}
-:global .display-4 {
-  font-size: var(--display4-size);
-  font-weight: var(--display4-weight);
-  line-height: var(--display-line-height);
+
+a:visited {
+  color: var(--link-visited-color, var(--primary-dark));
+  text-decoration: var(--link-visited-decoration);
 }
 
 /* Emphasis */
 
-:global .small {
+:global(.lead) {
+  font-size: var(--lead-font-size, 1.25rem);
+  font-weight: var(--lead-font-weight, 300);
+}
+
+small {
+  font-size: 0.875em;
+}
+
+:global(.small) {
   @extend small;
 }
 
-:global .mark {
+mark {
+  padding: var(--mark-padding, 0.125rem 0.25rem);
+  background-color: var(--mark-bg);
+}
+
+:global(.mark) {
   @extend mark;
 }
 
 /* Lists */
 
-:global .list-unstyled {
-  // @include list-unstyled();
+ol,
+ul {
+  padding-left: 2rem;
 }
 
-// Inline turns list items into inline-block
-:global .list-inline {
-  // stylelint-disable prettier/prettier
-  @extend :global .list-unstyled;
+dt {
+  font-weight: var(--dt-font-weight, 600);
 }
 
-:global .list-inline-item {
-  display: inline-block;
-
-  &:not(:last-child) {
-    margin-right: var(--list-inline-padding);
-  }
+dd {
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
 }
 
 /* Misc */
 
-// Builds on `abbr`
-:global .initialism {
+/* Builds on `abbr` */
+:global(.initialism) {
   font-size: var(--initialism-font-size);
   text-transform: uppercase;
+}
+
+address {
+  font-style: normal;
+  line-height: inherit;
+}
+
+/* Code */
+
+pre,
+code,
+kbd,
+samp {
+  font-family: 'Fira Code', sfmono-regular, menlo, monaco, consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-family: var(--font-family-monospace);
+}
+
+pre {
+  font-size: var(--code-font-size, 0.875rem);
+  color: var(--pre-color, inherit);
+
+  /* Account for some code outputs that place code tags in pre tags */
+  code {
+    font-size: inherit;
+    color: inherit;
+    word-break: normal;
+  }
+}
+
+code {
+  font-size: var(--code-font-size, 0.875rem);
+  color: var(--code-color, inherit);
+  word-wrap: break-word;
+
+  /**
+   * Streamline the style when inside anchors to avoid broken underline
+   * and more
+   */
+  a > & {
+    color: inherit;
+  }
+}
+
+kbd {
+  padding: var(--kbd-padding-y, 0.25rem) var(--kbd-padding-x, 0.5rem);
+  font-size: var(--kbd-font-size, 0.875rem);
+  color: var(--kbd-color, #000);
+  background-color: var(--kbd-bg, #fff);
+  border-radius: var(--border-radius, 2px);
+
+  kbd {
+    padding: 0;
+    font-size: 1em;
+    font-weight: var(--nested-kbd-font-weight, 600);
+  }
+}
+
+/* Tables */
+
+caption {
+  padding-top: var(--table-cell-padding);
+  padding-bottom: var(--table-cell-padding);
+  color: var(--table-caption-color);
+  text-align: left;
+  caption-side: bottom;
+}
+
+/* Forms */
+
+label {
+  margin-bottom: var(--label-margin-bottom);
+}
+
+legend {
+  width: 100%;
+  margin-bottom: var(--legend-margin-bottom);
+  font-size: var(--legend-font-size);
+  font-weight: var(--legend-font-weight);
+  line-height: inherit;
 }

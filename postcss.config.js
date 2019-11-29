@@ -14,9 +14,7 @@ module.exports = {
   map: true,
   plugins: [
     calc(),
-    presetEnv({
-      importFrom: 'src/foundation/variables.css',
-    }),
+    presetEnv(),
     extend(),
     nano({
       preset: ['default', {

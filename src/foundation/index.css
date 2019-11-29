@@ -1,3 +1,7 @@
-@import url('variables.css');
+@import url('~normalize.css');
 @import url('reboot.css');
+
+@import url('spacing.css');
+
+@import url('colors.css');
 @import url('type.css');

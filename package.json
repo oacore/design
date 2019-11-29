@@ -33,6 +33,7 @@
     "eslint-plugin-react": "^7.12.4",
     "jss": "^10.0.0",
     "node-sass": "^4.13.0",
+    "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.23",
     "postcss-calc": "^7.0.1",
@@ -66,6 +67,7 @@
     "reactstrap": "^8.0.0"
   },
   "peerDependencies": {
+    "normalize.css": "^8.0.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
