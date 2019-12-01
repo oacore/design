@@ -41,8 +41,6 @@
     "postcss-loader": "^3.0.0",
     "postcss-modules": "^1.4.1",
     "postcss-preset-env": "^6.7.0",
-    "postcss-scss": "^2.0.0",
-    "postcss-strip-inline-comments": "^0.1.5",
     "prettier": "^1.16.4",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
