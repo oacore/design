@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "design",
+  "build": {
+    "env": {
+      "NPM_TOKEN": "@npm_token"
+    }
+  }
+}
