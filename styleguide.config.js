@@ -9,6 +9,14 @@ module.exports = {
       content: './docs/intro.md',
     },
     {
+      name: 'Foundation',
+      content: 'src/foundation/README.md',
+    },
+    {
+      name: 'Elements',
+      components: 'src/elements/**/*.{js,jsx,ts,tsx}',
+    },
+    {
       name: 'Components',
       sections: [
         {
@@ -24,6 +32,14 @@ module.exports = {
       linkHover: '#924300',
     },
   },
+
+  ignore: [
+    '**/__tests__/**',
+    '**/*.test.{js,jsx,ts,tsx}',
+    '**/*.spec.{js,jsx,ts,tsx}',
+    '**/*.d.ts',
+    '**/index.{js,jsx,ts,tsx}',
+  ],
 
   styleguideDir: 'public',
 
