@@ -8,6 +8,7 @@ jobs:
   publish-gpr:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ::set-env name=NPM_TOKEN::${{secrets.GITHUB_TOKEN}}
       - name: Get the version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
