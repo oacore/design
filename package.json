@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.4",
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "reactstrap": "^8.0.0"
   },
