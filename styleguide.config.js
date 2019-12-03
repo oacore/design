@@ -43,7 +43,7 @@ module.exports = {
 
   styleguideDir: 'public',
 
-  assetsDir: 'dist/assets',
+  assetsDir: 'lib/assets',
   require: [path.join(__dirname, 'src/index.css')],
 
   webpackConfig: {
