@@ -33,6 +33,28 @@ module.exports = {
     },
   },
 
+  styles: {
+    StyleGuide: {
+      '@global body': {
+        fontFamily: [
+          'Roboto',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji',
+        ].join(', '),
+        lineHeight: 1.5,
+      },
+    },
+  },
+
   ignore: [
     '**/__tests__/**',
     '**/*.test.{js,jsx,ts,tsx}',
