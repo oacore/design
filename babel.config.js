@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const { cosmiconfigSync } = require('cosmiconfig')
 
 const cssModulesConfig = cosmiconfigSync('cssmodules').search().config

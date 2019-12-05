@@ -75,7 +75,7 @@
   },
   "scripts": {
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
-    "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx src",
+    "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
     "lint:css": "stylelint --ignore-path .gitignore --syntax scss src/**/*.css",
     "lint": "run-p lint:*",
     "format": "eslint --ignore-path .gitignore --ext .js,.jsx --fix .",
