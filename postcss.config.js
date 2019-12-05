@@ -11,7 +11,9 @@ module.exports = {
   map: true,
   plugins: [
     calc(),
-    presetEnv(),
+    presetEnv({
+      stage: 0,
+    }),
     extend(),
     nano({
       preset: [
