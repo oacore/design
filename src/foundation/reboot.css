@@ -247,3 +247,8 @@ summary {
 [hidden] {
   display: none !important;
 }
+
+body,
+html {
+  height: 100%;
+}
