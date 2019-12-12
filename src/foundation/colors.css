@@ -41,8 +41,8 @@
 
   /* Success */
   --success: #8bc34a;
-  --success-light: ;
-  --success-dark: ;
+  --success-light: #bef67a;
+  --success-dark: #5a9216;
 
   /* Warning */
   --warning: #fdd835;
