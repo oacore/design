@@ -13,6 +13,12 @@ module.exports = {
     calc(),
     presetEnv({
       stage: 0,
+      features: {
+        'color-mod-function': {
+          unresolved: 'ignore',
+          importFrom: 'src/foundation/colors.css',
+        },
+      },
     }),
     extend(),
     nano({
