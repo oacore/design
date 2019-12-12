@@ -20,7 +20,6 @@ module.exports = {
         'default',
         {
           rawCache: false,
-          discardComments: false,
           mergeLonghand: false,
           normalizeWhitespace: false,
           svgo: false,
