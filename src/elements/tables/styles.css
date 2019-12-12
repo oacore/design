@@ -1,0 +1,51 @@
+:root {
+  --table-border-color: var(--gray-400);
+  --table-cell-padding-x: var(--component-padding-x, 1rem);
+  --table-cell-padding-y: 0.875rem; /* Assumes line-height 1.5, i.e. 24px-height text */
+}
+
+table {
+  width: 100%;
+}
+
+/* Partials */
+
+thead {
+  border-bottom: 2px solid var(--table-border-color);
+
+  & > :first-child {
+    margin-top: 0;
+    border-top-width: 0;
+  }
+}
+
+/* Rows */
+
+tr {
+  border: solid var(--table-border-color);
+  border-width: 1px 0;
+}
+
+/* Cells */
+
+%cell {
+  padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+}
+
+td {
+  @extend %cell;
+}
+
+th {
+  @extend %cell;
+
+  --table-cell-padding-y: var(--component-padding-y, 1rem);
+  font-weight: var(--table-heading-font-weight, 600);
+  text-align: inherit;
+}
+
+/* States */
+
+.sticky {
+  position: sticky;
+}
