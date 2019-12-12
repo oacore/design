@@ -1,0 +1,37 @@
+:root {
+  --app-bar-padding-x: var(--component-padding-x, 1rem);
+  --app-bar-padding-y: var(--component-padding-y, 1rem);
+  --app-bar-padding: var(--app-bar-padding-y) var(--app-bar-padding-x);
+  --app-bar-background: var(--white, #fff);
+  --app-bar-color: var(--gray-800, inherit);
+  --app-bar-hover-background: #0000000a;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  color: var(--app-bar-color);
+  background: var(--app-bar-background);
+  box-shadow: 0 1px 2px #00000042, 0 4px 8px #00000021;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.brand {
+  display: inline-block;
+  padding: var(--app-bar-padding);
+  font-weight: var(--app-bar-brand-font-weight, 600);
+  color: inherit;
+  text-decoration: none;
+
+  &:link:hover,
+  &:visited:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+    background: var(--app-bar-hover-background);
+    outline: none; /* May harm user experience */
+  }
+}
