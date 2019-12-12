@@ -9,3 +9,7 @@ rules:
   max-nesting-depth:
     - 3
     - ignore: [blockless-at-rules, pseudo-classes]
+  order/order:
+    - custom-properties
+    - declarations
+    - rules
