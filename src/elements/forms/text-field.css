@@ -1,7 +1,7 @@
 :root {
   --component-padding: 1rem;
-  --label-padding-x: .25em;
-  --label-padding-y: .125em;
+  --label-padding-x: 0.25em;
+  --label-padding-y: 0.125em;
   --form-control-corner-radius: var(--component-corner-radius, 2px);
   --form-control-padding-x: var(--component-padding, 1rem);
   --form-control-padding-y: var(--component-padding, 1rem);
@@ -14,14 +14,14 @@
 input {
   display: block;
   width: 100%;
+  height: calc(2 * var(--form-control-padding-y) + 1em);
   padding: var(--form-control-padding-y) var(--form-control-padding-x);
   border: 1px solid var(--primary);
   border-radius: var(--form-control-corner-radius, 2px);
-  height: calc(2 * var(--form-control-padding-y) + 1em);
 
   &:focus {
-    box-shadow: none;
     outline: none;
+    box-shadow: none;
   }
 }
 
@@ -39,24 +39,23 @@ input {
 
 label {
   position: absolute;
-  display: block;
-  margin:
-    calc(var(--form-control-padding-y) - var(--label-padding-y))
-    calc(var(--form-control-padding-x) - var(--label-padding-x));
-  padding: var(--label-padding-y) var(--label-padding-x);
-  color: var(--primary);
-  transition: 150ms;
   top: 0;
+  display: block;
+  padding: var(--label-padding-y) var(--label-padding-x);
+  margin: calc(var(--form-control-padding-y) - var(--label-padding-y))
+    calc(var(--form-control-padding-x) - var(--label-padding-x));
   line-height: 1;
-  transform-origin: left;
+  color: var(--primary);
   border-radius: var(--form-control-corner-radius, 2px);
+  transition: 150ms;
+  transform-origin: left;
 }
 
 :matches(input, select, textarea):focus + label,
 :matches(input, select, textarea):not(:placeholder-shown) + label {
-  transform: translateY(calc(-1 * var(--form-control-padding-y) - 0.4375em));
   font-size: var(--font-size-small, 0.875em);
   background: var(--white, #fff);
+  transform: translateY(calc(-1 * var(--form-control-padding-y) - 0.4375em));
 }
 
 /* Text field */
