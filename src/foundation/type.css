@@ -1,5 +1,8 @@
 :root {
   --headings-color: var(--gray-900);
+  --font-family-base: roboto, -apple-system, blinkmacsystemfont, 'Segoe UI',
+    'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --code-color: inherit;
   --kbd-color: var(--gray-900);
   --kbd-bg: var(--gray-50);
@@ -7,9 +10,6 @@
 
 body {
   margin: 0;
-  font-family: roboto, -apple-system, blinkmacsystemfont, 'Segoe UI',
-    'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-family: var(--font-family-base);
   font-size: var(--font-size-base, 1rem);
   font-weight: var(--font-weight-base, 400);
