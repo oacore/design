@@ -80,8 +80,8 @@ h6 {
 
 /* Links */
 
-a:link,
-a:visited {
+:link,
+:visited {
   color: var(--link-color, var(--primary));
   text-decoration: none;
 
@@ -97,7 +97,7 @@ a:visited {
   }
 }
 
-a:visited {
+:visited {
   color: var(--link-visited-color, var(--primary-dark));
   text-decoration: var(--link-visited-decoration);
 }
