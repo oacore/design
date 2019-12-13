@@ -21,21 +21,39 @@ class ClassNames {
     return this
   }
 
-  withModule(module) {
+  from(module) {
     Object.assign(this.module, module)
     return this
   }
 
+  /**
+   * @deprecated
+   */
+  withModule(...args) {
+    return this.from(...args)
+  }
+
+  join(className) {
+    this.appendix = className
+    return this
+  }
+
   toString() {
-    return useModule(flattenClassList(this.classList), this.module)
+    return [
+      useModule(flattenClassList(this.classList), this.module),
+      this.appendix,
+    ]
+      .filter(s => s)
+      .join(' ')
   }
 }
 
 const use = (...args) => new ClassNames().use(...args)
-const withModule = (...args) => new ClassNames().withModule(...args)
+const from = (...args) => new ClassNames().from(...args)
 
 ClassNames.use = use
-ClassNames.withModule = withModule
+ClassNames.from = from
+ClassNames.withModule = from
 
 export default ClassNames
-export { use, withModule }
+export { use, from, from as withModule }
