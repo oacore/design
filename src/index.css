@@ -1,3 +1,6 @@
+@import url('~sanitize.css');
+@import url('~sanitize.css/forms.css');
+
 @import url('foundation/index.css');
 @import url('elements/index.css');
 
