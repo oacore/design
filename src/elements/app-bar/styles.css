@@ -15,17 +15,29 @@
   box-shadow: 0 1px 2px #00000042, 0 4px 8px #00000021;
 }
 
+/* Modifiers */
+
 .fixed {
   position: fixed;
 }
 
-.brand {
+/* Children */
+
+.item {
   display: inline-block;
   padding: var(--app-bar-padding);
   font-weight: var(--app-bar-brand-font-weight, 600);
   color: inherit;
   text-decoration: none;
 
+  /**
+   * We should find a generic way to work around buttons too.
+   *
+   * There are not many options:
+   * 1. Use :is(button) for button element and [type=button] and similar
+   *    for other button-like elements
+   * 2. Use some workaround like .interactive
+   */
   &:link:hover,
   &:visited:hover,
   &:focus {
@@ -34,4 +46,8 @@
     background: var(--app-bar-hover-background);
     outline: none; /* May harm user experience */
   }
+}
+
+.brand {
+  /* Is completely nested from item. Kept for the future */
 }

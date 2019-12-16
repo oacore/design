@@ -1,21 +1,19 @@
 import React from 'react'
 
-import Item from './item'
 import styles from './styles.css'
 
 import { classNames } from 'utils'
 
-const Brand = ({ children, className, tag = 'a', ...restProps }) => (
-  <Item
+const Item = ({ children, className, tag: Tag = 'div', ...restProps }) => (
+  <Tag
     className={classNames
-      .use('brand')
+      .use('item')
       .from(styles)
       .join(className)}
     {...restProps}
-    tag={tag}
   >
     {children}
-  </Item>
+  </Tag>
 )
 
-export default Brand
+export default Item
