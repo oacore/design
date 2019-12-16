@@ -1,7 +1,11 @@
 import React from 'react'
 
-const Table = ({ children, tag: Tag = 'table', ...restProps }) => (
-  <Tag {...restProps}>{children}</Tag>
+const Table = React.forwardRef(
+  ({ children, tag: Tag = 'table', ...restProps }, ref) => (
+    <Tag ref={ref} {...restProps}>
+      {children}
+    </Tag>
+  )
 )
 
 export default Table

@@ -3,8 +3,12 @@ import React from 'react'
 /**
  * Empty component for the future purposes.
  */
-const Row = ({ children, tag: Tag = 'tr', ...restProps }) => (
-  <Tag {...restProps}>{children}</Tag>
+const Row = React.forwardRef(
+  ({ children, tag: Tag = 'tr', ...restProps }, ref) => (
+    <Tag ref={ref} {...restProps}>
+      {children}
+    </Tag>
+  )
 )
 
 export default Row

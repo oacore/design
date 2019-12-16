@@ -8,22 +8,19 @@ import { classNames } from 'utils'
 /**
  * Empty component for the future purposes.
  */
-const Head = ({
-  children,
-  className,
-  sticky,
-  tag: Tag = 'thead',
-  ...restProps
-}) => (
-  <Tag
-    className={classNames
-      .use({ sticky })
-      .from(styles)
-      .join(className)}
-    {...restProps}
-  >
-    {children}
-  </Tag>
+const Head = React.forwardRef(
+  ({ children, className, sticky, tag: Tag = 'thead', ...restProps }, ref) => (
+    <Tag
+      className={classNames
+        .use({ sticky })
+        .from(styles)
+        .join(className)}
+      {...restProps}
+      ref={ref}
+    >
+      {children}
+    </Tag>
+  )
 )
 
 Head.propTypes = {

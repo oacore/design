@@ -10,22 +10,19 @@ import { classNames } from 'utils'
  *
  * Allows to have sticky cells.
  */
-const Cell = ({
-  children,
-  sticky,
-  className,
-  tag: Tag = 'td',
-  ...restProps
-}) => (
-  <Tag
-    className={classNames
-      .use({ sticky })
-      .from(styles)
-      .join(className)}
-    {...restProps}
-  >
-    {children}
-  </Tag>
+const Cell = React.forwardRef(
+  ({ children, sticky, className, tag: Tag = 'td', ...restProps }, ref) => (
+    <Tag
+      className={classNames
+        .use({ sticky })
+        .from(styles)
+        .join(className)}
+      ref={ref}
+      {...restProps}
+    >
+      {children}
+    </Tag>
+  )
 )
 
 Cell.propTypes = {

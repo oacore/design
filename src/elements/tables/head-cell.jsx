@@ -8,22 +8,19 @@ import { classNames } from 'utils'
 /**
  * Simple table cell component for headings.
  */
-const HeadCell = ({
-  children,
-  className,
-  sticky,
-  tag: Tag = 'th',
-  ...restProps
-}) => (
-  <Tag
-    className={classNames
-      .use({ sticky })
-      .from(styles)
-      .join(className)}
-    {...restProps}
-  >
-    {children}
-  </Tag>
+const HeadCell = React.forwardRef(
+  ({ children, className, sticky, tag: Tag = 'th', ...restProps }, ref) => (
+    <Tag
+      className={classNames
+        .use({ sticky })
+        .from(styles)
+        .join(className)}
+      ref={ref}
+      {...restProps}
+    >
+      {children}
+    </Tag>
+  )
 )
 
 HeadCell.propTypes = {
