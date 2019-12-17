@@ -13,7 +13,6 @@ Table.Cell = Cell
 
 export default Table
 export {
-  Table,
   Head as TableHead,
   HeadCell as TableHeadCell,
   Body as TableBody,
