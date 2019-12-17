@@ -18,6 +18,7 @@
 
 .fixed {
   position: fixed;
+  z-index: var(--app-bar-fixed-z-index, 1020);
 }
 
 /* Children */
