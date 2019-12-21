@@ -4,9 +4,10 @@ import { TableHead, TableRow, TableHeadCell, TableCell } from '.';
 <Table>
   <TableHead>
     <TableRow>
-      <TableHeadCell>Column 1</TableHeadCell>
-      <TableHeadCell>Column 2</TableHeadCell>
-      <TableHeadCell>Column 3</TableHeadCell>
+      <TableHeadCell>1 - not sortable</TableHeadCell>
+      <TableHeadCell sortable>2 - sortable</TableHeadCell>
+      <TableHeadCell sortable order="ascending" onClick={() => {}}>3 - sorted asc</TableHeadCell>
+      <TableHeadCell sortable order="descending">4 - sorted desc</TableHeadCell>
     </TableRow>
   </TableHead>
 
@@ -14,16 +15,19 @@ import { TableHead, TableRow, TableHeadCell, TableCell } from '.';
     <TableCell>Value 1-1</TableCell>
     <TableCell>Value 1-2</TableCell>
     <TableCell>Value 1-3</TableCell>
+    <TableCell>Value 1-4</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>Value 2-1</TableCell>
     <TableCell>Value 2-2</TableCell>
     <TableCell>Value 2-3</TableCell>
+    <TableCell>Value 2-4</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>Value 3-1</TableCell>
     <TableCell>Value 3-2</TableCell>
     <TableCell>Value 3-3</TableCell>
+    <TableCell>Value 3-4</TableCell>
   </TableRow>
 </Table>
 ```
