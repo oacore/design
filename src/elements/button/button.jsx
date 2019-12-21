@@ -8,14 +8,14 @@ import { classNames } from 'utils'
 const Button = ({
   children,
   className,
-  variant,
+  variant = 'text',
   tag: Tag = 'button',
   ...restProps
 }) => (
   <Tag
     className={classNames
       .use('button', variant, className)
-      .withModule(buttonClassNames)}
+      .from(buttonClassNames)}
     {...restProps}
   >
     {children}
