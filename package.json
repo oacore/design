@@ -24,7 +24,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-css-modules-transform": "^1.6.2",
-    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "cosmiconfig": "^6.0.0",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
