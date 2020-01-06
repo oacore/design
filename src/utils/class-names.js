@@ -26,13 +26,6 @@ class ClassNames {
     return this
   }
 
-  /**
-   * @deprecated
-   */
-  withModule(...args) {
-    return this.from(...args)
-  }
-
   join(className) {
     this.appendix = className
     return this
@@ -53,7 +46,6 @@ const from = (...args) => new ClassNames().from(...args)
 
 ClassNames.use = use
 ClassNames.from = from
-ClassNames.withModule = from
 
 export default ClassNames
-export { use, from, from as withModule }
+export { use, from }

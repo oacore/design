@@ -39,7 +39,7 @@ const TextField = ({
       className={classNames
         // prevents passing 'default' to the class list
         .use('container', { [size]: size !== 'default' }, className)
-        .withModule(textFieldClassNames)}
+        .from(textFieldClassNames)}
     >
       <input id={controlId} {...inputProps} />
       <label htmlFor={controlId}>{label}</label>
