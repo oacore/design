@@ -9,14 +9,26 @@ import { classNames } from 'utils'
 /**
  * Simple table cell component for headings.
  */
+
+const getSortOrder = order => {
+  switch (order) {
+    case 'asc':
+      return ['ascending', 'Sorted ascending']
+    case 'desc':
+      return ['descending', 'Sorted descending']
+    case null:
+      return ['none', 'Not sortable']
+    default:
+      return ['none', 'Not sorted']
+  }
+}
 const HeadCell = React.forwardRef(
   (
     {
       children,
       className,
       sticky,
-      sortable = false,
-      order = 'none',
+      order = null,
       onClick,
       tag: Tag = 'th',
       ...restProps
@@ -27,25 +39,27 @@ const HeadCell = React.forwardRef(
       className={classNames
         .use({
           sticky,
-          [styles.headCell]: true,
-          [styles.sortable]: sortable,
-          [styles.asc]: order === 'ascending',
-          [styles.desc]: order === 'descending',
+          headCell: true,
+          sortable: order !== null,
+          asc: order === 'asc',
+          desc: order === 'desc',
         })
         .from(styles)
         .join(className)}
       ref={ref}
       role="columnheader"
-      aria-sort={order}
+      aria-sort={getSortOrder(order)[0]}
+      scope="col"
       {...restProps}
     >
       <Button
-        className={classNames.use({ disabled: !sortable }).toString()}
         type="button"
-        aria-disabled={!sortable}
+        tabIndex={0}
+        aria-disabled={order === null}
         onClick={onClick}
       >
         {children}
+        <span className="sr-only">{getSortOrder(order)[1]}</span>
       </Button>
     </Tag>
   )
@@ -53,14 +67,12 @@ const HeadCell = React.forwardRef(
 
 HeadCell.propTypes = {
   sticky: PropTypes.bool,
-  sortable: PropTypes.bool,
-  order: PropTypes.oneOf(['ascending', 'descending', 'none']),
+  order: PropTypes.oneOf([null, '', 'asc', 'desc']),
   onClick: PropTypes.oneOf([PropTypes.func, undefined]),
 }
 
 HeadCell.defaultProps = {
-  order: 'none',
-  sortable: false,
+  order: null,
   sticky: false,
   onClick: undefined,
 }
