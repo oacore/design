@@ -68,7 +68,7 @@ const HeadCell = React.forwardRef(
 HeadCell.propTypes = {
   sticky: PropTypes.bool,
   order: PropTypes.oneOf([null, '', 'asc', 'desc']),
-  onClick: PropTypes.oneOf([PropTypes.func, undefined]),
+  onClick: PropTypes.func,
 }
 
 HeadCell.defaultProps = {
