@@ -15,7 +15,7 @@ const Label = ({
   <Tag
     className={classNames
       .use('label', color !== 'default' && color, className)
-      .withModule(labelStyles)}
+      .from(labelStyles)}
     {...restProps}
   >
     {children}
