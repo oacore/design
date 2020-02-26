@@ -24,10 +24,10 @@ const generateId = () =>
 
 const TextField = ({
   children,
-  id,
+  id = generateId(),
   className,
   label,
-  size,
+  size = 'default',
   tag: Tag = 'div',
   ...inputProps
 }) => {
@@ -63,11 +63,6 @@ TextField.propTypes = {
    * If not passed, it will be generated automatically using a random string.
    */
   id: PropTypes.string,
-}
-
-TextField.defaultProps = {
-  size: 'default',
-  id: generateId(),
 }
 
 export default TextField

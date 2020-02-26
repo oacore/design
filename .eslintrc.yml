@@ -9,3 +9,5 @@ settings:
     node:
       paths: ['./src']
       extensions: ['.js', '.jsx']
+rules:
+  react/require-default-props: off
