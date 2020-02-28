@@ -14,10 +14,12 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Git Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        with:
+          ref: master
 
       - name: Lint & Build
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1.4.0
         with:
           node-version: '12.x'
           registry-url: https://npm.pkg.github.com/
@@ -36,11 +38,10 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v1.7.3
+        uses: peter-evans/create-pull-request@v2.4.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Bump version ${{ steps.get_version.outputs.VERSION }}
           title: Bump version ${{ steps.get_version.outputs.VERSION }}
           body: Bump package.json version
           branch: bump-version-${{ steps.get_version.outputs.VERSION }}
-          base: master
