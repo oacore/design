@@ -8,8 +8,8 @@ jobs:
 
     steps:
       - run: echo ::set-env name=NPM_TOKEN::${{secrets.GITHUB_TOKEN}}
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1.4.0
         with:
           node-version: '12.x'
       - name: npm install, build, and test
