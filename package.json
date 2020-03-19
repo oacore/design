@@ -45,7 +45,7 @@
     "prettier": "^1.16.4",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-styleguidist": "^10.2.1",
+    "react-styleguidist": "^11.0.3",
     "style-loader": "^1.1.3",
     "stylelint": "^12.0.1",
     "stylelint-config-css-modules": "^2.1.0",
