@@ -27,7 +27,8 @@ class ClassNames {
   }
 
   join(className) {
-    this.appendix = className
+    if (className instanceof ClassNames) this.appendix = className.toString()
+    else this.appendix = className
     return this
   }
 
