@@ -3,12 +3,17 @@ import PropTypes from 'prop-types'
 
 import iconClassNames from './index.css'
 
+import { classNames } from 'utils'
 /**
  * The component creates an inline SVG image based on
  * `src` and `alt` attributes.
  */
-const Icon = ({ src, alt, ...restProps }) => (
-  <svg className={iconClassNames.icon} role="img" {...restProps}>
+const Icon = ({ src, alt, className, ...restProps }) => (
+  <svg
+    className={classNames.use(iconClassNames.icon).join(className)}
+    role="img"
+    {...restProps}
+  >
     <title>{alt}</title>
     <use href={src} />
   </svg>
