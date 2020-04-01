@@ -28,7 +28,7 @@
     "cosmiconfig": "^6.0.0",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.2",
