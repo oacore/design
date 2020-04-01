@@ -167,7 +167,7 @@ samp {
 }
 
 pre {
-  font-size: var(--code-font-size, 0.875rem);
+  font-size: var(--code-font-size, 1rem);
   color: var(--pre-color, inherit);
 
   /* Account for some code outputs that place code tags in pre tags */
@@ -179,7 +179,7 @@ pre {
 }
 
 code {
-  font-size: var(--code-font-size, 0.875rem);
+  font-size: var(--code-font-size, 1rem);
   color: var(--code-color, inherit);
   word-wrap: break-word;
 
@@ -194,7 +194,7 @@ code {
 
 kbd {
   padding: var(--kbd-padding-y, 0.25rem) var(--kbd-padding-x, 0.5rem);
-  font-size: var(--kbd-font-size, 0.875rem);
+  font-size: var(--kbd-font-size, 1rem);
   color: var(--kbd-color, #000);
   background-color: var(--kbd-bg, #fff);
   border-radius: var(--border-radius, 2px);
