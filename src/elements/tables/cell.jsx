@@ -13,10 +13,7 @@ import { classNames } from 'utils'
 const Cell = React.forwardRef(
   ({ children, sticky, className, tag: Tag = 'td', ...restProps }, ref) => (
     <Tag
-      className={classNames
-        .use({ sticky })
-        .from(styles)
-        .join(className)}
+      className={classNames.use({ sticky }).from(styles).join(className)}
       ref={ref}
       {...restProps}
     >

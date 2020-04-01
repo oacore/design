@@ -5,7 +5,7 @@ const useModule = (className, module) => {
 
   return className
     .split(' ')
-    .map(name =>
+    .map((name) =>
       Object.prototype.hasOwnProperty.call(module, name) ? module[name] : name
     )
     .join(' ')
@@ -37,7 +37,7 @@ class ClassNames {
       useModule(flattenClassList(this.classList), this.module),
       this.appendix,
     ]
-      .filter(s => s)
+      .filter((s) => s)
       .join(' ')
   }
 }

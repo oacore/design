@@ -10,7 +10,7 @@ import { classNames } from 'utils'
  * Simple table cell component for headings.
  */
 
-const getSortOrder = order => {
+const getSortOrder = (order) => {
   switch (order) {
     case 'asc':
       return ['ascending', 'Sorted ascending']

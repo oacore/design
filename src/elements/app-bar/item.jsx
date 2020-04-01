@@ -6,10 +6,7 @@ import { classNames } from 'utils'
 
 const Item = ({ children, className, tag: Tag = 'div', ...restProps }) => (
   <Tag
-    className={classNames
-      .use('item')
-      .from(styles)
-      .join(className)}
+    className={classNames.use('item').from(styles).join(className)}
     {...restProps}
   >
     {children}
