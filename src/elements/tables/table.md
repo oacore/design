@@ -5,7 +5,7 @@ import { TableHead, TableRow, TableHeadCell, TableCell } from '.';
   <TableHead>
     <TableRow>
       <TableHeadCell>1 - not sortable</TableHeadCell>
-      <TableHeadCell order=''>2 - sortable</TableHeadCell>
+      <TableHeadCell order="any">2 - sortable</TableHeadCell>
       <TableHeadCell order="asc" onClick={() => {}}>3 - sorted asc</TableHeadCell>
       <TableHeadCell order="desc">4 - sorted desc</TableHeadCell>
     </TableRow>

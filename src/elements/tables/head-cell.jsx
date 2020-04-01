@@ -40,7 +40,7 @@ const HeadCell = React.forwardRef(
         .use({
           sticky,
           headCell: true,
-          sortable: order !== null,
+          sortable: order != null,
           asc: order === 'asc',
           desc: order === 'desc',
         })
@@ -67,7 +67,7 @@ const HeadCell = React.forwardRef(
 
 HeadCell.propTypes = {
   sticky: PropTypes.bool,
-  order: PropTypes.oneOf([null, '', 'asc', 'desc']),
+  order: PropTypes.oneOf([null, 'any', 'asc', 'desc']),
   onClick: PropTypes.func,
 }
 
