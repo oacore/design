@@ -11,10 +11,7 @@ import { classNames } from 'utils'
 const Head = React.forwardRef(
   ({ children, className, sticky, tag: Tag = 'thead', ...restProps }, ref) => (
     <Tag
-      className={classNames
-        .use({ sticky })
-        .from(styles)
-        .join(className)}
+      className={classNames.use({ sticky }).from(styles).join(className)}
       {...restProps}
       ref={ref}
     >

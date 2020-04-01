@@ -7,10 +7,7 @@ import { classNames } from 'utils'
 
 const Brand = ({ children, className, tag = 'a', ...restProps }) => (
   <Item
-    className={classNames
-      .use('brand')
-      .from(styles)
-      .join(className)}
+    className={classNames.use('brand').from(styles).join(className)}
     {...restProps}
     tag={tag}
   >
