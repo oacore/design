@@ -3,6 +3,7 @@ const path = require('path')
 module.exports = {
   title: 'CORE Design Engine',
   usageMode: 'expand',
+  pagePerSection: true,
   sections: [
     {
       name: 'Introduction',
