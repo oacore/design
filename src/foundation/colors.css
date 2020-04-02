@@ -53,4 +53,8 @@
   --danger: #c62828;
   --danger-light: #ff5f52;
   --danger-dark: #8e0000;
+
+  /* Info */
+  --info: #3f51b5;
+  --info-dark: #002984;
 }

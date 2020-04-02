@@ -1,0 +1,51 @@
+.alert {
+  --card-padding-x: 0;
+  --card-padding-y: 0;
+  color: var(--white);
+
+  & > * {
+    --card-padding-x: 1rem;
+    --card-padding-y: 1rem;
+    --card-corner-radius: 0;
+  }
+
+  & svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: -0.1rem 0.9rem -0.1rem -0.1rem;
+  }
+
+  & > .alert-header {
+    background: var(--info-dark);
+  }
+
+  & > .alert-content {
+    background: var(--info);
+  }
+}
+
+.alert-danger {
+  color: var(--white);
+
+  & > .alert-header {
+    background: var(--danger-dark);
+  }
+
+  & > .alert-content {
+    background: var(--danger);
+  }
+}
+
+.alert-info {
+  & > .alert-header {
+    background: var(--success-dark);
+  }
+
+  & > .alert-content {
+    background: var(--success);
+  }
+}
+
+.alert-header {
+  font-weight: bolder;
+}
