@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: 'src/elements/!(tables|app-bar)/**/*.{js,jsx,ts,tsx}',
+      components: 'src/elements/!(table|app-bar)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'App Bar',
@@ -28,12 +28,12 @@ module.exports = {
         {
           name: 'Table',
           components: () => [
-            'src/elements/tables/table.jsx',
-            'src/elements/tables/head.jsx',
-            'src/elements/tables/head-cell.jsx',
-            'src/elements/tables/body.jsx',
-            'src/elements/tables/row.jsx',
-            'src/elements/tables/cell.jsx',
+            'src/elements/table/table.jsx',
+            'src/elements/table/head.jsx',
+            'src/elements/table/head-cell.jsx',
+            'src/elements/table/body.jsx',
+            'src/elements/table/row.jsx',
+            'src/elements/table/cell.jsx',
           ],
         },
       ],
