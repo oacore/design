@@ -1,5 +1,4 @@
 export AppBar from './app-bar'
-export * from './app-bar'
 export Heading from './heading'
 export Button from './button'
 export * from './forms'

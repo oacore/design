@@ -34,6 +34,7 @@ module.exports = {
             'src/elements/table/body.jsx',
             'src/elements/table/row.jsx',
             'src/elements/table/cell.jsx',
+            'src/elements/table/body.jsx',
           ],
         },
       ],
