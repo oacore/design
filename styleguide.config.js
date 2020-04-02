@@ -50,6 +50,19 @@ module.exports = {
         },
       ],
     },
+    {
+      name: 'Modules',
+      components: 'src/modules/!(select)/**/*.{js,jsx,ts,tsx}',
+      sections: [
+        {
+          name: 'Select',
+          components: () => [
+            'src/modules/select/select.jsx',
+            'src/modules/select/option.jsx',
+          ],
+        },
+      ],
+    },
   ],
   theme: {
     color: {

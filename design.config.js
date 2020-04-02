@@ -31,6 +31,8 @@ const icons = [
   'alert-circle-outline',
   'check',
   'open-in-new',
+  'magnify',
+  'window-close',
   path.resolve(__dirname, './assets/core-symbol.svg'),
 ]
 
