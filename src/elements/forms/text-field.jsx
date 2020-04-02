@@ -9,7 +9,7 @@ import Control from './control'
 import Addon from './addon'
 import styles from './text-field.css'
 
-import { classNames } from 'utils'
+import { classNames, generateId } from 'utils'
 
 /**
  * Unique ID generator
@@ -23,7 +23,6 @@ import { classNames } from 'utils'
  *
  * @return {string}
  */
-const generateId = () => Math.random().toString(36).substr(2, 9)
 
 const Status = ({ value, variant, progress, ...restProps }) => (
   <Addon {...restProps}>

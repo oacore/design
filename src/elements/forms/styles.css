@@ -238,18 +238,10 @@ select.control:not([multiple]):not([size]) {
   --progress-spinner-color: var(--form-control-color);
 
   display: inline-flex;
-  padding-top: calc(
-    var(--form-control-padding-y) - var(--form-control-border-width)
-  );
-  padding-right: calc(
-    var(--form-control-padding-x) - var(--form-control-border-width)
-  );
-  padding-bottom: calc(
-    var(--form-control-padding-y) - var(--form-control-border-width)
-  );
-  padding-left: calc(
-    var(--form-control-padding-x) - var(--form-control-border-width)
-  );
+  padding: calc(
+      var(--form-control-padding-y) - var(--form-control-border-width)
+    )
+    calc(var(--form-control-padding-x) - var(--form-control-border-width));
   background-color: var(--form-control-background-color);
   border: var(--form-control-border-width) solid var(--form-control-color);
   border-radius: var(--form-control-corner-radius);
