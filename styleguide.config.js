@@ -16,15 +16,6 @@ module.exports = {
       name: 'Elements',
       components: 'src/elements/**/*.{js,jsx,ts,tsx}',
     },
-    {
-      name: 'Components',
-      sections: [
-        {
-          name: 'Utilities',
-          components: ['src/components/icon/index.jsx'],
-        },
-      ],
-    },
   ],
   theme: {
     color: {

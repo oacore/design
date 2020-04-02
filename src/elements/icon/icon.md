@@ -2,7 +2,7 @@
 
 Provide alternative text in `alt` prop for tech assistive users accessibility.
 
-The componnet will add a `<title>` to inlined SVG element,
+The component will add a `<title>` to inlined SVG element,
 so screen readers will be able to read it.
 
 ```jsx
