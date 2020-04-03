@@ -3,6 +3,7 @@ const path = require('path')
 module.exports = {
   title: 'CORE Design Engine',
   usageMode: 'expand',
+  pagePerSection: true,
   sections: [
     {
       name: 'Introduction',
@@ -14,7 +15,29 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: 'src/elements/**/*.{js,jsx,ts,tsx}',
+      components: 'src/elements/!(table|app-bar)/**/*.{js,jsx,ts,tsx}',
+      sections: [
+        {
+          name: 'App Bar',
+          components: () => [
+            'src/elements/app-bar/bar.jsx',
+            'src/elements/app-bar/brand.jsx',
+            'src/elements/app-bar/item.jsx',
+          ],
+        },
+        {
+          name: 'Table',
+          components: () => [
+            'src/elements/table/table.jsx',
+            'src/elements/table/head.jsx',
+            'src/elements/table/head-cell.jsx',
+            'src/elements/table/body.jsx',
+            'src/elements/table/row.jsx',
+            'src/elements/table/cell.jsx',
+            'src/elements/table/body.jsx',
+          ],
+        },
+      ],
     },
   ],
   theme: {
