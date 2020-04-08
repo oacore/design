@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import textFieldClassNames from './text-field.css'
+import styles from './text-field.css'
 
 import { classNames } from 'utils'
 
@@ -19,30 +19,50 @@ import { classNames } from 'utils'
  */
 const generateId = () => Math.random().toString(36).substr(2, 9)
 
-const TextField = ({
-  children,
-  id = generateId(),
-  className,
-  label,
-  size = 'default',
-  tag: Tag = 'div',
-  ...inputProps
-}) => {
-  const controlId = [id, 'control'].join('-')
+const TextField = React.forwardRef(
+  (
+    {
+      children,
+      id = generateId(),
+      className,
+      label,
+      helper,
+      variant = 'normal',
+      size = 'default',
+      tag: Tag = 'div',
+      ...inputProps
+    },
+    ref
+  ) => {
+    const controlId = [id, 'control'].join('-')
 
-  return (
-    <Tag
-      id={id}
-      className={classNames
-        // prevents passing 'default' to the class list
-        .use('container', { [size]: size !== 'default' }, className)
-        .from(textFieldClassNames)}
-    >
-      <input id={controlId} {...inputProps} />
-      <label htmlFor={controlId}>{label}</label>
-    </Tag>
-  )
-}
+    return (
+      <Tag
+        id={id}
+        className={classNames
+          // prevents passing 'default' to the class list
+          .use(
+            'container',
+            { [size]: size !== 'default', [variant]: variant !== 'normal' },
+            className
+          )
+          .from(styles)}
+      >
+        <input
+          ref={ref}
+          id={controlId}
+          aria-invalid={variant === 'error' ? 'true' : 'false'}
+          aria-describedby={`${id}-helper`}
+          {...inputProps}
+        />
+        <label htmlFor={controlId}>{label}</label>
+        <span id={`${id}-helper`} className={styles.helper}>
+          {helper}
+        </span>
+      </Tag>
+    )
+  }
+)
 
 TextField.propTypes = {
   /**
@@ -60,6 +80,14 @@ TextField.propTypes = {
    * If not passed, it will be generated automatically using a random string.
    */
   id: PropTypes.string,
+  /**
+   * Helper message to show bellow the input
+   */
+  helper: PropTypes.string,
+  /**
+   * Helper variation. Affects coloUr of inputs
+   */
+  variant: PropTypes.oneOf(['normal', 'success', 'error']),
 }
 
 export default TextField

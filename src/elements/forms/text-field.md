@@ -19,8 +19,36 @@ Example with a password:
   id="login-password"
   type="password"
   name="password"
+  minlength="8"
   label="Password"
   placeholder="🔒 Something secure"
+  helper="Should be at least 8 characters length."
+/>
+```
+
+Example with error message:
+
+```jsx
+<TextField
+  id="error-name"
+  name="user-name"
+  label="User name"
+  placeholder="e.g. john"
+  helper="User name is required"
+  variant="error"
+/>
+```
+
+Example with success message:
+
+```jsx
+<TextField
+  id="success-name"
+  name="user-name"
+  label="User name"
+  value="john"
+  helper="Nice to meet you john!"
+  variant="success"
 />
 ```
 
