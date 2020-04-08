@@ -1,10 +1,20 @@
 :root {
-  --component-padding: 1rem;
-  --label-padding-x: 0.25em;
-  --label-padding-y: 0.125em;
+  /* Control */
   --form-control-corner-radius: var(--component-corner-radius, 2px);
+  --form-control-border-width: 1px;
   --form-control-padding-x: var(--component-padding, 1rem);
   --form-control-padding-y: var(--component-padding, 1rem);
+  --form-control-color: var(--primary);
+
+  /* Label */
+  --form-label-color: var(--form-control-color);
+  --form-label-padding-x: 0.25em;
+  --form-label-padding-y: 0.125em;
+  --form-label-font-size: 0.75em;
+
+  /* Helper */
+  --form-helper-font-size: var(--font-size-small, 0.875em);
+  --form-helper-color: var(--gray-600);
 }
 
 /* Global styles */
@@ -16,8 +26,8 @@ input {
   width: 100%;
   height: calc(2 * var(--form-control-padding-y) + 1em);
   padding: var(--form-control-padding-y) var(--form-control-padding-x);
-  border: 1px solid var(--primary);
-  border-radius: var(--form-control-corner-radius, 2px);
+  border: var(--form-control-border-width) solid var(--form-control-color);
+  border-radius: var(--form-control-corner-radius);
 
   &:focus {
     outline: none;
@@ -41,11 +51,11 @@ label {
   position: absolute;
   top: 0;
   display: block;
-  padding: var(--label-padding-y) var(--label-padding-x);
-  margin: calc(var(--form-control-padding-y) - var(--label-padding-y))
-    calc(var(--form-control-padding-x) - var(--label-padding-x));
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
+  margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
+    calc(var(--form-control-padding-x) - var(--form-label-padding-x));
   line-height: 1;
-  color: var(--primary);
+  color: var(--form-label-color);
   border-radius: var(--form-control-corner-radius, 2px);
   transition: 150ms;
   transform-origin: left;
@@ -53,9 +63,13 @@ label {
 
 :matches(input, select, textarea):focus + label,
 :matches(input, select, textarea):not(:placeholder-shown) + label {
-  font-size: var(--font-size-small, 0.875em);
+  font-size: var(--form-label-font-size);
   background: var(--white, #fff);
-  transform: translateY(calc(-1 * var(--form-control-padding-y) - 0.4375em));
+  transform: translateY(
+    calc(
+      -1 * var(--form-control-padding-y) - var(--form-label-font-size) / 2 - var(--form-control-border-width)
+    )
+  );
 }
 
 /* Text field */
@@ -64,12 +78,53 @@ label {
   position: relative;
 }
 
+/* Helper message */
+
+.helper {
+  display: block;
+  padding-right: var(--form-control-padding-x);
+  padding-left: var(--form-control-padding-x);
+  margin-top: calc(1.5rem - 1em);
+  font-size: var(--form-helper-font-size);
+  color: var(--form-helper-color);
+
+  &:empty {
+    display: none;
+  }
+}
+
+input:invalid,
+input:invalid + label {
+  --form-control-color: var(--danger-dark);
+
+  /* Form some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
+}
+
 /* Size variations */
 
 .small {
-  --form-control-padding-y: calc(0.75 * var(--component-padding));
+  --form-control-padding-y: calc(0.75 * var(--component-padding, 1rem));
 }
 
 .large {
-  --form-control-padding-y: calc(1.25 * var(--component-padding));
+  --form-control-padding-y: calc(1.25 * var(--component-padding, 1rem));
+}
+
+/* Colour variations */
+
+.success {
+  --form-control-color: var(--success-dark);
+  --form-helper-color: var(--form-control-color);
+
+  /* Form some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
+}
+
+.error {
+  --form-control-color: var(--danger-dark);
+  --form-helper-color: var(--form-control-color);
+
+  /* Form some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
 }
