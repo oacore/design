@@ -7,6 +7,8 @@ const { cosmiconfigSync } = require('cosmiconfig')
 
 const cssModulesConfig = cosmiconfigSync('cssmodules').search().config
 
+const isGlobal = process.env.NODE_ENV === 'global'
+
 module.exports = {
   map: true,
   plugins: [
@@ -37,6 +39,7 @@ module.exports = {
     cssModules({
       ...cssModulesConfig,
       getJSON: () => {},
+      scopeBehaviour: isGlobal ? 'global' : 'local',
     }),
   ],
 }
