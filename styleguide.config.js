@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  title: 'CORE Design Engine',
+  title: 'CORE Design Elements',
   usageMode: 'expand',
   pagePerSection: true,
   sections: [
