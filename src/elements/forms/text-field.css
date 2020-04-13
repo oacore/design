@@ -42,11 +42,6 @@ input {
   transform: translateY(calc(1em + var(--form-control-padding-y)));
 }
 
-:focus::placeholder {
-  opacity: 1;
-  transform: none;
-}
-
 label {
   position: absolute;
   top: 0;
@@ -59,17 +54,6 @@ label {
   border-radius: var(--form-control-corner-radius, 2px);
   transition: 150ms;
   transform-origin: left;
-}
-
-:matches(input, select, textarea):focus + label,
-:matches(input, select, textarea):not(:placeholder-shown) + label {
-  font-size: var(--form-label-font-size);
-  background: var(--white, #fff);
-  transform: translateY(
-    calc(
-      -1 * var(--form-control-padding-y) - var(--form-label-font-size) / 2 - var(--form-control-border-width)
-    )
-  );
 }
 
 /* Text field */
@@ -109,6 +93,26 @@ input:invalid + label {
 
 .large {
   --form-control-padding-y: calc(1.25 * var(--component-padding, 1rem));
+}
+
+/* Behaviour variations */
+
+:matches(input, select, textarea):focus + label,
+:matches(input, select, textarea):not(:placeholder-shown) + label,
+.focus label {
+  font-size: var(--form-label-font-size);
+  background: var(--white, #fff);
+  transform: translateY(
+    calc(
+      -1 * var(--form-control-padding-y) - var(--form-label-font-size) / 2 - var(--form-control-border-width)
+    )
+  );
+}
+
+.focus ::placeholder,
+:focus::placeholder {
+  opacity: 1;
+  transform: none;
 }
 
 /* Colour variations */

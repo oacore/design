@@ -40,13 +40,13 @@ const TextField = React.forwardRef(
       <Tag
         id={id}
         className={classNames
-          // prevents passing 'default' to the class list
-          .use(
-            'container',
-            { [size]: size !== 'default', [variant]: variant !== 'normal' },
-            className
-          )
-          .from(styles)}
+          .use('container', {
+            [size]: size !== 'default',
+            [variant]: variant !== 'normal',
+            focus: variant !== 'normal',
+          })
+          .from(styles)
+          .join(className)}
       >
         <input
           ref={ref}
@@ -87,7 +87,7 @@ TextField.propTypes = {
   /**
    * Helper variation. Affects coloUr of inputs
    */
-  variant: PropTypes.oneOf(['normal', 'success', 'error']),
+  variant: PropTypes.oneOf(['normal', 'focus', 'success', 'error']),
 }
 
 export default TextField
