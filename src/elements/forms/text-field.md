@@ -26,6 +26,18 @@ Example with a password:
 />
 ```
 
+Example `focus` variant (label on top):
+
+```jsx
+<TextField
+  id="focus-name"
+  name="name"
+  label="Name"
+  placeholder="e.g. John Doe"
+  variant="focus"
+/>
+```
+
 Example with error message:
 
 ```jsx
