@@ -25,7 +25,6 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-module-resolver": "^4.0.0",
-    "cosmiconfig": "^6.0.0",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
@@ -53,21 +52,29 @@
     "stylelint-config-twbs-bootstrap": "^2.0.1",
     "stylelint-prettier": "^1.1.2",
     "svg-sprite-loader": "^4.2.1",
-    "svgo": "^1.3.2",
     "svgo-loader": "^2.2.1",
-    "svgstore-cli": "^1.3.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
+    "@mdi/svg": "^5.0.45",
     "classnames": "^2.2.6",
+    "cosmiconfig": "^6.0.0",
     "prop-types": "^15.7.2",
-    "sanitize.css": "^11.0.0"
+    "sanitize.css": "^11.0.0",
+    "svgo": "^1.3.2",
+    "svgstore": "^3.0.0-2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "optionalDependencies": {
+    "@mdi/svg": "^5"
+  },
+  "bin": {
+    "build-icons": "bin/icons/index.js"
   },
   "scripts": {
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
@@ -81,9 +88,7 @@
     "build:css": "run-p build:css-local build:css-global",
     "build:css-local": "postcss \"src/**/*.css\" --base src --dir lib --verbose",
     "build:css-global": "postcss \"src/**/*.css\" --base src --env=global --dir lib/global --verbose",
-    "build:svg:source": "svgo -f src -o lib -r --disable=removeViewBox --enable=removeDimensions",
-    "build:svg:sprite": "svgstore lib/assets/icons/* | svgo -i - -o lib/assets/icons.svg --disable=removeUselessDefs,cleanupIDs",
-    "build:svg": "run-s build:svg:source build:svg:sprite",
+    "build:svg": "node bin/icons",
     "build:lib": "run-p build:js build:css build:svg",
     "build:docs": "styleguidist build",
     "build": "run-s build:lib build:docs",
