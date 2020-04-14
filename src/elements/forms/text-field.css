@@ -81,7 +81,7 @@ input:invalid,
 input:invalid + label {
   --form-control-color: var(--danger-dark);
 
-  /* Form some reason --form-control-color change is not enough */
+  /* For some reason --form-control-color change is not enough */
   --form-label-color: var(--form-control-color);
 }
 
