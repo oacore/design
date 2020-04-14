@@ -5,21 +5,27 @@ import buttonClassNames from './button.css'
 
 import { classNames } from 'utils'
 
-const Button = ({
-  children,
-  className,
-  variant = 'text',
-  tag: Tag = 'button',
-  ...restProps
-}) => (
-  <Tag
-    className={classNames
-      .use('button', variant, className)
-      .from(buttonClassNames)}
-    {...restProps}
-  >
-    {children}
-  </Tag>
+const Button = React.forwardRef(
+  (
+    {
+      children,
+      className,
+      variant = 'text',
+      tag: Tag = 'button',
+      ...restProps
+    },
+    ref
+  ) => (
+    <Tag
+      ref={ref}
+      className={classNames
+        .use('button', variant, className)
+        .from(buttonClassNames)}
+      {...restProps}
+    >
+      {children}
+    </Tag>
+  )
 )
 
 Button.propTypes = {
