@@ -4,7 +4,7 @@ import { Icon, DetailList } from '../';
 <DetailList>
     <DetailList.Item name="Header 1">
       <Icon
-        src={`/icons.svg#document-success`}
+        src={`/icons.svg#file-check`}
         aria-hidden
       />
       Some sample text here
