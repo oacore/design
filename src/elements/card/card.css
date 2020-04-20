@@ -4,6 +4,8 @@
   --card-background: var(--white, #fff);
   --card-corner-radius: var(--component-corner-radius, 2px);
   --card-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --card-title-color: var(--gray-800);
+  --card-description-color: var(--gray-700);
 }
 
 .container {
@@ -12,4 +14,15 @@
   background: var(--card-background);
   border-radius: var(--card-corner-radius);
   box-shadow: var(--card-box-shadow);
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  color: var(--card-title-color);
+}
+
+.description {
+  margin-top: 0;
+  font-size: 0.875rem;
+  color: var(--card-description-color);
 }
