@@ -1,6 +1,7 @@
 ```jsx
 <Card>
-    <h1>I am just simple Card</h1>
+    <Card.Title>Hi there, I am just simple Card</Card.Title>
+    <Card.Description>This is just mine description</Card.Description>
     <p>You can tweak me more with these variables:</p>
     <ul>
         <li><code>--component-padding-x</code></li>
