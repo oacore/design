@@ -44,6 +44,10 @@ th {
   text-align: inherit;
 }
 
+tfoot {
+  border-top: 2px solid var(--table-border-color);
+}
+
 /* States */
 
 .sticky {

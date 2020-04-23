@@ -28,5 +28,10 @@ import Table from '.';
     <Table.Cell>Value 3-3</Table.Cell>
     <Table.Cell>Value 3-4</Table.Cell>
   </Table.Row>
+  <Table.Footer>
+    <Table.Row>
+      <Table.Cell colSpan={4}>Showing 1-3 of 3</Table.Cell>
+    </Table.Row>
+  </Table.Footer>
 </Table>
 ```
