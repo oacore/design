@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // it's a script!
 /* eslint-disable no-console */
 
@@ -110,4 +108,4 @@ const run = async () => {
   }
 }
 
-run()
+module.exports = run
