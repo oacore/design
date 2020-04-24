@@ -1,6 +1,3 @@
-// it's a script!
-/* eslint-disable no-console */
-
 const fs = require('fs').promises
 const path = require('path')
 

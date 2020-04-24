@@ -10,5 +10,6 @@ require('yargs')
     describe: 'copies icons and builds a sprite',
     handler: require('./icons'),
   })
+  .command(require('./config'))
   .demandCommand(1)
   .help().argv
