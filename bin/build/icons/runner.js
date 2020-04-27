@@ -56,11 +56,7 @@ const combine = (
 
 const writeOne = async (file, base) => {
   const filepath = base != null ? path.resolve(base, file.name) : file.name
-  try {
-    await fs.mkdir(path.dirname(filepath), { recursive: true })
-  } catch (alreadyExists) {
-    // we do not mind
-  }
+  await fs.mkdir(path.dirname(filepath), { recursive: true })
   return fs.writeFile(filepath, file.data)
 }
 
