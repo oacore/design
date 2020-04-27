@@ -1,7 +1,7 @@
 const fs = require('fs').promises
 const path = require('path')
 
-const loadConfig = require('../icons/config')
+const loadConfig = require('../../config')
 
 const escapeString = (s) => s.replace(/"/g, '\\"')
 const genrateValue = (stringOrNull) =>
@@ -26,9 +26,9 @@ exports.__esModule = true;
 exports.default = config;
 `
 
-const DEFAULT_CONFIG_PATH = path.resolve(__dirname, '../../lib/config.js')
+const DEFAULT_CONFIG_PATH = path.resolve(__dirname, '../../../lib/config.js')
 
-const run = async (outputPath = DEFAULT_CONFIG_PATH) => {
+const run = async ({ outputPath = DEFAULT_CONFIG_PATH } = {}) => {
   const config = await loadConfig()
   const context = {
     publicPath: config.output.publicPath,
@@ -44,7 +44,9 @@ const run = async (outputPath = DEFAULT_CONFIG_PATH) => {
 
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
   await fs.writeFile(outputPath, code)
-  console.log(`Written ${outputPath}`)
+  console.log(
+    `${path.basename(outputPath)} written to ${path.dirname(outputPath)}`
+  )
 }
 
 if (require.main === module) run()

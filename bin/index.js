@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
-/* eslint-disable global-require, no-unused-expressions */
+const name = 'design'
+const description = 'Runs library related scripts.'
 
-require('yargs')
-  .scriptName('design')
-  .usage('$0 <cmd>')
-  .command({
-    command: 'build-icons',
-    describe: 'copies icons and builds a sprite',
-    handler: require('./icons'),
-  })
-  .command(require('./config'))
-  .demandCommand(1)
-  .help().argv
+if (require.main === module) {
+  require('yargs')
+    .scriptName(name)
+    .describe(description)
+    .usage('$0 <command>')
+    .command(require('./build'))
+    .demandCommand(1)
+    .help().argv
+}

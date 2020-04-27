@@ -1,3 +1,0 @@
-rules:
-  # enable console for scripting files
-  no-console: off

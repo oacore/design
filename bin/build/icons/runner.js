@@ -3,7 +3,7 @@ const path = require('path')
 
 const svgstore = require('svgstore')
 
-const loadConfig = require('./config')
+const loadConfig = require('../../config')
 const SVGO = require('./svgo')
 
 const read = (files) =>
