@@ -58,6 +58,11 @@ module.exports = {
 
   styleguideDir: 'public',
 
+  assetsDir: path.join(
+    path.dirname(require.resolve('@mdi/svg/package.json')),
+    './svg'
+  ),
+
   require: [path.join(__dirname, 'src/index.css')],
 
   webpackConfig: {

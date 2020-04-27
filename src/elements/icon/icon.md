@@ -7,7 +7,7 @@ so screen readers will be able to read it.
 
 ```jsx
 <button type="button">
-  <Icon src="/icons.svg#cite" alt="Cite" />
+  <Icon src="check.svg" alt="OK" />
 </button>
 ```
 
@@ -18,7 +18,7 @@ example.
 
 ```jsx
 <button type="button">
-  <Icon src="/icons.svg#cite" alt="Cite" aria-hidden />
-  Cite
+  <Icon src="check.svg" aria-hidden />
+  OK
 </button>
 ```
