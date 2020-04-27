@@ -45,7 +45,7 @@ const run = async ({ outputPath = DEFAULT_CONFIG_PATH } = {}) => {
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
   await fs.writeFile(outputPath, code)
   console.log(
-    `${path.basename(outputPath)} written to ${path.dirname(outputPath)}`
+    `${path.basename(outputPath)} written to ${path.dirname(outputPath)}\n`
   )
 }
 

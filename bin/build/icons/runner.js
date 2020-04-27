@@ -68,7 +68,13 @@ const write = (files, base) => {
 const run = async () => {
   const config = await loadConfig()
   if (config.icons.length === 0) {
-    console.log('No icons to build. Aborted')
+    console.log('No icons to build. Aborted\n')
+    return
+  }
+
+  const outputConfig = config.output.icons
+  if (outputConfig.files == null && outputConfig.sprite) {
+    console.log('No output path specified. Aborted\n')
     return
   }
 
@@ -83,7 +89,6 @@ const run = async () => {
     },
   })
 
-  const outputConfig = config.output.icons
   if (outputConfig.files) {
     await write(icons, outputConfig.files)
 
@@ -99,6 +104,7 @@ const run = async () => {
     const dirname = path.dirname(outputConfig.sprite)
     console.log(`${basename} written to ${dirname}`)
   }
+  console.log('')
 }
 
 module.exports = run
