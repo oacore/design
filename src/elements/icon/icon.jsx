@@ -2,8 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import iconClassNames from './icon.css'
+import config from '../../config'
 
 import { classNames } from 'utils'
+
+const resolve = (url) =>
+  config.iconsPublicPath != null && url && url.toString().charAt() === '#'
+    ? `${config.iconsPublicPath}${url}`
+    : url
 
 /**
  * The component creates an inline SVG image based on
@@ -16,7 +22,7 @@ const Icon = ({ src, alt, className, ...restProps }) => (
     {...restProps}
   >
     <title>{alt}</title>
-    <use href={src} />
+    <use href={resolve(src)} />
   </svg>
 )
 
