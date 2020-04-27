@@ -73,6 +73,7 @@
   },
   "bin": "bin/index.js",
   "scripts": {
+    "postinstall": "node bin build",
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
     "lint:css": "stylelint --ignore-path .gitignore 'src/**/*.css'",
