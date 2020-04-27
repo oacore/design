@@ -71,9 +71,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "optionalDependencies": {
-    "@mdi/svg": "^5"
-  },
   "bin": "bin/index.js",
   "scripts": {
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
@@ -87,8 +84,7 @@
     "build:css": "run-p 'build:css:* -- {@}' --",
     "build:css:local": "postcss 'src/**/*.css' --base src --dir lib --verbose",
     "build:css:global": "postcss 'src/**/*.css' --base src --env=global --dir lib/global --verbose",
-    "build:svg": "node bin build icons",
-    "build:lib": "run-p build:js build:css build:svg",
+    "build:lib": "run-p build:js build:css",
     "build:docs": "styleguidist build",
     "build": "run-s build:lib build:docs",
     "dev:docs": "styleguidist server",

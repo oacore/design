@@ -2,7 +2,6 @@ const path = require('path')
 
 const { cosmiconfig } = require('cosmiconfig')
 
-const defaultFilepath = path.resolve(__dirname, '../config.js')
 const defaultConfig = {
   icons: [],
 
@@ -32,10 +31,9 @@ const read = async (filepath) => {
   const explorer = cosmiconfig('design')
   if (filepath != null) return explorer.load(filepath)
 
-  let config = await explorer.search()
-  if (config == null) config = await explorer.load(defaultFilepath)
+  const config = await explorer.search()
 
-  return config
+  return config == null ? { config: defaultConfig } : config
 }
 
 const appendExtension = (file, ext) =>
@@ -92,9 +90,14 @@ const prepare = (config) => {
   return { icons, output, svgo }
 }
 
-const load = async (filepath) => {
-  const { config: userConfig } = await read(filepath)
+const load = async (initialFilepath) => {
+  const configResult = await read(initialFilepath)
+  const { filepath: actualFilepath, config: userConfig } = configResult
   const config = prepare(userConfig)
+
+  if (actualFilepath) console.log(`Using config from ${actualFilepath}`)
+  else console.log('Using default config')
+
   return config
 }
 
