@@ -77,14 +77,6 @@ label {
   }
 }
 
-input:invalid,
-input:invalid + label {
-  --form-control-color: var(--danger-dark);
-
-  /* For some reason --form-control-color change is not enough */
-  --form-label-color: var(--form-control-color);
-}
-
 /* Size variations */
 
 .small {
@@ -99,6 +91,7 @@ input:invalid + label {
 
 :matches(input, select, textarea):focus + label,
 :matches(input, select, textarea):not(:placeholder-shown) + label,
+:matches(input, select, textarea):-webkit-autofill + label,
 .focus label {
   font-size: var(--form-label-font-size);
   background: var(--white, #fff);
@@ -109,7 +102,7 @@ input:invalid + label {
   );
 }
 
-.focus ::placeholder,
+.focus::placeholder,
 :focus::placeholder {
   opacity: 1;
   transform: none;
@@ -130,5 +123,11 @@ input:invalid + label {
   --form-helper-color: var(--form-control-color);
 
   /* For some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
+}
+
+.touched:invalid,
+.touched:invalid + label {
+  --form-control-color: var(--danger-dark);
   --form-label-color: var(--form-control-color);
 }
