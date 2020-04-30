@@ -77,14 +77,6 @@ label {
   }
 }
 
-input:invalid,
-input:invalid + label {
-  --form-control-color: var(--danger-dark);
-
-  /* For some reason --form-control-color change is not enough */
-  --form-label-color: var(--form-control-color);
-}
-
 /* Size variations */
 
 .small {
@@ -131,5 +123,11 @@ input:invalid + label {
   --form-helper-color: var(--form-control-color);
 
   /* For some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
+}
+
+.touched:invalid,
+.touched:invalid + label {
+  --form-control-color: var(--danger-dark);
   --form-label-color: var(--form-control-color);
 }

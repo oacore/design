@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './text-field.css'
@@ -35,7 +35,7 @@ const TextField = React.forwardRef(
     ref
   ) => {
     const controlId = [id, 'control'].join('-')
-
+    const [isTouched, setIsTouched] = useState(false)
     return (
       <Tag
         id={id}
@@ -44,6 +44,7 @@ const TextField = React.forwardRef(
             [size]: size !== 'default',
             [variant]: variant !== 'normal',
             focus: variant !== 'normal',
+            touched: isTouched,
           })
           .from(styles)
           .join(className)}
@@ -51,8 +52,14 @@ const TextField = React.forwardRef(
         <input
           ref={ref}
           id={controlId}
+          onBlur={() => !isTouched && setIsTouched(true)}
           aria-invalid={variant === 'error' ? 'true' : 'false'}
           aria-describedby={`${id}-helper`}
+          className={classNames
+            .use({
+              touched: isTouched,
+            })
+            .from(styles)}
           {...inputProps}
         />
         <label htmlFor={controlId}>{label}</label>
