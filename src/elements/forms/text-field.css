@@ -77,6 +77,16 @@ label {
   }
 }
 
+input:disabled,
+input:read-only,
+input:disabled + label,
+input:read-only + label {
+  --form-control-color: var(--gray-500);
+  --form-label-color: var(--gray-500);
+
+  cursor: not-allowed;
+}
+
 /* Size variations */
 
 .small {
