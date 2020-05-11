@@ -77,6 +77,19 @@ Example with disabled input:
 />
 ```
 
+Example with hidden label:
+
+```jsx
+<TextField
+  id="hidden-label"
+  name="hidden-label"
+  label="Input with hidden label"
+  labelSrOnly
+  value="Hidden label"
+  variant="success"
+/>
+```
+
 ### Size variations
 
 #### Small
