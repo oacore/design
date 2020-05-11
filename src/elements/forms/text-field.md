@@ -64,6 +64,19 @@ Example with success message:
 />
 ```
 
+Example with disabled input:
+
+```jsx
+<TextField
+  id="disabled-input"
+  name="disabled-input"
+  label="Disabled input"
+  value="Disabled input"
+  variant="success"
+  disabled
+/>
+```
+
 ### Size variations
 
 #### Small
