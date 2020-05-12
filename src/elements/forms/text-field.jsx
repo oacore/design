@@ -29,6 +29,7 @@ const TextField = React.forwardRef(
       helper,
       variant = 'normal',
       size = 'default',
+      labelSrOnly = false,
       tag: Tag = 'div',
       ...inputProps
     },
@@ -62,7 +63,12 @@ const TextField = React.forwardRef(
             .from(styles)}
           {...inputProps}
         />
-        <label htmlFor={controlId}>{label}</label>
+        <label
+          htmlFor={controlId}
+          className={classNames.use(labelSrOnly && 'sr-only')}
+        >
+          {label}
+        </label>
         <span id={`${id}-helper`} className={styles.helper}>
           {helper}
         </span>
@@ -76,6 +82,10 @@ TextField.propTypes = {
    * Label for the text field
    */
   label: PropTypes.node.isRequired,
+  /**
+   * Hide label and expose it only for screen readers
+   */
+  labelSrOnly: PropTypes.bool,
   /**
    * Size variation. Affects height only.
    */
