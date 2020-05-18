@@ -42,6 +42,7 @@
   &:focus,
   &.focus {
     --button-overlay: #0001;
+    text-decoration: none;
     outline: 0;
     box-shadow: var(--button-focus-ring);
   }
@@ -75,7 +76,9 @@ button,
   @extend %button;
 }
 
-.button {
+.button,
+.button:link,
+.button:visited {
   @extend %button;
 }
 
