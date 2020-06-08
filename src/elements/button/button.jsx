@@ -19,8 +19,9 @@ const Button = React.forwardRef(
     <Tag
       ref={ref}
       className={classNames
-        .use('button', variant, className)
-        .from(buttonClassNames)}
+        .use('button', variant)
+        .from(buttonClassNames)
+        .join(className)}
       {...restProps}
     >
       {children}
