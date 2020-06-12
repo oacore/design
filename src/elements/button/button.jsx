@@ -11,7 +11,8 @@ const Button = React.forwardRef(
       children,
       className,
       variant = 'text',
-      tag: Tag = 'button',
+      href,
+      tag: Tag = href ? 'a' : 'button',
       ...restProps
     },
     ref
@@ -22,6 +23,7 @@ const Button = React.forwardRef(
         .use('button', variant)
         .from(buttonClassNames)
         .join(className)}
+      href={href}
       {...restProps}
     >
       {children}
@@ -31,10 +33,12 @@ const Button = React.forwardRef(
 
 Button.propTypes = {
   variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
+  href: PropTypes.string,
 }
 
 Button.defaultProps = {
   variant: 'text',
+  href: undefined,
 }
 
 export default Button
