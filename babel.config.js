@@ -7,11 +7,7 @@ module.exports = {
     [
       '@babel/env',
       {
-        loose: true,
         shippedProposals: true,
-        targets: {
-          ie: 10,
-        },
       },
     ],
     '@babel/react',
