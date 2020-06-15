@@ -47,7 +47,6 @@ module.exports = {
       linkHover: '#924300',
     },
   },
-
   ignore: [
     '**/__tests__/**',
     '**/*.test.{js,jsx,ts,tsx}',
@@ -57,7 +56,15 @@ module.exports = {
   ],
 
   styleguideDir: 'public',
-
+  styles: {
+    Playground: {
+      preview: {
+        overflow: 'hidden',
+        position: 'relative',
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+  },
   assetsDir: path.join(
     path.dirname(require.resolve('@mdi/svg/package.json')),
     './svg'
