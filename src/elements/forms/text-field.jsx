@@ -31,6 +31,7 @@ const TextField = React.forwardRef(
       size = 'default',
       labelSrOnly = false,
       tag: Tag = 'div',
+      placeholder = variant === 'pure' ? label : undefined,
       ...inputProps
     },
     ref
@@ -42,9 +43,9 @@ const TextField = React.forwardRef(
         id={id}
         className={classNames
           .use('container', {
+            // 'focus' should be applied directly to the control
+            [variant]: !['normal'].includes(variant),
             [size]: size !== 'default',
-            [variant]: variant !== 'normal',
-            focus: variant !== 'normal',
             touched: isTouched,
           })
           .from(styles)
@@ -56,22 +57,22 @@ const TextField = React.forwardRef(
           onBlur={() => !isTouched && setIsTouched(true)}
           aria-invalid={variant === 'error' ? 'true' : 'false'}
           aria-describedby={`${id}-helper`}
+          placeholder={placeholder}
           className={classNames
-            .use({
-              touched: isTouched,
-            })
+            .use('control', isTouched && 'touched')
             .from(styles)}
           {...inputProps}
         />
-        <label
-          htmlFor={controlId}
-          className={classNames.use(labelSrOnly && 'sr-only')}
-        >
-          {label}
-        </label>
+        {children}
         <span id={`${id}-helper`} className={styles.helper}>
           {helper}
         </span>
+        <label
+          htmlFor={controlId}
+          className={classNames.use(styles.label, labelSrOnly && 'sr-only')}
+        >
+          {label}
+        </label>
       </Tag>
     )
   }
@@ -83,7 +84,13 @@ TextField.propTypes = {
    */
   label: PropTypes.node.isRequired,
   /**
-   * Hide label and expose it only for screen readers
+   * Input's placeholder
+   */
+  placeholder: PropTypes.string,
+  /**
+   * Hide label and expose it only for screen readers.
+   *
+   * **Deprecated**. Use `variant="pure"` instead.
    */
   labelSrOnly: PropTypes.bool,
   /**
@@ -102,9 +109,12 @@ TextField.propTypes = {
    */
   helper: PropTypes.string,
   /**
-   * Helper variation. Affects coloUr of inputs
+   * Helper variation. Affects label position and the colour.
+   *
+   * Avoid using `pure`` with no `placeholder`, prefer to explicitly set it.
+   * However, if you don't, the `placeholder`` repeats the label text.
    */
-  variant: PropTypes.oneOf(['normal', 'focus', 'success', 'error']),
+  variant: PropTypes.oneOf(['normal', 'pure', 'focus', 'success', 'error']),
 }
 
 export default TextField
