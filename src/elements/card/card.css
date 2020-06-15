@@ -26,3 +26,13 @@
   font-size: 0.875rem;
   color: var(--card-description-color);
 }
+
+.footer {
+  padding: var(--card-padding-y) var(--card-padding-x);
+  margin-right: calc(-1 * var(--card-padding-x));
+  margin-left: calc(-1 * var(--card-padding-x));
+
+  &:last-child {
+    margin-bottom: calc(-1 * var(--card-padding-y));
+  }
+}
