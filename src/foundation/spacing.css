@@ -31,7 +31,6 @@ blockquote {
 }
 
 /* Lists */
-
 ol,
 ul,
 dl {
@@ -47,7 +46,6 @@ ul ol {
 }
 
 /* Code */
-
 pre {
   display: block;
   margin: var(--spacer, 1rem);
@@ -55,7 +53,6 @@ pre {
 }
 
 /* Figures */
-
 figure {
   margin: var(--spacer, 1rem) 0;
 }
@@ -66,7 +63,6 @@ svg {
 }
 
 /* Margin fix */
-
 :first-child {
   margin-top: 0;
 }
