@@ -79,7 +79,6 @@ h6 {
 }
 
 /* Links */
-
 :link,
 :visited {
   color: var(--link-color, var(--primary));
@@ -103,7 +102,6 @@ h6 {
 }
 
 /* Emphasis */
-
 :global(.lead) {
   font-size: var(--lead-font-size, 1.25rem);
   font-weight: var(--lead-font-weight, 300);
@@ -127,7 +125,6 @@ mark {
 }
 
 /* Lists */
-
 ol,
 ul {
   padding-left: 2rem;
@@ -156,7 +153,6 @@ address {
 }
 
 /* Code */
-
 pre,
 code,
 kbd,
@@ -187,6 +183,7 @@ code {
    * Streamline the style when inside anchors to avoid broken underline
    * and more
    */
+
   a > & {
     color: inherit;
   }
@@ -207,7 +204,6 @@ kbd {
 }
 
 /* Tables */
-
 caption {
   padding-top: var(--table-cell-padding);
   padding-bottom: var(--table-cell-padding);
@@ -217,7 +213,6 @@ caption {
 }
 
 /* Forms */
-
 label {
   margin-bottom: var(--label-margin-bottom);
 }

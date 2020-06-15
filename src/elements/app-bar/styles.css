@@ -15,14 +15,12 @@
 }
 
 /* Modifiers */
-
 .fixed {
   position: fixed;
   z-index: var(--app-bar-fixed-z-index, 1020);
 }
 
 /* Children */
-
 .item {
   display: inline-block;
   padding: var(--app-bar-padding-y) var(--app-bar-padding-x);
@@ -38,6 +36,7 @@
    *    for other button-like elements
    * 2. Use some workaround like .interactive
    */
+
   &:link:hover,
   &:visited:hover,
   &:focus {

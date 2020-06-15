@@ -20,7 +20,6 @@
 /* Global styles */
 
 /* TODO: Move to Foundation partially */
-
 input {
   display: block;
   width: 100%;
@@ -57,13 +56,11 @@ label {
 }
 
 /* Text field */
-
 .container {
   position: relative;
 }
 
 /* Helper message */
-
 .helper {
   display: block;
   padding-right: var(--form-control-padding-x);
@@ -90,7 +87,6 @@ input:disabled {
 }
 
 /* Size variations */
-
 .small {
   --form-control-padding-y: calc(0.75 * var(--component-padding, 1rem));
 }
@@ -100,7 +96,6 @@ input:disabled {
 }
 
 /* Behaviour variations */
-
 :matches(input, select, textarea):focus + label,
 :matches(input, select, textarea):not(:placeholder-shown) + label,
 :matches(input, select, textarea):-webkit-autofill + label,
@@ -121,7 +116,6 @@ input:disabled {
 }
 
 /* Colour variations */
-
 .success {
   --form-control-color: var(--success-dark);
   --form-helper-color: var(--form-control-color);
