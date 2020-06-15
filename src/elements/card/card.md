@@ -11,5 +11,6 @@
         <li><code>--card-corner-radius</code></li>
         <li><code>--card-box-shadow</code></li>
     </ul>
+    <Card.Footer>This is just simple footer.</Card.Footer>
 </Card>
 ```

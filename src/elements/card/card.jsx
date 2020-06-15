@@ -28,7 +28,14 @@ const Description = ({ children, className, tag: Tag = 'p', ...restProps }) => (
   </Tag>
 )
 
+const Footer = ({ children, className, tag: Tag = 'div', ...restProps }) => (
+  <Tag className={classNames.use(styles.footer).join(className)} {...restProps}>
+    {children}
+  </Tag>
+)
+
 Card.Title = Title
 Card.Description = Description
+Card.Footer = Footer
 
 export default Card
