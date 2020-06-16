@@ -49,7 +49,9 @@
    * If keep the background-color transparent this will only cover the border
    * of the input and the text will be like on top of everything.
    *
-   * However, such effect may lead
+   * However, such effect may be unwanted and leads to poor design on the
+   * non-white, especially image backgrounds. That is why we keep
+   * background-color at the moment.
    */
   background-image: linear-gradient(
     transparent calc(50% - calc(var(--form-control-border-width) / 2)),
@@ -82,7 +84,7 @@
 }
 
 %placeholder {
-  transition: 150ms;
+  transition: transform 150ms, opacity 150ms;
 }
 
 %placeholder-hidden {
@@ -124,6 +126,18 @@
   @extend %label-overlay-focus;
 }
 
+/**
+ * This code is duplicated because @extend rule breaks the behaviour in Firefox.
+ * The browser does not take into account comma-separated selectors where
+ * is a `-webkit-` prefix.
+ */
+
+.control:-webkit-autofill ~ label {
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+  transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
+}
+
 .helper {
   display: block;
   padding-right: var(--form-control-padding-x);
@@ -163,6 +177,9 @@
     border: 0 !important;
   }
   /* stylelint-enable declaration-no-important */
+  & > .control::placeholder {
+    @extend %placeholder-shown;
+  }
 }
 
 .focus {
