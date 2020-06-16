@@ -1,5 +1,18 @@
 ### Type variations
 
+#### Text
+
+```jsx
+<TextField
+  id="text-example"
+  name="name"
+  label="Full name"
+  placeholder="e.g. John Doe"
+/>
+```
+
+
+
 Example with a search input:
 
 ```jsx
@@ -26,70 +39,6 @@ Example with a password:
 />
 ```
 
-Example `focus` variant (label on top):
-
-```jsx
-<TextField
-  id="focus-name"
-  name="name"
-  label="Name"
-  placeholder="e.g. John Doe"
-  variant="focus"
-/>
-```
-
-Example with error message:
-
-```jsx
-<TextField
-  id="error-name"
-  name="user-name"
-  label="User name"
-  placeholder="e.g. john"
-  helper="User name is required"
-  variant="error"
-/>
-```
-
-Example with success message:
-
-```jsx
-<TextField
-  id="success-name"
-  name="user-name"
-  label="User name"
-  value="john"
-  helper="Nice to meet you john!"
-  variant="success"
-/>
-```
-
-Example with disabled input:
-
-```jsx
-<TextField
-  id="disabled-input"
-  name="disabled-input"
-  label="Disabled input"
-  value="Disabled input"
-  variant="success"
-  disabled
-/>
-```
-
-Example with hidden label:
-
-```jsx
-<TextField
-  id="hidden-label"
-  name="hidden-label"
-  label="Input with hidden label"
-  labelSrOnly
-  value="Hidden label"
-  variant="success"
-/>
-```
-
 ### Size variations
 
 #### Small
@@ -109,5 +58,79 @@ Example with hidden label:
   label="Name"
   placeholder="e.g. John Doe"
   size="large"
+/>
+```
+
+### Label and colour variations
+
+#### Pure
+
+A TextField without a visible label. The label remains accessible to
+screen-readers.
+
+```jsx
+<TextField
+  variant="pure"
+  id="example-pure"
+  name="name"
+  placeholder="e.g. John Doe"
+  autocomplete="name"
+/>
+```
+
+#### Focus
+
+Example `focus` variant (label on top):
+
+```jsx
+<TextField
+  variant="focus"
+  id="example-focus"
+  name="name"
+  label="Name"
+  placeholder="e.g. John Doe"
+/>
+```
+
+#### Error
+
+Example with error message:
+
+```jsx
+<TextField
+  variant="error"
+  id="example-error"
+  name="user-name"
+  label="User name"
+  placeholder="e.g. john"
+  helper="User name is required"
+/>
+```
+
+#### Success
+
+Example with success message:
+
+```jsx
+<TextField
+  id="example-success"
+  name="user-name"
+  label="User name"
+  value="john"
+  helper="Nice to meet you john!"
+  variant="success"
+/>
+```
+
+Example with disabled input:
+
+```jsx
+<TextField
+  id="disabled-input"
+  name="disabled-input"
+  label="Disabled input"
+  value="Disabled input"
+  variant="success"
+  disabled
 />
 ```

@@ -2,8 +2,10 @@
   /* Control */
   --form-control-corner-radius: var(--component-corner-radius, 2px);
   --form-control-border-width: 1px;
+  --form-control-font-size: var(--body-font-size, 1rem);
   --form-control-padding-x: var(--component-padding, 1rem);
   --form-control-padding-y: var(--component-padding, 1rem);
+  --form-control-background-color: var(--white);
   --form-control-color: var(--primary);
 
   /* Label */
@@ -13,18 +15,65 @@
   --form-label-font-size: 0.75em;
 
   /* Helper */
-  --form-helper-font-size: var(--font-size-small, 0.875em);
+  --form-helper-font-size: var(--body-font-size-small, 0.875em);
   --form-helper-color: var(--gray-600);
 }
 
-/* Global styles */
+%label {
+  display: block;
+  font-size: var(--form-label-font-size);
+  line-height: 1;
+  color: var(--form-label-color);
+  border-radius: var(--form-control-corner-radius, 2px);
+  transition: 150ms;
+  transform-origin: left;
+}
 
-/* TODO: Move to Foundation partially */
-input {
+%label-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
+  margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
+    calc(var(--form-control-padding-x) - var(--form-label-padding-x));
+  font-size: var(--form-control-font-size);
+}
+
+%label-overlay-focus {
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+
+  /**
+   * A line on top of the input border
+   *
+   * If keep the background-color transparent this will only cover the border
+   * of the input and the text will be like on top of everything.
+   *
+   * However, such effect may be unwanted and leads to poor design on the
+   * non-white, especially image backgrounds. That is why we keep
+   * background-color at the moment.
+   */
+  background-image: linear-gradient(
+    transparent calc(50% - calc(var(--form-control-border-width) / 2)),
+    var(--form-control-background-color)
+      calc(50% - calc(var(--form-control-border-width) / 2)),
+    var(--form-control-background-color)
+      calc(50% + calc(var(--form-control-border-width) / 2)),
+    transparent calc(50% + calc(var(--form-control-border-width) / 2))
+  );
+  transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
+}
+
+%control {
   display: block;
   width: 100%;
-  height: calc(2 * var(--form-control-padding-y) + 1em);
-  padding: var(--form-control-padding-y) var(--form-control-padding-x);
+  height: calc(2 * var(--form-control-padding-y) + 1rem);
+  padding: calc(
+      var(--form-control-padding-y) - var(--form-control-border-width)
+    )
+    calc(var(--form-control-padding-x) - var(--form-control-border-width));
+  font-size: var(--form-control-font-size);
+  background-color: var(--form-control-background-color);
   border: var(--form-control-border-width) solid var(--form-control-color);
   border-radius: var(--form-control-corner-radius);
 
@@ -34,33 +83,61 @@ input {
   }
 }
 
-::placeholder {
-  color: var(--gray-600);
+%placeholder {
+  transition: transform 150ms, opacity 150ms;
+}
+
+%placeholder-hidden {
   opacity: 0;
-  transition: 150ms;
   transform: translateY(calc(1em + var(--form-control-padding-y)));
 }
 
-label {
-  position: absolute;
-  top: 0;
-  display: block;
-  padding: var(--form-label-padding-y) var(--form-label-padding-x);
-  margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
-    calc(var(--form-control-padding-x) - var(--form-label-padding-x));
-  line-height: 1;
-  color: var(--form-label-color);
-  border-radius: var(--form-control-corner-radius, 2px);
-  transition: 150ms;
-  transform-origin: left;
+%placeholder-shown {
+  opacity: 0.6;
+  transform: translateY(0);
 }
 
-/* Text field */
 .container {
   position: relative;
 }
 
-/* Helper message */
+.control {
+  @extend %control;
+}
+
+.control::placeholder {
+  @extend %placeholder;
+  @extend %placeholder-hidden;
+}
+
+.control:focus::placeholder {
+  @extend %placeholder-shown;
+}
+
+.label {
+  @extend %label;
+}
+
+.control ~ .label {
+  @extend %label-overlay;
+}
+
+.control:matches(:focus, :not(:placeholder-shown)) ~ .label {
+  @extend %label-overlay-focus;
+}
+
+/**
+ * This code is duplicated because @extend rule breaks the behaviour in Firefox.
+ * The browser does not take into account comma-separated selectors where
+ * is a `-webkit-` prefix.
+ */
+
+.control:-webkit-autofill ~ label {
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+  transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
+}
+
 .helper {
   display: block;
   padding-right: var(--form-control-padding-x);
@@ -74,49 +151,50 @@ label {
   }
 }
 
-input:disabled,
-input:read-only,
-input:disabled + label,
-input:read-only + label {
-  --form-control-color: var(--gray-500);
-  --form-label-color: var(--gray-500);
-}
-
-input:disabled {
-  cursor: not-allowed;
-}
-
 /* Size variations */
 .small {
   --form-control-padding-y: calc(0.75 * var(--component-padding, 1rem));
+  --form-control-font-size: var(--body-font-size-small);
 }
 
 .large {
   --form-control-padding-y: calc(1.25 * var(--component-padding, 1rem));
 }
 
-/* Behaviour variations */
-:matches(input, select, textarea):focus + label,
-:matches(input, select, textarea):not(:placeholder-shown) + label,
-:matches(input, select, textarea):-webkit-autofill + label,
-.focus label {
-  font-size: var(--form-label-font-size);
-  background: var(--white, #fff);
-  transform: translateY(
-    calc(
-      -1 * var(--form-control-padding-y) - var(--form-label-font-size) / 2 - var(--form-control-border-width)
-    )
-  );
+/* Colour and shape variations */
+.pure {
+  /* Kepping screenreader-only tweak as is (with !important-s) for a safety */
+  /* stylelint-disable declaration-no-important */
+  & > .label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  /* stylelint-enable declaration-no-important */
+  & > .control::placeholder {
+    @extend %placeholder-shown;
+  }
 }
 
-.focus::placeholder,
-:focus::placeholder {
-  opacity: 1;
-  transform: none;
+.focus {
+  & > .label {
+    @extend %label-overlay-focus;
+  }
+
+  & > .control::placeholder {
+    @extend %placeholder-shown;
+  }
 }
 
-/* Colour variations */
 .success {
+  @extend .focus;
+
   --form-control-color: var(--success-dark);
   --form-helper-color: var(--form-control-color);
 
@@ -125,6 +203,8 @@ input:disabled {
 }
 
 .error {
+  @extend .focus;
+
   --form-control-color: var(--danger-dark);
   --form-helper-color: var(--form-control-color);
 
@@ -133,7 +213,63 @@ input:disabled {
 }
 
 .touched:invalid,
-.touched:invalid + label {
+.touched:invalid ~ label {
   --form-control-color: var(--danger-dark);
   --form-label-color: var(--form-control-color);
+}
+
+/* Globals */
+label {
+  @extend %label;
+}
+
+::placeholder {
+  @extend %placeholder;
+}
+
+input:not([type]),
+[type='text'],
+[type='search'],
+[type='password'],
+[type='email'],
+[type='number'],
+[type='tel'],
+[type='url'],
+[type='date'],
+[type='datetime-local'],
+[type='time'],
+[type='week'],
+[type='month'],
+select,
+textarea {
+  @extend %control;
+
+  & ~ label {
+    @extend %label;
+    @extend %label-overlay;
+  }
+
+  &:matches(:focus) ~ label {
+    @extend %label-overlay-focus;
+  }
+
+  &::placeholder {
+    @extend %placeholder-hidden;
+  }
+
+  &:focus::placeholder {
+    @extend %placeholder-shown;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:disabled,
+  &:read-only,
+  &:disabled ~ label,
+  &:read-only ~ label {
+    --form-control-color: var(--gray-500);
+    --form-label-color: var(--gray-500);
+  }
 }
