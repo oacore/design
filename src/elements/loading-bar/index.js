@@ -1,1 +1,1 @@
-export LoadingBar from './loading-bar'
+export default from './loading-bar'
