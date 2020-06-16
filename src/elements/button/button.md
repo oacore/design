@@ -8,6 +8,14 @@
 <Button variant="text">Text</Button>
 ```
 
+### Link
+
+```jsx
+<Button variant="contained" href="#" tag="a">Next</Button>
+{' '}
+<Button href="#" tag="a">Homepage</Button>
+```
+
 ### Status
 
 ### Disabled
