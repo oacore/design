@@ -63,15 +63,25 @@
       calc(50% + calc(var(--form-control-border-width) / 2)),
     transparent calc(50% + calc(var(--form-control-border-width) / 2))
   );
-  transform: translateY(calc(-0.5em * var(--form-control-line-height) - var(--form-control-padding-y)));
+  transform: translateY(
+    calc(
+      -0.5em * var(--form-control-line-height) - var(--form-control-padding-y)
+    )
+  );
 }
 
 %control {
   display: block;
   width: 100%;
-  height: calc(2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height));
-  padding-left: calc(var(--form-control-padding-x) - var(--form-control-border-width));
-  padding-right: calc(var(--form-control-padding-x) - var(--form-control-border-width));
+  height: calc(
+    2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
+  );
+  padding-right: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
+  padding-left: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
   font-size: var(--form-control-font-size);
   line-height: var(--form-control-line-height);
   background-color: var(--form-control-background-color);
