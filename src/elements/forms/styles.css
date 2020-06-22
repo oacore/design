@@ -1,0 +1,26 @@
+:root {
+  --textarea-min-line-count: 1;
+  --textarea-line-count: 3;
+  --form-control-line-height: var(--line-height-base, 1.5);
+}
+
+/* Restore height for the text area */
+textarea {
+  height: calc(
+    2 * var(--form-control-padding-y) + var(--form-control-line-height) *
+      var(--textarea-line-count) * var(--form-control-font-size)
+  );
+  height: auto;
+  min-height: calc(
+    2 * var(--form-control-padding-y) + var(--form-control-line-height) *
+      var(--textarea-min-line-count) * var(--form-control-font-size)
+  );
+  padding-top: calc(var(--form-control-padding-y) - 1px);
+  padding-bottom: calc(var(--form-control-padding-y) - 1px);
+  line-height: var(--line-height-base, 1.5);
+}
+
+select:not([multiple]):not([size]) {
+  background-position: right center;
+  background-origin: content-box;
+}
