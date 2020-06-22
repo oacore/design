@@ -1,7 +1,162 @@
 :root {
+  /* Control */
+  --form-control-corner-radius: var(--component-corner-radius, 2px);
+  --form-control-border-width: 1px;
+  --form-control-font-size: var(--body-font-size, 1rem);
+  --form-control-line-height: var(--line-height-base, 1.5);
+  --form-control-padding-x: var(--component-padding, 1rem);
+  --form-control-padding-y: var(--component-padding, 0.75rem);
+  --form-control-background-color: var(--white);
+  --form-control-color: var(--primary);
+
+  /* Label */
+  --form-label-color: var(--form-control-color);
+  --form-label-padding-x: 0.25em;
+  --form-label-padding-y: 0.125em;
+  --form-label-font-size: 0.75em;
+
+  /* Textarea */
   --textarea-min-line-count: 1;
   --textarea-line-count: 3;
-  --form-control-line-height: var(--line-height-base, 1.5);
+}
+
+%label {
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  color: var(--form-label-color);
+  border-radius: var(--form-control-corner-radius, 2px);
+  transition: 150ms;
+  transform-origin: left;
+}
+
+%label-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
+  margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
+    calc(var(--form-control-padding-x) - var(--form-label-padding-x));
+  font-size: var(--form-control-font-size);
+  line-height: var(--form-control-line-height);
+}
+
+%label-overlay-focus {
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+
+  /**
+   * A line on top of the input border
+   *
+   * If keep the background-color transparent this will only cover the border
+   * of the input and the text will be like on top of everything.
+   *
+   * However, such effect may be unwanted and leads to poor design on the
+   * non-white, especially image backgrounds. That is why we keep
+   * background-color at the moment.
+   */
+  background-image: linear-gradient(
+    transparent calc(50% - calc(var(--form-control-border-width) / 2)),
+    var(--form-control-background-color)
+      calc(50% - calc(var(--form-control-border-width) / 2)),
+    var(--form-control-background-color)
+      calc(50% + calc(var(--form-control-border-width) / 2)),
+    transparent calc(50% + calc(var(--form-control-border-width) / 2))
+  );
+  transform: translateY(
+    calc(
+      -0.5em * var(--form-control-line-height) - var(--form-control-padding-y)
+    )
+  );
+}
+
+%control {
+  display: block;
+  width: 100%;
+  height: calc(
+    2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
+  );
+  padding-right: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
+  padding-left: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
+  font-size: var(--form-control-font-size);
+  line-height: var(--form-control-line-height);
+  background-color: var(--form-control-background-color);
+  border: var(--form-control-border-width) solid var(--form-control-color);
+  border-radius: var(--form-control-corner-radius);
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+%placeholder {
+  transition: transform 150ms, opacity 150ms;
+}
+
+%placeholder-hidden {
+  opacity: 0;
+  transform: translateY(calc(1em + var(--form-control-padding-y)));
+}
+
+%placeholder-shown {
+  opacity: 0.6;
+  transform: translateY(0);
+}
+
+.container {
+  position: relative;
+}
+
+.control {
+  @extend %control;
+}
+
+.control::placeholder {
+  @extend %placeholder;
+  @extend %placeholder-hidden;
+}
+
+.control:focus::placeholder {
+  @extend %placeholder-shown;
+}
+
+.label {
+  @extend %label;
+}
+
+.control ~ .label {
+  @extend %label-overlay;
+}
+
+.control:matches(:focus, :not(:placeholder-shown)) ~ .label {
+  @extend %label-overlay-focus;
+}
+
+/**
+ * The following code is duplicated because @extend rule breaks the behaviour in
+ * Firefox. The browser does not take into account comma-separated selectors
+ * where is a `-webkit-` prefix.
+ */
+
+.control:-webkit-autofill ~ label {
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+  transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
+}
+
+.focus {
+  & > .label {
+    @extend %label-overlay-focus;
+  }
+
+  & > .control::placeholder {
+    @extend %placeholder-shown;
+  }
 }
 
 /* Restore height for the text area */
