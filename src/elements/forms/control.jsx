@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { classNames } from '../../utils'
 import styles from './styles.css'
+
+import { classNames } from 'utils'
 
 const FormControl = ({
   type: controlType,
   children,
   className,
-  ...passProps
+  focus,
+  ...htmlProps
 }) => {
   const Tag = ['select', 'textarea'].includes(controlType)
     ? controlType
@@ -17,8 +19,10 @@ const FormControl = ({
   return (
     <Tag
       type={type}
-      className={classNames.use(styles.control).join(className)}
-      {...passProps}
+      className={classNames
+        .use(styles.control, focus && styles.focus)
+        .join(className)}
+      {...htmlProps}
     >
       {children}
     </Tag>
