@@ -3,8 +3,9 @@
   --form-control-corner-radius: var(--component-corner-radius, 2px);
   --form-control-border-width: 1px;
   --form-control-font-size: var(--body-font-size, 1rem);
+  --form-control-line-height: var(--line-height-base, 1.5);
   --form-control-padding-x: var(--component-padding, 1rem);
-  --form-control-padding-y: var(--component-padding, 1rem);
+  --form-control-padding-y: var(--component-padding, 0.75rem);
   --form-control-background-color: var(--white);
   --form-control-color: var(--primary);
 
@@ -37,6 +38,7 @@
   margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
     calc(var(--form-control-padding-x) - var(--form-label-padding-x));
   font-size: var(--form-control-font-size);
+  line-height: var(--form-control-line-height);
 }
 
 %label-overlay-focus {
@@ -61,18 +63,27 @@
       calc(50% + calc(var(--form-control-border-width) / 2)),
     transparent calc(50% + calc(var(--form-control-border-width) / 2))
   );
-  transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
+  transform: translateY(
+    calc(
+      -0.5em * var(--form-control-line-height) - var(--form-control-padding-y)
+    )
+  );
 }
 
 %control {
   display: block;
   width: 100%;
-  height: calc(2 * var(--form-control-padding-y) + 1rem);
-  padding: calc(
-      var(--form-control-padding-y) - var(--form-control-border-width)
-    )
-    calc(var(--form-control-padding-x) - var(--form-control-border-width));
+  height: calc(
+    2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
+  );
+  padding-right: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
+  padding-left: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
   font-size: var(--form-control-font-size);
+  line-height: var(--form-control-line-height);
   background-color: var(--form-control-background-color);
   border: var(--form-control-border-width) solid var(--form-control-color);
   border-radius: var(--form-control-corner-radius);
