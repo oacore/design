@@ -7,11 +7,12 @@ Label before the input:
 ```jsx
 import FormLabel from './label';
 import FormControl from './control';
+import FormGroup from './group';
 
-<p>
+<FormGroup>
   <FormLabel>Label</FormLabel>
   <FormControl defaultValue="Hello" />
-</p>
+</FormGroup>
 ```
 
 Label after the input:
@@ -19,11 +20,12 @@ Label after the input:
 ```jsx
 import FormLabel from './label';
 import FormControl from './control';
+import FormGroup from './group';
 
-<p style={{ position: 'relative' }}>
+<FormGroup>
   <FormControl placeholder="Placeholder" />
   <FormLabel>Label</FormLabel>
-</p>
+</FormGroup>
 ```
 
 #### Select
@@ -31,14 +33,15 @@ import FormControl from './control';
 ```jsx
 import FormLabel from './label';
 import FormControl from './control';
+import FormGroup from './group';
 
-<p style={{ position: 'relative' }}>
+<FormGroup>
   <FormControl type="select" defaultValue="Lorem">
     <option>Lorem</option>
     <option>Ipsum</option>
   </FormControl>
   <FormLabel>Label</FormLabel>
-</p>
+</FormGroup>
 ```
 
 #### Textarea
@@ -46,9 +49,10 @@ import FormControl from './control';
 ```js
 import FormLabel from './label';
 import FormControl from './control';
+import FormGroup from './group';
 
-<p style={{ position: 'relative' }}>
+<FormGroup>
   <FormControl type="textarea" placeholder="Hello world!" />
   <FormLabel>Label</FormLabel>
-</p>
+</FormGroup>
 ```
