@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from 'react'
 import Button from '../button';
 
 const AnimatedProgress = () => {
-  const timeoutRef = useRef()
+  const timeoutRef = useRef(null)
   
   const [value, setValue] = useState(0)
   const maxValue = 100
