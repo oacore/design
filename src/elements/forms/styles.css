@@ -20,7 +20,10 @@
   --textarea-line-count: 3;
 }
 
-/* Generics */
+/**
+ * Generics
+ * =============================================================================
+ */
 
 %label {
   display: block;
@@ -196,8 +199,13 @@ select.control:not([multiple]):not([size]) {
   transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
 }
 
-/* Focussed control */
-.focus {
+/**
+ * Focussed control
+ *
+ * Artificially increase specificity to prevent global selectors override this
+ */
+
+.focus.focus {
   & ~ .label {
     @extend %label-overlay-focus;
   }
@@ -214,4 +222,64 @@ select.control:not([multiple]):not([size]) {
 
 .group {
   position: relative;
+}
+
+/**
+ * Global
+ * =============================================================================
+ */
+
+label {
+  @extend %label;
+}
+
+::placeholder {
+  @extend %placeholder;
+}
+
+input:not([type]),
+[type='text'],
+[type='search'],
+[type='password'],
+[type='email'],
+[type='number'],
+[type='tel'],
+[type='url'],
+[type='date'],
+[type='datetime-local'],
+[type='time'],
+[type='week'],
+[type='month'],
+select,
+textarea {
+  @extend %control;
+
+  & ~ label {
+    @extend %label;
+    @extend %label-overlay;
+  }
+
+  &:focus ~ label {
+    @extend %label-overlay-focus;
+  }
+
+  &::placeholder {
+    @extend %placeholder-hidden;
+  }
+
+  &:focus::placeholder {
+    @extend %placeholder-shown;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:disabled,
+  &:read-only,
+  &:disabled ~ label,
+  &:read-only ~ label {
+    --form-control-color: var(--gray-500);
+    --form-label-color: var(--gray-500);
+  }
 }

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
+import FormGroup from './group'
+import FormLabel from './label'
+import FormControl from './control'
 import styles from './text-field.css'
 
 import { classNames } from 'utils'
@@ -30,7 +33,8 @@ const TextField = React.forwardRef(
       variant = 'normal',
       size = 'default',
       labelSrOnly = false,
-      tag: Tag = 'div',
+      // keeping tag being 'div' for the backward consistency temporarily
+      tag = 'div',
       placeholder = variant === 'pure' ? label : undefined,
       ...inputProps
     },
@@ -39,10 +43,10 @@ const TextField = React.forwardRef(
     const controlId = [id, 'control'].join('-')
     const [isTouched, setIsTouched] = useState(false)
     return (
-      <Tag
+      <FormGroup
         id={id}
         className={classNames
-          .use('container', {
+          .use({
             // 'focus' should be applied directly to the control
             [variant]: !['normal'].includes(variant),
             [size]: size !== 'default',
@@ -50,30 +54,27 @@ const TextField = React.forwardRef(
           })
           .from(styles)
           .join(className)}
+        tag={tag}
       >
-        <input
+        <FormControl
           ref={ref}
           id={controlId}
           onBlur={() => !isTouched && setIsTouched(true)}
           aria-invalid={variant === 'error' ? 'true' : 'false'}
           aria-describedby={`${id}-helper`}
           placeholder={placeholder}
-          className={classNames
-            .use('control', isTouched && 'touched')
-            .from(styles)}
+          className={classNames.use(isTouched && styles.touched)}
+          focus={['error', 'success', 'focus'].includes(variant)}
           {...inputProps}
         />
         {children}
         <span id={`${id}-helper`} className={styles.helper}>
           {helper}
         </span>
-        <label
-          htmlFor={controlId}
-          className={classNames.use(styles.label, labelSrOnly && 'sr-only')}
-        >
+        <FormLabel htmlFor={controlId} className={labelSrOnly && 'sr-only'}>
           {label}
-        </label>
-      </Tag>
+        </FormLabel>
+      </FormGroup>
     )
   }
 )
