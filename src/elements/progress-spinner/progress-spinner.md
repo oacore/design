@@ -28,7 +28,7 @@ const AnimatedProgress = () => {
     }
     
     return () => clearTimeout(timeoutRef.current)
-  })
+  }, [value])
 
   return (
     <>
