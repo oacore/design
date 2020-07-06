@@ -3,8 +3,8 @@
  * via 'build-config' binary command from dependent project's local .designrc
  */
 
-const publicPath = '/assets'
-const iconsPublicPath = `${publicPath}/icons.svg`
+const publicPath = '/'
+const iconsPublicPath = `${publicPath}icons.svg`
 const config = { publicPath, iconsPublicPath }
 
 export default config
