@@ -4,7 +4,7 @@ const path = require('path')
 const loadConfig = require('../../config')
 
 const escapeString = (s) => s.replace(/"/g, '\\"')
-const genrateValue = (stringOrNull) =>
+const generateValue = (stringOrNull) =>
   stringOrNull == null ? 'null' : `"${escapeString(stringOrNull)}"`
 
 // generated with Babel, edited by hand
@@ -18,8 +18,8 @@ const generatePublicConfig = ({ publicPath, iconsPublicPath }) => `
  */
 
 var config = {
-  publicPath: ${genrateValue(publicPath)},
-  iconsPublicPath: ${genrateValue(iconsPublicPath)}
+  publicPath: ${generateValue(publicPath)},
+  iconsPublicPath: ${generateValue(iconsPublicPath)}
 };
 
 exports.__esModule = true;
