@@ -12,7 +12,7 @@ const handler = async () => {
 }
 
 const builder = (yargs) =>
-  yargs.command(require('./config')).command(require('./icons')).help()
+  yargs.command(configCommand).command(iconsCommand).help()
 
 if (require.main === module) {
   require('yargs')
