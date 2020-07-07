@@ -21,10 +21,31 @@ Label after the input:
 import FormLabel from './label';
 import FormControl from './control';
 import FormGroup from './group';
+import FormAddon from './addon';
 
 <FormGroup>
-  <FormControl placeholder="Placeholder" />
-  <FormLabel>Label</FormLabel>
+  <FormAddon place="prepend">$</FormAddon>
+  <FormAddon place="append">.00</FormAddon>
+  <FormControl type="number" id="example-input-2" placeholder="e.g. 10" />
+  <FormLabel htmlFor="example-input-2">Amount</FormLabel>
+</FormGroup>
+```
+
+Input with a progress indicator:
+
+```jsx
+import FormLabel from './label';
+import FormControl from './control';
+import FormGroup from './group';
+import FormAddon from './addon';
+import ProgressSpinner from '../progress-spinner';
+
+<FormGroup>
+  <FormAddon>
+    <ProgressSpinner />
+  </FormAddon>
+  <FormControl type="number" id="example-input-2" placeholder="e.g. 10" />
+  <FormLabel htmlFor="example-input-2">Amount</FormLabel>
 </FormGroup>
 ```
 
