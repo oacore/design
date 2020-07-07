@@ -27,6 +27,7 @@
 
 %label {
   display: block;
+  flex-grow: 1;
   margin-bottom: 0.5rem;
   line-height: 1;
   color: var(--form-label-color);
@@ -37,8 +38,6 @@
 
 %label-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
   padding: var(--form-label-padding-y) var(--form-label-padding-x);
   margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
     calc(var(--form-control-padding-x) - var(--form-label-padding-x));
@@ -77,6 +76,7 @@
 
 %control {
   display: block;
+  flex-grow: 1;
   width: 100%;
   height: calc(
     2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
@@ -222,6 +222,20 @@ select.control:not([multiple]):not([size]) {
 
 .group {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+  /**
+   * Since we use overflow for the group, we should add the inner spacing
+   * to display the label on focus and a negative outer spacing to fix extra
+   * spacing of the input inside.
+   *
+   * It's a workaround that makes the margin-top using @deprecated. We must
+   * be careful taking such approach.
+   */
+  padding-top: calc(0.5 * var(--form-label-font-size));
+  margin-top: calc(-0.5 * var(--form-label-font-size));
+  overflow-x: hidden;
 }
 
 /**
