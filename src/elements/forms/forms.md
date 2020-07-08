@@ -44,8 +44,8 @@ import ProgressSpinner from '../progress-spinner';
   <FormAddon>
     <ProgressSpinner />
   </FormAddon>
-  <FormControl type="number" id="example-input-2" placeholder="e.g. 10" />
-  <FormLabel htmlFor="example-input-2">Amount</FormLabel>
+  <FormControl type="text" id="example-input-3" placeholder="e.g. 10" />
+  <FormLabel htmlFor="example-input-3">Amount</FormLabel>
 </FormGroup>
 ```
 

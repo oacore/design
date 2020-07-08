@@ -26,6 +26,7 @@
  */
 
 %label {
+  box-sizing: border-box;
   display: block;
   flex-grow: 1;
   width: 100%;
@@ -35,7 +36,6 @@
   border-radius: var(--form-control-corner-radius, 2px);
   transition: 150ms;
   transform-origin: left;
-  box-sizing: border-box;
 }
 
 %label-overlay {
@@ -48,15 +48,14 @@
     calc(var(--form-control-padding-x) - var(--form-label-padding-x));
   font-size: var(--form-control-font-size);
   line-height: var(--form-control-line-height);
-  will-change: width;
   background-color: var(--form-control-background-color);
 }
 
 %label-overlay-focus {
   width: auto;
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
   font-size: var(--form-label-font-size);
   background-color: var(--form-control-background-color);
-  padding: var(--form-label-padding-y) var(--form-label-padding-x);
 
   /**
    * A line on top of the input border
