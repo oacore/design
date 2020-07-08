@@ -40,6 +40,7 @@
 
 %label-overlay {
   position: absolute;
+  z-index: 100;
   width: calc(
     100% - 2 * calc(var(--form-control-padding-x) - var(--form-label-padding-x))
   );
