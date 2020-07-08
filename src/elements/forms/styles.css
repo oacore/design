@@ -296,17 +296,6 @@ select.control:not([multiple]):not([size]) {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-
-  /**
-   * Since we use overflow for the group, we should add the inner spacing
-   * to display the label on focus and a negative outer spacing to fix extra
-   * spacing of the input inside.
-   *
-   * It's a workaround that makes the margin-top using @deprecated. We must
-   * be careful taking such approach.
-   */
-  padding-top: calc(0.5 * var(--form-label-font-size));
-  margin-top: calc(-0.5 * var(--form-label-font-size));
 }
 
 /**
