@@ -8,7 +8,7 @@
 <Button variant="text">Text</Button>
 ```
 
-### Link
+### Button as a link
 
 ```jsx
 <Button variant="contained" href="#" tag="a">Next</Button>
