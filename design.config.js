@@ -27,7 +27,7 @@ const path = require('path')
 
 const isDev = process.env.NODE_ENV !== 'production'
 
-const icons = []
+const icons = ['open-in-new']
 
 // icons used in documentation
 if (isDev) icons.push('check', 'file-check')
