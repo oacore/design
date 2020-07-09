@@ -32,7 +32,7 @@ Example with a password:
   id="login-password"
   type="password"
   name="password"
-  minlength="8"
+  minLength="8"
   label="Password"
   placeholder="🔒 Something secure"
   helper="Should be at least 8 characters length."
@@ -70,11 +70,12 @@ screen-readers.
 
 ```jsx
 <TextField
-  variant="pure"
   id="example-pure"
+  label="Name"
   name="name"
+  variant="pure"
   placeholder="e.g. John Doe"
-  autocomplete="name"
+  autoComplete="name"
 />
 ```
 
@@ -116,7 +117,7 @@ Example with success message:
   id="example-success"
   name="user-name"
   label="User name"
-  value="john"
+  defaultValue="john"
   helper="Nice to meet you john!"
   variant="success"
 />
@@ -129,7 +130,7 @@ Example with disabled input:
   id="disabled-input"
   name="disabled-input"
   label="Disabled input"
-  value="Disabled input"
+  defaultValue="Disabled input"
   variant="success"
   disabled
 />

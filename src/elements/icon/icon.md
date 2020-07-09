@@ -18,7 +18,7 @@ example.
 
 ```jsx
 <button type="button">
-  <Icon src="check.svg" aria-hidden />
+  <Icon src="check.svg" alt="Check icon" aria-hidden />
   OK
 </button>
 ```
