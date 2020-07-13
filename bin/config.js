@@ -1,5 +1,6 @@
 const path = require('path')
 
+const merge = require('deepmerge')
 const { cosmiconfig } = require('cosmiconfig')
 
 const defaultConfig = {
@@ -27,15 +28,6 @@ const doc = {
     'config.icons should be either string, array or an object { files, path }',
 }
 
-const read = async (filepath) => {
-  const explorer = cosmiconfig('design')
-  if (filepath != null) return explorer.load(filepath)
-
-  const config = await explorer.search()
-
-  return config == null ? { config: defaultConfig } : config
-}
-
 const appendExtension = (file, ext) =>
   new RegExp(`${ext}$`).test(file) ? file : `${file}${ext}`
 
@@ -54,49 +46,59 @@ const prepareIcons = (input) => {
   return files
 }
 
-const prepareOutput = (output) => {
-  const result = {
-    ...defaultConfig.output,
-    icons: { ...defaultConfig.output.icons },
-  }
+const mergeAndPrepareConfigs = (...configs) => {
+  // Create absolute path for icons so they can be merged
+  configs.forEach(({ config }) => {
+    if ((config || {}).icons) config.icons = prepareIcons(config.icons)
+  })
+  const mergedConfig = merge.all(configs)
+  const {
+    config: { output },
+  } = mergedConfig
+  if (output.icons.files)
+    output.icons.files = path.resolve(output.path, output.icons.files)
 
-  if (typeof output == 'string') result.path = output
-  else {
-    if (output.path) result.path = output.path
-    if (output.publicPath) result.publicPath = output.publicPath
+  if (output.icons.sprite)
+    output.icons.sprite = path.resolve(output.path, output.icons.sprite)
 
-    if (typeof output.icons == 'boolean')
-      result.icons = { ...defaultConfig.output.icons }
-    else if (typeof output.icons == 'string') {
-      result.icons = {
-        files: /.svg$/.test(output.icons) ? null : output.icons,
-        sprite: appendExtension(output.icons, '.svg'),
-      }
-    } else result.icons = { ...output.icons }
-
-    if (result.icons.files)
-      result.icons.files = path.resolve(result.path, result.icons.files)
-    if (result.icons.sprite)
-      result.icons.sprite = path.resolve(result.path, result.icons.sprite)
-  }
-
-  return result
+  return mergedConfig
 }
 
-const prepare = (config) => {
-  const icons = prepareIcons(config.icons)
-  const output = prepareOutput(config.output)
-  const svgo = { ...defaultConfig.svgo, ...config.svgo }
-  return { icons, output, svgo }
+const loadConfigs = async () => {
+  const explorer = cosmiconfig('design', {
+    stopDir: '/',
+  })
+
+  // load all configs
+  const configs = []
+  let searchFrom = process.cwd()
+  do {
+    // eslint-disable-next-line no-await-in-loop
+    const result = await explorer.search(searchFrom)
+    if (result) {
+      configs.push(result)
+      // to avoid infinite loop when config is places under /design.config.js
+      if (searchFrom === '/') break
+      searchFrom = path.resolve(path.dirname(result.filepath), '../')
+    } else searchFrom = null
+  } while (searchFrom != null)
+
+  return configs
 }
 
-const load = async (initialFilepath) => {
-  const configResult = await read(initialFilepath)
-  const { filepath: actualFilepath, config: userConfig } = configResult
-  const config = prepare(userConfig)
+const load = async () => {
+  const cosmicConfigs = await loadConfigs()
+  const { config } = mergeAndPrepareConfigs(
+    { config: defaultConfig },
+    ...cosmicConfigs
+  )
 
-  if (actualFilepath) console.log(`Using config from ${actualFilepath}`)
-  else console.log('Using default config')
+  if (cosmicConfigs.length) {
+    console.log(`Merged ${cosmicConfigs.length} configs from:`)
+    cosmicConfigs.forEach(({ filepath }) => {
+      console.log(`\t ${filepath}`)
+    })
+  } else console.log('Using default config')
 
   return config
 }
