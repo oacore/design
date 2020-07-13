@@ -64,10 +64,7 @@ module.exports = {
       },
     },
   },
-  assetsDir: path.join(
-    path.dirname(require.resolve('@mdi/svg/package.json')),
-    './svg'
-  ),
+  assetsDir: 'public',
 
   require: [path.join(__dirname, 'src/index.css')],
 
