@@ -30,7 +30,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 const icons = []
 
 // icons used in documentation
-if (isDev) icons.push('check')
+if (isDev) icons.push('check', 'file-check')
 
 const iconsRoot = path.join(
   path.dirname(require.resolve('@mdi/svg/package.json')),
