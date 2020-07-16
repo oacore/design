@@ -1,0 +1,10 @@
+.logo {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.logo-icon {
+  margin-top: -0.125rem;
+}
