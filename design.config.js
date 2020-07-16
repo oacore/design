@@ -27,10 +27,10 @@ const path = require('path')
 
 const isDev = process.env.NODE_ENV !== 'production'
 
-const icons = ['open-in-new']
+const icons = ['check', 'alert-circle-outline', 'open-in-new']
 
 // icons used in documentation
-if (isDev) icons.push('check', 'file-check')
+if (isDev) icons.push('file-check')
 
 const iconsRoot = path.join(
   path.dirname(require.resolve('@mdi/svg/package.json')),

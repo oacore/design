@@ -229,6 +229,9 @@ select.control:not([multiple]):not([size]) {
 }
 
 .addon {
+  --icon-color: var(--form-control-color);
+  --progress-spinner-color: var(--form-control-color);
+
   display: inline-flex;
   padding-top: calc(
     var(--form-control-padding-y) - var(--form-control-border-width)
