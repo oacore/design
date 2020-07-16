@@ -27,7 +27,10 @@ const path = require('path')
 
 const isDev = process.env.NODE_ENV !== 'production'
 
-const icons = ['open-in-new']
+const icons = [
+  'open-in-new',
+  path.resolve(__dirname, './assets/core-symbol.svg'),
+]
 
 // icons used in documentation
 if (isDev) icons.push('check', 'file-check')
