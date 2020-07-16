@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import FormGroup from './group'
-import FormLabel from './label'
-import FormControl from './control'
+import ProgressSpinner from '../progress-spinner'
+import Icon from '../icon'
+import Group from './group'
+import Label from './label'
+import Control from './control'
+import Addon from './addon'
 import styles from './text-field.css'
 
 import { classNames } from 'utils'
@@ -22,6 +25,22 @@ import { classNames } from 'utils'
  */
 const generateId = () => Math.random().toString(36).substr(2, 9)
 
+const Status = ({ value, variant, progress, ...restProps }) => (
+  <Addon {...restProps}>
+    {typeof value == 'string' ? (
+      <Icon src={value} aria-hidden />
+    ) : (
+      {
+        valid: <Icon src="#check" aria-hidden />,
+        success: <Icon src="#check" aria-hidden />,
+        invalid: <Icon src="#alert-circle-outline" aria-hidden />,
+        error: <Icon src="#alert-circle-outline" aria-hidden />,
+        progress: <ProgressSpinner value={progress} />,
+      }[variant]
+    )}
+  </Addon>
+)
+
 const TextField = React.forwardRef(
   (
     {
@@ -30,6 +49,8 @@ const TextField = React.forwardRef(
       className,
       label,
       helper,
+      statusIcon,
+      progress,
       variant = 'normal',
       size = 'normal',
       labelSrOnly = false,
@@ -41,10 +62,11 @@ const TextField = React.forwardRef(
     ref
   ) => {
     const controlId = [id, 'control'].join('-')
+
     const [isTouched, setIsTouched] = useState(false)
 
     return (
-      <FormGroup
+      <Group
         id={id}
         className={classNames
           .use({
@@ -57,14 +79,17 @@ const TextField = React.forwardRef(
           .join(className)}
         tag={tag}
       >
-        <FormControl
+        {statusIcon != null && (
+          <Status value={statusIcon} variant={variant} progress={progress} />
+        )}
+        <Control
           ref={ref}
           id={controlId}
-          onBlur={() => !isTouched && setIsTouched(true)}
-          aria-invalid={variant === 'error' ? 'true' : 'false'}
-          aria-describedby={`${id}-helper`}
-          placeholder={placeholder}
           className={classNames.use(isTouched && styles.touched)}
+          onBlur={() => !isTouched && setIsTouched(true)}
+          aria-invalid={variant === 'error'}
+          aria-describedby={`${id}-message`}
+          placeholder={placeholder}
           focus={['error', 'success', 'focus'].includes(variant)}
           {...inputProps}
         />
@@ -72,10 +97,10 @@ const TextField = React.forwardRef(
         <span id={`${id}-helper`} className={styles.helper}>
           {helper}
         </span>
-        <FormLabel htmlFor={controlId} className={labelSrOnly && 'sr-only'}>
+        <Label htmlFor={controlId} className={labelSrOnly && 'sr-only'}>
           {label}
-        </FormLabel>
-      </FormGroup>
+        </Label>
+      </Group>
     )
   }
 )
@@ -113,10 +138,34 @@ TextField.propTypes = {
   /**
    * Helper variation. Affects label position and the colour.
    *
-   * Avoid using `pure`` with no `placeholder`, prefer to explicitly set it.
-   * However, if you don't, the `placeholder`` repeats the label text.
+   * Avoid using `pure` with no `placeholder`, prefer to explicitly set it.
+   * However, if you don't, the `placeholder` repeats the label text.
    */
-  variant: PropTypes.oneOf(['normal', 'pure', 'focus', 'success', 'error']),
+  variant: PropTypes.oneOf([
+    'normal',
+    'pure',
+    'focus',
+    'success',
+    'error',
+    'progress',
+  ]),
+  /**
+   * Adds a status icon to TextField at the right side of the input.
+   *
+   * If boolean is passed (preferable), the icon is based on the `variant`.
+   *
+   * If a `string` is passed, it's resolved as the icon path.
+   */
+  statusIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  /**
+   * A number between `[0-1]` if you have determinate progress indication
+   * for the particular text field.
+   *
+   * If not passed, the progress indicator appears in indeterminate state.
+   *
+   * Has no effect if the `variant` is different than `progress`.
+   */
+  progress: PropTypes.number,
 }
 
 export default TextField

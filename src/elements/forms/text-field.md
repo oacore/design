@@ -93,18 +93,19 @@ Example `focus` variant (label on top):
 />
 ```
 
-#### Error
+#### Progress
 
-Example with error message:
+Example with progress icon:
 
 ```jsx
 <TextField
-  variant="error"
-  id="example-error"
+  id="example-success"
   name="user-name"
   label="User name"
-  placeholder="e.g. john"
-  helper="User name is required"
+  defaultValue="john"
+  helper="Checking username availability"
+  variant="progress"
+  statusIcon
 />
 ```
 
@@ -120,6 +121,23 @@ Example with success message:
   defaultValue="john"
   helper="Nice to meet you john!"
   variant="success"
+  statusIcon
+/>
+```
+
+#### Error
+
+Example with error message:
+
+```jsx
+<TextField
+  id="example-error"
+  name="user-name"
+  label="User name"
+  placeholder="e.g. john"
+  helper="User name is required"
+  variant="error"
+  statusIcon
 />
 ```
 
