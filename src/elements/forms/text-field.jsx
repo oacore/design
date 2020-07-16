@@ -31,7 +31,7 @@ const TextField = React.forwardRef(
       label,
       helper,
       variant = 'normal',
-      size = 'default',
+      size = 'normal',
       labelSrOnly = false,
       // keeping tag being 'div' for the backward consistency temporarily
       tag = 'div',
@@ -42,6 +42,7 @@ const TextField = React.forwardRef(
   ) => {
     const controlId = [id, 'control'].join('-')
     const [isTouched, setIsTouched] = useState(false)
+
     return (
       <FormGroup
         id={id}
@@ -97,7 +98,7 @@ TextField.propTypes = {
   /**
    * Size variation. Affects height only.
    */
-  size: PropTypes.oneOf(['default', 'small', 'large']),
+  size: PropTypes.oneOf(['normal', 'small', 'large']),
   /**
    * An ID that will be used to link input and label. It's necessary for
    * accessibility.
