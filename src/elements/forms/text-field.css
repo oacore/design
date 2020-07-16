@@ -6,6 +6,8 @@
 
 .helper {
   display: block;
+  order: 100;
+  width: 100%;
   padding-right: var(--form-control-padding-x);
   padding-left: var(--form-control-padding-x);
   margin-top: calc(1.5rem - 1em);

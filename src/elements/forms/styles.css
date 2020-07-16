@@ -26,8 +26,10 @@
  */
 
 %label {
+  box-sizing: border-box;
   display: block;
   flex-grow: 1;
+  width: 100%;
   margin-bottom: 0.5rem;
   line-height: 1;
   color: var(--form-label-color);
@@ -38,14 +40,21 @@
 
 %label-overlay {
   position: absolute;
+  z-index: 100;
+  width: calc(
+    100% - 2 * calc(var(--form-control-padding-x) - var(--form-label-padding-x))
+  );
   padding: var(--form-label-padding-y) var(--form-label-padding-x);
   margin: calc(var(--form-control-padding-y) - var(--form-label-padding-y))
     calc(var(--form-control-padding-x) - var(--form-label-padding-x));
   font-size: var(--form-control-font-size);
   line-height: var(--form-control-line-height);
+  background-color: var(--form-control-background-color);
 }
 
 %label-overlay-focus {
+  width: auto;
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
   font-size: var(--form-label-font-size);
   background-color: var(--form-control-background-color);
 
@@ -77,7 +86,6 @@
 %control {
   display: block;
   flex-grow: 1;
-  width: 100%;
   height: calc(
     2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
   );
@@ -92,6 +100,7 @@
   background-color: var(--form-control-background-color);
   border: var(--form-control-border-width) solid var(--form-control-color);
   border-radius: var(--form-control-corner-radius);
+  caret-color: var(--form-control-color);
 
   &:focus {
     outline: none;
@@ -131,6 +140,7 @@
 
 .control {
   @extend %control;
+  order: 10;
 }
 
 /* Apply more specific rules for the <textarea> and <select> elements */
@@ -181,6 +191,25 @@ select.control:not([multiple]):not([size]) {
 
 .control ~ .label {
   @extend %label-overlay;
+
+  &::before {
+    position: absolute;
+    top: calc(-1 * var(--form-control-padding-y) + 2px);
+    left: calc(-1 * var(--form-control-padding-x) + 4px);
+    z-index: 100;
+    width: 2000px;
+    height: calc(
+      2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
+    );
+    cursor: text;
+    content: '';
+    border-radius: var(--form-control-corner-radius);
+  }
+}
+
+.control:focus ~ .label::before,
+.control:not(:placeholder-shown) ~ .label::before {
+  display: none;
 }
 
 .control:matches(:focus, :not(:placeholder-shown)) ~ .label {
@@ -197,6 +226,51 @@ select.control:not([multiple]):not([size]) {
   font-size: var(--form-label-font-size);
   background-color: var(--form-control-background-color);
   transform: translateY(calc(-0.5em - var(--form-control-padding-y)));
+}
+
+.addon {
+  display: inline-flex;
+  padding-top: calc(
+    var(--form-control-padding-y) - var(--form-control-border-width)
+  );
+  padding-right: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
+  padding-bottom: calc(
+    var(--form-control-padding-y) - var(--form-control-border-width)
+  );
+  padding-left: calc(
+    var(--form-control-padding-x) - var(--form-control-border-width)
+  );
+  background-color: var(--form-control-background-color);
+  border: var(--form-control-border-width) solid var(--form-control-color);
+  border-radius: var(--form-control-corner-radius);
+}
+
+.addon.prepend {
+  order: 5;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  & ~ .control {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.addon.append {
+  order: 15;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  & ~ .control {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 /**
@@ -224,18 +298,6 @@ select.control:not([multiple]):not([size]) {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-
-  /**
-   * Since we use overflow for the group, we should add the inner spacing
-   * to display the label on focus and a negative outer spacing to fix extra
-   * spacing of the input inside.
-   *
-   * It's a workaround that makes the margin-top using @deprecated. We must
-   * be careful taking such approach.
-   */
-  padding-top: calc(0.5 * var(--form-label-font-size));
-  margin-top: calc(-0.5 * var(--form-label-font-size));
-  overflow-x: hidden;
 }
 
 /**
