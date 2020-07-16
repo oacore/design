@@ -229,6 +229,7 @@ select.control:not([multiple]):not([size]) {
 }
 
 .addon {
+  display: inline-flex;
   padding-top: calc(
     var(--form-control-padding-y) - var(--form-control-border-width)
   );
