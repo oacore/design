@@ -38,11 +38,13 @@
 }
 
 .indeterminate {
+  will-change: transform;
   animation: rotate 7.5s linear infinite;
 }
 
 .indeterminate circle {
   transform-origin: center;
+  will-change: stroke-dashoffset, transform;
   animation: dash 1.5s ease-in-out infinite;
   stroke-dasharray: 64;
   stroke-dashoffset: 0;
