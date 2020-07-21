@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: 'src/elements/!(table|app-bar)/**/*.{js,jsx,ts,tsx}',
+      components: 'src/elements/!(table|app-bar|forms)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'App Bar',
@@ -35,6 +35,17 @@ module.exports = {
             'src/elements/table/row.jsx',
             'src/elements/table/cell.jsx',
             'src/elements/table/footer.jsx',
+          ],
+        },
+        {
+          name: 'Forms',
+          content: './src/elements/forms/forms.md',
+          components: () => [
+            'src/elements/forms/form.jsx',
+            'src/elements/forms/addon.jsx',
+            'src/elements/forms/control.jsx',
+            'src/elements/forms/group.jsx',
+            'src/elements/forms/text-field.jsx',
           ],
         },
       ],
