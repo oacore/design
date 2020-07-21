@@ -5,7 +5,7 @@ import styles from './styles.css'
 
 import { classNames } from 'utils'
 
-const InputAddon = ({
+const Addon = ({
   place,
   className,
   children,
@@ -20,12 +20,12 @@ const InputAddon = ({
   </Tag>
 )
 
-InputAddon.propTypes = {
+Addon.propTypes = {
   place: PropTypes.oneOf(['append', 'prepend']),
 }
 
-InputAddon.defaultProps = {
+Addon.defaultProps = {
   place: 'append',
 }
 
-export default InputAddon
+export default Addon
