@@ -4,6 +4,11 @@
   --form-helper-color: var(--gray-600);
 }
 
+%placeholder-shown {
+  opacity: 0.6;
+  transform: translateY(0);
+}
+
 .helper {
   display: block;
   order: 100;
