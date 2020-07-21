@@ -110,4 +110,7 @@ module.exports = {
       extensions: ['.js', '.jsx'],
     },
   },
+
+  getExampleFilename: (componentPath) =>
+    componentPath.replace(/\.jsx?$/, '.md'),
 }
