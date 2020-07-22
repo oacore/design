@@ -194,10 +194,15 @@ select.control:not([multiple]):not([size]) {
 
   &::before {
     position: absolute;
-    top: calc(-1 * var(--form-control-padding-y) + 2px);
-    left: calc(-1 * var(--form-control-padding-x) + 4px);
+    top: calc(-1 * var(--form-control-padding-y) + var(--form-label-padding-y));
+    left: calc(
+      -1 * var(--form-control-padding-x) + var(--form-label-padding-x)
+    );
     z-index: 100;
-    width: 2000px;
+    width: calc(
+      100% + -2 * var(--form-label-padding-x) + 2 *
+        var(--form-control-padding-x)
+    );
     height: calc(
       2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
     );
