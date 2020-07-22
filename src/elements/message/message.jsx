@@ -6,11 +6,21 @@ import styles from './message.css'
 import { classNames } from 'utils'
 
 const Message = React.forwardRef(
-  ({ children, className, variant, tag: Tag = 'p', ...restProps }, ref) => (
+  (
+    {
+      children,
+      className,
+      variant,
+      tag: Tag = 'p',
+      fill = false,
+      ...restProps
+    },
+    ref
+  ) => (
     <Tag
       ref={ref}
       className={classNames
-        .use('message', variant)
+        .use('message', variant, fill && 'fill')
         .from(styles)
         .join(className)}
       {...restProps}
@@ -25,6 +35,15 @@ Message.propTypes = {
    * Defines color scheme of the message
    */
   variant: PropTypes.oneOf(['success', 'warning', 'danger']),
+
+  /**
+   * Indicates whether message should have colored or transparent background
+   */
+  fill: PropTypes.bool,
+}
+
+Message.defaultProps = {
+  fill: false,
 }
 
 export default Message
