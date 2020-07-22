@@ -34,7 +34,7 @@
   line-height: 1;
   color: var(--form-label-color);
   border-radius: var(--form-control-corner-radius, 2px);
-  transition: 150ms;
+  transition: all 150ms ease -50ms;
   transform-origin: left;
 }
 
