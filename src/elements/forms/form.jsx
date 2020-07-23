@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react'
 
-const Form = ({ children, ...restProps }, ref) => (
+const Form = forwardRef(({ children, ...restProps }, ref) => (
   <form ref={ref} {...restProps}>
     {children}
   </form>
-)
+))
 
-export default forwardRef(Form)
+export default Form
