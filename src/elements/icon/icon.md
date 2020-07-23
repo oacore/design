@@ -1,8 +1,8 @@
 ## Accessible icon
 
-Provide alternative text in `alt` prop for tech assistive users accessibility.
+Provide alternative text in `alt` prop for tech assistive user's accessibility.
 
-The component will add a `<title>` to inlined SVG element,
+The component will add a `arial-label` to inlined SVG element,
 so screen readers will be able to read it.
 
 ```jsx

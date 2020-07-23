@@ -19,9 +19,9 @@ const Icon = ({ src, alt, className, ...restProps }) => (
   <svg
     className={classNames.use(iconClassNames.icon).join(className)}
     role="img"
+    aria-label={alt}
     {...restProps}
   >
-    <title>{alt}</title>
     <use href={resolve(src)} />
   </svg>
 )
@@ -37,7 +37,7 @@ Icon.propTypes = {
   /**
    * Alternative text for accessibility
    */
-  alt: PropTypes.string.isRequired,
+  alt: PropTypes.string,
 }
 
 export default Icon
