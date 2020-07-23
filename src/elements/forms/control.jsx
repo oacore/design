@@ -1,16 +1,13 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import styles from './styles.css'
 
 import { classNames } from 'utils'
 
-const FormControl = ({
-  type: controlType,
-  children,
-  className,
-  focus,
-  ...htmlProps
-}) => {
+const FormControl = (
+  { type: controlType, children, className, focus, ...htmlProps },
+  ref
+) => {
   const Tag = ['select', 'textarea'].includes(controlType)
     ? controlType
     : 'input'
@@ -18,6 +15,7 @@ const FormControl = ({
 
   return (
     <Tag
+      ref={ref}
       type={type}
       className={classNames
         .use(styles.control, focus && styles.focus)
@@ -29,4 +27,4 @@ const FormControl = ({
   )
 }
 
-export default FormControl
+export default forwardRef(FormControl)

@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import styles from './styles.css'
 
 import { classNames } from 'utils'
 
-const FormGroup = ({ children, className, tag: Tag = 'p', ...htmlProps }) => (
-  <Tag className={classNames.use(styles.group).join(className)} {...htmlProps}>
+const FormGroup = (
+  { children, className, tag: Tag = 'p', ...htmlProps },
+  ref
+) => (
+  <Tag
+    ref={ref}
+    className={classNames.use(styles.group).join(className)}
+    {...htmlProps}
+  >
     {children}
   </Tag>
 )
 
-export default FormGroup
+export default forwardRef(FormGroup)
