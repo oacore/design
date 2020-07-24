@@ -71,7 +71,7 @@ const loadConfigs = async () => {
 
   // load all configs
   const configs = []
-  let searchFrom = process.cwd()
+  let searchFrom = __dirname
   do {
     // eslint-disable-next-line no-await-in-loop
     const result = await explorer.search(searchFrom)
