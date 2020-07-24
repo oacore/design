@@ -134,7 +134,7 @@ TextField.propTypes = {
   /**
    * Helper message to show bellow the input
    */
-  helper: PropTypes.string,
+  helper: PropTypes.node,
   /**
    * Helper variation. Affects label position and the colour.
    *
