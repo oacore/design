@@ -306,7 +306,6 @@ select.control:not([multiple]):not([size]) {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  min-width: max-content;
 }
 
 /**
