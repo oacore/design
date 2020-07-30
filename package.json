@@ -55,6 +55,7 @@
   "dependencies": {
     "@babel/runtime": "^7.10.2",
     "@mdi/svg": "^5.3.45",
+    "babel-plugin-add-react-displayname": "0.0.5",
     "classnames": "^2.2.6",
     "cosmiconfig": "^6.0.0",
     "deepmerge": "^4.2.2",
