@@ -18,6 +18,7 @@ module.exports = {
       {
         alias: {
           utils: './src/utils',
+          elements: './src/elements',
         },
       },
     ],
@@ -27,5 +28,6 @@ module.exports = {
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-transform-runtime',
     ['css-modules-transform', cssModulesConfig],
+    'add-react-displayname',
   ],
 }
