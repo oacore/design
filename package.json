@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.4",
     "@oacore/eslint-config-react": "^1.0.6",
-    "@oacore/prettier-config": "^1.0.5",
+    "@oacore/prettier-config": "^1.0.6",
     "@oacore/stylelint-config-base": "^1.0.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
