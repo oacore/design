@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.0",
-    "@mdi/svg": "^5.3.45",
+    "@mdi/svg": "^5.4.55",
     "babel-plugin-add-react-displayname": "0.0.5",
     "classnames": "^2.2.6",
     "cosmiconfig": "^7.0.0",
