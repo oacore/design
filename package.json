@@ -57,7 +57,7 @@
     "@mdi/svg": "^5.3.45",
     "babel-plugin-add-react-displayname": "0.0.5",
     "classnames": "^2.2.6",
-    "cosmiconfig": "^6.0.0",
+    "cosmiconfig": "^7.0.0",
     "deepmerge": "^4.2.2",
     "prop-types": "^15.7.2",
     "sanitize.css": "^11.0.1",
