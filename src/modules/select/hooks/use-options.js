@@ -2,12 +2,21 @@ import React, { useState, useRef } from 'react'
 
 const useOptions = (
   children,
-  { selectId, onOptionSelected, hideOptionMenu }
+  { selectId, setIsInputFocused, setInputData }
 ) => {
   const selectMenuRef = useRef(null)
-  const [activeOptionId, setActiveOptionId] = useState(null)
+  const [activeOption, setActiveOption] = useState(null)
   // keep track on which element is currently clicked with onMouseDown event
   const [clickedElement, setClickedElement] = useState(null)
+
+  const changeActiveOption = (element, { hide } = { hide: true }) => {
+    setInputData({
+      value: element.props.value,
+      id: element.props['data-select-id'],
+    })
+    setActiveOption(element)
+    if (hide) setIsInputFocused(false)
+  }
 
   const options =
     React.Children.map(children, (element) => {
@@ -23,13 +32,12 @@ const useOptions = (
           setClickedElement(element.props.id)
         },
         'onMouseUp': (event) => {
-          if (clickedElement === element.props.id)
-            onOptionSelected(element.props.id)
+          if (clickedElement === element.props.id) changeActiveOption(element)
 
           setClickedElement(null)
           event.stopPropagation()
         },
-        'selected': element.props.id === activeOptionId,
+        'selected': element.props.id === activeOption?.props['data-select-id'],
       }
 
       return React.cloneElement(element, { ...element.props, ...overrideProps })
@@ -37,8 +45,10 @@ const useOptions = (
 
   const handleInputKeyEvent = (event) => {
     let pos =
-      options.findIndex((s) => s.props['data-select-id'] === activeOptionId) ||
-      options.length
+      options.findIndex(
+        (s) =>
+          s.props['data-select-id'] === activeOption?.props['data-select-id']
+      ) || options.length
 
     let direction = 1
     let suggestion = {}
@@ -46,13 +56,13 @@ const useOptions = (
     switch (event.key) {
       case 'Esc': // IE/Edge specific value
       case 'Escape':
-        hideOptionMenu()
+        setIsInputFocused(false)
         break
 
       case 'Enter':
         event.preventDefault()
         event.stopPropagation()
-        if (activeOptionId != null) onOptionSelected(activeOptionId)
+        setIsInputFocused(false)
         break
 
       case 'Up': // IE/Edge specific value
@@ -63,18 +73,21 @@ const useOptions = (
         event.stopPropagation()
         if (options.length === 0) return
 
-        if (activeOptionId == null) {
-          suggestion = options[0].props['data-select-id']
-          setActiveOptionId(suggestion)
+        if (activeOption == null) {
+          // eslint-disable-next-line prefer-destructuring
+          suggestion = options[0]
+          changeActiveOption(suggestion, { hide: false })
         } else {
           direction = ['ArrowDown', 'Down'].includes(event.key) ? 1 : -1
           pos = (pos + direction) % options.length
-          suggestion = options[pos].props['data-select-id']
-          setActiveOptionId(suggestion)
+          suggestion = options[pos]
+          changeActiveOption(suggestion, { hide: false })
         }
 
         selectMenuRef.current
-          .querySelector(`#suggestion-result-${selectId}-${suggestion}`)
+          .querySelector(
+            `#suggestion-result-${selectId}-${suggestion.props['data-select-id']}`
+          )
           .scrollIntoView(false)
         break
       default:
@@ -88,14 +101,14 @@ const useOptions = (
       clickedElement === null &&
       !(el && el.dataset.selectId === clickedElement)
     )
-      hideOptionMenu()
+      setIsInputFocused(false)
   }
 
   return [
     selectMenuRef,
     options,
-    activeOptionId,
-    setActiveOptionId,
+    activeOption,
+    setClickedElement,
     handleInputKeyEvent,
     handleInputBlurEvent,
   ]

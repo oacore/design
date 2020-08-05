@@ -1,2 +1,2 @@
-export useInputValue from './use-input-value'
+export useInput from './use-input'
 export useOptions from './use-options'

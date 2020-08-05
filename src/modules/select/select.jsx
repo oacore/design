@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 
-import { useInputValue, useOptions } from './hooks'
+import { useInput, useOptions } from './hooks'
 import styles from './select.css'
 
 import { Form, Icon, Button } from 'elements'
 import { classNames, generateId } from 'utils'
 
 const Select = ({
-  value,
-  onInputChange,
-  onOptionSelected,
+  initValue,
+  onInput,
+  onChange,
   className,
   children,
   prependIcon = null,
@@ -18,40 +18,29 @@ const Select = ({
   id = generateId(),
   ...restInputProps
 }) => {
-  // init refs
-  const inputRef = useRef(null)
-
-  // indicates whether suggestion menu is shown or not
-  const [isInputFocused, setIsInputFocused] = useState(false)
-
-  const hideOptionMenu = useCallback(() => {
-    // hide cursor from input field
-    inputRef.current.blur()
-    // hide suggestions menu
-    setIsInputFocused(false)
-  }, [])
-
-  const handleOptionSelect = useCallback((optionId) => {
-    onOptionSelected(optionId)
-    hideOptionMenu()
-  }, [])
-
   // custom select hooks
-  const [inputValue, setInputValue] = useInputValue(value, {
-    onInputChange,
+  const [
+    inputRef,
+    inputData,
+    setInputData,
+    isInputFocused,
+    setIsInputFocused,
+  ] = useInput(initValue, {
+    onInput,
+    onChange,
   })
 
   const [
     selectMenuRef,
     options,
-    activeOptionId,
-    setActiveOptionId,
+    activeOption,
+    setClickedElement,
     handleInputKeyEvent,
     handleInputBlurEvent,
   ] = useOptions(children, {
     selectId: id,
-    onOptionSelected: handleOptionSelect,
-    hideOptionMenu,
+    setIsInputFocused,
+    setInputData,
   })
 
   const handleMouseUp = useCallback((event) => {
@@ -63,9 +52,9 @@ const Select = ({
     )
       return
 
-    hideOptionMenu()
     // reset keyboard position in option menu
-    setActiveOptionId(null)
+    setClickedElement(null)
+    setIsInputFocused(false)
   }, [])
 
   // attach event listeners
@@ -98,10 +87,10 @@ const Select = ({
           <Button
             className={classNames.use(
               styles.clearOutButton,
-              inputValue && styles.show
+              inputData.value && styles.show
             )}
             onClick={() => {
-              setInputValue('')
+              setInputData({ value: '' })
               inputRef.current.focus()
             }}
           >
@@ -119,18 +108,19 @@ const Select = ({
           aria-autocomplete="both"
           aria-controls={`suggestion-results-${id}`}
           aria-activedescendant={
-            activeOptionId
-              ? `suggestion-result-${id}-${activeOptionId}`
+            activeOption?.props['data-select-id']
+              ? `suggestion-result-${id}-${activeOption.props['data-select-id']}`
               : undefined
           }
-          value={inputValue}
+          value={inputData.value}
           onFocus={() => {
             setIsInputFocused(true)
           }}
           onBlur={handleInputBlurEvent}
           onKeyDown={handleInputKeyEvent}
           onChange={(event) => {
-            setInputValue(event.target.value)
+            if (inputData.value === event.target.value) return
+            setInputData({ value: event.target.value })
           }}
           {...restInputProps}
         />
@@ -150,12 +140,12 @@ const Select = ({
 }
 
 Select.propTypes = {
-  /* Value shown in input field */
-  value: PropTypes.string,
+  /* Initial value shown in input field */
+  initValue: PropTypes.string,
   /* Callback function called whenever input changes */
-  onInputChange: PropTypes.func,
-  /* Callback function called whenever option from menu is selected */
-  onOptionSelected: PropTypes.func,
+  onInput: PropTypes.func,
+  /* Callback function called whenever input loses focus */
+  onChange: PropTypes.func,
   /* Custom classname applied on select wrapper */
   className: PropTypes.string,
   /* Icon to prepend before input */
