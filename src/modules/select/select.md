@@ -12,29 +12,29 @@
       {id: 5, icon: '#magnify', value: 'Option E' },
       {id: 6, icon: '#magnify', value: 'Option F' },
       {id: 7, value: 'Option G (without icon)' },
-
     ]
 
     const SelectExample = () => {
-        const [value, setValue] = React.useState('Default option')
-        const [suggestions, setSuggestions] = React.useState([])
-        
-        // select event handlers
-        const handleOptionSelected = (id) => {
-          setValue(options.find(el => el.id === id).value)
+        const [suggestions, setSuggestions] = React.useState(options)
+       
+        const handleOnChange = (data) => {          
+          // trigger search here
         }
-        const handleInputChange = (value) => {
-          setSuggestions(options.slice(0, Math.max(0, options.length - value.length)))
-          setValue(value)
+
+        const handleOnInput = (data) => { 
+          // if id doesn't exists it means user type own text and didn't use suggestion
+          if(!data.id) {
+            setSuggestions(options.slice(0, Math.max(0, options.length - data.value.length)))
+          }
         }
 
         return (
-          <div style={{minHeight: '500px'}}>
+          <div style={{minHeight: '25rem'}}>
             <Select
               id="select"
-              value={value}
-              onOptionSelected={handleOptionSelected}
-              onInputChange={handleInputChange}
+              initValue="Default option"
+              onChange={handleOnChange}
+              onInput={handleOnInput}
               placeholder="e.g. article title or author name"
               prependIcon="#magnify"
             >
@@ -55,7 +55,7 @@
     <SelectExample />
 ```
 
-#### Select with dynamic options (icons included)
+#### Select with dynamic options (without icons)
 
 ```jsx
     import Select from './index'
@@ -69,29 +69,29 @@
       {id: 5, value: 'Option E' },
       {id: 6, value: 'Option F' },
       {id: 7, icon: '#magnify', value: 'Option G (with icon)' },
-
     ]
 
     const SelectExample = () => {
-        const [value, setValue] = React.useState('Default option')
-        const [suggestions, setSuggestions] = React.useState([])
-        
-        // select event handlers
-        const handleOptionSelected = (id) => {
-          setValue(options.find(el => el.id === id).value)
+        const [suggestions, setSuggestions] = React.useState(options)
+       
+        const handleOnChange = (data) => {          
+          // trigger search here
         }
-        const handleInputChange = (value) => {
-          setSuggestions(options.slice(0, Math.max(0, options.length - value.length)))
-          setValue(value)
+
+        const handleOnInput = (data) => { 
+          // if id doesn't exists it means user type own text and didn't use suggestion
+          if(!data.id) {
+            setSuggestions(options.slice(0, Math.max(0, options.length - data.value.length)))
+          }
         }
 
         return (
-          <div style={{minHeight: '500px'}}>
+          <div style={{minHeight: '25rem'}}>
             <Select
               id="select"
-              value={value}
-              onOptionSelected={handleOptionSelected}
-              onInputChange={handleInputChange}
+              initValue="Default option"
+              onChange={handleOnChange}
+              onInput={handleOnInput}
               placeholder="e.g. article title or author name"
             >
                 {suggestions.map((el) => (
@@ -110,3 +110,4 @@
     }
     <SelectExample />
 ```
+
