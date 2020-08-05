@@ -6,13 +6,12 @@ const useInput = (value, { onInput, onChange }) => {
   const [isInputFocused, setIsInputFocused] = useState(null)
 
   useEffect(() => {
-    if(value !== inputData.value)
-      changeInputData({ value: inputData.value })
+    if (value !== inputData.value) changeInputData({ value })
   }, [value])
 
   useEffect(() => {
     onInput(inputData)
-  }, [inputData])
+  }, [inputData.value])
 
   useEffect(() => {
     if (isInputFocused === false) {

@@ -9,13 +9,16 @@ const useOptions = (
   // keep track on which element is currently clicked with onMouseDown event
   const [clickedElement, setClickedElement] = useState(null)
 
-  const changeActiveOption = (element, { hide } = { hide: true }) => {
+  const changeActiveOption = (option, { hide } = { hide: true }) => {
     setInputData({
-      value: element.props.value,
-      id: element.props['data-select-id'],
+      value: option.value,
+      id: option.id,
     })
-    setActiveOption(element)
-    if (hide) setIsInputFocused(false)
+    setActiveOption(option)
+    if (hide) {
+      setIsInputFocused(false)
+      setActiveOption(null)
+    }
   }
 
   const options =
@@ -32,12 +35,17 @@ const useOptions = (
           setClickedElement(element.props.id)
         },
         'onMouseUp': (event) => {
-          if (clickedElement === element.props.id) changeActiveOption(element)
+          if (clickedElement === element.props.id) {
+            changeActiveOption({
+              value: element.props.value,
+              id: element.props.id,
+            })
+          }
 
           setClickedElement(null)
           event.stopPropagation()
         },
-        'selected': element.props.id === activeOption?.props['data-select-id'],
+        'selected': element.props.id === activeOption?.id,
       }
 
       return React.cloneElement(element, { ...element.props, ...overrideProps })
@@ -46,8 +54,7 @@ const useOptions = (
   const handleInputKeyEvent = (event) => {
     let pos =
       options.findIndex(
-        (s) =>
-          s.props['data-select-id'] === activeOption?.props['data-select-id']
+        (s) => s.props['data-select-id'] === activeOption?.id
       ) || options.length
 
     let direction = 1
@@ -76,12 +83,24 @@ const useOptions = (
         if (activeOption == null) {
           // eslint-disable-next-line prefer-destructuring
           suggestion = options[0]
-          changeActiveOption(suggestion, { hide: false })
+          changeActiveOption(
+            {
+              value: suggestion.props.value,
+              id: suggestion.props['data-select-id'],
+            },
+            { hide: false }
+          )
         } else {
           direction = ['ArrowDown', 'Down'].includes(event.key) ? 1 : -1
           pos = (pos + direction) % options.length
           suggestion = options[pos]
-          changeActiveOption(suggestion, { hide: false })
+          changeActiveOption(
+            {
+              value: suggestion.props.value,
+              id: suggestion.props['data-select-id'],
+            },
+            { hide: false }
+          )
         }
 
         selectMenuRef.current

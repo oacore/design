@@ -108,8 +108,8 @@ const Select = ({
           aria-autocomplete="both"
           aria-controls={`suggestion-results-${id}`}
           aria-activedescendant={
-            activeOption?.props['data-select-id']
-              ? `suggestion-result-${id}-${activeOption.props['data-select-id']}`
+            activeOption?.id
+              ? `suggestion-result-${id}-${activeOption.id}`
               : undefined
           }
           value={inputData.value}
