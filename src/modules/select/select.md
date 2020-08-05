@@ -16,7 +16,8 @@
 
     const SelectExample = () => {
         const [suggestions, setSuggestions] = React.useState(options)
-       
+        const [value, setValue] = React.useState('Default option')
+
         const handleOnChange = (data) => {          
           // trigger search here
         }
@@ -26,13 +27,14 @@
           if(!data.id) {
             setSuggestions(options.slice(0, Math.max(0, options.length - data.value.length)))
           }
+          setValue(data.value)
         }
 
         return (
           <div style={{minHeight: '25rem'}}>
             <Select
               id="select"
-              initValue="Default option"
+              value={value}
               onChange={handleOnChange}
               onInput={handleOnInput}
               placeholder="e.g. article title or author name"
@@ -73,7 +75,8 @@
 
     const SelectExample = () => {
         const [suggestions, setSuggestions] = React.useState(options)
-       
+        const [value, setValue] = React.useState('Default option')
+
         const handleOnChange = (data) => {          
           // trigger search here
         }
@@ -83,13 +86,14 @@
           if(!data.id) {
             setSuggestions(options.slice(0, Math.max(0, options.length - data.value.length)))
           }
+          setValue(data.value)
         }
 
         return (
           <div style={{minHeight: '25rem'}}>
             <Select
               id="select"
-              initValue="Default option"
+              value={value}
               onChange={handleOnChange}
               onInput={handleOnInput}
               placeholder="e.g. article title or author name"

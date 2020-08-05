@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 
-const useInput = (initialValue, { onInput, onChange }) => {
+const useInput = (value, { onInput, onChange }) => {
   const inputRef = useRef(null)
-  const [inputData, changeInputData] = useState({ value: initialValue })
+  const [inputData, changeInputData] = useState({ value })
   const [isInputFocused, setIsInputFocused] = useState(null)
 
   useEffect(() => {
-    changeInputData({ value: inputData.value })
-  }, [initialValue])
+    if(value !== inputData.value)
+      changeInputData({ value: inputData.value })
+  }, [value])
 
   useEffect(() => {
     onInput(inputData)
