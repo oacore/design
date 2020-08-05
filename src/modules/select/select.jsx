@@ -8,7 +8,7 @@ import { Form, Icon, Button } from 'elements'
 import { classNames, generateId } from 'utils'
 
 const Select = ({
-  initValue,
+  value,
   onInput,
   onChange,
   className,
@@ -25,7 +25,7 @@ const Select = ({
     setInputData,
     isInputFocused,
     setIsInputFocused,
-  ] = useInput(initValue, {
+  ] = useInput(value, {
     onInput,
     onChange,
   })
@@ -140,8 +140,8 @@ const Select = ({
 }
 
 Select.propTypes = {
-  /* Initial value shown in input field */
-  initValue: PropTypes.string,
+  /* The current value shown in input field */
+  value: PropTypes.string,
   /* Callback function called whenever input changes */
   onInput: PropTypes.func,
   /* Callback function called whenever input loses focus */
