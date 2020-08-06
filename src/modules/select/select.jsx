@@ -14,6 +14,7 @@ const Select = ({
   className,
   children,
   prependIcon = null,
+  clearButton = true,
   tag: Tag = 'div',
   id = generateId(),
   ...restInputProps
@@ -83,20 +84,22 @@ const Select = ({
           </Form.Addon>
         )}
 
-        <Form.Addon place="append">
-          <Button
-            className={classNames.use(
-              styles.clearOutButton,
-              inputData.value && styles.show
-            )}
-            onClick={() => {
-              setInputData({ value: '' })
-              inputRef.current.focus()
-            }}
-          >
-            <Icon src="#window-close" />
-          </Button>
-        </Form.Addon>
+        {clearButton && (
+          <Form.Addon place="append">
+            <Button
+              className={classNames.use(
+                styles.clearOutButton,
+                inputData.value && styles.show
+              )}
+              onClick={() => {
+                setInputData({ value: '' })
+                inputRef.current.focus()
+              }}
+            >
+              <Icon src="#window-close" />
+            </Button>
+          </Form.Addon>
+        )}
         <Form.Control
           ref={inputRef}
           id={`select-${id}`}
@@ -150,10 +153,13 @@ Select.propTypes = {
   className: PropTypes.string,
   /* Icon to prepend before input */
   prependIcon: PropTypes.string,
+  /* Indicates whether clear button is shown */
+  clearButton: PropTypes.bool,
 }
 
 Select.defaultProps = {
   prependIcon: null,
+  clearButton: true,
 }
 
 export default Select
