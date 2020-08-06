@@ -52,7 +52,6 @@ const TextField = React.forwardRef(
       progress,
       variant = 'normal',
       size = 'normal',
-      labelSrOnly = false,
       // keeping tag being 'div' for the backward consistency temporarily
       tag = 'div',
       placeholder = variant === 'pure' ? label : undefined,
@@ -96,9 +95,7 @@ const TextField = React.forwardRef(
         <span id={`${id}-helper`} className={styles.helper}>
           {helper}
         </span>
-        <Label htmlFor={controlId} className={labelSrOnly && 'sr-only'}>
-          {label}
-        </Label>
+        <Label htmlFor={controlId}>{label}</Label>
       </Group>
     )
   }
@@ -113,12 +110,6 @@ TextField.propTypes = {
    * Input's placeholder
    */
   placeholder: PropTypes.string,
-  /**
-   * Hide label and expose it only for screen readers.
-   *
-   * **Deprecated**. Use `variant="pure"` instead.
-   */
-  labelSrOnly: PropTypes.bool,
   /**
    * Size variation. Affects height only.
    */
