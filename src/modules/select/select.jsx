@@ -14,6 +14,9 @@ const Select = React.memo(
     onChange,
     className,
     children,
+    label,
+    variant = 'normal',
+    placeholder = variant === 'pure' ? label : undefined,
     prependIcon = null,
     clearButton = true,
     clearOnFocus = false,
@@ -106,6 +109,7 @@ const Select = React.memo(
             ref={inputRef}
             id={`select-${id}`}
             type="text"
+            placeholder={placeholder}
             autoComplete="off"
             role="combobox"
             aria-expanded={Boolean(options.length)}
@@ -130,6 +134,12 @@ const Select = React.memo(
             }}
             {...restInputProps}
           />
+          <Form.Label
+            htmlFor={`select-${id}`}
+            className={variant === 'pure' && 'sr-only'}
+          >
+            {label}
+          </Form.Label>
         </Form.Group>
         <ul
           id={`suggestion-results-${id}`}
@@ -147,6 +157,8 @@ const Select = React.memo(
 )
 
 Select.propTypes = {
+  /* Label to show in input */
+  label: PropTypes.string.isRequired,
   /* The current value shown in input field */
   value: PropTypes.string,
   /* Callback function called whenever input changes */
@@ -161,6 +173,15 @@ Select.propTypes = {
   clearButton: PropTypes.bool,
   /* Indicates whether input should be clear onFocus */
   clearOnFocus: PropTypes.bool,
+  /* Input's placeholder */
+  placeholder: PropTypes.string,
+  /**
+   * Helper variation. Affects label position and the colour.
+   *
+   * Avoid using `pure` with no `placeholder`, prefer to explicitly set it.
+   * However, if you don't, the `placeholder` repeats the label text.
+   */
+  variant: PropTypes.oneOf(['normal', 'pure']),
 }
 
 Select.defaultProps = {
