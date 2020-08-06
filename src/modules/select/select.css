@@ -6,6 +6,7 @@
   --selected-option-color: var(--gray-200);
   --select-option-icon-color: var(--form-control-color);
   --select-clear-input-icon-color: var(--gray-700);
+  --select-z-index: 1000;
 }
 
 .select-wrapper {
@@ -13,6 +14,7 @@
   --form-control-padding-x: 12px;
 
   position: relative;
+  z-index: var(--select-z-index);
 }
 
 .select-wrapper.focused {
