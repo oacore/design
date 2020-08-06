@@ -15,6 +15,7 @@ const Select = ({
   children,
   prependIcon = null,
   clearButton = true,
+  clearOnFocus = false,
   tag: Tag = 'div',
   id = generateId(),
   ...restInputProps
@@ -118,6 +119,7 @@ const Select = ({
           value={inputData.value}
           onFocus={() => {
             setIsInputFocused(true)
+            if (clearOnFocus) setInputData({ value: '' })
           }}
           onBlur={handleInputBlurEvent}
           onKeyDown={handleInputKeyEvent}
@@ -155,11 +157,14 @@ Select.propTypes = {
   prependIcon: PropTypes.string,
   /* Indicates whether clear button is shown */
   clearButton: PropTypes.bool,
+  /* Indicates whether input should be clear onFocus */
+  clearOnFocus: PropTypes.bool,
 }
 
 Select.defaultProps = {
   prependIcon: null,
   clearButton: true,
+  clearOnFocus: false,
 }
 
 export default Select
