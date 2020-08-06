@@ -33,8 +33,10 @@
         return (
           <div style={{minHeight: '25rem'}}>
             <Select
-              id="select"
+              id="select-1"
               value={value}
+              label="Search"
+              variant="pure"          
               onChange={handleOnChange}
               onInput={handleOnInput}
               placeholder="e.g. article title or author name"
@@ -75,7 +77,7 @@
 
     const SelectExample = () => {
         const [suggestions, setSuggestions] = React.useState(options)
-        const [value, setValue] = React.useState('Default option')
+        const [value, setValue] = React.useState('')
 
         const handleOnChange = (data) => {          
           // trigger search here
@@ -92,8 +94,9 @@
         return (
           <div style={{minHeight: '25rem'}}>
             <Select
-              id="select"
+              id="select-2"
               value={value}
+              label="Search"
               onChange={handleOnChange}
               onInput={handleOnInput}
               placeholder="e.g. article title or author name"
