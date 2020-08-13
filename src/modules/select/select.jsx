@@ -71,18 +71,16 @@ const Select = React.memo(
 
     return (
       <Tag
-        className={classNames.use(
-          styles.selectWrapper,
-          isInputFocused && styles.focused,
-          className
-        )}
+        className={classNames
+          .use(styles.selectWrapper, isInputFocused && styles.focused)
+          .join(className)}
       >
         <div className="sr-only" aria-live="assertive">
           {options.length && document.activeElement === inputRef.current
             ? `${options.length} suggestions found, to navigate use up and down arrows`
             : ''}
         </div>
-        <Form.Group tag="div">
+        <Form.Group tag="div" className={variant === 'pure' ? styles.pure : ''}>
           {prependIcon && (
             <Form.Addon place="prepend" className={styles.prependIcon}>
               <Icon src={prependIcon} />
@@ -134,12 +132,7 @@ const Select = React.memo(
             }}
             {...restInputProps}
           />
-          <Form.Label
-            htmlFor={`select-${id}`}
-            className={variant === 'pure' && 'sr-only'}
-          >
-            {label}
-          </Form.Label>
+          <Form.Label htmlFor={`select-${id}`}>{label}</Form.Label>
         </Form.Group>
         <ul
           id={`suggestion-results-${id}`}
@@ -176,10 +169,9 @@ Select.propTypes = {
   /* Input's placeholder */
   placeholder: PropTypes.string,
   /**
-   * Helper variation. Affects label position and the colour.
+   * Helper variation. Affects label display.
    *
-   * Avoid using `pure` with no `placeholder`, prefer to explicitly set it.
-   * However, if you don't, the `placeholder` repeats the label text.
+   * If variant is pure label is shown only when select is not focused
    */
   variant: PropTypes.oneOf(['normal', 'pure']),
 }

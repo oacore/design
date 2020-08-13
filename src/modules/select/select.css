@@ -86,3 +86,22 @@
 .clear-out-button.show {
   display: block;
 }
+
+.pure > label {
+  transition: none;
+}
+
+/* Colour and shape variations */
+.pure:focus-within > label {
+  /* Kepping screenreader-only tweak as is (with !important-s) for a safety */
+  /* stylelint-disable declaration-no-important */
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
