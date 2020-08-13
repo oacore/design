@@ -91,9 +91,9 @@
   transition: none;
 }
 
-/* Colour and shape variations */
-.pure:focus-within > label {
-  /* Kepping screenreader-only tweak as is (with !important-s) for a safety */
+.focused .pure > label,
+.pure input:not(:placeholder-shown) ~ label {
+  /* Keeping screenreader-only tweak as is (with !important-s) for a safety */
   /* stylelint-disable declaration-no-important */
   position: absolute !important;
   width: 1px !important;
