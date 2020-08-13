@@ -99,7 +99,7 @@ Example with progress icon:
 
 ```jsx
 <TextField
-  id="example-success"
+  id="example-success-1"
   name="user-name"
   label="User name"
   defaultValue="john"
@@ -115,7 +115,7 @@ Example with success message:
 
 ```jsx
 <TextField
-  id="example-success"
+  id="example-success-2"
   name="user-name"
   label="User name"
   defaultValue="john"
