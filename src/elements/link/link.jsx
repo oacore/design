@@ -5,7 +5,7 @@ import Icon from '../icon'
 import styles from './link.css'
 
 const Link = React.forwardRef(
-  ({ children, external = false, ...restProps }, ref) => {
+  ({ children, external = false, icon = external, ...restProps }, ref) => {
     const ownProps = {}
 
     if (external) {
@@ -16,7 +16,7 @@ const Link = React.forwardRef(
     return (
       <a ref={ref} {...ownProps} {...restProps}>
         {children}
-        {external && (
+        {external && icon && (
           <Icon className={styles.icon} src="#open-in-new" aria-hidden />
         )}
       </a>
@@ -36,10 +36,17 @@ Link.propTypes = {
    * unsafe](https://web.dev/external-anchors-use-rel-noopener/).
    */
   external: PropTypes.bool,
+  /**
+   * Indicates whether the external icon should be shown or not.
+   * Applies only when link is external and its default
+   * reflects external prop.
+   */
+  icon: PropTypes.bool,
 }
 
 Link.defaultProps = {
   external: false,
+  icon: false,
 }
 
 export default Link
