@@ -17,6 +17,7 @@
   z-index: var(--select-z-index);
 }
 
+.select-wrapper:focus-within,
 .select-wrapper.focused {
   --form-control-background-color: var(--select-focused-background);
 }
@@ -92,6 +93,7 @@
 }
 
 .focused .pure > label,
+.select-wrapper:focus-within .pure > label,
 .pure input:not(:placeholder-shown) ~ label {
   /* Keeping screenreader-only tweak as is (with !important-s) for a safety */
   /* stylelint-disable declaration-no-important */
