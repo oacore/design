@@ -5,10 +5,11 @@ import { useInput, useOptions } from './hooks'
 import styles from './select.css'
 
 import { Form, Icon, Button } from 'elements'
-import { classNames, generateId } from 'utils'
+import { classNames } from 'utils'
 
 const Select = React.memo(
   ({
+    id,
     value,
     onInput,
     onChange,
@@ -21,7 +22,6 @@ const Select = React.memo(
     clearButton = true,
     clearOnFocus = false,
     tag: Tag = 'div',
-    id = generateId(),
     ...restInputProps
   }) => {
     // custom select hooks
@@ -150,6 +150,11 @@ const Select = React.memo(
 )
 
 Select.propTypes = {
+  /**
+   * An ID that will be used to link input and label. It's necessary for
+   * accessibility.
+   */
+  id: PropTypes.string.isRequired,
   /* Label to show in input */
   label: PropTypes.string.isRequired,
   /* The current value shown in input field */

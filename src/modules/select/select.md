@@ -16,7 +16,7 @@
 
     const SelectExample = () => {
         const [suggestions, setSuggestions] = React.useState(options)
-        const [value, setValue] = React.useState('Default option')
+        const [value, setValue] = React.useState('')
 
         const handleOnChange = (data) => {          
           // trigger search here
@@ -36,7 +36,6 @@
               id="select-1"
               value={value}
               label="Search"
-              variant="pure"          
               onChange={handleOnChange}
               onInput={handleOnInput}
               placeholder="e.g. article title or author name"
