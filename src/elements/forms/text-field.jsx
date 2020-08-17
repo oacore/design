@@ -9,7 +9,7 @@ import Control from './control'
 import Addon from './addon'
 import styles from './text-field.css'
 
-import { classNames, generateId } from 'utils'
+import { classNames } from 'utils'
 
 /**
  * Unique ID generator
@@ -44,7 +44,7 @@ const TextField = React.forwardRef(
   (
     {
       children,
-      id = generateId(),
+      id,
       className,
       label,
       helper,
@@ -117,10 +117,8 @@ TextField.propTypes = {
   /**
    * An ID that will be used to link input and label. It's necessary for
    * accessibility.
-   *
-   * If not passed, it will be generated automatically using a random string.
    */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   /**
    * Helper message to show bellow the input
    */
