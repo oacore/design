@@ -17,7 +17,12 @@ class ClassNames {
   module = {}
 
   use(...classList) {
-    this.classList.push(...classList)
+    const classNames = classList.map((c) => {
+      if (c instanceof ClassNames) return c.toString()
+      return c
+    })
+
+    this.classList.push(...classNames)
     return this
   }
 
