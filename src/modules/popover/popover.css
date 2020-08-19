@@ -1,0 +1,5 @@
+.content {
+  --popover-content-min-width: 0;
+
+  min-width: var(--popover-content-min-width);
+}
