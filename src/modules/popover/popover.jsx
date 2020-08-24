@@ -7,6 +7,25 @@ import styles from './popover.css'
 import { classNames } from 'utils'
 import { Card } from 'elements'
 
+const hideOnBlurPlugin = {
+  name: 'hideOnBlur',
+  defaultValue: true,
+  fn(instance) {
+    return {
+      onCreate() {
+        instance.popper.addEventListener('focusout', (event) => {
+          if (
+            instance.props.hideOnBlur &&
+            event.relatedTarget &&
+            !instance.popper.contains(event.relatedTarget)
+          )
+            instance.hide()
+        })
+      },
+    }
+  },
+}
+
 /**
  * The Popover component is backed by [Tippy.js](https://github.com/atomiks/tippyjs).
  *
@@ -18,6 +37,7 @@ const Popover = ({
   interactive = false,
   trigger = 'mouseenter focus',
   placement = 'auto',
+  hideOnBlur = true,
   delay = 0,
   className,
   children,
@@ -32,6 +52,8 @@ const Popover = ({
       placement={placement}
       interactive={interactive}
       delay={delay}
+      plugins={[hideOnBlurPlugin]}
+      hideOnBlur={hideOnBlur}
       render={(attrs) => (
         <Card className={classNames.use(styles.content, className)} {...attrs}>
           {content}
@@ -64,6 +86,10 @@ Popover.propTypes = {
    * and clicked inside without hiding
    */
   interactive: PropTypes.bool,
+  /**
+   * Indicated whether the popover contents should be hidden on blur.
+   */
+  hideOnBlur: PropTypes.bool.isRequired,
   /**
    * Preferred position of the content. The position may not be reflected
    * if opposite placement has more space or overflow occurs.
