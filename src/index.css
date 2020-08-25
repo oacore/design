@@ -1,6 +1,4 @@
-@import url('~sanitize.css');
-@import url('~sanitize.css/forms.css');
-@import url('~sanitize.css/typography.css');
+@import url('reboot.css');
 
 @import url('foundation/index.css');
 @import url('elements/index.css');
