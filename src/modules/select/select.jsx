@@ -5,7 +5,7 @@ import { useInput, useOptions } from './hooks'
 import styles from './select.css'
 
 import { Form, Icon, Button } from 'elements'
-import { classNames } from 'utils'
+import { classNames, canUseDOM } from 'utils'
 
 const Select = React.memo(
   ({
@@ -76,7 +76,9 @@ const Select = React.memo(
           .join(className)}
       >
         <div className="sr-only" aria-live="assertive">
-          {options.length && document.activeElement === inputRef.current
+          {canUseDOM &&
+          options.length &&
+          document.activeElement === inputRef.current
             ? `${options.length} suggestions found, to navigate use up and down arrows`
             : ''}
         </div>
