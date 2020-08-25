@@ -100,6 +100,7 @@ const Select = React.memo(
                   setInputData({ value: '' })
                   inputRef.current.focus()
                 }}
+                type="button"
               >
                 <Icon src="#window-close" />
               </Button>
