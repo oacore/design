@@ -111,6 +111,16 @@
                     {el.value}
                   </Select.Option>
                 ))}
+                {value !== '' && (
+                  <Select.Option
+                    key={8}
+                    id={8}
+                    value={value}
+                    icon="#magnify"
+                  >
+                    {`All results for "${value}"`}
+                  </Select.Option>
+                )}
             </Select>
           </div>
         )

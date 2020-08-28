@@ -31,6 +31,8 @@ const Option = React.memo(
   )
 )
 
+Option.displayName = 'SelectOption'
+
 Option.propTypes = {
   /* Unique ID of option */
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
