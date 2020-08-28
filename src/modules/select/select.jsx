@@ -18,6 +18,7 @@ const Select = React.memo(
     label,
     variant = 'normal',
     placeholder = variant === 'pure' ? label : undefined,
+    changeOnBlur = true,
     prependIcon = null,
     clearButton = true,
     clearOnFocus = false,
@@ -34,6 +35,7 @@ const Select = React.memo(
     ] = useInput(value, {
       onInput,
       onChange,
+      changeOnBlur,
     })
 
     const [
@@ -166,6 +168,8 @@ Select.propTypes = {
   onInput: PropTypes.func,
   /* Callback function called whenever input loses focus */
   onChange: PropTypes.func,
+  /* Call onChange callback on blur event */
+  changeOnBlur: PropTypes.bool,
   /* Custom classname applied on select wrapper */
   className: PropTypes.string,
   /* Icon to prepend before input */
@@ -188,6 +192,7 @@ Select.defaultProps = {
   prependIcon: null,
   clearButton: true,
   clearOnFocus: false,
+  changeOnBlur: true,
 }
 
 export default Select

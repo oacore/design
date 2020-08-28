@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 
-const useInput = (value, { onInput, onChange }) => {
+const useInput = (value, { onInput, onChange, changeOnBlur }) => {
   const inputRef = useRef(null)
+  const inputEventType = useRef(null)
   const [inputData, changeInputData] = useState({ value })
-  const [isInputFocused, setIsInputFocused] = useState(null)
+  const [isInputFocused, setIsInputFocusedInternal] = useState(null)
 
   useEffect(() => {
     if (value !== inputData.value) changeInputData({ value })
@@ -14,12 +15,21 @@ const useInput = (value, { onInput, onChange }) => {
   }, [inputData.value])
 
   useEffect(() => {
-    if (isInputFocused === false) {
-      onChange(inputData)
+    if (!isInputFocused) {
+      if (changeOnBlur || (!changeOnBlur && inputEventType.current !== 'blur'))
+        onChange(inputData)
       // hide cursor from input field
       inputRef.current.blur()
     }
   }, [isInputFocused])
+
+  const setIsInputFocused = useCallback(
+    (isInputFocusedInner, event) => {
+      inputEventType.current = event?.type
+      setIsInputFocusedInternal(isInputFocusedInner)
+    },
+    [isInputFocused]
+  )
 
   return [
     inputRef,

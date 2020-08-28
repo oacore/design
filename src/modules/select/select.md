@@ -100,6 +100,7 @@
               onInput={handleOnInput}
               placeholder="e.g. article title or author name"
               variant="pure"
+              changeOnBlur={false}
             >
                 {suggestions.map((el) => (
                   <Select.Option
