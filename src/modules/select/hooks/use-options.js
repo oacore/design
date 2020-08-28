@@ -125,7 +125,7 @@ const useOptions = (
       clickedElement === null &&
       !(el && el.dataset.selectId === clickedElement)
     )
-      setIsInputFocused(false)
+      setIsInputFocused(false, event)
   }
 
   return [
