@@ -22,34 +22,39 @@ const useOptions = (
   }
 
   const options =
-    React.Children.map(children, (element) => {
-      const overrideProps = {
-        'id': `suggestion-result-${selectId}-${element.props.id}`,
-        'value': element.props.value,
-        'data-select-id': element.props.id,
-        'onMouseDown': () => {
-          // Firefox and Safari have relatedTarget null.
-          // Therefore we cannot use onClick event
-          // since it's not getting fired
-          // because onBlur input listener cause rerender.
-          setClickedElement(element.props.id)
-        },
-        'onMouseUp': (event) => {
-          if (clickedElement === element.props.id) {
-            changeActiveOption({
-              value: element.props.value,
-              id: element.props.id,
-            })
-          }
+    React.Children.toArray(children)
+      .filter((child) => child.type.displayName === 'SelectOption')
+      .map((element) => {
+        const overrideProps = {
+          'id': `suggestion-result-${selectId}-${element.props.id}`,
+          'value': element.props.value,
+          'data-select-id': element.props.id,
+          'onMouseDown': () => {
+            // Firefox and Safari have relatedTarget null.
+            // Therefore we cannot use onClick event
+            // since it's not getting fired
+            // because onBlur input listener cause rerender.
+            setClickedElement(element.props.id)
+          },
+          'onMouseUp': (event) => {
+            if (clickedElement === element.props.id) {
+              changeActiveOption({
+                value: element.props.value,
+                id: element.props.id,
+              })
+            }
 
-          setClickedElement(null)
-          event.stopPropagation()
-        },
-        'selected': element.props.id === activeOption?.id,
-      }
+            setClickedElement(null)
+            event.stopPropagation()
+          },
+          'selected': element.props.id === activeOption?.id,
+        }
 
-      return React.cloneElement(element, { ...element.props, ...overrideProps })
-    }) || []
+        return React.cloneElement(element, {
+          ...element.props,
+          ...overrideProps,
+        })
+      }) || []
 
   const handleInputKeyEvent = (event) => {
     let pos =
