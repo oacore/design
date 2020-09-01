@@ -53,7 +53,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.0",
+    "@babel/runtime": "^7.11.2",
     "@mdi/svg": "^5.4.55",
     "@tippyjs/react": "^4.1.0",
     "babel-plugin-add-react-displayname": "0.0.5",
