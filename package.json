@@ -2,8 +2,8 @@
   "name": "@oacore/design",
   "version": "2.0.1",
   "description": "CORE Design Elements is our shared components library",
-  "author": "CORE Team (core.ac.uk)",
-  "license": "MIT",
+  "author": "CORE, The Open University <dev@core.ac.uk>",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/oacore/design.git"
