@@ -100,7 +100,7 @@ const Select = React.memo(
           )}
 
           {clearButton && (
-            <Form.Addon place="append">
+            <Form.Addon place="append" className={styles.appendIcon}>
               <Button
                 className={classNames
                   .use(styles.clearOutButton, inputData.value && styles.show)
