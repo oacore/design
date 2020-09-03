@@ -16,11 +16,14 @@ const Select = React.memo(
     className,
     children,
     label,
+    selectMenuClassName = '',
     variant = 'normal',
     placeholder = variant === 'pure' ? label : undefined,
     changeOnBlur = true,
     prependIcon = null,
+    prependIconClassName = '',
     clearButton = true,
+    clearButtonClassName = '',
     clearOnFocus = false,
     tag: Tag = 'div',
     ...restInputProps
@@ -86,7 +89,12 @@ const Select = React.memo(
         </div>
         <Form.Group tag="div" className={variant === 'pure' ? styles.pure : ''}>
           {prependIcon && (
-            <Form.Addon place="prepend" className={styles.prependIcon}>
+            <Form.Addon
+              place="prepend"
+              className={classNames
+                .use(styles.prependIcon)
+                .join(prependIconClassName)}
+            >
               <Icon src={prependIcon} />
             </Form.Addon>
           )}
@@ -94,10 +102,9 @@ const Select = React.memo(
           {clearButton && (
             <Form.Addon place="append">
               <Button
-                className={classNames.use(
-                  styles.clearOutButton,
-                  inputData.value && styles.show
-                )}
+                className={classNames
+                  .use(styles.clearOutButton, inputData.value && styles.show)
+                  .join(clearButtonClassName)}
                 onClick={() => {
                   setInputData({ value: '' })
                   inputRef.current.focus()
@@ -141,9 +148,11 @@ const Select = React.memo(
         </Form.Group>
         <ul
           id={`suggestion-results-${id}`}
-          className={classNames.use(styles.selectMenu, {
-            [styles.show]: isInputFocused,
-          })}
+          className={classNames
+            .use(styles.selectMenu, {
+              [styles.show]: isInputFocused,
+            })
+            .join(selectMenuClassName)}
           role="listbox"
           ref={selectMenuRef}
         >
@@ -172,10 +181,16 @@ Select.propTypes = {
   changeOnBlur: PropTypes.bool,
   /* Custom classname applied on select wrapper */
   className: PropTypes.string,
+  /* Classname applied to select menu */
+  selectMenuClassName: PropTypes.string,
   /* Icon to prepend before input */
   prependIcon: PropTypes.string,
+  /* Classname applied to prepend icon */
+  prependIconClassName: PropTypes.string,
   /* Indicates whether clear button is shown */
   clearButton: PropTypes.bool,
+  /* Classname applied to clear button */
+  clearButtonClassName: PropTypes.string,
   /* Indicates whether input should be clear onFocus */
   clearOnFocus: PropTypes.bool,
   /* Input's placeholder */
