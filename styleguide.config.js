@@ -52,13 +52,22 @@ module.exports = {
     },
     {
       name: 'Modules',
-      components: 'src/modules/!(select)/**/*.{js,jsx,ts,tsx}',
+      components: 'src/modules/!(select|modal)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'Select',
           components: () => [
             'src/modules/select/select.jsx',
             'src/modules/select/option.jsx',
+          ],
+        },
+        {
+          name: 'Modal',
+          components: () => [
+            'src/modules/modal/modal.jsx',
+            'src/modules/modal/title.jsx',
+            'src/modules/modal/content.jsx',
+            'src/modules/modal/footer.jsx',
           ],
         },
       ],

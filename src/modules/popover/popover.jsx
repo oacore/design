@@ -89,7 +89,7 @@ Popover.propTypes = {
   /**
    * Indicated whether the popover contents should be hidden on blur.
    */
-  hideOnBlur: PropTypes.bool.isRequired,
+  hideOnBlur: PropTypes.bool,
   /**
    * Preferred position of the content. The position may not be reflected
    * if opposite placement has more space or overflow occurs.
