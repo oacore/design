@@ -30,7 +30,7 @@ const checkAccessibility = (props, propName, componentName) => {
     )
   }
 
-  return true
+  return null
 }
 
 const Modal = ({
