@@ -3,22 +3,24 @@ import PropTypes from 'prop-types'
 
 import Context from './context'
 
-const HEADING_SUFFIX = 'title'
-
 const Section = forwardRef(
   (
     { children, id, level: forceLevel, tag: Tag = 'section', ...restProps },
     ref
   ) => {
     const parentContext = useContext(Context)
+
     const level = forceLevel ?? parentContext.level + 1
-    const currentContext = {
-      level,
-      parentId: id,
-    }
+    const headingId = `${id}-title`
 
     const ariaProps = {
-      'aria-labelledby': `${id}-${HEADING_SUFFIX}`,
+      'aria-labelledby': headingId,
+    }
+
+    const currentContext = {
+      level,
+      id,
+      headingId,
     }
 
     return (
@@ -47,4 +49,3 @@ Section.propTypes = {
 }
 
 export default Section
-export { HEADING_SUFFIX }
