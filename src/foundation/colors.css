@@ -27,30 +27,49 @@
   --gray-800: #424242;
   --gray-900: #212121;
 
+
   /**
    * Brand accents
    *
    * Brand accents are generated with Material Color Tool.
    * Access at: https://material.io/resources/color/
    */
+  --background: hsl(0 0 100%);
+  --on-background: hsl(0 0 100%);
+
+  /* Surface */
+  --surface: hsl(0 0 100%);
+  --on-surface: hsl(0 0 0);
+  --on-surface-high-emphasis: hsl(0 0 0 / 87%);
+  --on-surface-medium-emphasis: hsl(0 0 0 / 60%);
+  --on-surface-disabled: hsl(0 0 0 / 38%);
 
   /* Primary brand colour */
   --primary: #b75400;
-  --primary-light: #ef8237;
-  --primary-dark: #812700;
+  --primary-variant: #812700;
+  --primary-light: #ef8237; /* @deprecated */
+  --primary-dark: #812700;  /* @deprecated */
+  --on-primary: hsl(0 0 100%);
+  --on-primary-high-emphasis: hsl(0 0 100%);
+  --on-primary-medium-emphasis: hsl(0 0 100% / 74%);
+  --on-primary-disabled: hsl(0 0 100% / 38%);
 
   /* Success */
   --success: #8bc34a;
-  --success-light: #bef67a;
-  --success-dark: #5a9216;
+  --success-light: #bef67a; /* @deprecated */
+  --success-dark: #5a9216; /* @deprecated */
 
   /* Warning */
-  --warning: #fdd835;
-  --warning-light: #ffff6b;
-  --warning-dark: #c6a700;
+  --warning: #fdd835; /* @deprecated */
+  --warning-light: #ffff6b; /* @deprecated */
+  --warning-dark: #c6a700; /* @deprecated */
+
+  /* Danger */
+  --danger: #c62828; /* @deprecated */
+  --danger-light: #ff5f52; /* @deprecated */
+  --danger-dark: #8e0000; /* @deprecated */
 
   /* Error */
-  --danger: #c62828;
-  --danger-light: #ff5f52;
-  --danger-dark: #8e0000;
+  --error: hsl(.97 100% 35%);
+  --on-error: hsl(0 0 100%);
 }
