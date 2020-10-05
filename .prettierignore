@@ -1,0 +1,3 @@
+# Let CSS to have more flexible syntax rules.
+# Sometimes newlines define different groups within the same property.
+*.css
