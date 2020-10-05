@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@mdi/svg": "^5.5.55",
+    "@mdi/svg": "^5.6.55",
     "@tippyjs/react": "^4.2.0",
     "babel-plugin-add-react-displayname": "0.0.5",
     "body-scroll-lock": "^3.1.3",
