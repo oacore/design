@@ -36,7 +36,7 @@
   border-radius: var(--select-border-radius);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .05), 0 1px 2px rgba(0, 0, 0, .25);
 }
 
 .option {
@@ -46,7 +46,8 @@
 }
 
 .option-icon {
-  padding: calc(
+  padding:
+    calc(
       var(--form-control-padding-y) - var(--form-control-border-width)
     )
     calc(var(--form-control-padding-x) - var(--form-control-border-width));
@@ -59,7 +60,8 @@
 
 .option-value,
 .option-icon {
-  padding: calc(
+  padding:
+    calc(
       var(--form-control-padding-y) - var(--form-control-border-width)
     )
     calc(var(--form-control-padding-x) - var(--form-control-border-width));
@@ -68,7 +70,8 @@
 
 .prepend-icon ~ input,
 .option-icon ~ .option-value {
-  padding: calc(
+  padding:
+    calc(
       var(--form-control-padding-y) - var(--form-control-border-width)
     )
     0;
@@ -86,11 +89,12 @@
   --button-padding-x: 0;
 
   display: none;
-  padding: calc(
-      var(--form-control-padding-y) - var(--form-control-border-width) - 0.2rem
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width) - .2rem
     )
-    calc(0.75rem - var(--form-control-border-width) - 0.2rem);
-  margin: 0.2rem;
+    calc(.75rem - var(--form-control-border-width) - .2rem);
+  margin: .2rem;
   border: none;
   border-radius: 2rem;
 }

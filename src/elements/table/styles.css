@@ -1,7 +1,7 @@
 :root {
   --table-border-color: var(--gray-400);
   --table-cell-padding-x: var(--component-padding-x, 1rem);
-  --table-cell-padding-y: 0.875rem; /* Assumes line-height 1.5, i.e. 24px-height text */
+  --table-cell-padding-y: .875rem; /* Assumes line-height 1.5, i.e. 24px-height text */
 }
 
 table {
@@ -87,7 +87,7 @@ tfoot {
     right: 0;
     display: inline-block;
     font-weight: 400;
-    opacity: 0.6;
+    opacity: .6;
     transform: translateY(-50%);
   }
 

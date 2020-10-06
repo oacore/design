@@ -20,14 +20,14 @@
 
 @keyframes stretching {
   0% {
-    transform: translateX(-50%) scaleX(0.1);
+    transform: translateX(-50%) scaleX(.1);
   }
 
   50% {
-    transform: translateX(0) scaleX(0.8);
+    transform: translateX(0) scaleX(.8);
   }
 
   100% {
-    transform: translateX(50%) scaleX(0.1);
+    transform: translateX(50%) scaleX(.1);
   }
 }
