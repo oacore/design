@@ -1,7 +1,7 @@
 :root {
   --label-corder-radius: var(--component-corner-radius, 2px);
-  --label-padding-x: 0.5rem;
-  --label-padding-y: 0.25rem;
+  --label-padding-x: .5rem;
+  --label-padding-y: .25rem;
   --label-background: var(--gray-700);
   --label-color: var(--white);
 }

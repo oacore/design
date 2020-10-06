@@ -1,11 +1,11 @@
 :root {
   /* Helper */
-  --form-helper-font-size: var(--body-font-size-small, 0.875em);
+  --form-helper-font-size: var(--body-font-size-small, .875em);
   --form-helper-color: var(--gray-600);
 }
 
 %placeholder-shown {
-  opacity: 0.6;
+  opacity: .6;
   transform: translateY(0);
 }
 
@@ -26,7 +26,7 @@
 
 /* Size variations */
 .small {
-  --form-control-padding-y: calc(0.5 * var(--component-padding, 1rem));
+  --form-control-padding-y: calc(.5 * var(--component-padding, 1rem));
   --form-control-font-size: var(--body-font-size-small);
 }
 
