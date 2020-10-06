@@ -1,7 +1,26 @@
 :root {
   --headings-color: var(--gray-900);
-  --font-family-base: roboto, -apple-system, blinkmacsystemfont, 'Segoe UI', 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-family-monospace: sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-family-base:
+    roboto,
+    -apple-system,
+    blinkmacsystemfont,
+    'Segoe UI',
+    'Helvetica Neue',
+    arial,
+    'Noto Sans',
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-family-monospace:
+    sfmono-regular,
+    menlo,
+    monaco,
+    consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
   --code-color: inherit;
   --kbd-color: var(--gray-900);
   --kbd-bg: var(--gray-50);
@@ -156,7 +175,15 @@ pre,
 code,
 kbd,
 samp {
-  font-family: 'Fira Code', sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    'Fira Code',
+    sfmono-regular,
+    menlo,
+    monaco,
+    consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
   font-family: var(--font-family-monospace);
 }
 
