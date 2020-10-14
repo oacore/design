@@ -161,9 +161,108 @@ const DemoThree = () => {
 }
 
 
+const MultipleModals = () => {
+  const [isModal1Active, setModal1Active] = React.useState(false)
+  const [isModal2Active, setModal2Active] = React.useState(false)
+
+  const modal1 = isModal1Active ? (
+    <Modal
+      aria-labelledby="multiple-modal-title-1"
+      onClose={() => setModal1Active(false)}
+    >
+      <Modal.Title
+         id="multiple-modal-title-1"
+      >
+            Modal 1
+      </Modal.Title> 
+      <Modal.Content>
+        When you click on <b>Show modal 2</b> button focus is trapped within <b>Modal 2</b><br/>
+        When you click on <b>Close me!</b> button focus is returned back to initial button.
+      </Modal.Content>
+      <Modal.Footer>
+        <Button
+          onClick={() => setModal2Active(true)}
+          variant="contained" 
+          style={{ marginRight: '1rem' }}
+        >
+          Show modal 2
+        </Button>
+        <Button
+          onClick={() => setModal1Active(false)}
+          variant="contained"        
+        >
+          Close me! 
+        </Button>
+      </Modal.Footer> 
+    </Modal>
+  ) : null
+
+  const modal2 = isModal2Active ? (
+    <Modal
+      aria-labelledby="multiple-modal-title-2"
+      onClose={() => setModal2Active(false)}
+    >
+      <Modal.Title
+         id="multiple-modal-title-2"
+      >
+            Modal 2
+      </Modal.Title> 
+      <Modal.Content tag="p">
+        When you click on <b>Close me!</b> button focus is returned back to <b>Modal 1</b><br/>
+        When you click on <b>Close all</b> button focus is returned back to initial button*.<br/>
+        
+        * Note that focus is not returned correcly because of
+        <a 
+            href="https://github.com/theKashey/react-focus-lock/issues/126"
+            target="_blank"
+            rel="noopener">
+                upstream bug
+        </a>.
+
+      </Modal.Content>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            setModal2Active(false)
+            setModal1Active(false)
+          }}
+          variant="contained"       
+          style={{ marginRight: '1rem' }}       
+        >
+          Close all modals
+        </Button>
+        <Button
+          onClick={() => setModal2Active(false)}
+          variant="contained"  
+        >
+          Close me! 
+        </Button>
+      </Modal.Footer> 
+    </Modal>
+  ) : null
+
+
+
+  return (
+    <p>
+      <Button
+        variant="contained"
+        onClick={() => setModal1Active(true)}
+      >
+        Multiple modals example
+      </Button>
+      {modal1}
+      {modal2}
+    </p>
+  )
+}
+
+
+
 <>
   <DemoOne/>
   <DemoTwo/>
   <DemoThree/>
+  <MultipleModals />
 </>
 ```

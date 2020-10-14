@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 
 const useInput = (value, { onInput, onChange, changeOnBlur }) => {
   const inputRef = useRef(null)
+  const [isInitialised, setIsInitialised] = useState(false)
   const inputEventType = useRef(null)
   const [inputData, changeInputData] = useState({ value })
   const [isInputFocused, setIsInputFocusedInternal] = useState(null)
@@ -15,6 +16,11 @@ const useInput = (value, { onInput, onChange, changeOnBlur }) => {
   }, [inputData.value])
 
   useEffect(() => {
+    if (!isInitialised) {
+      setIsInitialised(true)
+      return
+    }
+
     if (!isInputFocused) {
       if (changeOnBlur || (!changeOnBlur && inputEventType.current !== 'blur'))
         onChange(inputData)

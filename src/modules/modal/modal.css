@@ -9,7 +9,7 @@
   --modal-bar-fixed-z-index: calc(var(--app-bar-fixed-z-index, 1020) + 10);
 }
 
-.overlay {
+.overlay-root {
   position: fixed;
   top: 0;
   right: 0;
@@ -17,6 +17,15 @@
   left: 0;
   z-index: var(--modal-bar-fixed-z-index);
   background: var(--modal-overlay-color);
+}
+
+.overlay-root ~ .overlay-root {
+  background: none;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
 }
 
 .title {
