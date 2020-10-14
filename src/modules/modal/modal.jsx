@@ -38,7 +38,6 @@ const Modal = ({
   onClose,
   className,
   hideManually = false,
-  selector = 'body',
   ...restProps
 }) => {
   const modalRef = useRef(null)
@@ -70,28 +69,31 @@ const Modal = ({
   useEffect(() => enableBodyScroll(modalRef.current), [])
 
   return (
-    <ModalPortal selector={selector}>
-      <FocusLock returnFocus>
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-        <div
-          className={styles.overlay}
-          onClick={handleClick}
-          onKeyDown={handleKeyDown}
-          {...restProps}
-        >
+    <ModalPortal>
+      <div className={styles.overlayRoot}>
+        <FocusLock returnFocus>
+          {/* eslint-disable-next-line max-len */}
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <div
-            ref={(ref) => {
-              modalRef.current = ref
-              disableBodyScroll(modalRef.current)
-            }}
-            role="dialog"
-            className={classNames.use(styles.modal).join(className)}
+            className={styles.overlay}
+            onClick={handleClick}
+            onKeyDown={handleKeyDown}
             {...restProps}
           >
-            {children}
+            <div
+              ref={(ref) => {
+                modalRef.current = ref
+                disableBodyScroll(modalRef.current)
+              }}
+              role="dialog"
+              className={classNames.use(styles.modal).join(className)}
+              {...restProps}
+            >
+              {children}
+            </div>
           </div>
-        </div>
-      </FocusLock>
+        </FocusLock>
+      </div>
     </ModalPortal>
   )
 }
