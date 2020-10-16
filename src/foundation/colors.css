@@ -3,6 +3,15 @@
  *
  * Design system colour palette. Contains shades of grey and our brand
  * colours.
+ *
+ * Guidelines:
+ * 1. Colour values are defined as HSL triple. This includes both `--color`
+ *    and `--on-color` variables.
+ * 2. Emphasis values are defined as alpha channel value.
+ * 3. The usage may look like:
+ *    ```css
+ *    color: hsl(var(--on-primary) / var(--on-primary-medium-emphasis))
+ *    ```
  */
 
 :root {
@@ -34,25 +43,27 @@
    * Brand accents are generated with Material Color Tool.
    * Access at: https://material.io/resources/color/
    */
-  --background: hsl(0 0 100%);
-  --on-background: hsl(0 0 100%);
+  --background: 0 0 100%;
+  --on-background: 0 0 0;
 
   /* Surface */
-  --surface: hsl(0 0 100%);
-  --on-surface: hsl(0 0 0);
-  --on-surface-high-emphasis: hsl(0 0 0 / 87%);
-  --on-surface-medium-emphasis: hsl(0 0 0 / 60%);
-  --on-surface-disabled: hsl(0 0 0 / 38%);
+  --surface: 0 0 100%;
+  --on-surface: 0 0 0;
+  --on-surface-high-emphasis: 87%;
+  --on-surface-medium-emphasis: 60%;
+  --on-surface-disabled: 38%;
+  --on-surface-overlay: var(--on-surface);
 
   /* Primary brand colour */
   --primary: #b75400;
   --primary-variant: #812700;
   --primary-light: #ef8237; /* @deprecated */
   --primary-dark: #812700;  /* @deprecated */
-  --on-primary: hsl(0 0 100%);
-  --on-primary-high-emphasis: hsl(0 0 100%);
-  --on-primary-medium-emphasis: hsl(0 0 100% / 74%);
-  --on-primary-disabled: hsl(0 0 100% / 38%);
+  --on-primary: 0 0 100%;
+  --on-primary-high-emphasis: 100%;
+  --on-primary-medium-emphasis: 74%;
+  --on-primary-disabled: 38%;
+  --on-primary-overlay: 0 0 100%;
 
   /* Success */
   --success: #8bc34a;
@@ -70,6 +81,6 @@
   --danger-dark: #8e0000; /* @deprecated */
 
   /* Error */
-  --error: hsl(.97 100% 35%);
-  --on-error: hsl(0 0 100%);
+  --error: .97 100% 35%;
+  --on-error: 0 0 100%;
 }
