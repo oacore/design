@@ -55,10 +55,10 @@
   --on-surface-overlay: var(--on-surface);
 
   /* Primary brand colour */
-  --primary: #b75400;
-  --primary-variant: #812700;
-  --primary-light: #ef8237; /* @deprecated */
-  --primary-dark: #812700;  /* @deprecated */
+  --primary: .08 100% 36%;
+  --primary-variant: .05 100% 25%;
+  --primary-light: .07 85% 58%; /* @deprecated */
+  --primary-dark: .05 100% 25%;  /* @deprecated */
   --on-primary: 0 0 100%;
   --on-primary-high-emphasis: 100%;
   --on-primary-medium-emphasis: 74%;
@@ -66,19 +66,19 @@
   --on-primary-overlay: 0 0 100%;
 
   /* Success */
-  --success: #8bc34a;
-  --success-light: #bef67a; /* @deprecated */
-  --success-dark: #5a9216; /* @deprecated */
+  --success: 88 50% 53%;
+  --success-light: 87 87% 72%; /* @deprecated */
+  --success-dark: 87 74% 33%; /* @deprecated */
 
   /* Warning */
-  --warning: #fdd835; /* @deprecated */
-  --warning-light: #ffff6b; /* @deprecated */
-  --warning-dark: #c6a700; /* @deprecated */
+  --warning: 49 98% 60%; /* @deprecated */
+  --warning-light: 60 100% 71%; /* @deprecated */
+  --warning-dark: 51 100% 39%; /* @deprecated */
 
   /* Danger */
-  --danger: #c62828; /* @deprecated */
-  --danger-light: #ff5f52; /* @deprecated */
-  --danger-dark: #8e0000; /* @deprecated */
+  --danger: 0 66% 47%; /* @deprecated */
+  --danger-light: 5 100% 66%; /* @deprecated */
+  --danger-dark: 0 100% 28%; /* @deprecated */
 
   /* Error */
   --error: .97 100% 35%;
