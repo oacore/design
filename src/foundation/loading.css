@@ -16,7 +16,7 @@
  * 3. Applying the animation moving the background from the left to the right
  */
 %busy {
-  height: calc(1.5 * 1em); /* 1 */
+  min-height: calc(1.5 * 1em); /* 1 */
   background: var(--gray-200) 100% 0 / 200% 100%; /* 2 */
   background-image:
     /* 2 */
