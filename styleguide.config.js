@@ -52,8 +52,13 @@ module.exports = {
     },
     {
       name: 'Modules',
-      components: 'src/modules/!(select|modal)/**/*.{js,jsx,ts,tsx}',
+      components:
+        'src/modules/!(modal|select|search-result)/**/*.{js,jsx,ts,tsx}',
       sections: [
+        {
+          name: 'Search result',
+          components: ['src/modules/search-result/search-result.jsx'],
+        },
         {
           name: 'Select',
           components: () => [
