@@ -9,6 +9,7 @@ import ModalFooter from './footer'
 import ModalContent from './content'
 import ModalPortal from './portal'
 
+import { Button, Icon } from 'elements'
 import { classNames } from 'utils'
 
 const checkAccessibility = (props, propName, componentName) => {
@@ -66,7 +67,12 @@ const Modal = ({
     [hideManually]
   )
 
-  useEffect(() => enableBodyScroll(modalRef.current), [])
+  useEffect(
+    () => () => {
+      enableBodyScroll(modalRef.current)
+    },
+    []
+  )
 
   return (
     <ModalPortal>
@@ -83,12 +89,23 @@ const Modal = ({
             <div
               ref={(ref) => {
                 modalRef.current = ref
-                disableBodyScroll(modalRef.current)
+                // make sure disableBodyScroll is not called after
+                // component unmount with ref === null
+                if (modalRef.current) disableBodyScroll(modalRef.current)
               }}
               role="dialog"
               className={classNames.use(styles.modal).join(className)}
               {...restProps}
             >
+              {!hideManually && (
+                <Button
+                  className={styles.closeButton}
+                  aria-label="Close"
+                  onClick={(event) => onClose(event)}
+                >
+                  <Icon src="#window-close" />
+                </Button>
+              )}
               {children}
             </div>
           </div>
