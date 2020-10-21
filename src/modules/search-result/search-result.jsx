@@ -56,11 +56,7 @@ const SearchResult = ({
 
       <Metadata>
         <Metadata.Item id={idFor('author')} label={labels.author}>
-          <AuthorList aria-label={labels.author}>
-            {author.map(({ name }) => (
-              <AuthorList.Item>{name}</AuthorList.Item>
-            ))}
-          </AuthorList>
+          <AuthorList aria-label={labels.author} authors={author} />
         </Metadata.Item>
 
         <Metadata.Item id={idFor('venue')} label={labels.publicationVenue}>

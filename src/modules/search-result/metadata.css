@@ -6,7 +6,7 @@
 .group {
   display: inline-block;
 
-  &:not(:last-child)::after {
+  &:not(:first-child)::before {
     /**
      * There is no particular reason to use the 'en quad' instead the 'en-space'
      * but there is a reason to use spacer with length '1 en'
