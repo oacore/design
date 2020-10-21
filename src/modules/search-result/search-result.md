@@ -6,36 +6,44 @@
 </SearchResult>
 ```
 
-
 ### Regular state
 
 ```js
 <SearchResult
   id="example-02"
   data={{
-    title: 'Semantometrics: Towards Fulltext-based Research Evaluation',
-    author: [{ name: 'Drahomira Herrmannova' }, { name: 'Petr Knoth' }],
-    publicationDate: '2016',
+    title: 'Towards effective research recommender systems for repositories',
+    author: [
+        {name: 'Petr Knoth'}, {name: 'Lucas Anastasiou'},
+        {'name': 'Aristotelis Charalampous'}, {name: 'Matteo Cancellieri'},
+        {name: 'Samuel Pearce'}, {name: 'Nancy Pontika'}, {name: 'Vaclav Bayer'}
+    ],
+    publicationDate: '2017',
     fieldOfStudy: 'Computer science',
-    thumbnailUrl: '//core.ac.uk/image/200196065/medium',
-    metadataLink: '//core.ac.uk/display/200196065',
-    fullTextLink: '//core.ac.uk/reader/200196065',
+    thumbnailUrl: '//core.ac.uk/image/82984538/medium',
+    metadataLink: '//core.ac.uk/display/82984538',
+    fullTextLink: '//core.ac.uk/reader/82984538',
   }}
 >
-  Over the recent years, there has been a growing interest in developing new
-  research evaluation methods that could go beyond the traditional
-  citation-based metrics. This interest is motivated on one side by the wider
-  availability or even emergence of new information evidencing research
-  performance, such as article downloads, views and Twitter mentions, and on
-  the other side by the continued frustrations and problems surrounding the
-  application of purely citation-based metrics to evaluate research
-  performance in practice. Semantometrics are a new class of research
-  evaluation metrics which build on the premise that full-text is needed to
-  assess the value of a publication. This paper reports on the analysis
-  carried out with the aim to investigate the properties of the semantometric
-  contribution measure [Knoth, 2014], which uses semantic similarity of
-  publications to estimate research contribution, and provides a comparative
-  study of the contribution measure with traditional bibliometric measures
-  based on citation counting.
+    In this paper, we argue why and how the integration of recommender systems
+    for research can enhance the functionality and user experience
+    in repositories. We present the latest technical innovations
+    in the CORE Recommender, which provides research article
+    recommendations across the global network of repositories and journals.
+    The CORE Recommender has been recently redeveloped and released 
+    into production in the CORE system and has also been deployed in several
+    third-party repositories. We explain the design choices of this unique
+    system and the evaluation processes we have in place to continue raising
+    the quality of the provided recommendations. By drawing on our experience,
+    we discuss the main challenges in offering a state-of-the-art recommender
+    solution for repositories. We highlight two of the key limitations
+    of the current repository infrastructure with respect to developing
+    research recommender systems: 1) the lack of a standardised protocol
+    and capabilities for exposing anonymised user-interaction logs,
+    which represent critically important input data for recommender systems
+    based on collaborative filtering and 2) the lack of a voluntary global
+    sign-on capability in repositories, which would enable the creation
+    of personalised recommendation and notification solutions
+    based on past user interactions
 </SearchResult>
 ```

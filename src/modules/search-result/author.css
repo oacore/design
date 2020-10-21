@@ -14,6 +14,30 @@
   }
 }
 
+.link {
+  color: var(--gray-800);
+  text-decoration: underline;
+}
+
+
+.show-more button {
+  position: relative;
+  padding: 0 .25rem;
+  margin: 0 .25rem;
+  color: var(--gray-700);
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--gray-100);
+}
+
+.show-more.hide::after {
+  content: '';
+}
+
+.list .hide {
+  display: none;
+}
+
 /* Loading state */
 
 /* We want rectangles to be written in a single line */
