@@ -12,6 +12,15 @@
  *    ```css
  *    color: hsl(var(--on-primary) / var(--on-primary-medium-emphasis))
  *    ```
+ *
+ * NOTE: For some reason, browsers don't support 0 values without a unit,
+ *       so colour values contain explicit units, i.e. 0% wherever
+ *       bare `0` would be enough. Pure integer is acceptable as a first
+ *       argument but 'deg' unit is used for the consistency.
+ *
+ * NOTE: Emphasis values are defined as a rational number between 0 and 1
+ *       instead the percentage to preserve the compatibility with the `opacity`
+ *       property.
  */
 
 :root {
@@ -48,16 +57,16 @@
    *
    * Applies to <body> only.
    */
-  --background: 0 0 1;
-  --on-background: 0 0 0;
+  --background: 0deg 0% 100%;
+  --on-background: 0deg 0% 0%;
 
   /**
    * Surface
    *
    * Apply to all surfaces: cards, lists, dialogues etc.
    */
-  --surface: 0 0 1;
-  --on-surface: 0 0 0;
+  --surface: 0deg 0% 100%;
+  --on-surface: 0deg 0% 0%;
   --on-surface-high-emphasis: .87;
   --on-surface-medium-emphasis: .6;
   --on-surface-disabled: .38;
@@ -78,9 +87,9 @@
    * Brand accents were generated with Material Color Tool.
    * Access at: https://material.io/resources/color/
    */
-  --primary-hsl: .08 1 .36;
-  --primary-variant: .05 1 .25;
-  --on-primary: 0 0 1;
+  --primary-hsl: .08deg 100% 36%;
+  --primary-variant: .05deg 100% 25%;
+  --on-primary: 0deg 0% 100%;
   --on-primary-high-emphasis: 1;
   --on-primary-medium-emphasis: .74;
   --on-primary-disabled: .38;
@@ -116,6 +125,6 @@
   /**
    * Error
    */
-  --error: .97 1 .35;
-  --on-error: 0 0 1;
+  --error: .97deg 100% 35%;
+  --on-error: 0deg 0% 100%;
 }
