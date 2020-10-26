@@ -93,7 +93,7 @@
   --on-primary-high-emphasis: 1;
   --on-primary-medium-emphasis: .74;
   --on-primary-disabled: .38;
-  --on-primary-overlay: 0 0 1;
+  --on-primary-overlay: 0deg 0% 100%;
 
   /**
    * Success
