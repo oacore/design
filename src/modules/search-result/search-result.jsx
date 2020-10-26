@@ -74,7 +74,7 @@ const SearchResult = ({
         <Metadata.Item
           id={idFor('field')}
           label={labels.fieldOfStudy}
-          itemProp="dataPublished"
+          itemProp="about"
         >
           {fieldOfStudy}
         </Metadata.Item>
@@ -103,7 +103,9 @@ const SearchResult = ({
         )}
       </figure>
 
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content} itemProp="abstract">
+        {children}
+      </div>
     </Card>
   )
 }
