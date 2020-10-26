@@ -1,4 +1,5 @@
-```jsx
+```js
+(
 <Card>
     <Card.Title>Hi there, I am just simple Card</Card.Title>
     <Card.Description>This is just mine description</Card.Description>
@@ -13,4 +14,5 @@
     </ul>
     <Card.Footer>This is just simple footer.</Card.Footer>
 </Card>
+)
 ```
