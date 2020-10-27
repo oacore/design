@@ -1,1 +1,1 @@
-export SearchResult from './search-result'
+export default from './search-result'
