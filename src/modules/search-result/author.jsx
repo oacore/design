@@ -38,7 +38,7 @@ const List = ({ authors, className, ...htmlProps }) => {
         {...htmlProps}
       >
         {authors.map((author) => (
-          <Item name={author.name} />
+          <Item key={author.name} name={author.name} />
         ))}
       </ol>
     )
