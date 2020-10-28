@@ -14,9 +14,9 @@ const Logo = memo(
     tag: Tag = 'span',
     ...restProps
   }) => (
-    <Tag className={classNames.use(styles.logo, className)} {...restProps}>
+    <Tag className={classNames.use(styles.logo).join(className)} {...restProps}>
       <Icon src={src} alt={alt} className={styles.logoIcon} />
-      <span>{children}</span>
+      {children}
     </Tag>
   )
 )
