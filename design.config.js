@@ -32,6 +32,7 @@ const icons = [
   'check',
   'open-in-new',
   'magnify',
+  'menu',
   'window-close',
   path.resolve(__dirname, './assets/core-symbol.svg'),
 ]
