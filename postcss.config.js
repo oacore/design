@@ -12,7 +12,6 @@ const isGlobal = process.env.NODE_ENV === 'global'
 module.exports = {
   map: true,
   plugins: [
-    calc(),
     presetEnv({
       stage: 0,
       features: {
@@ -23,6 +22,7 @@ module.exports = {
       },
     }),
     extend(),
+    calc(),
     nano({
       preset: [
         'default',
