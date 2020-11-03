@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import ProgressSpinner from '../progress-spinner'
@@ -40,7 +40,7 @@ const Status = ({ value, variant, progress, ...restProps }) => (
   </Addon>
 )
 
-const TextField = React.forwardRef(
+const TextField = forwardRef(
   (
     {
       children,

@@ -1,9 +1,10 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
 /**
  * Empty component for the future purposes.
  */
-const Footer = React.forwardRef(
+
+const Footer = forwardRef(
   ({ children, tag: Tag = 'tfoot', ...restProps }, ref) => (
     <Tag ref={ref} {...restProps}>
       {children}

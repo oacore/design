@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import appBarStyles from './styles.css'
@@ -7,7 +6,7 @@ import { classNames } from 'utils'
 
 const AppBar = ({
   children,
-  fixed,
+  fixed = false,
   className,
   tag: Tag = 'div',
   ...restProps
@@ -25,10 +24,6 @@ const AppBar = ({
 
 AppBar.propTypes = {
   fixed: PropTypes.bool,
-}
-
-AppBar.defaultProps = {
-  fixed: false,
 }
 
 export default AppBar

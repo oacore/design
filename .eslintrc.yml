@@ -11,3 +11,4 @@ settings:
       extensions: ['.js', '.jsx']
 rules:
   react/require-default-props: off
+  react/react-in-jsx-scope: off

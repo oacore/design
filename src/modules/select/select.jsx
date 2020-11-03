@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect, useCallback, memo } from 'react'
 import PropTypes from 'prop-types'
 
 import { useInput, useOptions } from './hooks'
@@ -7,7 +7,7 @@ import styles from './select.css'
 import { Form, Icon, Button } from 'elements'
 import { classNames, canUseDOM } from 'utils'
 
-const Select = React.memo(
+const Select = memo(
   ({
     id,
     value,
@@ -201,13 +201,6 @@ Select.propTypes = {
    * If variant is pure label is shown only when select is not focused
    */
   variant: PropTypes.oneOf(['normal', 'pure']),
-}
-
-Select.defaultProps = {
-  prependIcon: null,
-  clearButton: true,
-  clearOnFocus: false,
-  changeOnBlur: true,
 }
 
 export default Select

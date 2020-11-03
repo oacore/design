@@ -10,7 +10,12 @@ module.exports = {
         shippedProposals: true,
       },
     ],
-    '@babel/react',
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+      },
+    ],
   ],
   plugins: [
     [
