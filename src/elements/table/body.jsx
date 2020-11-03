@@ -1,9 +1,8 @@
-import React from 'react'
-
+import { forwardRef } from 'react'
 /**
  * Empty component for the future purposes.
  */
-const Body = React.forwardRef(
+const Body = forwardRef(
   ({ children, tag: Tag = 'tbody', ...restProps }, ref) => (
     <Tag ref={ref} {...restProps}>
       {children}

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import styles from './modal.css'
 
 import { classNames } from 'utils'

@@ -1,4 +1,4 @@
-import React from 'react'
+import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './styles.css'
@@ -22,12 +22,12 @@ const getSortOrder = (order) => {
       return ['none', 'Not sorted']
   }
 }
-const HeadCell = React.forwardRef(
+const HeadCell = forwardRef(
   (
     {
       children,
       className,
-      sticky,
+      sticky = false,
       order = null,
       onClick,
       tag: Tag = 'th',
@@ -69,12 +69,6 @@ HeadCell.propTypes = {
   sticky: PropTypes.bool,
   order: PropTypes.oneOf([null, 'any', 'asc', 'desc']),
   onClick: PropTypes.func,
-}
-
-HeadCell.defaultProps = {
-  order: null,
-  sticky: false,
-  onClick: undefined,
 }
 
 export default HeadCell

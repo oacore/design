@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import labelStyles from './label.css'
@@ -7,7 +6,7 @@ import { classNames } from 'utils'
 
 const Label = ({
   children,
-  color,
+  color = 'default',
   className,
   tag: Tag = 'mark',
   ...restProps
@@ -24,10 +23,6 @@ const Label = ({
 
 Label.propTypes = {
   color: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
-}
-
-Label.defaultProps = {
-  color: 'default',
 }
 
 export default Label

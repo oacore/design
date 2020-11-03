@@ -1,10 +1,10 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import { forwardRef } from 'react'
 
 import Icon from '../icon'
 import styles from './link.css'
 
-const Link = React.forwardRef(
+const Link = forwardRef(
   ({ children, external = false, icon = external, ...restProps }, ref) => {
     const ownProps = {}
 
@@ -42,11 +42,6 @@ Link.propTypes = {
    * reflects external prop.
    */
   icon: PropTypes.bool,
-}
-
-Link.defaultProps = {
-  external: false,
-  icon: false,
 }
 
 export default Link

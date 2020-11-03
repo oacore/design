@@ -1,11 +1,11 @@
-import React from 'react'
+import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './message.css'
 
 import { classNames } from 'utils'
 
-const Message = React.forwardRef(
+const Message = forwardRef(
   (
     {
       children,
@@ -40,10 +40,6 @@ Message.propTypes = {
    * Indicates whether message should have colored or transparent background
    */
   fill: PropTypes.bool,
-}
-
-Message.defaultProps = {
-  fill: false,
 }
 
 export default Message

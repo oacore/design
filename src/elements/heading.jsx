@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import { classNames } from 'utils'
@@ -10,7 +9,7 @@ const Heading = ({
   children,
   className,
   level,
-  display,
+  display = false,
   tag: Tag = `h${level}`,
   ...restProps
 }) => (
@@ -29,10 +28,6 @@ Heading.propTypes = {
    * A toggle for display mode.
    */
   display: PropTypes.bool,
-}
-
-Heading.defaultProps = {
-  display: false,
 }
 
 export default Heading

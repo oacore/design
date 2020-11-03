@@ -1,11 +1,11 @@
-import React from 'react'
+import { memo } from 'react'
 
 import Icon from '../icon'
 import styles from './logo.css'
 
 import { classNames } from 'utils'
 
-const Logo = React.memo(
+const Logo = memo(
   ({
     children = 'CORE',
     className,

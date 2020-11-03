@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './select.css'
@@ -6,7 +6,7 @@ import styles from './select.css'
 import { Icon } from 'elements'
 import { classNames } from 'utils'
 
-const Option = React.memo(
+const Option = memo(
   ({ id, children, selected, icon, className, ...restProps }) => (
     <li
       id={id}
