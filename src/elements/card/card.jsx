@@ -1,5 +1,3 @@
-import React from 'react'
-
 import styles from './card.css'
 
 import { classNames } from 'utils'

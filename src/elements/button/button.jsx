@@ -1,11 +1,11 @@
-import React from 'react'
+import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import buttonClassNames from './button.css'
 
 import { classNames } from 'utils'
 
-const Button = React.forwardRef(
+const Button = forwardRef(
   (
     {
       children,
@@ -34,11 +34,6 @@ const Button = React.forwardRef(
 Button.propTypes = {
   variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
   href: PropTypes.string,
-}
-
-Button.defaultProps = {
-  variant: 'text',
-  href: undefined,
 }
 
 export default Button

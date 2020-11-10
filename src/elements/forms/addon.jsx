@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './styles.css'
@@ -6,7 +6,10 @@ import styles from './styles.css'
 import { classNames } from 'utils'
 
 const Addon = forwardRef(
-  ({ place, className, children, tag: Tag = 'span', ...restProps }, ref) => (
+  (
+    { place = 'append', className, children, tag: Tag = 'span', ...restProps },
+    ref
+  ) => (
     <Tag
       ref={ref}
       className={classNames.use(styles.addon, styles[place]).join(className)}
@@ -19,10 +22,6 @@ const Addon = forwardRef(
 
 Addon.propTypes = {
   place: PropTypes.oneOf(['append', 'prepend']),
-}
-
-Addon.defaultProps = {
-  place: 'append',
 }
 
 export default Addon

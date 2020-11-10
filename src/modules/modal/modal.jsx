@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect } from 'react'
+import { useRef, useCallback, useEffect } from 'react'
 import FocusLock from 'react-focus-lock'
 import PropTypes from 'prop-types'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
