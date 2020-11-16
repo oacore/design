@@ -83,14 +83,14 @@ const SearchResult = ({
       <figure className={styles.thumbnail}>
         {fullTextLink != null ? (
           <Link href={fullTextLink}>
-            <img src={thumbnailUrl} alt="" />
+            <img src={thumbnailUrl} alt="" loading="lazy" />
             <span className={styles.thumbnailCaption}>
               {texts.pdfAvailable}
             </span>
           </Link>
         ) : (
           <>
-            <img src={thumbnailUrl} alt="" />
+            <img src={thumbnailUrl} alt="" loading="lazy" />
             <span
               className={classNames.use(
                 styles.thumbnailCaption,
