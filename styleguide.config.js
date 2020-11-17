@@ -14,6 +14,10 @@ module.exports = {
       content: 'src/foundation/README.md',
     },
     {
+      name: 'DesignProvider',
+      content: 'src/context.md',
+    },
+    {
       name: 'Elements',
       components: 'src/elements/!(table|app-bar|forms)/**/*.{js,jsx,ts,tsx}',
       sections: [
@@ -53,7 +57,7 @@ module.exports = {
     {
       name: 'Modules',
       components:
-        'src/modules/!(modal|select|search-result)/**/*.{js,jsx,ts,tsx}',
+        'src/modules/!(modal|select|search-result|header)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'Search result',
@@ -74,6 +78,10 @@ module.exports = {
             'src/modules/modal/content.jsx',
             'src/modules/modal/footer.jsx',
           ],
+        },
+        {
+          name: 'Header',
+          components: () => ['src/modules/header/header.jsx'],
         },
       ],
     },

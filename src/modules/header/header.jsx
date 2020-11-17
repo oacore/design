@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import { AppBar, Button, Icon, Logo } from '../../elements'
 import styles from './styles.css'
+import SearchBarOrEmpty, { useSearchBar } from './search-bar'
 
 import { classNames } from 'utils'
 
@@ -124,7 +125,7 @@ const Header = ({ children, className, id, ...passProps }) => {
         <Logo className={styles.logo} />
       </AppBar.Item>
 
-      {children}
+      <SearchBarOrEmpty />
 
       <AppBar.Item className={styles.toggleContainer}>
         <Button
@@ -200,5 +201,7 @@ const Header = ({ children, className, id, ...passProps }) => {
     </AppBar>
   )
 }
+
+Header.useSearchBar = useSearchBar
 
 export default Header

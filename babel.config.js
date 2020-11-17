@@ -24,6 +24,8 @@ module.exports = {
         alias: {
           utils: './src/utils',
           elements: './src/elements',
+          modules: './src/modules',
+          context: './src/context',
         },
       },
     ],
