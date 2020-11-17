@@ -73,7 +73,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "bin": "bin/index.js",
+  "bin": {
+    "design": "bin/index.js"
+  },
   "scripts": {
     "postinstall": "node bin build",
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
