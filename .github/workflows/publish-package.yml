@@ -19,7 +19,7 @@ jobs:
           ref: master
 
       - name: Lint & Build
-        uses: actions/setup-node@v1.4.0
+        uses: actions/setup-node@v1.4.4
         with:
           node-version: '12.x'
           registry-url: https://npm.pkg.github.com/
