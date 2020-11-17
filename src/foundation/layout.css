@@ -1,0 +1,5 @@
+:root {
+  --page-padding-x: 6rem;
+  --page-padding-y: 3rem;
+  --main-content-percentage-width: calc(2 / 3);
+}

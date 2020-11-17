@@ -63,9 +63,11 @@ const Select = memo(
       )
         return
 
-      // reset keyboard position in option menu
-      setClickedElement(null)
-      setIsInputFocused(false)
+      if (isInputFocused) {
+        // reset keyboard position in option menu
+        setClickedElement(null)
+        setIsInputFocused(false)
+      }
     }, [])
 
     // attach event listeners
@@ -180,7 +182,10 @@ Select.propTypes = {
   /* Call onChange callback on blur event */
   changeOnBlur: PropTypes.bool,
   /* Custom classname applied on select wrapper */
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(classNames.default),
+  ]),
   /* Classname applied to select menu */
   selectMenuClassName: PropTypes.string,
   /* Icon to prepend before input */
