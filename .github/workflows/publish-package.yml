@@ -4,11 +4,13 @@ on:
   release:
     types: [published]
 
+env:
+  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   publish-gpr:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ::set-env name=NPM_TOKEN::${{secrets.GITHUB_TOKEN}}
       - name: Get the version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -38,9 +40,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2.4.4
+        uses: peter-evans/create-pull-request@v3.5.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Bump version ${{ steps.get_version.outputs.VERSION }}
           title: Bump version ${{ steps.get_version.outputs.VERSION }}
           body: Bump package.json version
