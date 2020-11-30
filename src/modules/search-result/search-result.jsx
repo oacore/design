@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import AuthorList from './author'
 import styles from './styles.css'
 
-import { Card, Heading, Link, MetadataList } from 'elements'
+import { Card, Heading, Link, MetadataList, ExpandableList } from 'elements'
 import { classNames } from 'utils'
 
 const texts = {
@@ -55,7 +54,22 @@ const SearchResult = ({
 
       <MetadataList>
         <MetadataList.Item id={idFor('author')} label={labels.author}>
-          <AuthorList aria-label={labels.author} authors={author} />
+          <ExpandableList aria-label={labels.author}>
+            {author.map((a) => (
+              <ExpandableList.Item
+                itemProp="author"
+                itemScope=""
+                itemType="https://schema.org/Person"
+              >
+                <a
+                  href={`https://core.ac.uk/search?q=author:(${a.name})`}
+                  className={styles.link}
+                >
+                  {a.name.replace(',', ' ')}
+                </a>
+              </ExpandableList.Item>
+            ))}
+          </ExpandableList>
         </MetadataList.Item>
 
         <MetadataList.Item id={idFor('venue')} label={labels.publicationVenue}>
