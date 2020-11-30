@@ -68,3 +68,8 @@
 [aria-busy='true'] .thumbnail-caption {
   display: none;
 }
+
+.link {
+  color: var(--gray-800);
+  text-decoration: underline;
+}
