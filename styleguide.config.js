@@ -19,7 +19,8 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: 'src/elements/!(table|app-bar|forms)/**/*.{js,jsx,ts,tsx}',
+      components:
+        'src/elements/!(table|app-bar|forms|metadata-list)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'App Bar',
@@ -50,6 +51,13 @@ module.exports = {
             'src/elements/forms/control.jsx',
             'src/elements/forms/group.jsx',
             'src/elements/forms/text-field.jsx',
+          ],
+        },
+        {
+          name: 'MetadataList',
+          components: () => [
+            'src/elements/metadata-list/metadata-list.jsx',
+            'src/elements/metadata-list/metadata-list-item.jsx',
           ],
         },
       ],
