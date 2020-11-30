@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Metadata from './metadata'
 import AuthorList from './author'
 import styles from './styles.css'
 
-import { Card, Heading, Link } from 'elements'
+import { Card, Heading, Link, MetadataList } from 'elements'
 import { classNames } from 'utils'
 
 const texts = {
@@ -54,31 +53,31 @@ const SearchResult = ({
         {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
       </Heading>
 
-      <Metadata>
-        <Metadata.Item id={idFor('author')} label={labels.author}>
+      <MetadataList>
+        <MetadataList.Item id={idFor('author')} label={labels.author}>
           <AuthorList aria-label={labels.author} authors={author} />
-        </Metadata.Item>
+        </MetadataList.Item>
 
-        <Metadata.Item id={idFor('venue')} label={labels.publicationVenue}>
+        <MetadataList.Item id={idFor('venue')} label={labels.publicationVenue}>
           {publicationVenue}
-        </Metadata.Item>
+        </MetadataList.Item>
 
-        <Metadata.Item
+        <MetadataList.Item
           id={idFor('publication-date')}
           label={labels.publicationDate}
           itemProp="dataPublished"
         >
           {formatDate(publicationDate)}
-        </Metadata.Item>
+        </MetadataList.Item>
 
-        <Metadata.Item
+        <MetadataList.Item
           id={idFor('field')}
           label={labels.fieldOfStudy}
           itemProp="about"
         >
           {fieldOfStudy}
-        </Metadata.Item>
-      </Metadata>
+        </MetadataList.Item>
+      </MetadataList>
 
       <figure className={styles.thumbnail}>
         {fullTextLink != null ? (
