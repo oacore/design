@@ -23,7 +23,7 @@
     "@oacore/prettier-config": "^1.0.6",
     "@oacore/stylelint-config-base": "^2.0.0-stylelint.1",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.2",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "css-loader": "^5.0.0",
