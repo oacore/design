@@ -1,0 +1,14 @@
+.chip.contained {
+  color: var(--white);
+  background: var(--primary);
+}
+
+.chip {
+  padding: 2px 4px;
+  font-size: .625rem;
+  line-height: .75rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: .015em;
+  border-radius: 4px;
+}
