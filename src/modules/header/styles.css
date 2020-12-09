@@ -47,14 +47,39 @@
 
 
 .logo-container {
+  flex: 1;
+  min-width: var(--logo-min-width);
+  max-width: var(--page-padding-x);
+  padding: 0;
   margin-right: auto;
   font-weight: 600;
 }
 
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 1rem;
+  margin-right: .5rem;
+  color: initial;
+  text-decoration: none;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  color: initial;
+  text-decoration: none;
+  background-color:
+    hsl(
+      var(--app-bar-overlay, var(--component-overlay))
+      / var(--app-bar-overlay-hover, var(--component-overlay-hover))
+    );
+}
+
 .logo {
+  min-width: calc(var(--logo-min-width) - 1.5rem);
   max-width: var(--page-padding-x);
   height: 1rem;
-  margin-bottom: -1rem;
 }
 
 .toggle-container {
@@ -165,7 +190,7 @@
 
 .group {
   padding:
-    var(--app-bar-padding-y, var(--component-padding-y))
+    0,
     var(--app-bar-padding-x, var(--component-padding-x));
 
   & .item {
@@ -272,6 +297,7 @@
 /* search item styles */
 .search-bar-item {
   --app-bar-padding-y: 0;
+  --app-bar-padding-x: 0;
 
   flex: 1;
   align-self: center;
@@ -285,7 +311,7 @@
   --form-control-color: var(--gray-700);
   max-width: 100%;
 
-  padding: calc(.25rem - 1px) .25rem .25rem;
+  padding: calc(.25rem - 1px) 0 .25rem;
 }
 
 .select ul > * {
@@ -328,7 +354,8 @@
     position: relative;
     max-width:
       calc(
-        (100vw - 2 * var(--page-padding-x)) * var(--main-content-percentage-width)
+        (100vw - var(--main-content-aside-gap) - 2 * var(--page-padding-x))
+        * var(--main-content-ratio)
       );
   }
 
@@ -338,5 +365,21 @@
     right: unset;
     bottom: unset;
     left: unset;
+  }
+}
+
+/*
+ 93rem =
+  var(--main-content-max-width) + 2 * var(--min-logo-width)
+  + 2 * 1rem (min-page-padding)
+*/
+@media (max-width: 93rem) and (min-width: 768px) {
+  .select {
+    max-width:
+      calc(
+        (100vw - var(--main-content-aside-gap) - 2 * var(--page-padding-x))
+        * var(--main-content-ratio) - var(--logo-min-width)
+        + var(--page-padding-x)
+      );
   }
 }
