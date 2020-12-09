@@ -121,8 +121,10 @@ const Header = ({ children, className, id, ...passProps }) => {
       tag="header"
       {...passProps}
     >
-      <AppBar.Item className={styles.logoContainer} href="/" tag="a">
-        <Logo className={styles.logo} />
+      <AppBar.Item className={styles.logoContainer}>
+        <a href="/" className={styles.logoLink}>
+          <Logo className={styles.logo} />
+        </a>
       </AppBar.Item>
 
       <SearchBarOrEmpty />
