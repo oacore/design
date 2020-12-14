@@ -87,8 +87,8 @@
    * Brand accents were generated with Material Color Tool.
    * Access at: https://material.io/resources/color/
    */
-  --primary-hsl: .08deg 100% 36%;
-  --primary-variant: .05deg 100% 25%;
+  --primary-hsl: 28deg 100% 36%;
+  --primary-variant: 18deg 100% 25%;
   --on-primary: 0deg 0% 100%;
   --on-primary-high-emphasis: 1;
   --on-primary-medium-emphasis: .74;
