@@ -190,7 +190,7 @@
 
 .group {
   padding:
-    0,
+    var(--app-bar-padding-y, var(--component-padding-y))
     var(--app-bar-padding-x, var(--component-padding-x));
 
   & .item {
@@ -301,6 +301,7 @@
 
   flex: 1;
   align-self: center;
+  margin-right: .5rem;
 }
 
 .select {
