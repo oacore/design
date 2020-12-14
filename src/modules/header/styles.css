@@ -354,7 +354,7 @@
     position: relative;
     max-width:
       calc(
-        (100vw - var(--main-content-aside-gap) - 2 * var(--page-padding-x))
+        (100vw - 2 * var(--page-padding-x))
         * var(--main-content-ratio)
       );
   }
@@ -377,7 +377,7 @@
   .select {
     max-width:
       calc(
-        (100vw - var(--main-content-aside-gap) - 2 * var(--page-padding-x))
+        (100vw - 2 * var(--page-padding-x))
         * var(--main-content-ratio) - var(--logo-min-width)
         + var(--page-padding-x)
       );
