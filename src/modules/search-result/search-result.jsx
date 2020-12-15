@@ -57,6 +57,7 @@ const SearchResult = ({
           <ExpandableList aria-label={labels.author}>
             {author.map((a) => (
               <ExpandableList.Item
+                key={a.name}
                 itemProp="author"
                 itemScope=""
                 itemType="https://schema.org/Person"
