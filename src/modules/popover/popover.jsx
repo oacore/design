@@ -34,7 +34,8 @@ const Popover = ({
   content,
   visible,
   interactive = false,
-  trigger = 'mouseenter focus',
+  /* trigger cannot be defined when manual mode is activated */
+  trigger = visible !== undefined ? undefined : 'mouseenter focus',
   placement = 'auto',
   hideOnBlur = true,
   delay = 0,
