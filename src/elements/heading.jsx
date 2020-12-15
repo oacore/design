@@ -23,7 +23,7 @@ Heading.propTypes = {
    * An integer between 1 and 6 (including) to calculate the tag.
    * NOTE: If `tag` prop is passed, `level` will be ignored.
    */
-  level: PropTypes.number.isRequired,
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6, '1', '2', '3', '4', '5', '6']),
   /**
    * A toggle for display mode.
    */
