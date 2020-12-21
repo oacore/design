@@ -23,6 +23,8 @@
     thumbnailUrl: '//core.ac.uk/image/82984538/medium',
     metadataLink: '//core.ac.uk/display/82984538',
     fullTextLink: '//core.ac.uk/reader/82984538',
+    repositoryLink: '//oro.open.ac.uk/',
+    repositoryName: 'Open Research Online'
   }}
 >
     In this paper, we argue why and how the integration of recommender systems

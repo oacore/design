@@ -1,12 +1,14 @@
 :root {
   --search-result-thumbnail-width: 5rem;
   --search-result-thumbnail-height: 7rem;
+  --search-result-footnote-height: 2rem;
 }
 
 .container {
   position: relative;
   min-height: calc(var(--search-result-thumbnail-height) + var(--card-padding-y, 1rem) + 1rem);
   padding-left: calc(2 * var(--card-padding-x, 1rem) + var(--search-result-thumbnail-width));
+  margin-bottom: var(--search-result-footnote-height);
 }
 
 .title {
@@ -72,4 +74,20 @@
 .link {
   color: var(--gray-800);
   text-decoration: underline;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: var(--search-result-footnote-height);
+  margin: 0 1rem;
+  font-size: .75rem;
+  transform: translateY(100%);
+}
+
+.repository-link {
+  color: initial;
 }
