@@ -36,6 +36,10 @@ const SearchResult = ({
     metadataLink,
     fullTextLink,
     thumbnailUrl,
+    dataProvider: {
+      name: dataProviderName,
+      homepageLink: dataProviderHomepage,
+    } = {},
   } = {},
   ...htmlProps
 }) => {
@@ -59,14 +63,14 @@ const SearchResult = ({
               <ExpandableList.Item
                 key={a.name}
                 itemProp="author"
-                itemScope=""
+                itemScope
                 itemType="https://schema.org/Person"
               >
                 <a
                   href={`https://core.ac.uk/search?q=author:(${a.name})`}
                   className={styles.link}
                 >
-                  {a.name.replace(',', ' ')}
+                  <span itemProp="name">{a.name.replace(',', ' ')}</span>
                 </a>
               </ExpandableList.Item>
             ))}
@@ -80,7 +84,7 @@ const SearchResult = ({
         <MetadataList.Item
           id={idFor('publication-date')}
           label={labels.publicationDate}
-          itemProp="dataPublished"
+          itemProp="datePublished"
         >
           {formatDate(publicationDate)}
         </MetadataList.Item>
@@ -97,14 +101,14 @@ const SearchResult = ({
       <figure className={styles.thumbnail}>
         {fullTextLink != null ? (
           <Link href={fullTextLink}>
-            <img src={thumbnailUrl} alt="" loading="lazy" />
+            <img src={thumbnailUrl} itemProp="image" alt="" loading="lazy" />
             <span className={styles.thumbnailCaption}>
               {texts.pdfAvailable}
             </span>
           </Link>
         ) : (
           <>
-            <img src={thumbnailUrl} alt="" loading="lazy" />
+            <img src={thumbnailUrl} itemProp="image" alt="" loading="lazy" />
             <span
               className={classNames.use(
                 styles.thumbnailCaption,
@@ -119,6 +123,23 @@ const SearchResult = ({
 
       <div className={styles.content} itemProp="abstract">
         {children}
+      </div>
+      <div className={styles.footnote}>
+        {dataProviderHomepage && (
+          <div
+            itemProp="publisher"
+            itemScope
+            itemType="https://schema.org/Organization"
+          >
+            <Link
+              href={dataProviderHomepage}
+              className={styles.repositoryLink}
+              external
+            >
+              <span itemProp="name">{dataProviderName}</span>
+            </Link>
+          </div>
+        )}
       </div>
     </Card>
   )
@@ -139,6 +160,10 @@ SearchResult.propTypes = {
     metadataLink: PropTypes.string,
     fullTextLink: PropTypes.string,
     thumbnailUrl: PropTypes.string,
+    dataProvider: PropTypes.shape({
+      name: PropTypes.string,
+      homepageLink: PropTypes.string,
+    }),
   }),
 }
 

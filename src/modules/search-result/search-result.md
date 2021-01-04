@@ -14,15 +14,23 @@
   data={{
     title: 'Towards effective research recommender systems for repositories',
     author: [
-        {name: 'Petr Knoth'}, {name: 'Lucas Anastasiou'},
-        {'name': 'Aristotelis Charalampous'}, {name: 'Matteo Cancellieri'},
-        {name: 'Samuel Pearce'}, {name: 'Nancy Pontika'}, {name: 'Vaclav Bayer'}
+      { name: 'Petr Knoth' },
+      { name: 'Lucas Anastasiou' },
+      { name: 'Aristotelis Charalampous' },
+      { name: 'Matteo Cancellieri' },
+      { name: 'Samuel Pearce' },
+      { name: 'Nancy Pontika' },
+      { name: 'Vaclav Bayer' },
     ],
     publicationDate: '2017',
     fieldOfStudy: 'Computer science',
     thumbnailUrl: '//core.ac.uk/image/82984538/medium',
     metadataLink: '//core.ac.uk/display/82984538',
     fullTextLink: '//core.ac.uk/reader/82984538',
+    dataProvider: {
+      name: 'Open Research Online',
+      homepageLink: '//oro.open.ac.uk',
+    },
   }}
 >
     In this paper, we argue why and how the integration of recommender systems
