@@ -36,8 +36,10 @@ const SearchResult = ({
     metadataLink,
     fullTextLink,
     thumbnailUrl,
-    repositoryName,
-    repositoryLink,
+    dataProvider: {
+      name: dataProviderName,
+      homepageLink: dataProviderHomepage,
+    } = {},
   } = {},
   ...htmlProps
 }) => {
@@ -123,18 +125,18 @@ const SearchResult = ({
         {children}
       </div>
       <div className={styles.footnote}>
-        {repositoryLink && (
+        {dataProviderHomepage && (
           <div
             itemProp="publisher"
             itemScope
             itemType="https://schema.org/Organization"
           >
             <Link
-              href={repositoryLink}
+              href={dataProviderHomepage}
               className={styles.repositoryLink}
               external
             >
-              <span itemProp="name">{repositoryName}</span>
+              <span itemProp="name">{dataProviderName}</span>
             </Link>
           </div>
         )}
@@ -158,8 +160,10 @@ SearchResult.propTypes = {
     metadataLink: PropTypes.string,
     fullTextLink: PropTypes.string,
     thumbnailUrl: PropTypes.string,
-    repositoryName: PropTypes.string,
-    repositoryLink: PropTypes.string,
+    dataProvider: PropTypes.shape({
+      name: PropTypes.string,
+      homepageLink: PropTypes.string,
+    }),
   }),
 }
 
