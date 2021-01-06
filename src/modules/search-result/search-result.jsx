@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
-import { Card, Heading, Link, MetadataList, ExpandableList } from 'elements'
+import { Card, Heading, MetadataList, ExpandableList } from 'elements'
+import { BaseLink as Link } from 'elements/link'
 import { classNames } from 'utils'
 
 const texts = {
@@ -23,6 +24,21 @@ const labels = {
 
 const formatDate = (date) => date?.toString()
 
+const typeToVariant = (type) =>
+  ({
+    PDF: 'hosted',
+    URL: 'linked',
+    NONE: 'missing',
+  }[type])
+
+const fullTextStatus = ({ title, fullTextLink } = {}) => {
+  // A trick to detect if any data exists.
+  // Prevents fake 'Full text is missing' when still loading.
+  if (title == null && fullTextLink == null) return null
+
+  return fullTextLink != null ? texts.pdfAvailable : texts.metadataOnly
+}
+
 const SearchResult = ({
   children,
   id,
@@ -35,6 +51,7 @@ const SearchResult = ({
     fieldOfStudy,
     metadataLink,
     fullTextLink,
+    fullTextType = fullTextLink == null ? 'NONE' : 'PDF',
     thumbnailUrl,
     dataProvider: {
       name: dataProviderName,
@@ -47,7 +64,12 @@ const SearchResult = ({
   return (
     <Card
       id={`${PREFIX}-${id}`}
-      className={classNames.use(styles.container).join(className)}
+      className={classNames
+        .use(
+          styles.container,
+          styles[`full-text-${typeToVariant(fullTextType)}`]
+        )
+        .join(className)}
       itemScope
       itemType="https://schema.org/ScholarlyArticle"
       {...htmlProps}
@@ -98,27 +120,13 @@ const SearchResult = ({
         </MetadataList.Item>
       </MetadataList>
 
-      <figure className={styles.thumbnail}>
-        {fullTextLink != null ? (
-          <Link href={fullTextLink}>
-            <img src={thumbnailUrl} itemProp="image" alt="" loading="lazy" />
-            <span className={styles.thumbnailCaption}>
-              {texts.pdfAvailable}
-            </span>
-          </Link>
-        ) : (
-          <>
-            <img src={thumbnailUrl} itemProp="image" alt="" loading="lazy" />
-            <span
-              className={classNames.use(
-                styles.thumbnailCaption,
-                styles.thumbnailCaptionEmpty
-              )}
-            >
-              {texts.metadataOnly}
-            </span>
-          </>
-        )}
+      <figure className={classNames.use(styles.thumbnail)}>
+        <Link href={fullTextLink}>
+          <img src={thumbnailUrl} itemProp="image" alt="" loading="lazy" />
+          <span className={styles.thumbnailCaption}>
+            {fullTextStatus({ title, fullTextLink })}
+          </span>
+        </Link>
       </figure>
 
       <div className={styles.content} itemProp="abstract">

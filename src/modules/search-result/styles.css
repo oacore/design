@@ -1,6 +1,7 @@
 :root {
   --search-result-thumbnail-width: 5rem;
   --search-result-thumbnail-height: 7rem;
+  --search-result-thumbnail-border-radius: 2px;
   --search-result-footnote-height: 2rem;
 }
 
@@ -22,6 +23,26 @@
   margin: 0;
 }
 
+.thumbnail a {
+  display: block;
+  border-radius: var(--search-result-thumbnail-border-radius);
+  transition: box-shadow 150ms;
+
+  &:link:hover {
+    text-decoration: none;
+    box-shadow: var(--elevation-01);
+  }
+
+  &:link:focus {
+    text-decoration: none;
+    box-shadow: var(--elevation-04);
+  }
+
+  &:link:active {
+    box-shadow: none;
+  }
+}
+
 .thumbnail img {
   display: block;
   width: var(--search-result-thumbnail-width);
@@ -29,7 +50,11 @@
   object-fit: cover;
   border: 1px solid var(--primary);
   border-bottom: 0;
-  border-radius: 2px 2px 0 0;
+  border-radius:
+    var(--search-result-thumbnail-border-radius)
+    var(--search-result-thumbnail-border-radius)
+    0
+    0;
 
   &:not([src]) {
     border-color: var(--gray-300);
@@ -51,7 +76,11 @@
   color: var(--white);
   text-align: center;
   background: var(--primary);
-  border-radius: 0 0 2px 2px;
+  border-radius:
+    0
+    0
+    var(--search-result-thumbnail-border-radius)
+    var(--search-result-thumbnail-border-radius);
 }
 
 .thumbnail-caption-empty {
@@ -67,7 +96,7 @@
 }
 
 /* Loading states */
-[aria-busy='true'] .thumbnail-caption {
+[aria-busy='true'] .thumbnail-caption:empty {
   display: none;
 }
 
@@ -90,4 +119,19 @@
 
 .repository-link {
   color: initial;
+}
+
+/* Variants */
+.full-text-hosted {
+  /* Preserving for the future use */
+}
+
+.full-text-linked {
+  @extend .full-text-hosted;
+}
+
+.full-text-missing {
+  & .thumbnail {
+    filter: grayscale(100%);
+  }
 }
