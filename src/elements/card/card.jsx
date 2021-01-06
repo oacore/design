@@ -1,15 +1,29 @@
+import PropTypes from 'prop-types'
+
 import styles from './card.css'
 
 import { classNames } from 'utils'
 
-const Card = ({ children, className, tag: Tag = 'div', ...restProps }) => (
+const Card = ({
+  children,
+  className,
+  variant = 'elevated',
+  tag: Tag = 'div',
+  ...restProps
+}) => (
   <Tag
-    className={classNames.use(styles.container).join(className)}
+    className={classNames
+      .use(styles.container, styles[variant])
+      .join(className)}
     {...restProps}
   >
     {children}
   </Tag>
 )
+
+Card.propTypes = {
+  variant: PropTypes.oneOf(['elevated', 'outlined']),
+}
 
 const Title = ({ children, className, tag: Tag = 'h1', ...restProps }) => (
   <Tag className={classNames.use(styles.title).join(className)} {...restProps}>
