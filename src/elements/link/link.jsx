@@ -4,7 +4,55 @@ import { forwardRef } from 'react'
 import Icon from '../icon'
 import styles from './link.css'
 
-const Link = forwardRef(
+/**
+ * The BaseLink component reflects WHATWG <a> element specification,
+ * i.e. removes extra attributes if there is no href passed.
+ *
+ * See more: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element
+ */
+const BaseLink = forwardRef(
+  (
+    {
+      children,
+      href,
+      target,
+      download,
+      ping,
+      rel,
+      hreflang,
+      type,
+      referrerpolicy,
+      itemProp,
+      ...restProps
+    },
+    ref
+  ) => {
+    const linkProps = {
+      href,
+      target,
+      download,
+      ping,
+      rel,
+      hreflang,
+      type,
+      referrerpolicy,
+      itemProp,
+    }
+
+    const props = {
+      ...(href == null ? {} : linkProps),
+      ...restProps,
+    }
+
+    return (
+      <a ref={ref} {...props}>
+        {children}
+      </a>
+    )
+  }
+)
+
+const StyledLink = forwardRef(
   ({ children, external = false, icon = external, ...restProps }, ref) => {
     const ownProps = {}
 
@@ -14,17 +62,17 @@ const Link = forwardRef(
     }
 
     return (
-      <a ref={ref} {...ownProps} {...restProps}>
+      <BaseLink ref={ref} {...ownProps} {...restProps}>
         {children}
         {external && icon && (
           <Icon className={styles.icon} src="#open-in-new" aria-hidden />
         )}
-      </a>
+      </BaseLink>
     )
   }
 )
 
-Link.propTypes = {
+StyledLink.propTypes = {
   href: PropTypes.string,
 
   /**
@@ -44,4 +92,5 @@ Link.propTypes = {
   icon: PropTypes.bool,
 }
 
-export default Link
+export default StyledLink
+export { BaseLink, StyledLink }
