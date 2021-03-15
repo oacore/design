@@ -2,7 +2,7 @@
 Simple example of universal header without search bar.
 
 ```js
-<div style={{ minHeight: '10rem' }}>
+<div style={{ minHeight: '40rem' }}>
   <Header id="example-header-1" />
 </div>
 ```
