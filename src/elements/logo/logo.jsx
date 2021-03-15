@@ -15,7 +15,13 @@ const Logo = memo(
     ...restProps
   }) => (
     <Tag className={classNames.use(styles.logo).join(className)} {...restProps}>
-      <Icon src={src} alt={alt} className={styles.logoIcon} />
+      <Icon
+        src={src}
+        alt={alt}
+        className={styles.logoIcon}
+        width="18"
+        height="24"
+      />
       {children}
     </Tag>
   )

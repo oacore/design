@@ -19,6 +19,8 @@ const Icon = ({ src, alt, className, ...restProps }) => (
     className={classNames.use(iconClassNames.icon).join(className)}
     role="img"
     aria-label={alt}
+    width="24"
+    height="24"
     {...restProps}
   >
     <use href={resolve(src)} />
