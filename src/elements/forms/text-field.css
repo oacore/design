@@ -75,4 +75,5 @@
 .touched:invalid ~ label {
   --form-control-color: var(--danger-dark);
   --form-label-color: var(--form-control-color);
+  --form-control-background-color: var(--danger-light-background);
 }

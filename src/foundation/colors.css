@@ -120,6 +120,7 @@
    */
   --danger: #c62828; /* @deprecated */
   --danger-light: #ff5f52; /* @deprecated */
+  --danger-light-background: #fff2f1; /* @deprecated */
   --danger-dark: #8e0000; /* @deprecated */
 
   /**
