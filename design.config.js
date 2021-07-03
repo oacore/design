@@ -34,10 +34,9 @@ const icons = [
   'magnify',
   'menu',
   'window-close',
+  'pencil',
   path.resolve(__dirname, './assets/core-symbol.svg'),
-  path.resolve(__dirname, './assets/pencil-edit.svg'),
 ]
-// TODO We should move local icons to `@mdi/svg/svg`
 
 // icons used in documentation
 if (isDev) icons.push('file-check')
