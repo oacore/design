@@ -19,9 +19,9 @@ const BaseLink = forwardRef(
       download,
       ping,
       rel,
-      hreflang,
+      hrefLang,
       type,
-      referrerpolicy,
+      referrerPolicy,
       itemProp,
       ...restProps
     },
@@ -33,9 +33,9 @@ const BaseLink = forwardRef(
       download,
       ping,
       rel,
-      hreflang,
+      hrefLang,
       type,
-      referrerpolicy,
+      referrerPolicy,
       itemProp,
     }
 
