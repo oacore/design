@@ -1,7 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react'
 import FocusLock from 'react-focus-lock'
 import PropTypes from 'prop-types'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import styles from './modal.css'
 import ModalTitle from './title'
@@ -69,7 +69,7 @@ const Modal = ({
 
   useEffect(
     () => () => {
-      enableBodyScroll(modalRef.current)
+      clearAllBodyScrollLocks()
     },
     []
   )
