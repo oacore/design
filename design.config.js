@@ -35,6 +35,7 @@ const icons = [
   'menu',
   'window-close',
   'pencil',
+  'account',
   path.resolve(__dirname, './assets/core-symbol.svg'),
 ]
 
