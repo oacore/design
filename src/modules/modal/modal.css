@@ -49,12 +49,13 @@
 }
 
 .modal {
-  position: relative;
-  top: 10vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 60rem;
+  max-width: 42rem;
   max-height: 80vh;
   padding: var(--modal-padding-y) var(--modal-padding-x);
   margin-right: auto;
@@ -63,6 +64,7 @@
   background: var(--modal-background);
   border-radius: var(--modal-corner-radius);
   box-shadow: var(--modal-box-shadow);
+  transform: translate(-50%, -50%);
 }
 
 .close-button {
@@ -79,7 +81,6 @@
   border-radius: 2rem;
   transform: translateY(calc(-1 * var(--button-padding-x)));
 }
-
 
 /* Make sure when title is large that text flow around close button */
 .close-button ~ .title::before {
