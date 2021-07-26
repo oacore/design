@@ -138,13 +138,36 @@ module.exports = {
             'postcss-loader',
           ],
         },
+        // Deprecated
+        // {
+        //   test: /\.svg$/,
+        //   use: [
+        //     {
+        //       loader: 'svg-sprite-loader',
+        //     },
+        //     'svgo-loader',
+        //   ],
+        // },
         {
-          test: /\.svg$/,
+          test: /\.(png|jpg|gif)$/i,
           use: [
             {
-              loader: 'svg-sprite-loader',
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+              },
             },
-            'svgo-loader',
+          ],
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+              },
+            },
           ],
         },
       ],
