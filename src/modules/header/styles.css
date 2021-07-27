@@ -383,3 +383,14 @@
       );
   }
 }
+
+.communities-menu {
+  @media (--header-breakpoint-up) {
+    & .menu-list {
+      flex-wrap: wrap;
+      width: calc(2 * var(--header-menu-width));
+      max-height: 8rem;
+      padding: 1rem 0;
+    }
+  }
+}
