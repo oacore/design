@@ -4,21 +4,9 @@ Carousel is based on [react-slick](https://github.com/akiran/react-slick) librar
 
 For configuration and examples look at the [Documentation](https://react-slick.neostack.com/docs/get-started)
 
-You need also connect css files via npm:
-
-`npm install slick-carousel --save`
-
-Necessary imports 
-
-```javascript
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-```
 
 ```jsx
-
-        <Slider {...settings}>
+        <Carousel>
           <div>
             <h3>1</h3>
           </div>
@@ -37,5 +25,5 @@ import "slick-carousel/slick/slick-theme.css";
           <div>
             <h3>6</h3>
           </div>
-        </Slider>
+        </Carousel>
 ```
