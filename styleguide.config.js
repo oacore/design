@@ -1,5 +1,7 @@
 const path = require('path')
 
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+
 module.exports = {
   title: 'CORE Design Elements',
   usageMode: 'expand',
@@ -138,16 +140,15 @@ module.exports = {
             'postcss-loader',
           ],
         },
-        // Deprecated
-        // {
-        //   test: /\.svg$/,
-        //   use: [
-        //     {
-        //       loader: 'svg-sprite-loader',
-        //     },
-        //     'svgo-loader',
-        //   ],
-        // },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+            },
+            'svgo-loader',
+          ],
+        },
         {
           test: /\.(png|jpg|gif)$/i,
           use: [
@@ -160,7 +161,7 @@ module.exports = {
           ],
         },
         {
-          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
               loader: 'file-loader',
@@ -172,6 +173,7 @@ module.exports = {
         },
       ],
     },
+    plugins: [new SpriteLoaderPlugin()],
     resolve: {
       extensions: ['.js', '.jsx'],
     },
