@@ -1,6 +1,7 @@
 export AppBar from './app-bar'
 export Heading from './heading'
 export Button from './button'
+export Carousel from './carousel'
 export * from './forms'
 export Label from './label'
 export Table from './table'
