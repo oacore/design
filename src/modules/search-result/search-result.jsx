@@ -78,7 +78,7 @@ const SearchResult = ({
         {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
       </Heading>
 
-      <MetadataList>
+      <MetadataList className={styles.metadataList}>
         <MetadataList.Item id={idFor('author')} label={labels.author}>
           <ExpandableList aria-label={labels.author}>
             {author.map((a) => (

@@ -117,6 +117,10 @@
   transform: translateY(100%);
 }
 
+.footnote span{
+  color: var(--gray-600);
+}
+
 .repository-link {
   color: initial;
 }
@@ -134,4 +138,12 @@
   & .thumbnail {
     filter: grayscale(100%);
   }
+}
+
+.metadata-list {
+  color: var(--gray-700);
+}
+
+.metadata-list span{
+  color: var(--gray-700);
 }
