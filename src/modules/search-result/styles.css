@@ -131,11 +131,19 @@
 }
 
 .full-text-linked {
-  @extend .full-text-hosted;
+@extend .full-text-hosted;
 }
 
 .full-text-missing {
   & .thumbnail {
     filter: grayscale(100%);
   }
+}
+
+.metadata-list {
+  color: var(--gray-700);
+}
+
+.metadata-list span{
+  color: var(--gray-700);
 }
