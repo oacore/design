@@ -131,7 +131,7 @@
 }
 
 .full-text-linked {
-@extend .full-text-hosted;
+  @extend .full-text-hosted;
 }
 
 .full-text-missing {
