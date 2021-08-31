@@ -36,7 +36,7 @@
       {
       id:86,
       name: 'Open Research Online',
-      downloadUrl: '//core.ac.uk/data-providers/86,
+      downloadUrl: '//core.ac.uk/data-providers/86',
       },
     ]
   }}
