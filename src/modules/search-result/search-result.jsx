@@ -53,10 +53,7 @@ const SearchResult = ({
     fullTextLink,
     fullTextType = fullTextLink == null ? 'NONE' : 'PDF',
     thumbnailUrl,
-    dataProvider: {
-      name: dataProviderName,
-      homepageLink: dataProviderHomepage,
-    } = {},
+    dataProviders = [],
   } = {},
   ...htmlProps
 }) => {
@@ -133,20 +130,24 @@ const SearchResult = ({
         {children}
       </div>
       <div className={styles.footnote}>
-        {dataProviderHomepage && (
-          <div
-            itemProp="publisher"
-            itemScope
-            itemType="https://schema.org/Organization"
-          >
-            <Link
-              href={dataProviderHomepage}
-              className={styles.repositoryLink}
-              external
-            >
-              <span itemProp="name">{dataProviderName}</span>
-            </Link>
-          </div>
+        {dataProviders.map(
+          (dataProvider) =>
+            dataProvider.name && (
+              <div
+                itemProp="publisher"
+                itemScope
+                itemType="https://schema.org/Organization"
+                key={dataProvider.id}
+                className={styles.dataProvider}
+              >
+                <Link
+                  href={`//core.ac.uk/data-providers/${dataProvider.id}`}
+                  className={styles.repositoryLink}
+                >
+                  <span itemProp="name">{dataProvider.name}</span>
+                </Link>
+              </div>
+            )
         )}
       </div>
     </Card>
@@ -168,10 +169,13 @@ SearchResult.propTypes = {
     metadataLink: PropTypes.string,
     fullTextLink: PropTypes.string,
     thumbnailUrl: PropTypes.string,
-    dataProvider: PropTypes.shape({
-      name: PropTypes.string,
-      homepageLink: PropTypes.string,
-    }),
+    dataProvider: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        downloadUrl: PropTypes.string,
+      })
+    ),
   }),
 }
 
