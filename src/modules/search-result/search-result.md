@@ -27,10 +27,18 @@
     thumbnailUrl: '//core.ac.uk/image/82984538/medium',
     metadataLink: '//core.ac.uk/display/82984538',
     fullTextLink: '//core.ac.uk/reader/82984538',
-    dataProvider: {
+    dataProviders: [
+      {
+      id:1,
+      name: 'Aberdeen University Research Archive',
+      downloadUrl: '//core.ac.uk/data-providers/1',
+      }, 
+      {
+      id:86,
       name: 'Open Research Online',
-      homepageLink: '//oro.open.ac.uk',
-    },
+      downloadUrl: '//core.ac.uk/data-providers/86,
+      },
+    ]
   }}
 >
     In this paper, we argue why and how the integration of recommender systems
