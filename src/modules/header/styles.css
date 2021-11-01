@@ -344,7 +344,7 @@
 
 .select label {
   font-weight: 400;
-  color: var(--black);
+  color: var(--gray-600);
 }
 
 .select input {
@@ -384,5 +384,13 @@
         * var(--main-content-ratio) - var(--logo-min-width)
         + var(--page-padding-x)
       );
+  }
+}
+
+@media (max-width: 550px){
+  .select label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
