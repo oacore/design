@@ -9,7 +9,7 @@ import { classNames } from 'utils'
 
 const texts = {
   pdfAvailable: 'Get PDF',
-  linkAvailable: 'Access PDF',
+  linkAvailable: 'Full text link',
   metadataOnly: 'No full text',
 }
 
@@ -20,23 +20,30 @@ const labels = {
   fieldOfStudy: 'Field of study',
   publicationDate: 'Publication date',
   publicationVenue: 'Publication venue',
+  dataProviders: 'Data providers',
 }
 
 const formatDate = (date) => date?.toString()
 
-const typeToVariant = (type) =>
-  ({
-    PDF: 'hosted',
-    URL: 'linked',
-    NONE: 'missing',
-  }[type])
+const typeToVariant = (fullTextLink) => {
+  let variant
+  if (fullTextLink == null) variant = 'missing'
+  else if (fullTextLink.includes('core')) variant = 'hosted'
+  else variant = 'linked'
+  return variant
+}
 
 const fullTextStatus = ({ title, fullTextLink } = {}) => {
   // A trick to detect if any data exists.
   // Prevents fake 'Full text is missing' when still loading.
   if (title == null && fullTextLink == null) return null
+  let status
 
-  return fullTextLink != null ? texts.pdfAvailable : texts.metadataOnly
+  if (fullTextLink == null) status = texts.metadataOnly
+  else if (fullTextLink.includes('core')) status = texts.pdfAvailable
+  else status = texts.linkAvailable
+
+  return status
 }
 
 const SearchResult = ({
@@ -51,7 +58,6 @@ const SearchResult = ({
     fieldOfStudy,
     metadataLink,
     fullTextLink,
-    fullTextType = fullTextLink == null ? 'NONE' : 'PDF',
     thumbnailUrl,
     dataProviders = [],
   } = {},
@@ -64,7 +70,7 @@ const SearchResult = ({
       className={classNames
         .use(
           styles.container,
-          styles[`full-text-${typeToVariant(fullTextType)}`]
+          styles[`full-text-${typeToVariant(fullTextLink)}`]
         )
         .join(className)}
       itemScope
@@ -130,10 +136,11 @@ const SearchResult = ({
         {children}
       </div>
       <div className={styles.footnote}>
-        {dataProviders.map(
-          (dataProvider) =>
-            dataProvider.name && (
-              <div
+        <ExpandableList aria-label={labels.dataProviders}>
+          {dataProviders
+            .filter((dataProvider) => dataProvider.name !== null)
+            .map((dataProvider) => (
+              <ExpandableList.Item
                 itemProp="publisher"
                 itemScope
                 itemType="https://schema.org/Organization"
@@ -146,9 +153,9 @@ const SearchResult = ({
                 >
                   <span itemProp="name">{dataProvider.name}</span>
                 </Link>
-              </div>
-            )
-        )}
+              </ExpandableList.Item>
+            ))}
+        </ExpandableList>
       </div>
     </Card>
   )
