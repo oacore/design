@@ -2,7 +2,7 @@
   --search-result-thumbnail-width: 5rem;
   --search-result-thumbnail-height: 7rem;
   --search-result-thumbnail-border-radius: 2px;
-  --search-result-footnote-height: 3rem;
+  --search-result-footnote-height: 2.2rem;
 }
 
 .container {
@@ -105,16 +105,20 @@
   text-decoration: underline;
 }
 
+/* stylelint-disable property-no-unknown */
 .footnote {
   position: absolute;
-  bottom: .5rem;
+  bottom: 0;
   left: 0;
-  display: flex;
   align-items: center;
   height: var(--search-result-footnote-height);
   margin: 0 1rem;
+  overflow: hidden;
   font-size: .75rem;
+  text-overflow: ellipsis;
   transform: translateY(100%);
+  line-clamp: 2;
+  box-orient: vertical;
 }
 
 .footnote span{
@@ -154,13 +158,16 @@
   color: var(--gray-700);
 }
 
-.data-providers-list{
-  margin: .5rem;
-}
 
 .data-provider {
-  &:not(:last-child)::after {
+  display: inline-block;
+
+  &:not(:first-child)::before {
+    /**
+     * There is no particular reason to use the 'en quad' instead the 'en-space'
+     * but there is a reason to use spacer with length '1 en'
+     */
     content: '\2000 and\2000';
+    opacity: .38;
   }
 }
-
