@@ -135,12 +135,12 @@ const SearchResult = ({
       <div className={styles.content} itemProp="abstract">
         {children}
       </div>
+
       <div className={styles.footnote}>
-        <ExpandableList aria-label={labels.dataProviders}>
-          {dataProviders
-            .filter((dataProvider) => dataProvider.name !== null)
-            .map((dataProvider) => (
-              <ExpandableList.Item
+        {dataProviders.map(
+          (dataProvider) =>
+            dataProvider.name && (
+              <div
                 itemProp="publisher"
                 itemScope
                 itemType="https://schema.org/Organization"
@@ -153,9 +153,9 @@ const SearchResult = ({
                 >
                   <span itemProp="name">{dataProvider.name}</span>
                 </Link>
-              </ExpandableList.Item>
-            ))}
-        </ExpandableList>
+              </div>
+            )
+        )}
       </div>
     </Card>
   )
