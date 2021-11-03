@@ -92,7 +92,7 @@ const SearchResult = ({
                 itemType="https://schema.org/Person"
               >
                 <a
-                  href={`https://core.ac.uk/search?q=author:(${a.name})`}
+                  href={`https://core.ac.uk/search/author:(${a.name})`}
                   className={styles.link}
                 >
                   <span itemProp="name">{a.name.replace(',', ' ')}</span>
