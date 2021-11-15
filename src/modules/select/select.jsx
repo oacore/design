@@ -26,6 +26,8 @@ const Select = memo(
     clearButtonClassName = '',
     clearOnFocus = false,
     tag: Tag = 'div',
+    appendText,
+    appendTextOnClick,
     ...restInputProps
   }) => {
     // custom select hooks
@@ -100,9 +102,19 @@ const Select = memo(
               <Icon src={prependIcon} />
             </Form.Addon>
           )}
-
+          {appendText && (
+            <Form.Addon place="append">
+              <p
+                className={styles.appendText}
+                onClick={appendTextOnClick}
+                role="presentation"
+              >
+                {appendText}
+              </p>
+            </Form.Addon>
+          )}
           {clearButton && (
-            <Form.Addon place="append" className={styles.appendIcon}>
+            <Form.Addon place="append" className={styles.appendText}>
               <Button
                 className={classNames
                   .use(styles.clearOutButton, inputData.value && styles.show)
@@ -117,6 +129,7 @@ const Select = memo(
               </Button>
             </Form.Addon>
           )}
+
           <Form.Control
             ref={inputRef}
             id={`select-${id}`}
@@ -200,6 +213,11 @@ Select.propTypes = {
   clearOnFocus: PropTypes.bool,
   /* Input's placeholder */
   placeholder: PropTypes.string,
+  /* Append text onChange */
+  appendTextOnClick: PropTypes.func,
+  /* Append text */
+  appendText: PropTypes.string,
+
   /**
    * Helper variation. Affects label display.
    *

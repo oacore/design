@@ -53,6 +53,7 @@
   flex: 1;
   min-width: var(--logo-min-width);
   max-width: var(--page-padding-x);
+  max-height: 3rem;
   padding: 0;
   margin-right: auto;
   font-weight: 600;

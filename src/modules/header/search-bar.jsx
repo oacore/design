@@ -3,6 +3,7 @@ import { throttle } from 'throttle-debounce'
 
 import { HEADER_ACTIONS } from './context'
 import styles from './styles.css'
+import AdvancedSearch from './advanced-search'
 
 import { useDesignContext } from 'context'
 import { classNames } from 'utils'
@@ -72,12 +73,14 @@ const SearchBar = () => {
     onQueryChanged,
     suggestionsDelay = 500,
     isHidden,
+    useAdvancedSearch,
     searchBarProps: { selectClassName, ...restSearchBarProps } = {},
     appBarItemProps: { appBarItemClassName, ...restAppBarItemProps } = {},
   } = useSearchBar()
 
   const [suggestions, setSuggestions] = useState([])
   const [value, setValue] = useState(initQuery || '')
+  const [visibleAdvancedMenu, setVisibleAdvancedMenu] = useState(false)
 
   const suggest = useCallback(
     throttle(suggestionsDelay, false, (searchTerm) => {
@@ -85,7 +88,6 @@ const SearchBar = () => {
     }),
     [getSuggestions, suggestionsDelay]
   )
-
   const handleOnChange = (data) => {
     onQueryChanged(data.value)
   }
@@ -97,7 +99,9 @@ const SearchBar = () => {
     // and didn't use suggestion
     if (!data.id) suggest(data.value)
   }
-
+  const onToggleVisibleAdvancedMenu = () => {
+    setVisibleAdvancedMenu(!visibleAdvancedMenu)
+  }
   return (
     <AppBar.Item
       className={classNames.use(styles.searchBarItem, appBarItemClassName)}
@@ -112,6 +116,8 @@ const SearchBar = () => {
         onInput={handleOnInput}
         className={classNames.use(styles.select, selectClassName)}
         {...restSearchBarProps}
+        appendText={useAdvancedSearch && 'How to search?'}
+        appendTextOnClick={useAdvancedSearch && onToggleVisibleAdvancedMenu}
       >
         {suggestions.map((el) => (
           <Select.Option key={el.id} id={el.id} value={el.value} icon={el.icon}>
@@ -119,6 +125,14 @@ const SearchBar = () => {
           </Select.Option>
         ))}
       </Select>
+      {useAdvancedSearch && (
+        <AdvancedSearch
+          isVisible={visibleAdvancedMenu}
+          setSearchValue={setValue}
+          onOpen={() => setVisibleAdvancedMenu(true)}
+          onClose={() => setVisibleAdvancedMenu(false)}
+        />
+      )}
     </AppBar.Item>
   )
 }
