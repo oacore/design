@@ -1,3 +1,6 @@
+@custom-media --header-breakpoint-down (max-width: 767px);
+@custom-media --header-breakpoint-up (min-width: 767px);
+
 :root {
   --select-background: var(--white);
   --select-focused-background: var(--white);
@@ -83,7 +86,21 @@
   padding: 0;
 }
 
-.clear-out-button {
+.append-text{
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+.append-text:hover{
+  text-decoration: underline;
+}
+
+.clear-out-button,
+.info-append-button {
   --icon-color: var(--select-clear-input-icon-color);
   --button-padding-y: 0;
   --button-padding-x: 0;
@@ -100,9 +117,11 @@
 }
 
 .select-menu.show,
-.clear-out-button.show {
+.clear-out-button.show,
+.info-append-button.show {
   display: block;
 }
+
 
 .pure > label {
   transition: none;
@@ -122,4 +141,16 @@
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+@media (--header-breakpoint-down) {
+  .append-text{
+    display: none;
+  }
+}
+
+@media (--header-breakpoint-up) {
+  .info-append{
+    display: none;
+  }
 }

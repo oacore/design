@@ -117,7 +117,9 @@ const Header = ({ children, className, id, ...passProps }) => {
   return (
     <AppBar
       id={id}
-      className={classNames.use(styles.container).join(className)}
+      className={classNames
+        .use(styles.container, expandedMenu && styles.expanded)
+        .join(className)}
       tag="header"
       {...passProps}
     >
