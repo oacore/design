@@ -148,9 +148,3 @@
     display: none;
   }
 }
-
-@media (--header-breakpoint-up) {
-  .info-append{
-    display: none;
-  }
-}
