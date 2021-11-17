@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback, memo } from 'react'
+import React, { useEffect, useState, useCallback, memo } from 'react'
 import PropTypes from 'prop-types'
-import { useState } from 'react/cjs/react.development'
 
 import { useInput, useOptions } from './hooks'
 import styles from './select.css'
@@ -71,6 +70,7 @@ const Select = memo(
         // reset keyboard position in option menu
         setClickedElement(null)
         setIsInputFocused(false)
+        setVisibleAppendTextIcon(false)
       }
     }, [])
 
