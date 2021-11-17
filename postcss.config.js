@@ -4,6 +4,7 @@ const calc = require('postcss-calc')
 const cssModules = require('postcss-modules')
 const nano = require('cssnano')
 const { cosmiconfigSync } = require('cosmiconfig')
+
 const cssModulesConfig = cosmiconfigSync('cssmodules').search().config
 
 const isGlobal = process.env.NODE_ENV === 'global'
