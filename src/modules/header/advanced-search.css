@@ -56,6 +56,10 @@ ul{
   margin-right: 1rem;
 }
 
+.button-container button{
+  min-width: 10rem;
+}
+
 .clear-out-button {
   --icon-color: var(--select-clear-input-icon-color);
   position: absolute;
@@ -81,18 +85,33 @@ ul{
 }
 
 @media (--header-breakpoint-down) {
-  .toggle-text{
-    all: unset;
+  .container{
     position: absolute;
-    top: 3.7rem;
-    right: 1rem;
-    z-index: 100;
-    display: block;
-    color: var(--gray-700);
-    text-transform: unset;
+    top: 3rem;
+    right: 0;
+    left: 0;
+    min-width: 100%;
   }
 
-  .toggle-text:hover{
-    text-decoration: underline;
+  .title{
+    max-width: 100%;
+    margin-top: 3rem;
   }
+
+  .buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .button-container {
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+
+  .button-container:not(:last-child){
+    margin-right: 0;
+  }
+
+
 }

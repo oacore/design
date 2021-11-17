@@ -102,6 +102,7 @@ const SearchBar = () => {
   const onToggleVisibleAdvancedMenu = () => {
     setVisibleAdvancedMenu(!visibleAdvancedMenu)
   }
+
   return (
     <AppBar.Item
       className={classNames.use(styles.searchBarItem, appBarItemClassName)}

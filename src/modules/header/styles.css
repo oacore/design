@@ -11,6 +11,11 @@
   display: flex;
   flex-wrap: wrap;
   line-height: 1;
+
+  &.expanded {
+    z-index: 20;
+  }
+
 }
 
 .container li::before {
@@ -239,6 +244,7 @@
     background-color: hsl(var(--app-bar-overlay, var(--component-overlay) / var(--component-overlay-focus)));
     outline: 0;
   }
+
 }
 
 /* Special menus */
@@ -271,7 +277,6 @@
 
   & img {
     display: block;
-    width: 100%;
     grid-column: 1;
     grid-row: 1 / -1;
 
