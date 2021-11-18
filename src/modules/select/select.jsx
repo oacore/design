@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useCallback, memo } from 'react'
+import React, { useEffect, useState, useCallback, useRef, memo } from 'react'
 import PropTypes from 'prop-types'
-import { useRef } from 'react/cjs/react.development'
 
 import { useInput, useOptions } from './hooks'
 import styles from './select.css'
