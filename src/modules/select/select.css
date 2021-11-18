@@ -117,11 +117,9 @@
 }
 
 .select-menu.show,
-.clear-out-button.show,
-.info-append-button.show {
+.clear-out-button.show {
   display: block;
 }
-
 
 .pure > label {
   transition: none;
@@ -146,5 +144,9 @@
 @media (--header-breakpoint-down) {
   .append-text{
     display: none;
+  }
+
+  .info-append-button.show {
+    display: block;
   }
 }
