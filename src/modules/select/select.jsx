@@ -108,7 +108,7 @@ const Select = memo(
               <Icon src={prependIcon} />
             </Form.Addon>
           )}
-          {appendText && visibleAppendTextIcon && (
+          {appendText && (
             <Form.Addon place="append">
               <p
                 className={classNames.use(styles.appendText)}
