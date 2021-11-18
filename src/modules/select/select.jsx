@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, memo } from 'react'
 import PropTypes from 'prop-types'
+import { useRef } from 'react/cjs/react.development'
 
 import { useInput, useOptions } from './hooks'
 import styles from './select.css'
@@ -57,6 +58,8 @@ const Select = memo(
 
     const [visibleAppendTextIcon, setVisibleAppendTextIcon] = useState(false)
 
+    const selectRef = useRef(null)
+
     const handleMouseUp = useCallback((event) => {
       // detect if click was made outside of select
       // if so hide suggestion menu
@@ -66,11 +69,13 @@ const Select = memo(
       )
         return
 
+      if (!selectRef.current?.contains(event.target))
+        setVisibleAppendTextIcon(false)
+
       if (isInputFocused) {
         // reset keyboard position in option menu
         setClickedElement(null)
         setIsInputFocused(false)
-        setVisibleAppendTextIcon(false)
       }
     }, [])
 
@@ -84,6 +89,7 @@ const Select = memo(
         className={classNames
           .use(styles.selectWrapper, isInputFocused && styles.focused)
           .join(className)}
+        ref={selectRef}
       >
         <div className="sr-only" aria-live="assertive">
           {canUseDOM &&
