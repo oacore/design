@@ -1,5 +1,6 @@
-import React, { useEffect, useCallback, memo } from 'react'
+import React, { useEffect, useState, useCallback, memo } from 'react'
 import PropTypes from 'prop-types'
+import { useRef } from 'react/cjs/react.development'
 
 import { useInput, useOptions } from './hooks'
 import styles from './select.css'
@@ -26,6 +27,8 @@ const Select = memo(
     clearButtonClassName = '',
     clearOnFocus = false,
     tag: Tag = 'div',
+    appendText,
+    appendTextOnClick,
     ...restInputProps
   }) => {
     // custom select hooks
@@ -40,7 +43,6 @@ const Select = memo(
       onChange,
       changeOnBlur,
     })
-
     const [
       selectMenuRef,
       options,
@@ -54,6 +56,10 @@ const Select = memo(
       setInputData,
     })
 
+    const [visibleAppendTextIcon, setVisibleAppendTextIcon] = useState(false)
+
+    const selectRef = useRef(null)
+
     const handleMouseUp = useCallback((event) => {
       // detect if click was made outside of select
       // if so hide suggestion menu
@@ -62,6 +68,9 @@ const Select = memo(
         selectMenuRef.current?.contains(event.target)
       )
         return
+
+      if (!selectRef.current?.contains(event.target))
+        setVisibleAppendTextIcon(false)
 
       if (isInputFocused) {
         // reset keyboard position in option menu
@@ -75,12 +84,12 @@ const Select = memo(
       window.addEventListener('mouseup', handleMouseUp)
       return () => window.removeEventListener('mouseup', handleMouseUp)
     }, [])
-
     return (
       <Tag
         className={classNames
           .use(styles.selectWrapper, isInputFocused && styles.focused)
           .join(className)}
+        ref={selectRef}
       >
         <div className="sr-only" aria-live="assertive">
           {canUseDOM &&
@@ -100,7 +109,17 @@ const Select = memo(
               <Icon src={prependIcon} />
             </Form.Addon>
           )}
-
+          {appendText && (
+            <Form.Addon place="append">
+              <p
+                className={classNames.use(styles.appendText)}
+                onClick={appendTextOnClick}
+                role="presentation"
+              >
+                {appendText}
+              </p>
+            </Form.Addon>
+          )}
           {clearButton && (
             <Form.Addon place="append" className={styles.appendIcon}>
               <Button
@@ -114,6 +133,25 @@ const Select = memo(
                 type="button"
               >
                 <Icon src="#window-close" />
+              </Button>
+            </Form.Addon>
+          )}
+          {appendText && (
+            <Form.Addon
+              place="append"
+              className={classNames.use(styles.appendIcon, styles.infoAppend)}
+            >
+              <Button
+                className={classNames
+                  .use(
+                    styles.infoAppendButton,
+                    visibleAppendTextIcon && styles.show
+                  )
+                  .join(clearButtonClassName)}
+                type="button"
+                onClick={appendTextOnClick}
+              >
+                <Icon src="#information-outline" />
               </Button>
             </Form.Addon>
           )}
@@ -137,6 +175,7 @@ const Select = memo(
             onFocus={() => {
               setIsInputFocused(true)
               if (clearOnFocus) setInputData({ value: '' })
+              setVisibleAppendTextIcon(true)
             }}
             onBlur={handleInputBlurEvent}
             onKeyDown={handleInputKeyEvent}
@@ -200,6 +239,12 @@ Select.propTypes = {
   clearOnFocus: PropTypes.bool,
   /* Input's placeholder */
   placeholder: PropTypes.string,
+  /* Append text onChange */
+  appendTextOnClick: PropTypes.func,
+  /* Append text */
+  appendText: PropTypes.string,
+  appendTextRef: PropTypes.element,
+
   /**
    * Helper variation. Affects label display.
    *

@@ -155,11 +155,11 @@
 
 /* Restore <textarea> default height, add a min-height */
 textarea.control {
-  height:
+  /* height:
     calc(
       2 * var(--form-control-padding-y) + var(--form-control-line-height) *
       var(--textarea-line-count) * var(--form-control-font-size)
-    );
+    ); */
   min-height:
     calc(
       2 * var(--form-control-padding-y) + var(--form-control-line-height) *
