@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { useInput, useOptions } from './hooks'
 import styles from './select.css'
+import AdvancedSearch from '../header/advanced-search'
 
 import { Form, Icon, Button } from 'elements'
 import { classNames, canUseDOM } from 'utils'
@@ -27,7 +28,7 @@ const Select = memo(
     clearOnFocus = false,
     tag: Tag = 'div',
     appendText,
-    appendTextOnClick,
+    useAdvancedSearch,
     ...restInputProps
   }) => {
     // custom select hooks
@@ -55,6 +56,7 @@ const Select = memo(
       setInputData,
     })
 
+    const [visibleAdvancedMenu, setVisibleAdvancedMenu] = useState(false)
     const [visibleAppendTextIcon, setVisibleAppendTextIcon] = useState(false)
 
     const selectRef = useRef(null)
@@ -78,6 +80,9 @@ const Select = memo(
       }
     }, [])
 
+    const onToggleVisibleAdvancedMenu = () => {
+      setVisibleAdvancedMenu(!visibleAdvancedMenu)
+    }
     // attach event listeners
     useEffect(() => {
       window.addEventListener('mouseup', handleMouseUp)
@@ -112,7 +117,7 @@ const Select = memo(
             <Form.Addon place="append">
               <p
                 className={classNames.use(styles.appendText)}
-                onClick={appendTextOnClick}
+                onClick={onToggleVisibleAdvancedMenu}
                 role="presentation"
               >
                 {appendText}
@@ -148,7 +153,7 @@ const Select = memo(
                   )
                   .join(clearButtonClassName)}
                 type="button"
-                onClick={appendTextOnClick}
+                onClick={onToggleVisibleAdvancedMenu}
               >
                 <Icon src="#information-outline" />
               </Button>
@@ -198,6 +203,15 @@ const Select = memo(
         >
           {options}
         </ul>
+        {useAdvancedSearch && (
+          <AdvancedSearch
+            isVisible={visibleAdvancedMenu}
+            setSearchValue={onInput}
+            inputRef={inputRef}
+            onOpen={() => setVisibleAdvancedMenu(true)}
+            onClose={() => setVisibleAdvancedMenu(false)}
+          />
+        )}
       </Tag>
     )
   }
@@ -238,12 +252,9 @@ Select.propTypes = {
   clearOnFocus: PropTypes.bool,
   /* Input's placeholder */
   placeholder: PropTypes.string,
-  /* Append text onChange */
-  appendTextOnClick: PropTypes.func,
   /* Append text */
   appendText: PropTypes.string,
-  appendTextRef: PropTypes.element,
-
+  useAdvancedSearch: PropTypes.bool,
   /**
    * Helper variation. Affects label display.
    *

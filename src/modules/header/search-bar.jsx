@@ -3,7 +3,6 @@ import { throttle } from 'throttle-debounce'
 
 import { HEADER_ACTIONS } from './context'
 import styles from './styles.css'
-import AdvancedSearch from './advanced-search'
 
 import { useDesignContext } from 'context'
 import { classNames } from 'utils'
@@ -80,7 +79,6 @@ const SearchBar = () => {
 
   const [suggestions, setSuggestions] = useState([])
   const [value, setValue] = useState(initQuery || '')
-  const [visibleAdvancedMenu, setVisibleAdvancedMenu] = useState(false)
 
   const suggest = useCallback(
     throttle(suggestionsDelay, false, (searchTerm) => {
@@ -94,13 +92,9 @@ const SearchBar = () => {
 
   const handleOnInput = (data) => {
     setValue(data.value)
-
     // if id doesn't exist it means user type own text
     // and didn't use suggestion
     if (!data.id) suggest(data.value)
-  }
-  const onToggleVisibleAdvancedMenu = () => {
-    setVisibleAdvancedMenu(!visibleAdvancedMenu)
   }
 
   return (
@@ -117,8 +111,8 @@ const SearchBar = () => {
         onInput={handleOnInput}
         className={classNames.use(styles.select, selectClassName)}
         {...restSearchBarProps}
+        useAdvancedSearch={useAdvancedSearch}
         appendText={useAdvancedSearch && 'How to search?'}
-        appendTextOnClick={useAdvancedSearch && onToggleVisibleAdvancedMenu}
       >
         {suggestions.map((el) => (
           <Select.Option key={el.id} id={el.id} value={el.value} icon={el.icon}>
@@ -126,14 +120,6 @@ const SearchBar = () => {
           </Select.Option>
         ))}
       </Select>
-      {useAdvancedSearch && (
-        <AdvancedSearch
-          isVisible={visibleAdvancedMenu}
-          setSearchValue={setValue}
-          onOpen={() => setVisibleAdvancedMenu(true)}
-          onClose={() => setVisibleAdvancedMenu(false)}
-        />
-      )}
     </AppBar.Item>
   )
 }
