@@ -4,13 +4,14 @@ import styles from './advanced-search.css'
 
 import { Button, Icon } from 'elements'
 
-const ACTION_BUTTONS_VALUES = ['doi', 'title', 'oai', 'issn ']
+const ACTION_BUTTONS_VALUES = ['doi', 'title', 'oai', 'issn']
 
 const AdvancedSearch = memo(
-  ({ isVisible, onOpen, onClose, setSearchValue }) => {
+  ({ isVisible, onOpen, onClose, setSearchValue, inputRef }) => {
     const handleActionButtonClick = (value) => {
-      const inputValue = `${value}:`
-      setSearchValue(inputValue)
+      const inputValue = `${value}:" "`
+      setSearchValue({ value: inputValue })
+      inputRef.current.focus()
       onClose()
     }
 
