@@ -91,7 +91,10 @@ const SearchResult = ({
                 itemScope
                 itemType="https://schema.org/Person"
               >
-                <a href={`/search/author:(${a.name})`} className={styles.link}>
+                <a
+                  href={`/search?q=author:(${a.name})`}
+                  className={styles.link}
+                >
                   <span itemProp="name">{a.name.replace(',', ' ')}</span>
                 </a>
               </ExpandableList.Item>
