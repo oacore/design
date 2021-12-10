@@ -45,3 +45,7 @@
 .outlined {
   box-shadow: inset 0 0 0 1px hsl(var(--card-color, var(--on-surface)) / .12);
 }
+
+.pure{
+  box-shadow: none;
+}
