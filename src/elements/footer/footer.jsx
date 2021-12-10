@@ -44,7 +44,7 @@ const Card = () => (
         our work.
       </p>{' '}
     </div>
-    <Icon src="#writing" alit="writing" />
+    <Icon src="#writing" alit="writing" className={styles.cardImg} />
   </div>
 )
 
