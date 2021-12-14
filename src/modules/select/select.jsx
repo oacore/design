@@ -151,7 +151,6 @@ const Select = memo(
                   type="button"
                   onClick={onToggleVisibleAdvancedMenu}
                 >
-                  OP
                   <Icon src="#information-outline" />
                 </Button>
               </Form.Addon>
