@@ -59,7 +59,7 @@ const Select = memo(
     const [visibleAdvancedMenu, setVisibleAdvancedMenu] = useState(false)
     const [visibleAppendTextIcon, setVisibleAppendTextIcon] = useState(false)
 
-    const selectRef = useRef(null)
+    const advancedTextRef = useRef(null)
 
     const handleMouseUp = useCallback((event) => {
       // detect if click was made outside of select
@@ -69,9 +69,6 @@ const Select = memo(
         selectMenuRef.current?.contains(event.target)
       )
         return
-
-      if (!selectRef.current?.contains(event.target))
-        setVisibleAppendTextIcon(false)
 
       if (isInputFocused) {
         // reset keyboard position in option menu
@@ -83,6 +80,7 @@ const Select = memo(
     const onToggleVisibleAdvancedMenu = () => {
       setVisibleAdvancedMenu(!visibleAdvancedMenu)
     }
+
     // attach event listeners
     useEffect(() => {
       window.addEventListener('mouseup', handleMouseUp)
@@ -94,7 +92,6 @@ const Select = memo(
           className={classNames
             .use(styles.selectWrapper, isInputFocused && styles.focused)
             .join(className)}
-          ref={selectRef}
         >
           <div className="sr-only" aria-live="assertive">
             {canUseDOM &&
@@ -118,14 +115,11 @@ const Select = memo(
               </Form.Addon>
             )}
             {appendText && (
-              <Form.Addon place="append">
-                <p
-                  className={classNames.use(styles.appendText)}
-                  onClick={onToggleVisibleAdvancedMenu}
-                  role="presentation"
-                >
-                  {appendText}
-                </p>
+              <Form.Addon
+                className={classNames.use(styles.appendText)}
+                onClick={onToggleVisibleAdvancedMenu}
+              >
+                <p role="presentation">{appendText}</p>
               </Form.Addon>
             )}
             {clearButton && (
@@ -144,17 +138,15 @@ const Select = memo(
                 </Button>
               </Form.Addon>
             )}
-            {appendText && (
+            {appendText && visibleAppendTextIcon && (
               <Form.Addon
+                ref={advancedTextRef}
                 place="append"
                 className={classNames.use(styles.appendIcon, styles.infoAppend)}
               >
                 <Button
                   className={classNames
-                    .use(
-                      styles.infoAppendButton,
-                      visibleAppendTextIcon && styles.show
-                    )
+                    .use(styles.infoAppendButton, styles.show)
                     .join(clearButtonClassName)}
                   type="button"
                   onClick={onToggleVisibleAdvancedMenu}
@@ -181,11 +173,13 @@ const Select = memo(
               }
               value={inputData.value}
               onFocus={() => {
-                setIsInputFocused(true)
-                if (clearOnFocus) setInputData({ value: '' })
                 setVisibleAppendTextIcon(true)
+                setClickedElement(advancedTextRef)
+                if (clearOnFocus) setInputData({ value: '' })
               }}
-              onBlur={handleInputBlurEvent}
+              onBlur={(event) => {
+                handleInputBlurEvent(event, setVisibleAppendTextIcon)
+              }}
               onKeyDown={handleInputKeyEvent}
               onChange={(event) => {
                 if (inputData.value === event.target.value) return
@@ -213,8 +207,10 @@ const Select = memo(
             isVisible={visibleAdvancedMenu}
             setSearchValue={onInput}
             inputRef={inputRef}
-            onOpen={() => setVisibleAdvancedMenu(true)}
-            onClose={() => setVisibleAdvancedMenu(false)}
+            onClose={() => {
+              setVisibleAppendTextIcon(false)
+              onToggleVisibleAdvancedMenu()
+            }}
           />
         )}
       </>

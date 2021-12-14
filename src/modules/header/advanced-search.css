@@ -90,7 +90,10 @@ ul{
     top: 3rem;
     right: 0;
     left: 0;
-    min-width: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-y: scroll;
+    font-size: .8rem;
   }
 
   .title{
