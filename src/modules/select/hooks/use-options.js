@@ -118,9 +118,16 @@ const useOptions = (
     }
   }
 
-  const handleInputBlurEvent = (event) => {
+  const handleInputBlurEvent = (event, setVisibleAppendTextIcon) => {
     // check if onBlur happen within select
     const { relatedTarget: el } = event
+
+    if (!el) {
+      setClickedElement(null)
+      setIsInputFocused(false, event)
+      setVisibleAppendTextIcon(false)
+    }
+
     if (
       clickedElement === null &&
       !(el && el.dataset.selectId === clickedElement)

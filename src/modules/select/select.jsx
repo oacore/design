@@ -59,7 +59,7 @@ const Select = memo(
     const [visibleAdvancedMenu, setVisibleAdvancedMenu] = useState(false)
     const [visibleAppendTextIcon, setVisibleAppendTextIcon] = useState(false)
 
-    const selectRef = useRef(null)
+    const advancedTextRef = useRef(null)
 
     const handleMouseUp = useCallback((event) => {
       // detect if click was made outside of select
@@ -69,9 +69,6 @@ const Select = memo(
         selectMenuRef.current?.contains(event.target)
       )
         return
-
-      if (!selectRef.current?.contains(event.target))
-        setVisibleAppendTextIcon(false)
 
       if (isInputFocused) {
         // reset keyboard position in option menu
@@ -83,136 +80,141 @@ const Select = memo(
     const onToggleVisibleAdvancedMenu = () => {
       setVisibleAdvancedMenu(!visibleAdvancedMenu)
     }
+
     // attach event listeners
     useEffect(() => {
       window.addEventListener('mouseup', handleMouseUp)
       return () => window.removeEventListener('mouseup', handleMouseUp)
     }, [])
     return (
-      <Tag
-        className={classNames
-          .use(styles.selectWrapper, isInputFocused && styles.focused)
-          .join(className)}
-        ref={selectRef}
-      >
-        <div className="sr-only" aria-live="assertive">
-          {canUseDOM &&
-          options.length &&
-          document.activeElement === inputRef.current
-            ? `${options.length} suggestions found, to navigate use up and down arrows`
-            : ''}
-        </div>
-        <Form.Group tag="div" className={variant === 'pure' ? styles.pure : ''}>
-          {prependIcon && (
-            <Form.Addon
-              place="prepend"
-              className={classNames
-                .use(styles.prependIcon)
-                .join(prependIconClassName)}
-            >
-              <Icon src={prependIcon} />
-            </Form.Addon>
-          )}
-          {appendText && (
-            <Form.Addon place="append">
-              <p
+      <>
+        <Tag
+          className={classNames
+            .use(styles.selectWrapper, isInputFocused && styles.focused)
+            .join(className)}
+        >
+          <div className="sr-only" aria-live="assertive">
+            {canUseDOM &&
+            options.length &&
+            document.activeElement === inputRef.current
+              ? `${options.length} suggestions found, to navigate use up and down arrows`
+              : ''}
+          </div>
+          <Form.Group
+            tag="div"
+            className={variant === 'pure' ? styles.pure : ''}
+          >
+            {prependIcon && (
+              <Form.Addon
+                place="prepend"
+                className={classNames
+                  .use(styles.prependIcon)
+                  .join(prependIconClassName)}
+              >
+                <Icon src={prependIcon} />
+              </Form.Addon>
+            )}
+            {appendText && (
+              <Form.Addon
                 className={classNames.use(styles.appendText)}
                 onClick={onToggleVisibleAdvancedMenu}
-                role="presentation"
               >
-                {appendText}
-              </p>
-            </Form.Addon>
-          )}
-          {clearButton && (
-            <Form.Addon place="append" className={styles.appendIcon}>
-              <Button
-                className={classNames
-                  .use(styles.clearOutButton, inputData.value && styles.show)
-                  .join(clearButtonClassName)}
-                onClick={() => {
-                  setInputData({ value: '' })
-                  inputRef.current.focus()
-                }}
-                type="button"
+                <p role="presentation">{appendText}</p>
+              </Form.Addon>
+            )}
+            {clearButton && (
+              <Form.Addon place="append" className={styles.appendIcon}>
+                <Button
+                  className={classNames
+                    .use(styles.clearOutButton, inputData.value && styles.show)
+                    .join(clearButtonClassName)}
+                  onClick={() => {
+                    setInputData({ value: '' })
+                    inputRef.current.focus()
+                  }}
+                  type="button"
+                >
+                  <Icon src="#window-close" />
+                </Button>
+              </Form.Addon>
+            )}
+            {appendText && visibleAppendTextIcon && (
+              <Form.Addon
+                ref={advancedTextRef}
+                place="append"
+                className={classNames.use(styles.appendIcon, styles.infoAppend)}
               >
-                <Icon src="#window-close" />
-              </Button>
-            </Form.Addon>
-          )}
-          {appendText && (
-            <Form.Addon
-              place="append"
-              className={classNames.use(styles.appendIcon, styles.infoAppend)}
-            >
-              <Button
-                className={classNames
-                  .use(
-                    styles.infoAppendButton,
-                    visibleAppendTextIcon && styles.show
-                  )
-                  .join(clearButtonClassName)}
-                type="button"
-                onClick={onToggleVisibleAdvancedMenu}
-              >
-                <Icon src="#information-outline" />
-              </Button>
-            </Form.Addon>
-          )}
-          <Form.Control
-            ref={inputRef}
-            id={`select-${id}`}
-            type="text"
-            placeholder={placeholder}
-            autoComplete="off"
-            role="combobox"
-            aria-expanded={Boolean(options.length)}
-            aria-owns="suggestion-results"
-            aria-autocomplete="both"
-            aria-controls={`suggestion-results-${id}`}
-            aria-activedescendant={
-              activeOption?.id
-                ? `suggestion-result-${id}-${activeOption.id}`
-                : undefined
-            }
-            value={inputData.value}
-            onFocus={() => {
-              setIsInputFocused(true)
-              if (clearOnFocus) setInputData({ value: '' })
-              setVisibleAppendTextIcon(true)
-            }}
-            onBlur={handleInputBlurEvent}
-            onKeyDown={handleInputKeyEvent}
-            onChange={(event) => {
-              if (inputData.value === event.target.value) return
-              setInputData({ value: event.target.value })
-            }}
-            {...restInputProps}
-          />
-          <Form.Label htmlFor={`select-${id}`}>{label}</Form.Label>
-        </Form.Group>
-        <ul
-          id={`suggestion-results-${id}`}
-          className={classNames
-            .use(styles.selectMenu, {
-              [styles.show]: isInputFocused,
-            })
-            .join(selectMenuClassName)}
-          role="listbox"
-          ref={selectMenuRef}
-        >
-          {options}
-        </ul>
+                <Button
+                  className={classNames
+                    .use(styles.infoAppendButton, styles.show)
+                    .join(clearButtonClassName)}
+                  type="button"
+                  onClick={onToggleVisibleAdvancedMenu}
+                >
+                  OP
+                  <Icon src="#information-outline" />
+                </Button>
+              </Form.Addon>
+            )}
+            <Form.Control
+              ref={inputRef}
+              id={`select-${id}`}
+              type="text"
+              placeholder={placeholder}
+              autoComplete="off"
+              role="combobox"
+              aria-expanded={Boolean(options.length)}
+              aria-owns="suggestion-results"
+              aria-autocomplete="both"
+              aria-controls={`suggestion-results-${id}`}
+              aria-activedescendant={
+                activeOption?.id
+                  ? `suggestion-result-${id}-${activeOption.id}`
+                  : undefined
+              }
+              value={inputData.value}
+              onFocus={() => {
+                setVisibleAppendTextIcon(true)
+                setClickedElement(advancedTextRef)
+                if (clearOnFocus) setInputData({ value: '' })
+              }}
+              onBlur={(event) => {
+                handleInputBlurEvent(event, setVisibleAppendTextIcon)
+              }}
+              onKeyDown={handleInputKeyEvent}
+              onChange={(event) => {
+                if (inputData.value === event.target.value) return
+                setInputData({ value: event.target.value })
+              }}
+              {...restInputProps}
+            />
+            <Form.Label htmlFor={`select-${id}`}>{label}</Form.Label>
+          </Form.Group>
+          <ul
+            id={`suggestion-results-${id}`}
+            className={classNames
+              .use(styles.selectMenu, {
+                [styles.show]: isInputFocused,
+              })
+              .join(selectMenuClassName)}
+            role="listbox"
+            ref={selectMenuRef}
+          >
+            {options}
+          </ul>
+        </Tag>
         {useAdvancedSearch && (
           <AdvancedSearch
             isVisible={visibleAdvancedMenu}
             setSearchValue={onInput}
             inputRef={inputRef}
-            onOpen={() => setVisibleAdvancedMenu(true)}
-            onClose={() => setVisibleAdvancedMenu(false)}
+            onClose={() => {
+              setVisibleAppendTextIcon(false)
+              onToggleVisibleAdvancedMenu()
+            }}
           />
         )}
-      </Tag>
+      </>
     )
   }
 )
