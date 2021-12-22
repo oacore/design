@@ -2,14 +2,22 @@ import React, { useCallback, useState, useEffect } from 'react'
 
 import CookiesPopup from './popup'
 
-import { useCookie, useCookieHandler } from 'hooks'
+import { useCookie, useCookieHandler, useCookieItems } from 'hooks'
+import {} from '../../hooks/use-cookies'
 
 const Cookies = () => {
   const cookieHandler = useCookieHandler()
 
   const [visibleCookiePopup, setVisibleCookiePopup] = useState(
-    !useCookie('cookies_accepted')
+    !useCookie('essential_cookies_allowed')
   )
+
+  const cookieItems = useCookieItems()
+
+  const popupItems = cookieItems.map(({ name, title }) => ({
+    name,
+    title,
+  }))
 
   useEffect(() => {
     if (
@@ -24,6 +32,10 @@ const Cookies = () => {
     cookieHandler(e)
   }, [])
 
-  return visibleCookiePopup && <CookiesPopup onSubmit={onAcceptCookies} />
+  return (
+    visibleCookiePopup && (
+      <CookiesPopup onSubmit={onAcceptCookies} actionItems={popupItems} />
+    )
+  )
 }
 export default Cookies

@@ -4,19 +4,19 @@ import { useCookies } from 'react-cookie'
 const cookiesContext = [
   {
     id: 'essential',
-    name: 'cookies_accepted',
+    name: 'essential_cookies_allowed',
     default: false,
     required: true,
-    title: 'Essential cookies',
+    title: 'Essential cookies only',
     description:
       '**Required** to make the site work, and to save the options you make here',
   },
   {
     id: 'analytics',
-    name: 'analytics_allowed',
+    name: 'analytics_cookies_allowed',
     default: false,
     required: false,
-    title: 'Analytics',
+    title: 'Analytics allowed',
     description:
       'Lets us (anonymously) track site usage, so that we can measure performance and make improvements',
   },
@@ -53,16 +53,19 @@ export const useCookie = (cookieName) => {
 }
 
 export const useCookieHandler = () => {
-  const [, setCookie] = useCookies()
+  const [, setCookie, removeCookie] = useCookies()
   const items = useCookieItems()
 
   return useCallback((event) => {
     event.preventDefault()
+    removeCookie('analytics_cookies_allowed')
+
+    const idsArray = event.target.id.split(',')
     let patch
     // accept only essential cookies
-    if (event.target.id === 'cookies_accepted') {
+    if (idsArray.length === 1) {
       patch = items
-        .filter((el) => !el.value && el.id === 'essential')
+        .filter((el) => el.name === idsArray[0])
         .map(({ name }) => [name, true])
     }
     // assuming when user hit accept in popup form we accept all cookies
