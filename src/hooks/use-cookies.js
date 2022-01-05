@@ -55,12 +55,13 @@ export const useCookie = (cookieName) => {
 export const useCookieHandler = () => {
   const [, setCookie, removeCookie] = useCookies()
   const items = useCookieItems()
-
   return useCallback((event) => {
     event.preventDefault()
-    removeCookie('analytics_cookies_allowed')
+    // removeCookie('analytics_cookies_allowed')
+    cookiesContext.forEach(({ name }) => removeCookie(name))
 
     const idsArray = event.target.id.split(',')
+    // console.log(idsArray)
     let patch
     // accept only essential cookies
     if (idsArray.length === 1) {
@@ -69,7 +70,11 @@ export const useCookieHandler = () => {
         .map(({ name }) => [name, true])
     }
     // assuming when user hit accept in popup form we accept all cookies
-    else patch = items.filter((el) => !el.value).map(({ name }) => [name, true])
+    else {
+      patch = items
+        .filter(({ name }) => idsArray.includes(name))
+        .map(({ name }) => [name, true])
+    }
 
     patch.forEach(([cookieName, cookieValue]) => {
       setCookie(cookieName, cookieValue, {
