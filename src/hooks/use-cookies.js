@@ -57,11 +57,10 @@ export const useCookieHandler = () => {
   const items = useCookieItems()
   return useCallback((event) => {
     event.preventDefault()
-    // removeCookie('analytics_cookies_allowed')
+
     cookiesContext.forEach(({ name }) => removeCookie(name))
 
     const idsArray = event.target.id.split(',')
-    // console.log(idsArray)
     let patch
     // accept only essential cookies
     if (idsArray.length === 1) {
