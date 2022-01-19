@@ -41,6 +41,10 @@
   margin-right: 1rem;
 }
 
+.logo-icon-ou {
+  width: 5.6rem;
+}
+
 .menu{
   display: flex;
   flex-basis: 50%;

@@ -61,7 +61,11 @@ const Footer = ({ className }) => (
             />
           </Link>
           <Link href="https://www.open.ac.uk">
-            <Icon src="#ou-logo" alt="Ou logo" className={styles.logoIcon} />
+            <Icon
+              src="#ou-logo"
+              alt="Ou logo"
+              className={(styles.logoIcon, styles.logoIconOu)}
+            />
           </Link>
         </div>
         <p className={styles.text}>
