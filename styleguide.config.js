@@ -120,7 +120,7 @@ module.exports = {
       },
     },
   },
-  assetsDir: 'public',
+  assetsDir: ['public', 'assets'],
 
   require: [path.join(__dirname, 'src/index.css')],
 

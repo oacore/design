@@ -190,7 +190,7 @@
 
   @media (--header-breakpoint-up) {
     position: absolute;
-    top: 4rem;
+    top: 3.3rem;
     right: 0;
     z-index: var(--header-z-index, calc(var(--app-bar-fixed-z-index, 1020) + 10));
     width: var(--header-menu-width);

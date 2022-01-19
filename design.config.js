@@ -38,6 +38,7 @@ const icons = [
   'account',
   'information-outline',
   path.resolve(__dirname, './assets/core-symbol.svg'),
+  path.resolve(__dirname, './assets/writing.svg'),
 ]
 
 // icons used in documentation

@@ -6,9 +6,10 @@
   --arrow-color: var(--primary);
   --indicator-active-color: var(--arrow-color);
   --indicator-label-width: 46rem;
-  --indicator-max-width: 7.5rem;
-  --indicator-height: .12rem;
-  --indicator-active-height: calc(var(--indicator-height) * 2);
+  --indicator-max-width: 2rem;
+  --indicator-height: .24rem;
+
+  /* --indicator-active-height: calc(var(--indicator-height) * 2); */
   --indicator-label-margin: 2.5rem auto;
   --arrow-line-width: var(--indicator-max-width);
   --arrows-top-margin: 93.7%;
@@ -16,8 +17,11 @@
 
 .carousel-indicators {
   /* stylelint-disable */
+  position: absolute;
+  top:-2rem;
+  left:1rem;
+  width: 100%;
   display: flex !important;
-  justify-content: center;
   max-width: var(--indicator-label-width);
   margin: var(--indicator-label-margin);
 }
@@ -28,17 +32,21 @@
   list-style: none;
 }
 
+.carousel-indicators li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
 .carousel-indicator {
   display: flex;
   height: var(--indicator-height);
   cursor: pointer;
-  background-color: var(--indicator-color);
+  opacity: 0.5;
+  background-color: var(--primary);
+
 }
 
 .carousel-indicator-active {
-  height: var(--indicator-active-height);
-  margin-top: -1px;
-  background-color: var(--primary);
+opacity: 1;
 }
 
 .icon-prev,

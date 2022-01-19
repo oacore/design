@@ -21,6 +21,11 @@ const Carousel = memo(
     slidesToScroll = 1,
     dots = true,
     infinite = true,
+    useArrows = true,
+    autoplay = true,
+    autoplaySpeed = 5000,
+    draggable = true,
+    pauseOnFocus = true,
     ...passProps
   }) => {
     const [activeSlide, setActiveSlide] = useState(0)
@@ -30,8 +35,11 @@ const Carousel = memo(
       infinite,
       slidesToShow,
       slidesToScroll,
-      centerMode: true,
-      centerPadding: '-90px',
+      arrows: useArrows,
+      autoplay,
+      autoplaySpeed,
+      draggable,
+      pauseOnFocus,
       dotsClass: style.carouselIndicators,
       prevArrow: (
         <CustomArrow iconClass={style.iconPrev} arrowClass={style.arrowPrev} />
