@@ -35,11 +35,9 @@
   margin-bottom: 1rem;
 }
 
-.logos img{
-  max-height: 3.75rem;
-}
-
-.logos img:nth-child(1){
+.logo-icon {
+  min-width: 3.75rem;
+  min-height: 3.75rem;
   margin-right: 1rem;
 }
 

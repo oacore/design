@@ -54,10 +54,14 @@ const Footer = ({ className }) => (
       <div className={classNames.use(styles.sectionLogos)}>
         <div className={styles.logos}>
           <Link href="https://www.jisc.ac.uk">
-            <Icon src="#jisc-logo" alt="Jisc logo" />
+            <Icon
+              src="#jisc-logo"
+              alt="Jisc logo"
+              className={styles.logoIcon}
+            />
           </Link>
           <Link href="https://www.open.ac.uk">
-            <Icon src="#ou-logo" alt="Ou logo" />
+            <Icon src="#ou-logo" alt="Ou logo" className={styles.logoIcon} />
           </Link>
         </div>
         <p className={styles.text}>
