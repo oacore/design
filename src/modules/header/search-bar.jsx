@@ -8,6 +8,7 @@ import { useDesignContext } from 'context'
 import { classNames } from 'utils'
 import { Select } from 'modules'
 import { AppBar } from 'elements'
+import { useWindowSize } from 'hooks'
 
 export const useSearchBar = (config, { isHidden = false } = {}) => {
   const [
@@ -73,9 +74,12 @@ const SearchBar = () => {
     suggestionsDelay = 500,
     isHidden,
     useAdvancedSearch,
+    changeOnBlur,
     searchBarProps: { selectClassName, ...restSearchBarProps } = {},
     appBarItemProps: { appBarItemClassName, ...restAppBarItemProps } = {},
   } = useSearchBar()
+
+  const { width } = useWindowSize()
 
   const [suggestions, setSuggestions] = useState([])
   const [value, setValue] = useState(initQuery || '')
@@ -109,6 +113,7 @@ const SearchBar = () => {
         variant="pure"
         onChange={handleOnChange}
         onInput={handleOnInput}
+        changeOnBlur={changeOnBlur || width < 500}
         className={classNames.use(styles.select, selectClassName)}
         {...restSearchBarProps}
         useAdvancedSearch={useAdvancedSearch}

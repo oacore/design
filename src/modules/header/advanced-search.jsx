@@ -7,7 +7,7 @@ import { Button, Icon } from 'elements'
 const ACTION_BUTTONS_VALUES = ['doi', 'title', 'oai', 'issn']
 
 const AdvancedSearch = memo(
-  ({ isVisible, onOpen, onClose, setSearchValue, inputRef }) => {
+  ({ isVisible, onClose, setSearchValue, inputRef }) => {
     const handleActionButtonClick = (value) => {
       const inputValue = `${value}:" "`
       setSearchValue({ value: inputValue })
@@ -17,10 +17,6 @@ const AdvancedSearch = memo(
 
     return (
       <div className={styles.wrapper}>
-        <Button className={styles.toggleText} onClick={onOpen} variant="text">
-          How to search?
-        </Button>
-
         {isVisible && (
           <div className={styles.container}>
             <p className={styles.title}>
