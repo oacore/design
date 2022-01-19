@@ -1,5 +1,5 @@
 ### Static footer
-Simple example of universal footer without search bar.
+Simple example of universal footer.
 
 ```js
 <div>
