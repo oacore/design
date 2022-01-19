@@ -44,7 +44,7 @@ const Card = () => (
         our work.
       </p>{' '}
     </div>
-    <Icon src="#writing" alit="writing" className={styles.cardImg} />
+    <Icon src="#writing" alt="writing" className={styles.cardImg} />
   </div>
 )
 
@@ -54,10 +54,10 @@ const Footer = ({ className }) => (
       <div className={classNames.use(styles.sectionLogos)}>
         <div className={styles.logos}>
           <Link href="https://www.jisc.ac.uk">
-            <img src="/jisc.png" alt="Jisc logo" />
+            <Icon src="#jisc-logo" alt="Jisc logo" />
           </Link>
           <Link href="https://www.open.ac.uk">
-            <img src="/ou.png" alt="Open University logo" />
+            <Icon src="#ou-logo" alt="Ou logo" />
           </Link>
         </div>
         <p className={styles.text}>
