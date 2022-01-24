@@ -175,6 +175,7 @@ const Select = memo(
               onFocus={() => {
                 setIsInputFocused(true)
                 setClickedElement(advancedTextRef)
+
                 if (clearOnFocus) setInputData({ value: '' })
                 if (useAdvancedSearch) setVisibleAppendTextIcon(true)
               }}
