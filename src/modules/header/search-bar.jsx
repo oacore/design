@@ -116,36 +116,38 @@ const SearchBar = () => {
 
   return (
     <>
-      <AppBar.Item
-        className={classNames.use(styles.searchBarItem, appBarItemClassName)}
-        hidden={!isVisibleSearchBar}
-        ref={searchInputRef}
-        {...restAppBarItemProps}
-      >
-        <Select
-          id="app-bar-search"
-          value={value}
-          variant="pure"
-          onChange={handleOnChange}
-          onInput={handleOnInput}
-          changeOnBlur={changeOnBlur || width < 500}
-          className={classNames.use(styles.select, selectClassName)}
-          useAdvancedSearch={useAdvancedSearch}
-          appendText={useAdvancedSearch && 'How to search?'}
-          {...restSearchBarProps}
+      {isVisibleSearchBar && (
+        <AppBar.Item
+          className={classNames.use(styles.searchBarItem, appBarItemClassName)}
+          ref={searchInputRef}
+          {...restAppBarItemProps}
         >
-          {suggestions.map((el) => (
-            <Select.Option
-              key={el.id}
-              id={el.id}
-              value={el.value}
-              icon={el.icon}
-            >
-              {el.value}
-            </Select.Option>
-          ))}
-        </Select>
-      </AppBar.Item>
+          <Select
+            id="app-bar-search"
+            value={value}
+            variant="pure"
+            onChange={handleOnChange}
+            onInput={handleOnInput}
+            changeOnBlur={changeOnBlur || width < 500}
+            className={classNames.use(styles.select, selectClassName)}
+            useAdvancedSearch={useAdvancedSearch}
+            appendText={useAdvancedSearch && 'How to search?'}
+            {...restSearchBarProps}
+          >
+            {suggestions.map((el) => (
+              <Select.Option
+                key={el.id}
+                id={el.id}
+                value={el.value}
+                icon={el.icon}
+              >
+                {el.value}
+              </Select.Option>
+            ))}
+          </Select>
+        </AppBar.Item>
+      )}
+
       <AppBar.Item
         className={classNames.use(
           styles.searchBarItem,
