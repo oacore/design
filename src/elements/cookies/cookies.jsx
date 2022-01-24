@@ -28,7 +28,8 @@ const Cookies = () => {
   }, [])
 
   return (
-    visibleCookiePopup && (
+    visibleCookiePopup &&
+    typeof window !== 'undefined' && (
       <CookiesPopup onSubmit={onAcceptCookies} cookieItems={cookieItemNames} />
     )
   )
