@@ -10,7 +10,7 @@ import { Select } from 'modules'
 import { AppBar, Icon } from 'elements'
 import { useWindowSize, useOutsideClick } from 'hooks'
 
-export const useSearchBar = (config, { isHidden = false } = {}) => {
+export const useSearchBar = (config, { isHidden = true } = {}) => {
   const [
     {
       header: { searchBar },
@@ -72,7 +72,7 @@ const SearchBar = () => {
     getSuggestions,
     onQueryChanged,
     suggestionsDelay = 500,
-    isHidden: isHiddenIconAndBar,
+    isHidden: propsIsHidden,
     useAdvancedSearch,
     changeOnBlur,
     searchBarProps: { selectClassName, ...restSearchBarProps } = {},
@@ -80,10 +80,9 @@ const SearchBar = () => {
   } = useSearchBar()
 
   const { width } = useWindowSize()
-
   const [suggestions, setSuggestions] = useState([])
   const [value, setValue] = useState(initQuery || '')
-  const [isVisibleSearchBar, setIsVisibliSearchBar] = useState(false)
+  const [isHiddenSearchBar, setIsHiddenSearchBar] = useState(propsIsHidden)
 
   const searchInputRef = useRef()
 
@@ -98,11 +97,11 @@ const SearchBar = () => {
   }
 
   const onToggleVisibleSearchBar = () => {
-    setIsVisibliSearchBar(!isVisibleSearchBar)
+    setIsHiddenSearchBar(!isHiddenSearchBar)
   }
 
   const onCloseSearchBar = () => {
-    setIsVisibliSearchBar(false)
+    setIsHiddenSearchBar(true)
   }
 
   const handleOnInput = (data) => {
@@ -112,11 +111,11 @@ const SearchBar = () => {
     if (!data.id) suggest(data.value)
   }
 
-  useOutsideClick(searchInputRef, onCloseSearchBar)
+  if (propsIsHidden) useOutsideClick(searchInputRef, onCloseSearchBar)
 
   return (
     <>
-      {isVisibleSearchBar && (
+      {!isHiddenSearchBar && (
         <AppBar.Item
           className={classNames.use(styles.searchBarItem, appBarItemClassName)}
           ref={searchInputRef}
@@ -147,16 +146,16 @@ const SearchBar = () => {
           </Select>
         </AppBar.Item>
       )}
-
-      <AppBar.Item
-        className={classNames.use(
-          styles.searchBarItem,
-          styles.searchBarItemIcon
-        )}
-        hidden={isHiddenIconAndBar || isVisibleSearchBar}
-      >
-        <Icon src="#magnify" onClick={onToggleVisibleSearchBar} />
-      </AppBar.Item>
+      {isHiddenSearchBar && (
+        <AppBar.Item
+          className={classNames.use(
+            styles.searchBarItem,
+            styles.searchBarItemIcon
+          )}
+        >
+          <Icon src="#magnify" onClick={onToggleVisibleSearchBar} />
+        </AppBar.Item>
+      )}
     </>
   )
 }

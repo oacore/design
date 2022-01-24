@@ -19,6 +19,9 @@ be ideally used within `pages` folder.
 
 **NOTE**: The search bar is not prerendered on the server side
 
+**NOTE**: We want firstly use search icon and hide input in all out pages. But if you want show input just add option {isHidden: false to your configuration}
+
+
 Please for more info see example code below:
 
 ```
