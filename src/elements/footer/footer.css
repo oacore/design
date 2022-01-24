@@ -1,5 +1,5 @@
 :root {
-  --footer-max-width: 90rem;
+  --footer-max-width: 90vw;
   --footer-padding-x: calc((100vw - var(--footer-max-width)) / 2);
   --footer-padding-y: 2rem;
 }

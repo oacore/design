@@ -320,6 +320,12 @@
   margin-right: .5rem;
 }
 
+.search-bar-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .select {
   --select-background: var(--gray-200);
   --select-focused-background: var(--white);
