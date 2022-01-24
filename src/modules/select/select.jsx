@@ -173,9 +173,10 @@ const Select = memo(
               }
               value={inputData.value}
               onFocus={() => {
-                setVisibleAppendTextIcon(true)
+                setIsInputFocused(true)
                 setClickedElement(advancedTextRef)
                 if (clearOnFocus) setInputData({ value: '' })
+                if (useAdvancedSearch) setVisibleAppendTextIcon(true)
               }}
               onBlur={(event) => {
                 handleInputBlurEvent(event, setVisibleAppendTextIcon)
