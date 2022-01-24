@@ -102,7 +102,6 @@ const SearchBar = () => {
   }
 
   const onCloseSearchBar = () => {
-    console.log(123)
     setIsVisibliSearchBar(false)
   }
 

@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 
 const useOutsideClick = (ref, closeElement) => {
-  console.log(ref)
   function handleClickOutside(event) {
     if (ref.current && !ref.current.contains(event.target)) closeElement()
   }
