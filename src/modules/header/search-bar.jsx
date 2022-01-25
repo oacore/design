@@ -7,7 +7,7 @@ import styles from './styles.css'
 import { useDesignContext } from 'context'
 import { classNames } from 'utils'
 import { Select } from 'modules'
-import { AppBar, Icon } from 'elements'
+import { AppBar, Icon, Button } from 'elements'
 import { useWindowSize, useOutsideClick } from 'hooks'
 
 export const useSearchBar = (config, { isHidden = true } = {}) => {
@@ -153,7 +153,12 @@ const SearchBar = () => {
             styles.searchBarItemIcon
           )}
         >
-          <Icon src="#magnify" onClick={onToggleVisibleSearchBar} />
+          <Button
+            className={styles.searchBarItemIconButton}
+            onClick={onToggleVisibleSearchBar}
+          >
+            <Icon src="#magnify" alt="Search" />
+          </Button>
         </AppBar.Item>
       )}
     </>
