@@ -123,7 +123,7 @@
   padding-bottom: var(--app-bar-padding-y, var(--component-padding-y));
   margin: 0;
   font-size: 1rem;
-  color: hsl(var(--component-color) / var(--component-medium-emphasis));
+  color: var(--black);
   text-align: left;
 
   /* Inherited from Material's Subtitle 1 */
@@ -159,11 +159,6 @@
      * and custom properties for colour setting.
      */
     @supports (clip-path: path('M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z')) {
-      background:
-        hsl(
-          var(--app-bar-color, var(--component-color)) /
-          var(--app-bar-disabled, var(--component-disabled))
-        );
       clip-path: path('M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z');
     }
   }
