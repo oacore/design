@@ -157,7 +157,7 @@ const SearchBar = () => {
             className={styles.searchBarItemIconButton}
             onClick={onToggleVisibleSearchBar}
           >
-            <Icon src="#magnify" alt="Search" />
+            <Icon src="#magnify" alt="Search icon" />
           </Button>
         </AppBar.Item>
       )}

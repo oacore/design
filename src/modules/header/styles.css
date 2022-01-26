@@ -334,7 +334,6 @@
   --form-control-padding-y: .5rem;
   --form-control-color: var(--gray-700);
   max-width: 100%;
-
   padding: calc(.25rem - 1px) 0 .25rem;
 }
 
