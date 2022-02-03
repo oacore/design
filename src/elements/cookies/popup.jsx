@@ -32,7 +32,7 @@ const CookiesPopup = ({ cookieItems, onSubmit, ...formProps }) => (
         className={styles.popupButton}
         id={cookieItems}
       >
-        Help improve our services
+        I agree
       </Button>
     </div>
   </div>
