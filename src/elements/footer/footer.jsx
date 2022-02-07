@@ -99,8 +99,8 @@ const Footer = ({ className }) => (
       <Link href="/" className={styles.logoLink}>
         <Logo className={styles.logo} />
       </Link>
-      <Link className={styles.bottomLink} href="/accessability">
-        Accessability
+      <Link className={styles.bottomLink} href="/accessibility">
+        Accessibility
       </Link>
       <Link className={styles.bottomLink} href="/cookies">
         Cookies
