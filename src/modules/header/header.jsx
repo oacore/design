@@ -131,7 +131,7 @@ const Header = ({ children, className, id, ...passProps }) => {
             <span role="img" aria-label="Ukranian Flag">
               🇺🇦&nbsp;
             </span>
-            make better metadata, not war
+            &nbsp; make better metadata, not war
           </p>
         </a>
       </AppBar.Item>
