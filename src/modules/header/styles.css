@@ -415,3 +415,9 @@
     white-space: nowrap;
   }
 }
+
+.peace{
+  font-size:0.6rem;
+  margin-top:1em;
+  font-weight: 400;
+}
