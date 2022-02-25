@@ -126,6 +126,13 @@ const Header = ({ children, className, id, ...passProps }) => {
       <AppBar.Item className={styles.logoContainer}>
         <a href="/" className={styles.logoLink}>
           <Logo className={styles.logo} />
+          &nbsp;
+          <p className={styles.peace}>
+            <span role="img" aria-label="Ukranian Flag">
+              🇺🇦&nbsp;
+            </span>
+            &nbsp; make better metadata, not war
+          </p>
         </a>
       </AppBar.Item>
 
