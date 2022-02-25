@@ -422,7 +422,7 @@
   font-weight: 400;
 }
 @media (max-width: 768px){
-  .peace p {
+  .peace i {
     display: none;
   }
 }
