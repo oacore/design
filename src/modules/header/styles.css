@@ -58,7 +58,7 @@
 .logo-container {
   flex: 1;
   min-width: var(--logo-min-width);
-  max-width: var(--page-padding-x);
+  max-width: calc(var(--page-padding-x) + 1rem);
   max-height: 3rem;
   padding: 0;
   margin-right: auto;
@@ -420,4 +420,9 @@
   margin-top: 1em;
   font-size: .6rem;
   font-weight: 400;
+}
+@media (max-width: 768px){
+  .peace p {
+    display: none;
+  }
 }
