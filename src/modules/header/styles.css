@@ -426,3 +426,8 @@
     display: none;
   }
 }
+@media (min-width: 768px){
+  .logo-container {
+    max-width: calc(var(--page-padding-x) + 10rem);
+  }
+}
