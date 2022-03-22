@@ -1,0 +1,80 @@
+:root{
+  --container-width: 46px;
+  --container-height: 26px;
+  --box-background: var(--gray-300);
+  --active-background: #30A64A;
+  --button-width: 20px;
+  --button-height: 20px;
+  --position-margin: 3px;
+  --label-font-size: 1rem;
+}
+
+.small {
+  --container-width: 35px;
+  --container-height: 20px;
+  --button-width: 14px;
+  --button-height: 14px;
+  --position-margin: 3px;
+  --label-font-size: .9rem;
+}
+
+.big {
+  --container-width: 100px;
+  --container-height: 50px;
+  --button-width: 40px;
+  --button-height: 40px;
+  --position-margin: 5px;
+  --label-font-size: 2rem;
+}
+
+.container {
+  display: inline-flex;
+}
+
+.checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: var(--container-width);
+  height: var(--container-height);
+  background: var(--box-background);
+  border-radius: 50px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.active{
+  background-color: var(--active-background);
+}
+
+.box .button {
+  content: "";
+  position: absolute;
+  top: var(--position-margin);
+  left: var(--position-margin);
+  width: var(--button-width);
+  height: var(--button-height);
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.checkbox:checked +.box .button {
+  transform: translateX(100%);
+}
+
+
+.label{
+  margin-left: 1rem;
+  font-size: var(--label-font-size);
+}
+
+
