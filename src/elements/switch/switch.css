@@ -2,7 +2,7 @@
   --container-width: 46px;
   --container-height: 26px;
   --box-background: var(--gray-300);
-  --active-background: #30A64A;
+  --active-background: #30a64a;
   --button-width: 20px;
   --button-height: 20px;
   --position-margin: 3px;
@@ -32,22 +32,22 @@
 }
 
 .checkbox {
-  height: 0;
   width: 0;
+  height: 0;
   visibility: hidden;
 }
 
 .box {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
   width: var(--container-width);
   height: var(--container-height);
+  cursor: pointer;
   background: var(--box-background);
   border-radius: 50px;
-  position: relative;
-  transition: background-color 0.2s;
+  transition: background-color .2s;
 }
 
 .active{
@@ -55,19 +55,19 @@
 }
 
 .box .button {
-  content: "";
   position: absolute;
   top: var(--position-margin);
   left: var(--position-margin);
   width: var(--button-width);
   height: var(--button-height);
-  border-radius: 45px;
-  transition: 0.2s;
+  content: '';
   background: #fff;
-  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+  border-radius: 45px;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, .29);
+  transition: .2s;
 }
 
-.checkbox:checked +.box .button {
+.checkbox:checked + .box .button {
   transform: translateX(100%);
 }
 
@@ -76,5 +76,3 @@
   margin-left: 1rem;
   font-size: var(--label-font-size);
 }
-
-
