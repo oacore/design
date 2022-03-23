@@ -6,13 +6,20 @@ import styles from './switch.css'
 
 import { classNames } from 'utils'
 
-const Switch = ({ variant = 'normal', id, isActivated, onChange, label }) => {
+const Switch = ({
+  variant = 'normal',
+  id,
+  isActivated,
+  onChange,
+  label,
+  className,
+}) => {
   const useStyles = (defaultClass) =>
     classNames.use(defaultClass, {
       [styles[variant]]: variant,
     })
   return (
-    <div className={styles.container}>
+    <div className={classNames.use(styles.container).join(className)}>
       <input
         checked={isActivated}
         onChange={onChange}
