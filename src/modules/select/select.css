@@ -23,6 +23,7 @@
 .select-wrapper:focus-within,
 .select-wrapper.focused {
   --form-control-background-color: var(--select-focused-background);
+  --select-z-index: 1001;
 }
 
 .select-menu {
