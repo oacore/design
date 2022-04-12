@@ -3,20 +3,16 @@
 
 :root {
   --header-menu-width: 12rem;
+  --header-z-index: 10000;
 }
 
 .container {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: var(--header-z-index);
   display: flex;
   flex-wrap: wrap;
   line-height: 1;
-
-  &.expanded {
-    z-index: 20;
-  }
-
 }
 
 .container li::before {
