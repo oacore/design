@@ -180,6 +180,7 @@ const Select = memo(
                 if (useAdvancedSearch) setVisibleAppendTextIcon(true)
               }}
               onBlur={(event) => {
+                if (inputData.value === '') setInputData({ value: '' })
                 handleInputBlurEvent(event, setVisibleAppendTextIcon)
               }}
               onKeyDown={handleInputKeyEvent}
@@ -195,7 +196,7 @@ const Select = memo(
             id={`suggestion-results-${id}`}
             className={classNames
               .use(styles.selectMenu, {
-                [styles.show]: isInputFocused,
+                [styles.show]: isInputFocused && !inputData.customValue,
               })
               .join(selectMenuClassName)}
             role="listbox"
