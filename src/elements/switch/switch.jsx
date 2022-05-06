@@ -9,6 +9,7 @@ import { classNames } from 'utils'
 const Switch = ({
   variant = 'normal',
   id,
+  name = id,
   isActivated,
   onChange,
   label,
@@ -21,7 +22,9 @@ const Switch = ({
   return (
     <div className={classNames.use(styles.container).join(className)}>
       <input
+        name={name}
         checked={isActivated}
+        value={isActivated}
         onChange={onChange}
         type="checkbox"
         id={id}
@@ -31,7 +34,7 @@ const Switch = ({
         className={classNames.use(useStyles(styles.box), {
           [styles.active]: isActivated,
         })}
-        htmlFor={id}
+        htmlFor={name}
       >
         <span className={useStyles(styles.button)} />
       </label>
@@ -46,6 +49,7 @@ Switch.propTypes = {
   isActivated: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string,
+  name: PropTypes.string,
   variant: PropTypes.oneOf(['normal', 'small', 'big']),
 }
 export default Switch
