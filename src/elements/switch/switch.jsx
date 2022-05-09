@@ -10,29 +10,31 @@ const Switch = ({
   variant = 'normal',
   id,
   name = id,
-  isActivated,
+  checked,
   onChange,
   label,
   className,
+  ...props
 }) => {
   const useStyles = (defaultClass) =>
     classNames.use(defaultClass, {
       [styles[variant]]: variant,
     })
+
   return (
     <div className={classNames.use(styles.container).join(className)}>
       <input
         name={name}
-        checked={isActivated}
-        value={isActivated}
         onChange={onChange}
         type="checkbox"
+        checked={checked}
         id={id}
         className={useStyles(styles.checkbox)}
+        {...props}
       />
       <label
         className={classNames.use(useStyles(styles.box), {
-          [styles.active]: isActivated,
+          [styles.active]: checked,
         })}
         htmlFor={name}
       >
@@ -46,7 +48,7 @@ const Switch = ({
 
 Switch.propTypes = {
   id: PropTypes.string.isRequired,
-  isActivated: PropTypes.bool.isRequired,
+  checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string,
   name: PropTypes.string,

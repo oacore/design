@@ -1,19 +1,8 @@
-import React, { useEffect } from 'react'
+import { useState } from 'react'
 
-const useSwitch = (defaultChecked = false) => {
-  const [isActivated, setIsActivated] = React.useState(defaultChecked)
-
-  useEffect(() => {
-    setIsActivated(defaultChecked)
-  }, [defaultChecked])
-
-  const toggleChange = () => {
-    setIsActivated(!isActivated)
-  }
-
-  return {
-    isActivated,
-    toggleChange,
-  }
+const useSwitch = (val = false) => {
+  const [value, setValue] = useState(val)
+  return [value, (event) => setValue(event.target.checked)]
 }
+
 export default useSwitch
