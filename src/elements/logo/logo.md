@@ -36,4 +36,3 @@ import Logo from './logo';
     <Logo tag="button">Dashboard</Logo>
 </>
 ```
-

@@ -11,6 +11,8 @@
 @import url('message/message.css');
 @import url('link/link.css');
 @import url('logo/logo.css');
+@import url('logo/group.css');
+@import url('logo/data-provider.css');
 @import url('metadata-list/metadata-list.css');
 @import url('expandable-list/expandable-list.css');
 @import url('carousel/carousel.css');

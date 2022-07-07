@@ -3,7 +3,14 @@ import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
-import { Card, Heading, MetadataList, ExpandableList } from 'elements'
+import {
+  DataProviderLogo,
+  LogoGroup,
+  Card,
+  Heading,
+  MetadataList,
+  ExpandableList,
+} from 'elements'
 import { BaseLink as Link } from 'elements/link'
 import { classNames } from 'utils'
 
@@ -77,9 +84,21 @@ const SearchResult = ({
       itemType="https://schema.org/ScholarlyArticle"
       {...htmlProps}
     >
-      <Heading level="3" className={styles.title} itemProp="name">
-        {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
-      </Heading>
+      <header className={styles.header}>
+        <Heading level="3" className={styles.title} itemProp="name">
+          {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
+        </Heading>
+        <LogoGroup>
+          {dataProviders.map((dataProvider) => (
+            <DataProviderLogo
+              imageSrc={dataProvider.logo}
+              size="sm"
+              alt="logo"
+              useDefault={!!dataProvider.logo}
+            />
+          ))}
+        </LogoGroup>
+      </header>
 
       <MetadataList className={styles.metadataList}>
         <MetadataList.Item id={idFor('author')} label={labels.author}>
@@ -113,7 +132,6 @@ const SearchResult = ({
         >
           {formatDate(publicationDate)}
         </MetadataList.Item>
-
         <MetadataList.Item
           id={idFor('field')}
           label={labels.fieldOfStudy}
