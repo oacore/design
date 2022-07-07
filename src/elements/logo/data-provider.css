@@ -10,8 +10,8 @@
   border-radius: 50%;
 
   &::before {
-    z-index: 1;
     position: absolute;
+    z-index: 1;
     content: ' ';
     border: 2px solid var(--gray-300);
     border-radius: 50%;
