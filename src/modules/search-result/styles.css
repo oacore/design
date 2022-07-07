@@ -12,6 +12,11 @@
   margin-bottom: var(--search-result-footnote-height);
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .title {
   margin-bottom: .5rem;
 }

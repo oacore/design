@@ -16,15 +16,16 @@ const DataProviderLogo = ({
 }) => (
   <Tag
     className={classNames
-      .use(styles.circle, styles[size], {
+      .use(styles[size], {
         [styles.hidden]: !useDefault,
+        [styles.circle]: useDefault,
       })
       .join(className)}
   >
     {imageSrc ? (
       <img src={imageSrc} alt={alt} className={styles.image} />
     ) : (
-      <Icon src="#office-building" className={styles.image} />
+      <Icon src="#office-building" className={classNames.use(styles.image)} />
     )}
   </Tag>
 )
@@ -32,7 +33,7 @@ const DataProviderLogo = ({
 DataProviderLogo.propTypes = {
   alt: PropTypes.string.isRequired,
   imageSrc: PropTypes.string,
-  size: PropTypes.oneOf(['md,sm,lg']).isRequired,
+  size: PropTypes.oneOf(['md', 'sm', 'lg']).isRequired,
   /* Pass true if you want to use default icon */
   useDefault: PropTypes.bool,
 }

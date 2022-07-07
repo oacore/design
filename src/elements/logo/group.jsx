@@ -2,8 +2,10 @@ import React from 'react'
 
 import styles from './group.css'
 
-const LogoGroup = ({ children }) => (
-  <div className={styles.group}>{children}</div>
+import { classNames } from 'utils'
+
+const LogoGroup = ({ children, className }) => (
+  <div className={classNames.use(styles.group).join(className)}>{children}</div>
 )
 
 export default LogoGroup

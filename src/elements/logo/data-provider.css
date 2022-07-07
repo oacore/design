@@ -8,9 +8,10 @@
   background-color: var(--white);
   border: 1px solid var(--primary);
   border-radius: 50%;
+
   &::before {
-    position: absolute;
     z-index: 1;
+    position: absolute;
     content: ' ';
     border: 2px solid var(--gray-300);
     border-radius: 50%;
