@@ -91,9 +91,10 @@ const SearchResult = ({
         <LogoGroup>
           {dataProviders.map((dataProvider) => (
             <DataProviderLogo
+              key={dataProvider.name}
               imageSrc={dataProvider.logo}
               size="sm"
-              alt="logo"
+              alt={dataProvider.name}
               useDefault={!!dataProvider.logo}
             />
           ))}
