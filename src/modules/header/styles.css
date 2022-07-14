@@ -3,20 +3,16 @@
 
 :root {
   --header-menu-width: 12rem;
+  --header-z-index: 10000;
 }
 
 .container {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: var(--header-z-index);
   display: flex;
   flex-wrap: wrap;
   line-height: 1;
-
-  &.expanded {
-    z-index: 20;
-  }
-
 }
 
 .container li::before {
@@ -58,7 +54,7 @@
 .logo-container {
   flex: 1;
   min-width: var(--logo-min-width);
-  max-width: var(--page-padding-x);
+  max-width: calc(var(--page-padding-x) + 1rem);
   max-height: 3rem;
   padding: 0;
   margin-right: auto;
@@ -413,5 +409,21 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+.peace{
+  margin-top: 1em;
+  font-size: .6rem;
+  font-weight: 400;
+}
+@media (max-width: 768px){
+  .peace i {
+    display: none;
+  }
+}
+@media (min-width: 768px){
+  .logo-container {
+    max-width: calc(var(--page-padding-x) + 10rem);
   }
 }

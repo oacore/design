@@ -124,8 +124,14 @@ const Header = ({ children, className, id, ...passProps }) => {
       {...passProps}
     >
       <AppBar.Item className={styles.logoContainer}>
-        <a href="/" className={styles.logoLink}>
+        <a href="https://core.ac.uk/" className={styles.logoLink}>
           <Logo className={styles.logo} />
+          <p className={styles.peace}>
+            <span role="img" aria-label="Ukranian Flag">
+              🇺🇦&nbsp;
+            </span>
+            <i>&nbsp; make metadata, not war</i>
+          </p>
         </a>
       </AppBar.Item>
 

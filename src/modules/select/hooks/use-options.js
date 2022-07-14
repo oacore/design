@@ -13,11 +13,17 @@ const useOptions = (
     setInputData({
       value: option.value,
       id: option.id,
+      customValue: option.customValue,
     })
     setActiveOption(option)
     if (hide) {
       setIsInputFocused(false)
       setActiveOption(null)
+    }
+
+    if (option.customValue) {
+      setActiveOption(null)
+      setInputData({ ...option, value: '' })
     }
   }
 
@@ -41,6 +47,7 @@ const useOptions = (
               changeActiveOption({
                 value: element.props.value,
                 id: element.props.id,
+                customValue: element.props?.customValue || false,
               })
             }
 
@@ -121,7 +128,6 @@ const useOptions = (
   const handleInputBlurEvent = (event, setVisibleAppendTextIcon) => {
     // check if onBlur happen within select
     const { relatedTarget: el } = event
-
     if (!el) {
       setClickedElement(null)
       setIsInputFocused(false, event)

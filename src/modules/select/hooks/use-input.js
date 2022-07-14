@@ -26,6 +26,7 @@ const useInput = (value, { onInput, onChange, changeOnBlur }) => {
         onChange(inputData)
       // hide cursor from input field
       inputRef.current.blur()
+      if (inputData.customValue) inputRef.current.focus()
     }
   }, [isInputFocused])
 

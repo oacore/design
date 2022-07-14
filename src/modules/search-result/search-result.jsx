@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import styles from './styles.css'
 
 import {
+  DataProviderLogo,
+  LogoGroup,
   Card,
   Heading,
   MetadataList,
@@ -83,15 +85,28 @@ const SearchResult = ({
       itemType="https://schema.org/ScholarlyArticle"
       {...htmlProps}
     >
-      <Heading level="3" className={styles.title} itemProp="name">
-        {metadataLink ? (
-          <Link href={metadataLink}>
-            <MathMarkdown>{title}</MathMarkdown>
-          </Link>
-        ) : (
-          title
-        )}
-      </Heading>
+      <header className={styles.header}>
+        <Heading level="3" className={styles.title} itemProp="name">
+          {metadataLink ? (
+            <Link href={metadataLink}>
+              <MathMarkdown>{title}</MathMarkdown>
+            </Link>
+          ) : (
+            title
+          )}
+        </Heading>
+        <LogoGroup>
+          {dataProviders.map((dataProvider) => dataProvider.logo && (
+            <DataProviderLogo
+              key={dataProvider.name}
+              imageSrc={dataProvider.logo}
+              size="sm"
+              alt={dataProvider.name}
+              useDefault={!!dataProvider.logo}
+            />
+          ))}
+        </LogoGroup>
+      </header>
 
       <MetadataList className={styles.metadataList}>
         <MetadataList.Item id={idFor('author')} label={labels.author}>
@@ -125,7 +140,6 @@ const SearchResult = ({
         >
           {formatDate(publicationDate)}
         </MetadataList.Item>
-
         <MetadataList.Item
           id={idFor('field')}
           label={labels.fieldOfStudy}
