@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
-import { Card, Heading, MetadataList, ExpandableList } from 'elements'
+import {
+  Card,
+  Heading,
+  MetadataList,
+  ExpandableList,
+  MathMarkdown,
+} from 'elements'
 import { BaseLink as Link } from 'elements/link'
 import { classNames } from 'utils'
 
@@ -78,7 +84,13 @@ const SearchResult = ({
       {...htmlProps}
     >
       <Heading level="3" className={styles.title} itemProp="name">
-        {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
+        {metadataLink ? (
+          <Link href={metadataLink}>
+            <MathMarkdown>{title}</MathMarkdown>
+          </Link>
+        ) : (
+          title
+        )}
       </Heading>
 
       <MetadataList className={styles.metadataList}>
@@ -133,7 +145,7 @@ const SearchResult = ({
       </figure>
 
       <div className={styles.content} itemProp="abstract">
-        {children}
+        <MathMarkdown>{children}</MathMarkdown>
       </div>
 
       <div className={styles.footnote}>

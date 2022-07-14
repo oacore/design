@@ -1,7 +1,6 @@
 import { useRef, useCallback, useEffect } from 'react'
 import FocusLock from 'react-focus-lock'
 import PropTypes from 'prop-types'
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import styles from './modal.css'
 import ModalTitle from './title'
@@ -67,12 +66,12 @@ const Modal = ({
     [hideManually]
   )
 
-  useEffect(
-    () => () => {
-      clearAllBodyScrollLocks()
-    },
-    []
-  )
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [])
 
   return (
     <ModalPortal>
@@ -91,7 +90,6 @@ const Modal = ({
                 modalRef.current = ref
                 // make sure disableBodyScroll is not called after
                 // component unmount with ref === null
-                if (modalRef.current) disableBodyScroll(modalRef.current)
               }}
               role="dialog"
               className={classNames.use(styles.modal).join(className)}
