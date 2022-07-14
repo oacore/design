@@ -10,6 +10,7 @@ import {
   Heading,
   MetadataList,
   ExpandableList,
+  MathMarkdown,
 } from 'elements'
 import { BaseLink as Link } from 'elements/link'
 import { classNames } from 'utils'
@@ -86,18 +87,27 @@ const SearchResult = ({
     >
       <header className={styles.header}>
         <Heading level="3" className={styles.title} itemProp="name">
-          {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
+          {metadataLink ? (
+            <Link href={metadataLink}>
+              <MathMarkdown>{title}</MathMarkdown>
+            </Link>
+          ) : (
+            title
+          )}
         </Heading>
         <LogoGroup>
-          {dataProviders.map((dataProvider) => (
-            <DataProviderLogo
-              key={dataProvider.name}
-              imageSrc={dataProvider.logo}
-              size="sm"
-              alt={dataProvider.name}
-              useDefault={!!dataProvider.logo}
-            />
-          ))}
+          {dataProviders.map(
+            (dataProvider) =>
+              dataProvider.logo && (
+                <DataProviderLogo
+                  key={dataProvider.name}
+                  imageSrc={dataProvider.logo}
+                  size="sm"
+                  alt={dataProvider.name}
+                  useDefault={!!dataProvider.logo}
+                />
+              )
+          )}
         </LogoGroup>
       </header>
 
@@ -152,7 +162,7 @@ const SearchResult = ({
       </figure>
 
       <div className={styles.content} itemProp="abstract">
-        {children}
+        <MathMarkdown>{children}</MathMarkdown>
       </div>
 
       <div className={styles.footnote}>

@@ -1,7 +1,4 @@
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable no-nested-ternary */
 import React from 'react'
-import { Motion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
 
 import styles from './histoslider.css'
@@ -11,7 +8,6 @@ import { classNames } from 'utils'
 const Histogram = ({
   height,
   data,
-  showOnDrag,
   selection,
   reset,
   selectedBarColor,
@@ -21,7 +17,6 @@ const Histogram = ({
   barPadding,
   width,
   max,
-  dragging,
   onChange,
   showLabels,
 }) => {
@@ -54,82 +49,75 @@ const Histogram = ({
 
   const selectionSorted = Array.from(selection).sort((a, b) => +a - +b)
 
-  const showHistogramPredicate = showOnDrag ? (dragging ? true : false) : true
-  const h = showHistogramPredicate ? height : 0
-
   return (
-    <Motion style={{ height: spring(h) }}>
-      {() => (
-        <>
-          <svg width={width} height={height} className={styles.histograms}>
-            <g transform={`translate(0, ${height})`}>
-              <g transform="scale(1,-1)">
-                {data.map((bucket) => {
-                  let color = unselectedColor
-                  if (
-                    selectionSorted[0] > bucket.x ||
-                    selectionSorted[1] < bucket.x0
-                  )
-                    color = unselectedColor
-                  else if (
-                    selectionSorted[0] <= bucket.x0 &&
-                    selectionSorted[1] >= bucket.x
-                  ) {
-                    // Entire block is covered
-                    color = selectedBarColor
-                  }
-                  return (
-                    <g
-                      key={bucket.x0}
-                      transform={`translate(${
-                        scale(bucket.x0) + barPadding / 2
-                      } 0)`}
-                    >
-                      <rect
-                        fill={unselectedColor}
-                        width={scale(bucket.x) - scale(bucket.x0) - barPadding}
-                        height={(bucket.y / max) * height}
-                        rx={barBorderRadius}
-                        ry={barBorderRadius}
-                        x={0}
-                      />
+    <>
+      <svg width={width} height={height} className={styles.histograms}>
+        <g transform={`translate(0, ${height})`}>
+          <g transform="scale(1,-1)">
+            {data.map((bucket) => {
+              let color = unselectedColor
+              if (
+                selectionSorted[0] > bucket.x ||
+                selectionSorted[1] < bucket.x0
+              )
+                color = unselectedColor
+              else if (
+                selectionSorted[0] <= bucket.x0 &&
+                selectionSorted[1] >= bucket.x
+              ) {
+                // Entire block is covered
+                color = selectedBarColor
+              }
+              return (
+                <g
+                  key={bucket.x0}
+                  transform={`translate(${
+                    scale(bucket.x0) + barPadding / 2
+                  } 0)`}
+                >
+                  <rect
+                    fill={unselectedColor}
+                    width={scale(bucket.x) - scale(bucket.x0) - barPadding}
+                    height={(bucket.y / max) * height}
+                    rx={barBorderRadius}
+                    ry={barBorderRadius}
+                    x={0}
+                  />
 
-                      <rect
-                        fill={color}
-                        onClick={selectBucket.bind(this, bucket)}
-                        onDoubleClick={reset.bind(this)}
-                        style={{
-                          cursor: 'pointer',
-                        }}
-                        width={scale(bucket.x) - scale(bucket.x0) - barPadding}
-                        height={(bucket.y / max) * height}
-                        x={0}
-                        onMouseEnter={() => onHoverItem(bucket)}
-                        onMouseLeave={onLeaveItem}
-                        className={classNames.use(styles.histogramItem)}
-                      />
-                    </g>
-                  )
-                })}
-              </g>
-            </g>
-          </svg>
-          {showLabels && hoveredItem.year && (
-            <div
-              style={{
-                display: style.displaybox,
-              }}
-              className={styles.info}
-            >
-              <span>{hoveredItem.year}</span>
-              <div className={styles.infoBox}>
-                Articles - <span> {hoveredItem.count}</span>
-              </div>
-            </div>
-          )}
-        </>
+                  <rect
+                    fill={color}
+                    onClick={selectBucket.bind(this, bucket)}
+                    onDoubleClick={reset.bind(this)}
+                    style={{
+                      cursor: 'pointer',
+                    }}
+                    width={scale(bucket.x) - scale(bucket.x0) - barPadding}
+                    height={(bucket.y / max) * height}
+                    x={0}
+                    onMouseEnter={() => onHoverItem(bucket)}
+                    onMouseLeave={onLeaveItem}
+                    className={classNames.use(styles.histogramItem)}
+                  />
+                </g>
+              )
+            })}
+          </g>
+        </g>
+      </svg>
+      {showLabels && hoveredItem.year && (
+        <div
+          style={{
+            display: style.displaybox,
+          }}
+          className={styles.info}
+        >
+          <span>{hoveredItem.year}</span>
+          <div className={styles.infoBox}>
+            Articles - <span> {hoveredItem.count}</span>
+          </div>
+        </div>
       )}
-    </Motion>
+    </>
   )
 }
 
@@ -147,7 +135,6 @@ Histogram.propTypes = {
   barBorderRadius: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,
-  showOnDrag: PropTypes.bool,
   reset: PropTypes.func,
   onChange: PropTypes.func,
   showLabels: PropTypes.bool,
@@ -156,5 +143,4 @@ Histogram.propTypes = {
   scale: PropTypes.func,
   barPadding: PropTypes.number,
   max: PropTypes.number,
-  dragging: PropTypes.bool,
 }
