@@ -96,15 +96,18 @@ const SearchResult = ({
           )}
         </Heading>
         <LogoGroup>
-          {dataProviders.map((dataProvider) => dataProvider.logo && (
-            <DataProviderLogo
-              key={dataProvider.name}
-              imageSrc={dataProvider.logo}
-              size="sm"
-              alt={dataProvider.name}
-              useDefault={!!dataProvider.logo}
-            />
-          ))}
+          {dataProviders.map(
+            (dataProvider) =>
+              dataProvider.logo && (
+                <DataProviderLogo
+                  key={dataProvider.name}
+                  imageSrc={dataProvider.logo}
+                  size="sm"
+                  alt={dataProvider.name}
+                  useDefault={!!dataProvider.logo}
+                />
+              )
+          )}
         </LogoGroup>
       </header>
 

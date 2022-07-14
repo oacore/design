@@ -1,5 +1,3 @@
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable no-nested-ternary */
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -10,7 +8,6 @@ import { classNames } from 'utils'
 const Histogram = ({
   height,
   data,
-  showOnDrag,
   selection,
   reset,
   selectedBarColor,
@@ -20,7 +17,6 @@ const Histogram = ({
   barPadding,
   width,
   max,
-  dragging,
   onChange,
   showLabels,
 }) => {
@@ -52,9 +48,6 @@ const Histogram = ({
   }
 
   const selectionSorted = Array.from(selection).sort((a, b) => +a - +b)
-
-  const showHistogramPredicate = showOnDrag ? (dragging ? true : false) : true
-  const h = showHistogramPredicate ? height : 0
 
   return (
     <>
@@ -142,7 +135,6 @@ Histogram.propTypes = {
   barBorderRadius: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,
-  showOnDrag: PropTypes.bool,
   reset: PropTypes.func,
   onChange: PropTypes.func,
   showLabels: PropTypes.bool,
@@ -151,5 +143,4 @@ Histogram.propTypes = {
   scale: PropTypes.func,
   barPadding: PropTypes.number,
   max: PropTypes.number,
-  dragging: PropTypes.bool,
 }
