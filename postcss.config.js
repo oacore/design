@@ -15,7 +15,7 @@ module.exports = {
     presetEnv({
       stage: 0,
       features: {
-        'color-mod-function': {
+        'color-function': {
           unresolved: 'ignore',
           importFrom: 'src/foundation/colors.css',
         },
