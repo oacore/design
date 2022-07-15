@@ -22,7 +22,7 @@ module.exports = {
     {
       name: 'Elements',
       components:
-        'src/elements/!(table|app-bar|forms|metadata-list)/**/*.{js,jsx,ts,tsx}',
+        'src/elements/!(table|app-bar|forms|metadata-list|math-markdown)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'App Bar',
@@ -31,6 +31,10 @@ module.exports = {
             'src/elements/app-bar/brand.jsx',
             'src/elements/app-bar/item.jsx',
           ],
+        },
+        {
+          name: 'Math Markdown',
+          components: () => ['src/elements/math-markdown/math-markdown.jsx'],
         },
         {
           name: 'Table',
