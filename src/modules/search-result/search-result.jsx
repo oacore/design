@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import styles from './styles.css'
 
 import {
-  DataProviderLogo,
-  LogoGroup,
   Card,
   Heading,
   MetadataList,
@@ -58,6 +56,8 @@ const SearchResult = ({
   children,
   id,
   className,
+  // eslint-disable-next-line no-unused-vars
+  useLogo = true,
   data: {
     title,
     author = [],
@@ -95,7 +95,8 @@ const SearchResult = ({
             title
           )}
         </Heading>
-        <LogoGroup>
+        {/* TO DO: Launch when membership will be ready */}
+        {/* useLogo && <LogoGroup>
           {dataProviders.map(
             (dataProvider) =>
               dataProvider.logo && (
@@ -108,7 +109,7 @@ const SearchResult = ({
                 />
               )
           )}
-        </LogoGroup>
+        </LogoGroup> */}
       </header>
 
       <MetadataList className={styles.metadataList}>
@@ -192,6 +193,7 @@ const SearchResult = ({
 
 SearchResult.propTypes = {
   id: PropTypes.string.isRequired,
+  useLogo: PropTypes.bool,
   data: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
