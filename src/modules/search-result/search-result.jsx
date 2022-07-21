@@ -115,9 +115,10 @@ const SearchResult = ({
       <MetadataList className={styles.metadataList}>
         <MetadataList.Item id={idFor('author')} label={labels.author}>
           <ExpandableList aria-label={labels.author}>
-            {author.map((a) => (
+            {author.map((a, index) => (
               <ExpandableList.Item
-                key={a.name}
+                // eslint-disable-next-line react/no-array-index-key
+                key={`${a.name}-${index}`}
                 itemProp="author"
                 itemScope
                 itemType="https://schema.org/Person"
