@@ -36,7 +36,12 @@ const icons = [
   'window-close',
   'pencil',
   'account',
+  'information-outline',
+  'office-building',
   path.resolve(__dirname, './assets/core-symbol.svg'),
+  path.resolve(__dirname, './assets/writing.svg'),
+  path.resolve(__dirname, './assets/jisc-logo.svg'),
+  path.resolve(__dirname, './assets/ou-logo.svg'),
 ]
 
 // icons used in documentation

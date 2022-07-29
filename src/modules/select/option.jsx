@@ -7,7 +7,7 @@ import { Icon } from 'elements'
 import { classNames } from 'utils'
 
 const Option = memo(
-  ({ id, children, selected, icon, className, ...restProps }) => (
+  ({ id, children, selected, icon, className, customValue, ...restProps }) => (
     <li
       id={id}
       role="option"
@@ -44,6 +44,8 @@ Option.propTypes = {
    * by select component
    */
   selected: PropTypes.bool,
+  /* Use this prop for clean select */
+  customValue: PropTypes.bool,
 }
 
 export default Option

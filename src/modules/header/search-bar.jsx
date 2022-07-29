@@ -7,9 +7,10 @@ import styles from './styles.css'
 import { useDesignContext } from 'context'
 import { classNames } from 'utils'
 import { Select } from 'modules'
-import { AppBar } from 'elements'
+import { AppBar, Icon, Button } from 'elements'
+import { useWindowSize, useOutsideClick } from 'hooks'
 
-export const useSearchBar = (config, { isHidden = false } = {}) => {
+export const useSearchBar = (config, { isHidden = true } = {}) => {
   const [
     {
       header: { searchBar },
@@ -71,13 +72,19 @@ const SearchBar = () => {
     getSuggestions,
     onQueryChanged,
     suggestionsDelay = 500,
-    isHidden,
+    isHidden: propsIsHidden,
+    useAdvancedSearch,
+    changeOnBlur,
     searchBarProps: { selectClassName, ...restSearchBarProps } = {},
     appBarItemProps: { appBarItemClassName, ...restAppBarItemProps } = {},
   } = useSearchBar()
 
+  const { width } = useWindowSize()
   const [suggestions, setSuggestions] = useState([])
   const [value, setValue] = useState(initQuery || '')
+  const [isHiddenSearchBar, setIsHiddenSearchBar] = useState(propsIsHidden)
+
+  const searchInputRef = useRef()
 
   const suggest = useCallback(
     throttle(suggestionsDelay, false, (searchTerm) => {
@@ -85,41 +92,76 @@ const SearchBar = () => {
     }),
     [getSuggestions, suggestionsDelay]
   )
-
   const handleOnChange = (data) => {
     onQueryChanged(data.value)
   }
 
+  const onToggleVisibleSearchBar = () => {
+    setIsHiddenSearchBar(!isHiddenSearchBar)
+  }
+
+  const onCloseSearchBar = () => {
+    setIsHiddenSearchBar(true)
+  }
+
   const handleOnInput = (data) => {
     setValue(data.value)
-
     // if id doesn't exist it means user type own text
     // and didn't use suggestion
     if (!data.id) suggest(data.value)
   }
 
+  if (propsIsHidden) useOutsideClick(searchInputRef, onCloseSearchBar)
+
   return (
-    <AppBar.Item
-      className={classNames.use(styles.searchBarItem, appBarItemClassName)}
-      hidden={isHidden}
-      {...restAppBarItemProps}
-    >
-      <Select
-        id="app-bar-search"
-        value={value}
-        variant="pure"
-        onChange={handleOnChange}
-        onInput={handleOnInput}
-        className={classNames.use(styles.select, selectClassName)}
-        {...restSearchBarProps}
-      >
-        {suggestions.map((el) => (
-          <Select.Option key={el.id} id={el.id} value={el.value} icon={el.icon}>
-            {el.value}
-          </Select.Option>
-        ))}
-      </Select>
-    </AppBar.Item>
+    <>
+      {!isHiddenSearchBar && (
+        <AppBar.Item
+          className={classNames.use(styles.searchBarItem, appBarItemClassName)}
+          ref={searchInputRef}
+          {...restAppBarItemProps}
+        >
+          <Select
+            id="app-bar-search"
+            value={value}
+            variant="pure"
+            onChange={handleOnChange}
+            onInput={handleOnInput}
+            changeOnBlur={changeOnBlur || width < 500}
+            className={classNames.use(styles.select, selectClassName)}
+            useAdvancedSearch={useAdvancedSearch}
+            appendText={useAdvancedSearch && 'How to search?'}
+            {...restSearchBarProps}
+          >
+            {suggestions.map((el) => (
+              <Select.Option
+                key={el.id}
+                id={el.id}
+                value={el.value}
+                icon={el.icon}
+              >
+                {el.value}
+              </Select.Option>
+            ))}
+          </Select>
+        </AppBar.Item>
+      )}
+      {isHiddenSearchBar && (
+        <AppBar.Item
+          className={classNames.use(
+            styles.searchBarItem,
+            styles.searchBarItemIcon
+          )}
+        >
+          <Button
+            className={styles.searchBarItemIconButton}
+            onClick={onToggleVisibleSearchBar}
+          >
+            <Icon src="#magnify" alt="Search icon" />
+          </Button>
+        </AppBar.Item>
+      )}
+    </>
   )
 }
 

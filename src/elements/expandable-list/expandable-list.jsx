@@ -60,10 +60,10 @@ const ExpandableList = ({ children, className, ...htmlProps }) => {
           onClick={handleButtonClick}
           title="Show more"
         >
-          +{childrenArray.length - 3}&nbsp;more
+          +{childrenArray.length - 2}&nbsp;more
         </Button>
       </li>
-      {childrenArray.slice(2, -1).map((el) =>
+      {childrenArray.slice(2).map((el) =>
         React.cloneElement(el, {
           'aria-setsize': childrenArray.length,
           'className': classNames.use(
@@ -72,9 +72,6 @@ const ExpandableList = ({ children, className, ...htmlProps }) => {
           ),
         })
       )}
-      {React.cloneElement(childrenArray[children.length - 1], {
-        'aria-setsize': childrenArray.length,
-      })}
     </ol>
   )
 }

@@ -11,7 +11,8 @@
       {id: 4, icon: '#magnify', value: 'Option D' },
       {id: 5, icon: '#magnify', value: 'Option E' },
       {id: 6, icon: '#magnify', value: 'Option F' },
-      {id: 7, value: 'Option G (without icon)' },
+      {id: 7, icon: '#magnify', value: 'Other',customValue:true},
+      {id: 8, value: 'Option G (without icon)' },
     ]
 
     const SelectExample = () => {
@@ -47,6 +48,7 @@
                     id={el.id}
                     value={el.value}
                     icon={el.icon}
+                    customValue={el.customValue}
                   >
                     {el.value}
                   </Select.Option>

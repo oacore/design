@@ -1,5 +1,5 @@
 const presetEnv = require('postcss-preset-env')
-const extend = require('postcss-extend')
+const extend = require('postcss-extend-rule')
 const calc = require('postcss-calc')
 const cssModules = require('postcss-modules')
 const nano = require('cssnano')
@@ -12,16 +12,16 @@ const isGlobal = process.env.NODE_ENV === 'global'
 module.exports = {
   map: true,
   plugins: [
+    extend(),
     presetEnv({
       stage: 0,
       features: {
-        'color-mod-function': {
+        'color-function': {
           unresolved: 'ignore',
           importFrom: 'src/foundation/colors.css',
         },
       },
     }),
-    extend(),
     calc(),
     nano({
       preset: [

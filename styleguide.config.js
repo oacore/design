@@ -1,5 +1,7 @@
 const path = require('path')
 
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+
 module.exports = {
   title: 'CORE Design Elements',
   usageMode: 'expand',
@@ -20,7 +22,7 @@ module.exports = {
     {
       name: 'Elements',
       components:
-        'src/elements/!(table|app-bar|forms|metadata-list)/**/*.{js,jsx,ts,tsx}',
+        'src/elements/!(table|app-bar|forms|metadata-list|math-markdown|cookies)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'App Bar',
@@ -29,6 +31,10 @@ module.exports = {
             'src/elements/app-bar/brand.jsx',
             'src/elements/app-bar/item.jsx',
           ],
+        },
+        {
+          name: 'Math Markdown',
+          components: () => ['src/elements/math-markdown/math-markdown.jsx'],
         },
         {
           name: 'Table',
@@ -59,6 +65,10 @@ module.exports = {
             'src/elements/metadata-list/metadata-list.jsx',
             'src/elements/metadata-list/metadata-list-item.jsx',
           ],
+        },
+        {
+          name: 'Cookies',
+          components: () => ['src/elements/cookies/cookies.jsx'],
         },
       ],
     },
@@ -118,7 +128,7 @@ module.exports = {
       },
     },
   },
-  assetsDir: 'public',
+  assetsDir: ['public', 'assets'],
 
   require: [path.join(__dirname, 'src/index.css')],
 
@@ -135,7 +145,7 @@ module.exports = {
           use: [
             'style-loader',
             { loader: 'css-loader', options: { importLoaders: 1 } },
-            'postcss-loader',
+            { loader: 'postcss-loader' },
           ],
         },
         {
@@ -147,8 +157,31 @@ module.exports = {
             'svgo-loader',
           ],
         },
+        {
+          test: /\.(png|jpg|gif)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+              },
+            },
+          ],
+        },
       ],
     },
+    plugins: [new SpriteLoaderPlugin()],
     resolve: {
       extensions: ['.js', '.jsx'],
     },

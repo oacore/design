@@ -3,13 +3,19 @@ import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
-import { Card, Heading, MetadataList, ExpandableList } from 'elements'
+import {
+  Card,
+  Heading,
+  MetadataList,
+  ExpandableList,
+  MathMarkdown,
+} from 'elements'
 import { BaseLink as Link } from 'elements/link'
 import { classNames } from 'utils'
 
 const texts = {
   pdfAvailable: 'Get PDF',
-  linkAvailable: 'Access PDF',
+  linkAvailable: 'Full text link',
   metadataOnly: 'No full text',
 }
 
@@ -20,29 +26,38 @@ const labels = {
   fieldOfStudy: 'Field of study',
   publicationDate: 'Publication date',
   publicationVenue: 'Publication venue',
+  dataProviders: 'Data providers',
 }
 
 const formatDate = (date) => date?.toString()
 
-const typeToVariant = (type) =>
-  ({
-    PDF: 'hosted',
-    URL: 'linked',
-    NONE: 'missing',
-  }[type])
+const typeToVariant = (fullTextLink) => {
+  let variant
+  if (fullTextLink == null) variant = 'missing'
+  else if (fullTextLink.includes('core')) variant = 'hosted'
+  else variant = 'linked'
+  return variant
+}
 
 const fullTextStatus = ({ title, fullTextLink } = {}) => {
   // A trick to detect if any data exists.
   // Prevents fake 'Full text is missing' when still loading.
   if (title == null && fullTextLink == null) return null
+  let status
 
-  return fullTextLink != null ? texts.pdfAvailable : texts.metadataOnly
+  if (fullTextLink == null) status = texts.metadataOnly
+  else if (fullTextLink.includes('core')) status = texts.pdfAvailable
+  else status = texts.linkAvailable
+
+  return status
 }
 
 const SearchResult = ({
   children,
   id,
   className,
+  // eslint-disable-next-line no-unused-vars
+  useLogo = true,
   data: {
     title,
     author = [],
@@ -51,12 +66,8 @@ const SearchResult = ({
     fieldOfStudy,
     metadataLink,
     fullTextLink,
-    fullTextType = fullTextLink == null ? 'NONE' : 'PDF',
     thumbnailUrl,
-    dataProvider: {
-      name: dataProviderName,
-      homepageLink: dataProviderHomepage,
-    } = {},
+    dataProviders = [],
   } = {},
   ...htmlProps
 }) => {
@@ -67,29 +78,53 @@ const SearchResult = ({
       className={classNames
         .use(
           styles.container,
-          styles[`full-text-${typeToVariant(fullTextType)}`]
+          styles[`full-text-${typeToVariant(fullTextLink)}`]
         )
         .join(className)}
       itemScope
       itemType="https://schema.org/ScholarlyArticle"
       {...htmlProps}
     >
-      <Heading level="3" className={styles.title} itemProp="name">
-        {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
-      </Heading>
+      <header className={styles.header}>
+        <Heading level="3" className={styles.title} itemProp="name">
+          {metadataLink ? (
+            <Link href={metadataLink}>
+              <MathMarkdown>{title}</MathMarkdown>
+            </Link>
+          ) : (
+            title
+          )}
+        </Heading>
+        {/* TO DO: Launch when membership will be ready */}
+        {/* useLogo && <LogoGroup>
+          {dataProviders.map(
+            (dataProvider) =>
+              dataProvider.logo && (
+                <DataProviderLogo
+                  key={dataProvider.name}
+                  imageSrc={dataProvider.logo}
+                  size="sm"
+                  alt={dataProvider.name}
+                  useDefault={!!dataProvider.logo}
+                />
+              )
+          )}
+        </LogoGroup> */}
+      </header>
 
-      <MetadataList>
+      <MetadataList className={styles.metadataList}>
         <MetadataList.Item id={idFor('author')} label={labels.author}>
           <ExpandableList aria-label={labels.author}>
-            {author.map((a) => (
+            {author.map((a, index) => (
               <ExpandableList.Item
-                key={a.name}
+                // eslint-disable-next-line react/no-array-index-key
+                key={`${a.name}-${index}`}
                 itemProp="author"
                 itemScope
                 itemType="https://schema.org/Person"
               >
                 <a
-                  href={`https://core.ac.uk/search?q=author:(${a.name})`}
+                  href={`/search?q=author:(${a.name})`}
                   className={styles.link}
                 >
                   <span itemProp="name">{a.name.replace(',', ' ')}</span>
@@ -110,7 +145,6 @@ const SearchResult = ({
         >
           {formatDate(publicationDate)}
         </MetadataList.Item>
-
         <MetadataList.Item
           id={idFor('field')}
           label={labels.fieldOfStudy}
@@ -130,23 +164,28 @@ const SearchResult = ({
       </figure>
 
       <div className={styles.content} itemProp="abstract">
-        {children}
+        <MathMarkdown>{children}</MathMarkdown>
       </div>
+
       <div className={styles.footnote}>
-        {dataProviderHomepage && (
-          <div
-            itemProp="publisher"
-            itemScope
-            itemType="https://schema.org/Organization"
-          >
-            <Link
-              href={dataProviderHomepage}
-              className={styles.repositoryLink}
-              external
-            >
-              <span itemProp="name">{dataProviderName}</span>
-            </Link>
-          </div>
+        {dataProviders.map(
+          (dataProvider) =>
+            dataProvider.name && (
+              <div
+                itemProp="publisher"
+                itemScope
+                itemType="https://schema.org/Organization"
+                key={dataProvider.id}
+                className={styles.dataProvider}
+              >
+                <Link
+                  href={`//core.ac.uk/data-providers/${dataProvider.id}`}
+                  className={styles.repositoryLink}
+                >
+                  <span itemProp="name">{dataProvider.name}</span>
+                </Link>
+              </div>
+            )
         )}
       </div>
     </Card>
@@ -155,6 +194,7 @@ const SearchResult = ({
 
 SearchResult.propTypes = {
   id: PropTypes.string.isRequired,
+  useLogo: PropTypes.bool,
   data: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
@@ -168,10 +208,13 @@ SearchResult.propTypes = {
     metadataLink: PropTypes.string,
     fullTextLink: PropTypes.string,
     thumbnailUrl: PropTypes.string,
-    dataProvider: PropTypes.shape({
-      name: PropTypes.string,
-      homepageLink: PropTypes.string,
-    }),
+    dataProvider: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        downloadUrl: PropTypes.string,
+      })
+    ),
   }),
 }
 

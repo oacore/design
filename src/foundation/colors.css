@@ -100,7 +100,7 @@
    *
    * @deprecated, no replacement
    */
-  --success: #8bc34a;
+  --success: #8bc34a;/* @deprecated */
   --success-light: #bef67a; /* @deprecated */
   --success-dark: #5a9216; /* @deprecated */
 

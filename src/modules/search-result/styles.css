@@ -2,7 +2,7 @@
   --search-result-thumbnail-width: 5rem;
   --search-result-thumbnail-height: 7rem;
   --search-result-thumbnail-border-radius: 2px;
-  --search-result-footnote-height: 2rem;
+  --search-result-footnote-height: 2.2rem;
 }
 
 .container {
@@ -10,6 +10,11 @@
   min-height: calc(var(--search-result-thumbnail-height) + var(--card-padding-y, 1rem) + 1rem);
   padding-left: calc(2 * var(--card-padding-x, 1rem) + var(--search-result-thumbnail-width));
   margin-bottom: var(--search-result-footnote-height);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
@@ -105,16 +110,24 @@
   text-decoration: underline;
 }
 
+/* stylelint-disable property-no-unknown */
 .footnote {
   position: absolute;
   bottom: 0;
   left: 0;
-  display: flex;
   align-items: center;
   height: var(--search-result-footnote-height);
   margin: 0 1rem;
+  overflow: hidden;
   font-size: .75rem;
+  text-overflow: ellipsis;
   transform: translateY(100%);
+  line-clamp: 2;
+  box-orient: vertical;
+}
+
+.footnote span{
+  color: var(--gray-600);
 }
 
 .repository-link {
@@ -127,11 +140,39 @@
 }
 
 .full-text-linked {
-  @extend .full-text-hosted;
+  & .thumbnail img{
+    border-color: var(--primary-light);
+  }
+
+  & .thumbnail-caption {
+    background-color: var(--primary-light);
+  }
 }
 
 .full-text-missing {
   & .thumbnail {
     filter: grayscale(100%);
+  }
+}
+
+.metadata-list {
+  color: var(--gray-700);
+}
+
+.metadata-list span{
+  color: var(--gray-700);
+}
+
+
+.data-provider {
+  display: inline-block;
+
+  &:not(:first-child)::before {
+    /**
+     * There is no particular reason to use the 'en quad' instead the 'en-space'
+     * but there is a reason to use spacer with length '1 en'
+     */
+    content: '\2000 and\2000';
+    opacity: .38;
   }
 }

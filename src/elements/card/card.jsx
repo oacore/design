@@ -22,7 +22,7 @@ const Card = ({
 )
 
 Card.propTypes = {
-  variant: PropTypes.oneOf(['elevated', 'outlined']),
+  variant: PropTypes.oneOf(['elevated', 'outlined', 'pure']),
 }
 
 const Title = ({ children, className, tag: Tag = 'h1', ...restProps }) => (
