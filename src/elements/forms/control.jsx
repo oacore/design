@@ -5,7 +5,10 @@ import styles from './styles.css'
 import { classNames } from 'utils'
 
 const FormControl = forwardRef(
-  ({ type: controlType, children, className, focus, ...htmlProps }, ref) => {
+  (
+    { type: controlType, children, className, focus, value, ...htmlProps },
+    ref
+  ) => {
     const Tag = ['select', 'textarea'].includes(controlType)
       ? controlType
       : 'input'
@@ -15,8 +18,9 @@ const FormControl = forwardRef(
       <Tag
         ref={ref}
         type={type}
+        value={value}
         className={classNames
-          .use(styles.control, focus && styles.focus)
+          .use(styles.control, (focus || value) && styles.focus)
           .join(className)}
         {...htmlProps}
       >
