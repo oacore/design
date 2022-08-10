@@ -230,6 +230,12 @@ const Header = ({ children, className, id, ...passProps }) => {
               Researchers
             </Item>
             <Item
+              href="/community/supporters"
+              className={styles.communitiesMenuItem}
+            >
+              Board of supportes
+            </Item>
+            <Item
               href="/about/ambassadors"
               className={styles.communitiesMenuItem}
             >
