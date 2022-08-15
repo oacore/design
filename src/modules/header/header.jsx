@@ -207,7 +207,13 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'communities'}
           onExpand={() => toggleMenu('communities')}
         >
-          <Group id="membership" label="CORE Membership" tag="li">
+          <Group
+            id="membership"
+            label="CORE Membership"
+            tag="li"
+            labelTag="a"
+            href="/membership"
+          >
             <img
               src={`data:image/svg+xml,${COMMUNITY_ILLUSTRATION}`}
               alt="members"
