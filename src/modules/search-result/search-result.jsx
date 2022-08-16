@@ -9,6 +9,8 @@ import {
   MetadataList,
   ExpandableList,
   MathMarkdown,
+  LogoGroup,
+  DataProviderLogo,
 } from 'elements'
 import { BaseLink as Link } from 'elements/link'
 import { classNames } from 'utils'
@@ -56,7 +58,6 @@ const SearchResult = ({
   children,
   id,
   className,
-  // eslint-disable-next-line no-unused-vars
   useLogo = true,
   data: {
     title,
@@ -95,21 +96,22 @@ const SearchResult = ({
             title
           )}
         </Heading>
-        {/* TO DO: Launch when membership will be ready */}
-        {/* useLogo && <LogoGroup>
-          {dataProviders.map(
-            (dataProvider) =>
-              dataProvider.logo && (
-                <DataProviderLogo
-                  key={dataProvider.name}
-                  imageSrc={dataProvider.logo}
-                  size="sm"
-                  alt={dataProvider.name}
-                  useDefault={!!dataProvider.logo}
-                />
-              )
-          )}
-        </LogoGroup> */}
+        {useLogo && (
+          <LogoGroup>
+            {dataProviders.map(
+              (dataProvider) =>
+                dataProvider.logo && (
+                  <DataProviderLogo
+                    key={dataProvider.name}
+                    imageSrc={dataProvider.logo}
+                    size="sm"
+                    alt={dataProvider.name}
+                    useDefault={!!dataProvider.logo}
+                  />
+                )
+            )}
+          </LogoGroup>
+        )}
       </header>
 
       <MetadataList className={styles.metadataList}>
