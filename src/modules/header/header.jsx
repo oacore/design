@@ -191,13 +191,14 @@ const Header = ({ children, className, id, ...passProps }) => {
             <Item href="/services/discovery">Discovery</Item>
           </Group>
 
-          <Group id="managing-content" label="Managing content" tag="li">
-            <Item href="/services/repository-dashboard">
-              Repository dashboard
-            </Item>
+          <Group id="oai-resolver" label="OAI identifiers" tag="li">
+            <Item href="/documentation/oai-resolver">OAI Resolver</Item>
           </Group>
-          <Group id="premium" label="Packages" tag="li">
-            <Item href="/services/repository-edition">Repository edition</Item>
+          <Group id="managing-content" label="Managing content" tag="li">
+            <Item href="/services/repository-dashboard">Dashboard</Item>
+          </Group>
+          <Group id="contracts" label="Bespoke contracts" tag="li">
+            <Item href="/services/consultancy">Consultancy services</Item>
           </Group>
         </Menu>
         <Menu
