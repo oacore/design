@@ -13,7 +13,6 @@ const DataProviderLogo = ({
   useDefault = true,
   tag: Tag = 'div',
   className,
-  handleClick,
 }) => (
   <Tag
     className={classNames
@@ -22,7 +21,6 @@ const DataProviderLogo = ({
         [styles.circle]: useDefault,
       })
       .join(className)}
-    onClick={handleClick}
   >
     {imageSrc ? (
       <img src={imageSrc} alt={alt} className={styles.image} />
@@ -38,6 +36,5 @@ DataProviderLogo.propTypes = {
   size: PropTypes.oneOf(['md', 'sm', 'lg']),
   /* Pass true if you want to use default icon */
   useDefault: PropTypes.bool,
-  handleClick: PropTypes.func,
 }
 export default DataProviderLogo
