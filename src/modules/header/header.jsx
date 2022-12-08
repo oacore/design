@@ -210,22 +210,29 @@ const Header = ({ children, className, id, ...passProps }) => {
         >
           <Group
             id="membership"
-            label="CORE Membership"
+            label="Support us"
             tag="li"
             labelTag="a"
             href="/membership"
           >
-            <img
-              src={`data:image/svg+xml,${COMMUNITY_ILLUSTRATION}`}
-              alt="members"
-            />
-            <Button href="/membership" variant="contained">
-              JOIN
+            <Button
+              href="/membership"
+              variant="contained"
+              className={styles.memberMenuItem}
+            >
+              Membership
+            </Button>
+            <Button
+              href="/sponsorship"
+              variant="contained"
+              className={styles.memberMenuItem}
+            >
+              Sponsorship
             </Button>
           </Group>
           <Group
             id="community"
-            label="Communities"
+            label="Our communities"
             labelTag="a"
             tag="li"
             href="/community"
