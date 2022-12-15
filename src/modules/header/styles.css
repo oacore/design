@@ -389,8 +389,9 @@
   border-bottom: 1px dashed var(--gray-300);
 }
 
-.member-menu-item {
-  display: flex !important;
+.member-menu-item  {
+  position: relative;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -401,6 +402,12 @@
   background: #b75400;
   border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+.member-menu-text {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* search item styles */

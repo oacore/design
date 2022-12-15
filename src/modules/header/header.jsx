@@ -220,14 +220,14 @@ const Header = ({ children, className, id, ...passProps }) => {
               variant="contained"
               className={styles.memberMenuItem}
             >
-              Membership
+              <span className={styles.memberMenuText}>Membership</span>
             </Button>
             <Button
               href="/sponsorship"
               variant="contained"
               className={styles.memberMenuItem}
             >
-              Sponsorship
+              <span className={styles.memberMenuText}>Sponsorship</span>
             </Button>
           </Group>
           <Group
