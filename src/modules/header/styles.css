@@ -395,9 +395,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 172px;
+  width: max-content;
+  min-width: 172px;
   height: 68px;
-  padding: .5rem 1rem;
+  padding: .5rem;
   margin: 1rem 0;
   background: #b75400;
   border-radius: 2px;
