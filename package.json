@@ -68,7 +68,7 @@
     "cosmiconfig": "^7.0.0",
     "d3-array": "^1.2.0",
     "d3-format": "^1.2.0",
-    "d3-scale": "^1.0.6",
+    "d3-scale": "^4.0.2",
     "deepmerge": "^4.2.2",
     "katex": "^0.16.0",
     "prop-types": "^15.7.2",
