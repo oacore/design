@@ -26,6 +26,7 @@ const Carousel = memo(
     autoplaySpeed = 5000,
     draggable = true,
     pauseOnFocus = true,
+    indicatorClass,
     ...passProps
   }) => {
     const [activeSlide, setActiveSlide] = useState(0)
@@ -39,8 +40,11 @@ const Carousel = memo(
       autoplay,
       autoplaySpeed,
       draggable,
+      indicatorClass,
       pauseOnFocus,
-      dotsClass: style.carouselIndicators,
+      dotsClass: classNames.use(style.carouselIndicators, {
+        [indicatorClass]: indicatorClass,
+      }),
       prevArrow: (
         <CustomArrow iconClass={style.iconPrev} arrowClass={style.arrowPrev} />
       ),
