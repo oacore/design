@@ -68,6 +68,27 @@ webpack.config.js
 }
 ```
 
+## Load specific version
+
+On 'package.json' set:
+
+- specific branch
+
+```
+"dependencies": {
+   "@oacore/design": "github:oacore/design#BRANCH_NAME,
+   }
+```
+
+- local version
+
+```
+"dependencies": {
+   "@oacore/design": "file:../path/design",
+   }
+```
+
+
 For CHANGELOG refer [here][changelog].
 
 
