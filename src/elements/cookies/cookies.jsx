@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react'
 
+// eslint-disable-next-line import/no-cycle
 import CookiesPopup from './popup'
 
 import { useCookie, useCookieHandler, useCookieItems } from 'hooks'

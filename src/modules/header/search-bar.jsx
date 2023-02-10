@@ -3,13 +3,12 @@ import { throttle } from 'throttle-debounce'
 
 import { HEADER_ACTIONS } from './context'
 import styles from './styles.css'
+import { classNames } from '../../utils'
+// eslint-disable-next-line import/no-cycle
+import { Select } from '..'
+import { AppBar, Icon, Button } from '../../elements'
 
 import { useDesignContext } from 'context'
-
-import { classNames } from '../../utils'
-
-import { Select } from 'modules'
-import { AppBar, Icon, Button } from '../../elements'
 import { useWindowSize, useOutsideClick } from 'hooks'
 
 export const useSearchBar = (config, { isHidden = true } = {}) => {

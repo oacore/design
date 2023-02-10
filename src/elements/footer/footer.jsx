@@ -1,8 +1,8 @@
 import React from 'react'
 
 import styles from './footer.css'
-
-import { Logo, Icon, Link } from 'elements'
+// eslint-disable-next-line import/no-cycle
+import { Logo as LogoFoot, Icon as IconFoot, Link as LinkFoot } from '..'
 import { classNames } from '../../utils'
 
 const MenuListItem = ({
@@ -40,11 +40,11 @@ const Card = () => (
       <h6 className={styles.cardTitle}>Writing about CORE?</h6>
       <p className={styles.cardDesc}>
         Discover our{' '}
-        <Link href="/about/research-outputs">research outputs</Link> and cite
-        our work.
+        <LinkFoot href="/about/research-outputs">research outputs</LinkFoot>
+        and cite our work.
       </p>{' '}
     </div>
-    <Icon src="#writing" alt="writing" className={styles.cardImg} />
+    <IconFoot src="#writing" alt="writing" className={styles.cardImg} />
   </div>
 )
 
@@ -53,20 +53,20 @@ const Footer = ({ className }) => (
     <div className={styles.container}>
       <div className={classNames.use(styles.sectionLogos)}>
         <div className={styles.logos}>
-          <Link href="https://www.jisc.ac.uk">
-            <Icon
+          <LinkFoot href="https://www.jisc.ac.uk">
+            <IconFoot
               src="#jisc-logo"
               alt="Jisc logo"
               className={styles.logoIcon}
             />
-          </Link>
-          <Link href="https://www.open.ac.uk">
-            <Icon
+          </LinkFoot>
+          <LinkFoot href="https://www.open.ac.uk">
+            <IconFoot
               src="#ou-logo"
               alt="Ou logo"
               className={(styles.logoIcon, styles.logoIconOu)}
             />
-          </Link>
+          </LinkFoot>
         </div>
         <p className={styles.text}>
           CORE is not-for-profit service delivered by the Open University and
@@ -96,18 +96,18 @@ const Footer = ({ className }) => (
       </div>
     </div>
     <div className={styles.bottom}>
-      <Link href="/" className={styles.logoLink}>
-        <Logo className={styles.logo} />
-      </Link>
-      <Link className={styles.bottomLink} href="/accessibility">
+      <LinkFoot href="/" className={styles.logoLink}>
+        <LogoFoot className={styles.logo} />
+      </LinkFoot>
+      <LinkFoot className={styles.bottomLink} href="/accessibility">
         Accessibility
-      </Link>
-      <Link className={styles.bottomLink} href="/cookies">
+      </LinkFoot>
+      <LinkFoot className={styles.bottomLink} href="/cookies">
         Cookies
-      </Link>
-      <Link className={styles.bottomLink} href="/privacy">
+      </LinkFoot>
+      <LinkFoot className={styles.bottomLink} href="/privacy">
         Privacy
-      </Link>
+      </LinkFoot>
     </div>
   </footer>
 )

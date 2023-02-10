@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 
 import labelStyles from './label.css'
-
 import { classNames } from '../utils'
 
 const Label = ({

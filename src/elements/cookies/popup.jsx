@@ -1,7 +1,8 @@
 import React from 'react'
 
 import styles from './cookies.css'
-import { Button, Link } from 'elements'
+// eslint-disable-next-line import/no-cycle
+import { Button, Link } from '..'
 import { classNames } from '../../utils'
 
 const CookiesPopup = ({ cookieItems, onSubmit, ...formProps }) => (

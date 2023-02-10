@@ -1,8 +1,8 @@
 import React from 'react'
 
 import styles from './fieldset.css'
-
-import { Card, Icon } from 'elements'
+// eslint-disable-next-line import/no-cycle
+import { Card, Icon } from '..'
 import { classNames } from '../../utils'
 
 const Fieldset = ({ className, items, icon, onClick, title }) => {

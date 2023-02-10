@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import styles from './styles.css'
+// eslint-disable-next-line import/no-cycle
 import SearchBarOrEmpty, { useSearchBar } from './search-bar'
 import { AppBar, Button, Icon, Logo } from '../../elements'
 import { classNames } from '../../utils'
