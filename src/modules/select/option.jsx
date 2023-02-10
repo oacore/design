@@ -2,9 +2,8 @@ import { memo } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './select.css'
-
-import { Icon } from 'elements'
-import { classNames } from 'utils'
+import { Icon } from '../../elements'
+import { classNames } from '../../utils'
 
 const Option = memo(
   ({ id, children, selected, icon, className, customValue, ...restProps }) => (

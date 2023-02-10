@@ -8,8 +8,7 @@ import Label from './label'
 import Control from './control'
 import Addon from './addon'
 import styles from './text-field.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 /**
  * Unique ID generator

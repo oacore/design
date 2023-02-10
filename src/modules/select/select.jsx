@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useCallback, useRef, memo } from 'react'
 import PropTypes from 'prop-types'
 
+import { classNames, canUseDOM } from '../../utils'
 import { useInput, useOptions } from './hooks'
 import styles from './select.css'
 import AdvancedSearch from '../header/advanced-search'
-
-import { Form, Icon, Button } from 'elements'
-import { classNames, canUseDOM } from 'utils'
+import { Form, Icon, Button } from '../../elements'
 
 const Select = memo(
   ({

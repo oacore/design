@@ -1,8 +1,7 @@
 import { forwardRef } from 'react'
 
 import styles from './styles.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const FormGroup = forwardRef(
   ({ children, className, tag: Tag = 'p', ...htmlProps }, ref) => (

@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './fieldset.css'
 
 import { Card, Icon } from 'elements'
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Fieldset = ({ className, items, icon, onClick, title }) => {
   const [activeBox, setActiveBox] = React.useState()

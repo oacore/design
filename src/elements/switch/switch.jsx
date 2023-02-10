@@ -3,8 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './switch.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Switch = ({
   variant = 'normal',

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 import Button from '../button'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 /**
  * Simple table cell component for headings.

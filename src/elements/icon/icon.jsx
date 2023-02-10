@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 
 import iconClassNames from './icon.css'
 import config from '../../config'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const resolve = (url) =>
   config.iconsPublicPath != null && url && url.toString().charAt() === '#'

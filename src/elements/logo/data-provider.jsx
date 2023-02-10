@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import Icon from '../icon/icon'
 import styles from './data-provider.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const DataProviderLogo = ({
   alt,

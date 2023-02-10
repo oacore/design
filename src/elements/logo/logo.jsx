@@ -2,8 +2,7 @@ import { memo } from 'react'
 
 import Icon from '../icon'
 import styles from './logo.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Logo = memo(
   ({

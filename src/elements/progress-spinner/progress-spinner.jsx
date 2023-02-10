@@ -1,8 +1,7 @@
 import { forwardRef } from 'react'
 
 import styles from './styles.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const progressValues = (value, max, { radius = 9 } = {}) => {
   if (value == null) return null

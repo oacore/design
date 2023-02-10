@@ -1,7 +1,6 @@
 import Item from './item'
 import styles from './styles.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Brand = ({ children, className, tag = 'a', ...restProps }) => (
   <Item

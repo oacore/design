@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import styles from './expandable-list.css'
 
 import { Button } from 'elements'
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const ExpandableListItem = ({ children, ...htmlProps }) => (
   <li {...htmlProps}>{children}</li>

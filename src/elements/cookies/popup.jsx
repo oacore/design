@@ -1,9 +1,8 @@
 import React from 'react'
 
 import styles from './cookies.css'
-
 import { Button, Link } from 'elements'
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const CookiesPopup = ({ cookieItems, onSubmit, ...formProps }) => (
   <div

@@ -7,9 +7,8 @@ import ModalTitle from './title'
 import ModalFooter from './footer'
 import ModalContent from './content'
 import ModalPortal from './portal'
-
-import { Button, Icon } from 'elements'
-import { classNames } from 'utils'
+import { Button, Icon } from '../../elements'
+import { classNames } from '../../utils'
 
 const checkAccessibility = (props, propName, componentName) => {
   if (!props['aria-label'] && !props['aria-labelledby']) {

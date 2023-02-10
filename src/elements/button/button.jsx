@@ -2,8 +2,7 @@ import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import buttonClassNames from './button.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Button = forwardRef(
   (

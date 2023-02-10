@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './footer.css'
 
 import { Logo, Icon, Link } from 'elements'
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const MenuListItem = ({
   children,

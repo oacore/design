@@ -2,8 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import styles from './documentation.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Documentation = ({
   headerTitle,

@@ -5,9 +5,11 @@ import { HEADER_ACTIONS } from './context'
 import styles from './styles.css'
 
 import { useDesignContext } from 'context'
-import { classNames } from 'utils'
+
+import { classNames } from '../../utils'
+
 import { Select } from 'modules'
-import { AppBar, Icon, Button } from 'elements'
+import { AppBar, Icon, Button } from '../../elements'
 import { useWindowSize, useOutsideClick } from 'hooks'
 
 export const useSearchBar = (config, { isHidden = true } = {}) => {

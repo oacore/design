@@ -2,9 +2,8 @@ import Tippy from '@tippyjs/react/headless'
 import PropTypes from 'prop-types'
 
 import styles from './popover.css'
-
-import { classNames } from 'utils'
-import { Card } from 'elements'
+import { classNames } from '../../utils'
+import { Card } from '../../elements'
 
 const hideOnBlurPlugin = {
   name: 'hideOnBlur',

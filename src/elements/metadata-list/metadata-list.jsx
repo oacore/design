@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import styles from './metadata-list.css'
 import MetaDataListItem from './metadata-list-item'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const MetadataList = ({ children, className, ...htmlProps }) => (
   <dl className={classNames.use(styles.list).join(className)} {...htmlProps}>
