@@ -88,6 +88,14 @@ On 'package.json' set:
    }
 ```
 
+- latest version
+
+```
+"dependencies": {
+    "@oacore/design": "latest",
+   }
+```
+
 For CHANGELOG refer [here][changelog].
 
 
