@@ -6,8 +6,7 @@ import PropTypes from 'prop-types'
 import Histogram from './histogram'
 import Slider from './slider'
 import styles from './histoslider.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Histoslider = ({
   data,

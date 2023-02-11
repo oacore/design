@@ -1,8 +1,7 @@
 import { memo } from 'react'
 
 import styles from './detail-list.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const DetailList = memo(({ children, className, ...passProps }) => (
   <ul

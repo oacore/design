@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 
 import styles from './card.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Card = ({
   children,

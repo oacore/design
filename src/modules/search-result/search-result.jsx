@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './styles.css'
-
 import {
   Card,
   Heading,
@@ -11,9 +10,9 @@ import {
   MathMarkdown,
   LogoGroup,
   DataProviderLogo,
-} from 'elements'
-import { BaseLink as Link } from 'elements/link'
-import { classNames } from 'utils'
+} from '../../elements'
+import { classNames } from '../../utils'
+import { BaseLink as Link } from '../../elements/link'
 
 const texts = {
   pdfAvailable: 'Get PDF',

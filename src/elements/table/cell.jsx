@@ -2,8 +2,7 @@ import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './styles.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 /**
  * Simple table cell component.

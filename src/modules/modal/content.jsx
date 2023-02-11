@@ -1,6 +1,5 @@
 import styles from './modal.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const ModalContent = ({
   children,

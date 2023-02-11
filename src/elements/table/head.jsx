@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 import { forwardRef } from 'react'
 
 import styles from './styles.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 /**
  * Empty component for the future purposes.

@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 import styles from './documentationNav.css'
 import activeArrow from '../../../assets/activeArrow.svg'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const DocumentationNav = ({ textData, setHighlight }) => {
   const [activeItem, setActiveItem] = useState(null)

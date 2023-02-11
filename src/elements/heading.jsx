@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { classNames } from 'utils'
+import { classNames } from '../utils'
 
 /**
  * Heading component is a simple wrapper around standard HTML headings.

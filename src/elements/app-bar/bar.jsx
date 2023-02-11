@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 
 import appBarStyles from './styles.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const AppBar = ({
   children,

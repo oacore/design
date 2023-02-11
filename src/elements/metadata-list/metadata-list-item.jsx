@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './metadata-list.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const MetaDataListItem = ({
   children,

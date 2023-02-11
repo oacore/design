@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 
 import styles from './expandable-list.css'
-
-import { Button } from 'elements'
-import { classNames } from 'utils'
+// eslint-disable-next-line import/no-cycle
+import { Button } from '..'
+import { classNames } from '../../utils'
 
 const ExpandableListItem = ({ children, ...htmlProps }) => (
   <li {...htmlProps}>{children}</li>

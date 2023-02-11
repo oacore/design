@@ -2,8 +2,7 @@ import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './message.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const Message = forwardRef(
   (

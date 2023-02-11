@@ -1,8 +1,7 @@
 import React, { memo } from 'react'
 
 import styles from './advanced-search.css'
-
-import { Button, Icon } from 'elements'
+import { Button, Icon } from '../../elements'
 
 const ACTION_BUTTONS_VALUES = ['doi', 'title', 'oai', 'issn']
 

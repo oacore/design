@@ -4,8 +4,7 @@ import { useState, memo } from 'react'
 import Slider from 'react-slick'
 
 import style from './carousel.css'
-
-import { classNames } from 'utils'
+import { classNames } from '../../utils'
 
 const CustomArrow = memo(({ className, onClick, iconClass, arrowClass }) => (
   <div className={classNames.use(className, iconClass)} onClick={onClick}>
