@@ -33,8 +33,8 @@ jobs:
           npm run lint
           npm run build
 
-#      - name: Bump version ${{ steps.get_version.outputs.VERSION }}
-#        run: npm version ${{ steps.get_version.outputs.VERSION }} --git-tag-version=false
+      - name: Bump version ${{ steps.get_version.outputs.VERSION }}
+        run: npm version ${{ steps.get_version.outputs.VERSION }} --git-tag-version=false
 
       - name: Publish package
         run: npm publish
