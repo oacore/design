@@ -1,7 +1,7 @@
 {
   "name": "@oacore/design",
   "version": "4.9.0",
-  "description": "CORE Design Elements is our shared components library",
+  "description": "CORE Design Elements and Components is our shared components library",
   "author": "CORE, The Open University <dev@core.ac.uk>",
   "license": "UNLICENSED",
   "repository": {
