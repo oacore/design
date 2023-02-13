@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import styles from './documentation.css'
 import { classNames } from '../../utils'
 
-const Documentation = ({
+const DocumentationMembership = ({
   headerTitle,
   headerCaption,
   highlight,
@@ -56,4 +56,4 @@ const Documentation = ({
   </div>
 )
 
-export default Documentation
+export default DocumentationMembership

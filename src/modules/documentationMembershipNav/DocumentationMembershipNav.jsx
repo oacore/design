@@ -4,7 +4,7 @@ import styles from './documentationNav.css'
 import activeArrow from '../../../assets/activeArrow.svg'
 import { classNames } from '../../utils'
 
-const DocumentationNav = ({ textData, setHighlight }) => {
+const DocumentationMembershipNav = ({ textData, setHighlight }) => {
   const [activeItem, setActiveItem] = useState(null)
 
   const handleClick = (obj, item) => {
@@ -44,4 +44,4 @@ const DocumentationNav = ({ textData, setHighlight }) => {
   )
 }
 
-export default DocumentationNav
+export default DocumentationMembershipNav
