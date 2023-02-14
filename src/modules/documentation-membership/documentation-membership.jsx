@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-import styles from './documentation.css'
+import styles from './styles.css'
 import { classNames } from '../../utils'
 
 const DocumentationMembership = ({
@@ -27,18 +27,21 @@ const DocumentationMembership = ({
               {item.title}
             </h3>
             <div className={styles.typeWrapper}>
-              {item.membership.map((member) => (
+              {Object.entries(item?.membershipTypes).map((value) => (
                 <span
+                  key={item.id + value[0] + value[1]}
                   className={classNames
                     .use(styles.membership)
-                    .join(member.status ? styles.enabled : styles.disabled)}
+                    .join(
+                      value[1] === 'Yes' ? styles.enabled : styles.disabled
+                    )}
                 >
-                  {member.name}
+                  {value[0]}
                 </span>
               ))}
             </div>
             <ReactMarkdown>{item.descriptionAbout}</ReactMarkdown>
-            {item?.images?.map((img) => (
+            {item?.images?.map((img, i) => (
               // eslint-disable-next-line jsx-a11y/img-redundant-alt
               <img
                 className={classNames.use(styles.image, {
@@ -47,6 +50,8 @@ const DocumentationMembership = ({
                 })}
                 src={img.file}
                 alt="image"
+                // eslint-disable-next-line react/no-array-index-key
+                key={item.id + i}
               />
             ))}
           </div>
