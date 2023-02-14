@@ -43,6 +43,7 @@ const icons = [
   path.resolve(__dirname, './assets/jisc-logo.svg'),
   path.resolve(__dirname, './assets/ou-logo.svg'),
   path.resolve(__dirname, './assets/bin.svg'),
+  path.resolve(__dirname, './assets/active-arrow.svg'),
 ]
 
 // icons used in documentation
