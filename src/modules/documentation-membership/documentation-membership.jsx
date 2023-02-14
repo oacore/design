@@ -44,13 +44,14 @@ const DocumentationMembership = ({
             {item?.images?.map((img, i) => (
               // eslint-disable-next-line jsx-a11y/img-redundant-alt
               <img
-                key={item.id + i}
                 className={classNames.use(styles.image, {
                   [styles.logoBanner]: item.id === 'logo-banner',
                   [styles.logoPersonalised]: item.id === 'personalised-banner',
                 })}
                 src={img.file}
                 alt="image"
+                // eslint-disable-next-line react/no-array-index-key
+                key={item.id + i}
               />
             ))}
           </div>
