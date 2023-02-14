@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import styles from './documentationNav.css'
+import styles from './styles.css'
 import { classNames } from '../../utils'
 
 const DocumentationMembershipNav = ({ textData, setHighlight }) => {

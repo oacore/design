@@ -2,8 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import styles from './styles.css'
-// import { classNames } from '../../utils'
-import { classNames } from '../../../lib/utils'
+import { classNames } from '../../utils'
 
 const DocumentationMembership = ({
   headerTitle,
@@ -45,7 +44,6 @@ const DocumentationMembership = ({
             {item?.images?.map((img, i) => (
               // eslint-disable-next-line jsx-a11y/img-redundant-alt
               <img
-                {/* eslint-disable-next-line react/no-array-index-key */}
                 key={item.id + i}
                 className={classNames.use(styles.image, {
                   [styles.logoBanner]: item.id === 'logo-banner',
