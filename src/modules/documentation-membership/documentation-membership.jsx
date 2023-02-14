@@ -17,7 +17,7 @@ const DocumentationMembership = ({
     <div className={styles.placement}>
       {nav}
       <div className={styles.documentationInnerWrapper}>
-        {docs?.map((item, index) => (
+        {docs.items.map((item, index) => (
           <div key={item.id} className={styles.documentationItem} id={item.id}>
             <h3
               className={classNames.use(styles.documentationItemTitle, {
