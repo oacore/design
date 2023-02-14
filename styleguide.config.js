@@ -75,7 +75,7 @@ module.exports = {
     {
       name: 'Modules',
       components:
-        'src/modules/!(modal|select|search-result|header)/**/*.{js,jsx,ts,tsx}',
+        'src/modules/!(modal|select|search-result|header|documentation-membership|documentation-membership-nav)/**/*.{js,jsx,ts,tsx}',
       sections: [
         {
           name: 'Search result',
@@ -100,6 +100,18 @@ module.exports = {
         {
           name: 'Header',
           components: () => ['src/modules/header/header.jsx'],
+        },
+        {
+          name: 'DocumentationMembership',
+          components: () => [
+            'src/modules/documentation-membership/documentation-membership.jsx',
+          ],
+        },
+        {
+          name: 'DocumentationMembershipNav',
+          components: () => [
+            'src/modules/documentation-membership-nav/documentation-membership-nav.jsx',
+          ],
         },
       ],
     },
