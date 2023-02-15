@@ -2,13 +2,10 @@ import React, { useState } from 'react'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
+import activeArrow from '../../../public/icons/active-arrow.svg'
 
 const DocumentationMembershipNav = ({ textData, setHighlight }) => {
   const [activeItem, setActiveItem] = useState(null)
-
-  const ACTIVE_ARROW = `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-<path d="M8.5 0L7.09 1.41L12.67 7H0.5V9H12.67L7.09 14.59L8.5 16L16.5 8L8.5 0Z" fill="#B75400"/>
-</svg>`
 
   const handleClick = (obj, item) => {
     setActiveItem(item)
@@ -36,13 +33,8 @@ const DocumentationMembershipNav = ({ textData, setHighlight }) => {
         >
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className={styles.siderItemLink}>{textData.navItems[item].item}</a>
-          {/* TODO fix arrow img not showing up */}
-          {activeItem === false ? (
-            <img
-              src={`data:image/svg+xml,${ACTIVE_ARROW}`}
-              alt="Logo"
-              className={styles.logo}
-            />
+          {activeItem === item ? (
+            <img src={activeArrow} alt="Logo" className={styles.logo} />
           ) : (
             ''
           )}
