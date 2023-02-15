@@ -36,7 +36,8 @@ const DocumentationMembershipNav = ({ textData, setHighlight }) => {
         >
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className={styles.siderItemLink}>{textData.navItems[item].item}</a>
-          {activeItem === item ? (
+          {/* TODO fix arrow img not showing up */}
+          {activeItem === false ? (
             <img
               src={`data:image/svg+xml,${ACTIVE_ARROW}`}
               alt="Logo"
