@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
-import activeArrow from '../../../public/icons/active-arrow.svg'
 
-const DocumentationMembershipNav = ({ textData, setHighlight, activeIndex, setNavActiveIndex, }) => {
+const DocumentationMembershipNav = ({
+  textData,
+  setHighlight,
+  activeIndex,
+  setNavActiveIndex,
+}) => {
   const [activeItem, setActiveItem] = useState(null)
 
   const handleClick = (obj, item) => {
@@ -22,7 +26,7 @@ const DocumentationMembershipNav = ({ textData, setHighlight, activeIndex, setNa
 
   return (
     <ul className={styles.sider}>
-      {Object.keys(textData.navItems).map((item) => (
+      {Object.keys(textData.navItems).map((item, i) => (
         // eslint-disable-next-line max-len
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events
         <li
@@ -36,8 +40,9 @@ const DocumentationMembershipNav = ({ textData, setHighlight, activeIndex, setNa
         >
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className={styles.siderItemLink}>{textData.navItems[item].item}</a>
-          {activeItem === item || activeIndex === i  ? (
-            <img src={activeArrow} alt="Logo" className={styles.logo} />
+          {activeItem === item || activeIndex === i ? (
+            // eslint-disable-next-line react/no-unescaped-entities
+            <span className={styles.logo}>></span>
           ) : (
             ''
           )}
