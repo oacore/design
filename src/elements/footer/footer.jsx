@@ -40,8 +40,8 @@ const Card = () => (
       <h6 className={styles.cardTitle}>Writing about CORE?</h6>
       <p className={styles.cardDesc}>
         Discover our{' '}
-        <LinkFoot href="/about/research-outputs">research outputs</LinkFoot>
-        and cite our work.
+        <LinkFoot href="/about/research-outputs">research outputs</LinkFoot> and
+        cite our work.
       </p>{' '}
     </div>
     <IconFoot src="#writing" alt="writing" className={styles.cardImg} />
