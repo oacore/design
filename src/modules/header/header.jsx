@@ -245,7 +245,7 @@ const Header = ({ children, className, id, ...passProps }) => {
               href="/community/supporters"
               className={styles.communitiesMenuItem}
             >
-              Board of supportes
+              Board of supporters
             </Item>
             <Item
               href="/about/ambassadors"
