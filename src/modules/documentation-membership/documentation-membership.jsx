@@ -41,19 +41,38 @@ const DocumentationMembership = ({
               ))}
             </div>
             <ReactMarkdown>{item.descriptionAbout}</ReactMarkdown>
-            {item?.images?.map((img, i) => (
-              // eslint-disable-next-line jsx-a11y/img-redundant-alt
-              <img
-                className={classNames.use(styles.image, {
-                  [styles.logoBanner]: item.id === 'logo-banner',
-                  [styles.logoPersonalised]: item.id === 'personalised-banner',
-                })}
-                src={img.file}
-                alt="image"
-                // eslint-disable-next-line react/no-array-index-key
-                key={item.id + i}
-              />
-            ))}
+            <div>
+              {item?.images?.map((img, i) => (
+                <div className={styles.cardWrapper}>
+                  <div
+                    className={classNames.use({
+                      [styles.imgWrapper]: img.source,
+                    })}
+                  >
+                    {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                    <img
+                      className={classNames.use(styles.image, {
+                        [styles.logoBanner]: item.id === 'logo-banner',
+                        [styles.logoPersonalised]:
+                          item.id === 'personalised-banner',
+                        [styles.badgeImage]: img.source,
+                        [styles.badgeImageHeight]:
+                          img.source?.includes('square'),
+                      })}
+                      src={img.file}
+                      alt="image"
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={item.id + i}
+                    />
+                  </div>
+                  {img.source && (
+                    <div className={styles.textAlignment}>
+                      <span className={styles.text}>{img.source}</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
