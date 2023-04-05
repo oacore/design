@@ -44,6 +44,7 @@ const icons = [
   path.resolve(__dirname, './assets/ou-logo.svg'),
   path.resolve(__dirname, './assets/bin.svg'),
   path.resolve(__dirname, './assets/active-arrow.svg'),
+  path.resolve(__dirname, './assets/metadata-validator.svg'),
 ]
 
 // icons used in documentation
