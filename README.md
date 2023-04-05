@@ -68,6 +68,10 @@ webpack.config.js
 }
 ```
 
+## Design vendor update on other repositories
+
+Run `npm update @oacore/design`
+
 ## Load specific version
 
 On 'package.json' set:
