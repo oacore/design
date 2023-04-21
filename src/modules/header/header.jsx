@@ -201,7 +201,7 @@ const Header = ({ children, className, id, ...passProps }) => {
         </Menu>
         <Menu
           id="communities"
-          label="Communities"
+          label="Support us"
           className={styles.communitiesMenu}
           expanded={expandedMenu === 'communities'}
           onExpand={() => toggleMenu('communities')}
