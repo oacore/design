@@ -77,7 +77,7 @@ const Footer = ({ className }) => (
         <MenuList title="Product">
           <MenuList.Item href="/services">Services</MenuList.Item>
           <MenuList.Item href="/benefits">Data providers</MenuList.Item>
-          <MenuList.Item href="/community/research">Communities</MenuList.Item>
+          <MenuList.Item href="/governance/research">Communities</MenuList.Item>
           <MenuList.Item href="/terms">Terms</MenuList.Item>
         </MenuList>
         <MenuList title="Organisation">

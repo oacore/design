@@ -230,28 +230,28 @@ const Header = ({ children, className, id, ...passProps }) => {
           </Group>
           <Group
             id="community"
-            label="Our communities"
+            label="Community governance"
             labelTag="a"
             tag="li"
-            href="/community"
+            href="/governance"
           >
             <Item
-              href="/community/research"
+              href="/governance/advisory"
               className={styles.communitiesMenuItem}
             >
-              Researchers
+              Advisory Board
             </Item>
             <Item
-              href="/community/supporters"
+              href="/governance/supporters"
               className={styles.communitiesMenuItem}
             >
               Board of supporters
             </Item>
             <Item
-              href="/about/ambassadors"
+              href="/governance/research"
               className={styles.communitiesMenuItem}
             >
-              Ambassadors
+              Research network
             </Item>
           </Group>
         </Menu>
