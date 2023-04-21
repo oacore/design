@@ -334,7 +334,7 @@
   @media (--header-breakpoint-up) {
     & .menu-list {
       flex-direction: row;
-      width: calc(2 * var(--header-menu-width));
+      width: 460px;
       max-height: 20rem;
     }
 
