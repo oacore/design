@@ -74,7 +74,7 @@ const SearchResult = ({
   const idFor = (scope) => `${id}-${scope}`
 
   const getLogoLink = (dataProvider) => {
-    const [logo, setLogo] = useState([])
+    const [logoFetched, setLogoFetched] = useState([])
 
     useEffect(() => {
       async function fetchData() {
@@ -83,7 +83,7 @@ const SearchResult = ({
           const response = await fetch(link)
 
           if (response.ok) {
-            setLogo(
+            setLogoFetched(
               <DataProviderLogo
                 key={dataProvider.name}
                 imageSrc={link}
@@ -100,7 +100,7 @@ const SearchResult = ({
       fetchData()
     }, [])
 
-    return logo
+    return logoFetched
   }
 
   return (
