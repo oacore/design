@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './styles.css'
@@ -72,6 +72,37 @@ const SearchResult = ({
   ...htmlProps
 }) => {
   const idFor = (scope) => `${id}-${scope}`
+
+  const getLogoLink = (dataProvider) => {
+    const [logo, setLogo] = useState([])
+
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const link = `https://api.core.ac.uk/data-providers/${dataProvider.id}/logo`
+          const response = await fetch(link)
+
+          if (response.ok) {
+            setLogo(
+              <DataProviderLogo
+                key={dataProvider.name}
+                imageSrc={link}
+                size="sm"
+                alt={dataProvider.name}
+              />
+            )
+          }
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.log(err)
+        }
+      }
+      fetchData()
+    }, [])
+
+    return logo
+  }
+
   return (
     <Card
       id={`${PREFIX}-${id}`}
@@ -98,16 +129,16 @@ const SearchResult = ({
         {useLogo && (
           <LogoGroup>
             {dataProviders.map(
-              (dataProvider) =>
-                dataProvider.logo && (
-                  <DataProviderLogo
-                    key={dataProvider.name}
-                    imageSrc={dataProvider.logo}
-                    size="sm"
-                    alt={dataProvider.name}
-                    useDefault={!!dataProvider.logo}
-                  />
-                )
+              (dataProvider) => getLogoLink(dataProvider)
+              // dataProvider.logo && (
+              //   <DataProviderLogo
+              //     key={dataProvider.name}
+              //     imageSrc={dataProvider.logo}
+              //     size="sm"
+              //     alt={dataProvider.name}
+              //     useDefault={!!dataProvider.logo}
+              //   />
+              // )
             )}
           </LogoGroup>
         )}
