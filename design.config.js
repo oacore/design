@@ -45,6 +45,7 @@ const icons = [
   path.resolve(__dirname, './assets/bin.svg'),
   path.resolve(__dirname, './assets/active-arrow.svg'),
   path.resolve(__dirname, './assets/metadata-validator.svg'),
+  path.resolve(__dirname, './assets/deduplication.svg'),
 ]
 
 // icons used in documentation
