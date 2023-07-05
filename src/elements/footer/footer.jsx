@@ -2,8 +2,14 @@ import React from 'react'
 
 import styles from './footer.css'
 // eslint-disable-next-line import/no-cycle
-import { Logo as LogoFoot, Icon as IconFoot, Link as LinkFoot } from '..'
+import {
+  Logo as LogoFoot,
+  Icon as IconFoot,
+  Link as LinkFoot,
+  MathMarkdown,
+} from '..'
 import { classNames } from '../../utils'
+import { BaseLink as Link } from '../link'
 
 const MenuListItem = ({
   children,
@@ -53,13 +59,6 @@ const Footer = ({ className }) => (
     <div className={styles.container}>
       <div className={classNames.use(styles.sectionLogos)}>
         <div className={styles.logos}>
-          <LinkFoot href="https://www.jisc.ac.uk">
-            <IconFoot
-              src="#jisc-logo"
-              alt="Jisc logo"
-              className={styles.logoIcon}
-            />
-          </LinkFoot>
           <LinkFoot href="https://www.open.ac.uk">
             <IconFoot
               src="#ou-logo"
@@ -69,8 +68,11 @@ const Footer = ({ className }) => (
           </LinkFoot>
         </div>
         <p className={styles.text}>
-          CORE is not-for-profit service delivered by the Open University and
-          Jisc.
+          CORE is a not-for-profit service delivered by The Open University
+          supported by{' '}
+          <Link href="https://core.ac.uk/governance/supporters#membership-list">
+            <MathMarkdown>CORE Members.</MathMarkdown>
+          </Link>
         </p>
       </div>
       <menu className={classNames.use(styles.menu)}>
