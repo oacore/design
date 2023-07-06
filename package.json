@@ -106,6 +106,7 @@
     "build:lib": "run-p build:js build:css",
     "build:docs": "styleguidist build",
     "build": "NODE_ENV=production && run-s build:lib build:docs",
+    "dev:docs": "node bin build && styleguidist server",
     "dev:css": "npm run build:css -- --watch",
     "dev:js": "npm run build:js -- --watch",
     "dev": "run-p dev:*"
