@@ -50,7 +50,7 @@
   height: 81px;
   border-width: 3px;
 
-& .image {
+  & .image {
     width: 62px;
     height: 62px;
   }
