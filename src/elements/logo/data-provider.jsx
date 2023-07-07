@@ -32,7 +32,7 @@ const DataProviderLogo = ({
 DataProviderLogo.propTypes = {
   alt: PropTypes.string.isRequired,
   imageSrc: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'sm', 'ml', 'lg']),
+  size: PropTypes.oneOf(['md', 'sm', 'lg']),
   /* Pass true if you want to use default icon */
   useDefault: PropTypes.bool,
 }
