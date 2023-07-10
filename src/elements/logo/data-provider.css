@@ -45,7 +45,7 @@
   }
 }
 
-.lg {
+.ml {
   width: 81px;
   height: 81px;
   border-width: 3px;
@@ -53,6 +53,17 @@
   & .image {
     width: 62px;
     height: 62px;
+  }
+}
+
+.lg {
+  width: 145px;
+  height: 145px;
+  border-width: 3px;
+
+& .image {
+    width: 130px;
+    height: 130px;
   }
 }
 
