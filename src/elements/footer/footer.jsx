@@ -78,18 +78,19 @@ const Footer = ({ className }) => (
       <menu className={classNames.use(styles.menu)}>
         <MenuList title="Product">
           <MenuList.Item href="/services">Services</MenuList.Item>
-          <MenuList.Item href="/benefits">Data providers</MenuList.Item>
-          <MenuList.Item href="/governance/research">Communities</MenuList.Item>
-          <MenuList.Item href="/terms">Terms</MenuList.Item>
+          <MenuList.Item href="/membership">Membership</MenuList.Item>
+          <MenuList.Item href="/sponsorship">Sponsorship</MenuList.Item>
         </MenuList>
         <MenuList title="Organisation">
           <MenuList.Item href="/about">About us</MenuList.Item>
-          <MenuList.Item href="/about#our-mission">Mission</MenuList.Item>
+          <MenuList.Item href="/about#our-mission">Governance</MenuList.Item>
           <MenuList.Item href="/about#team">Team</MenuList.Item>
-          <MenuList.Item href="https://blog.core.ac.uk/">Blog</MenuList.Item>
+          <MenuList.Item href="/benefits">Data providers</MenuList.Item>
         </MenuList>
         <MenuList title="Support">
+          <MenuList.Item href="/terms">Terms</MenuList.Item>
           <MenuList.Item href="/faq">FAQs</MenuList.Item>
+          <MenuList.Item href="https://blog.core.ac.uk/">Blog</MenuList.Item>
           <MenuList.Item href="/about#contact">Contact us</MenuList.Item>
         </MenuList>
       </menu>

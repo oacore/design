@@ -55,7 +55,24 @@
 }
 
 .menu-title{
-  color: var(--gray-600);
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  color: #212121;
+}
+
+.contact-wrapper {
+  margin-top: 24px;
+}
+
+.contact {
+  margin-right: 16px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
 }
 
 .item a{
