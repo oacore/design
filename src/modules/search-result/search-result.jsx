@@ -68,9 +68,15 @@ const SearchResult = ({
     fullTextLink,
     thumbnailUrl,
     dataProviders = [],
+    isRecommended = false,
   } = {},
   ...htmlProps
 }) => {
+  const styleRecommended = isRecommended ? styles.containerRecommended : ''
+  const textUpperHeader = (
+    <div className={styles.textUpperHeader}>Recommended from our members</div>
+  )
+
   const idFor = (scope) => `${id}-${scope}`
 
   const getLogoLink = (dataProvider) => {
@@ -109,13 +115,15 @@ const SearchResult = ({
       className={classNames
         .use(
           styles.container,
-          styles[`full-text-${typeToVariant(fullTextLink)}`]
+          styles[`full-text-${typeToVariant(fullTextLink)}`],
+          styleRecommended
         )
         .join(className)}
       itemScope
       itemType="https://schema.org/ScholarlyArticle"
       {...htmlProps}
     >
+      {isRecommended ? textUpperHeader : ''}
       <header className={styles.header}>
         <Heading level="3" className={styles.title} itemProp="name">
           {metadataLink ? (
