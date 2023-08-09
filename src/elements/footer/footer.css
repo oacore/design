@@ -27,12 +27,17 @@
 
 .section-logos,
 .section-card {
-  flex-basis: 25%;
+  flex-basis: 23%;
 }
 
 .logos {
   display: flex;
   margin-bottom: 1rem;
+}
+
+.footer-main-logo {
+  width: 144px;
+  height: 48px;
 }
 
 .logo-icon {
@@ -63,6 +68,9 @@
 }
 
 .contact-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   margin-top: 24px;
 }
 
@@ -73,6 +81,16 @@
   font-weight: 400;
   line-height: 20px;
   color: #000;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-icon {
+  width: 36px;
+  height: 36px;
 }
 
 .item a{

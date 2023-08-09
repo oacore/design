@@ -63,7 +63,7 @@ const Footer = ({ className }) => (
             <IconFoot
               src="#ou-logo"
               alt="Ou logo"
-              className={(styles.logoIcon, styles.logoIconOu)}
+              className={styles.footerMainLogo}
             />
           </LinkFoot>
         </div>
@@ -96,6 +96,35 @@ const Footer = ({ className }) => (
       </menu>
       <div className={classNames.use(styles.section, styles.sectionCard)}>
         <Card />
+        <div className={styles.contactWrapper}>
+          <span className={styles.contact}>Follow us:</span>
+          <div className={styles.footerIcons}>
+            <Link target="_blank" href="https://twitter.com/oacore">
+              <IconFoot
+                src="#twitter"
+                alt="twitter"
+                className={styles.footerIcon}
+              />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.linkedin.com/company/coreoa"
+            >
+              <IconFoot
+                src="#linkedin"
+                alt="linkedin"
+                className={styles.footerIcon}
+              />
+            </Link>
+            <Link target="_blank" href="https://github.com/oacore">
+              <IconFoot
+                src="#github"
+                alt="github"
+                className={styles.footerIcon}
+              />
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
     <div className={styles.bottom}>
