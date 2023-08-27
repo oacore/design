@@ -13,9 +13,9 @@
 }
 
 .container-recommended {
+  margin-top: 1rem;
   background-color: var(--gray-100);
   border: solid var(--primary);
-  margin-top: 1rem;
   box-shadow: none;
 }
 
