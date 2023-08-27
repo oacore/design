@@ -13,6 +13,7 @@
 }
 
 .container-recommended {
+  margin-top: 1rem;
   background-color: var(--gray-100);
   border: solid var(--primary);
   box-shadow: none;
@@ -133,6 +134,7 @@
   left: 0;
   align-items: center;
   height: var(--search-result-footnote-height);
+  padding-top: .5rem;
   margin: 0 1rem;
   overflow: hidden;
   font-size: .75rem;
