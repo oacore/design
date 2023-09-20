@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRouter } from 'react'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
@@ -10,14 +10,20 @@ const DocumentationMembershipNav = ({
   setNavActiveIndex,
 }) => {
   const [activeItem, setActiveItem] = useState(null)
+  const router = useRouter()
+  const headerHeight = 56
 
   const handleClick = (obj, item) => {
+    router.push(`${obj.href}`)
     setActiveItem(item)
     setHighlight(+item)
     setNavActiveIndex(null)
     const element = document.getElementById(obj.href.replace('#', ''))
     if (element) {
-      element?.scrollIntoView({
+      const rect = element.getBoundingClientRect()
+
+      window.scrollTo({
+        top: rect.top + window.scrollY - headerHeight,
         behavior: 'smooth',
         block: 'center',
       })
