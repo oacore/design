@@ -1,4 +1,4 @@
-import React, { useState, useRouter } from 'react'
+import React, { useState } from 'react'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
@@ -10,11 +10,10 @@ const DocumentationMembershipNav = ({
   setNavActiveIndex,
 }) => {
   const [activeItem, setActiveItem] = useState(null)
-  const router = useRouter()
   const headerHeight = 56
 
   const handleClick = (obj, item) => {
-    router.push(`${obj.href}`)
+    window.location.href = obj.href
     setActiveItem(item)
     setHighlight(+item)
     setNavActiveIndex(null)
