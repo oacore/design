@@ -11,6 +11,8 @@ const Switch = ({
   name = id,
   checked,
   onChange,
+  // eslint-disable-next-line react/prop-types
+  nonActive = false,
   label,
   className,
   ...props
@@ -34,6 +36,7 @@ const Switch = ({
       <label
         className={classNames.use(useStyles(styles.box), {
           [styles.active]: checked,
+          [styles.nonActive]: nonActive,
         })}
         htmlFor={name}
       >
