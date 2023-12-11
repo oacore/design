@@ -32,6 +32,10 @@
   background: #e0e0e0;
 }
 
+.hidden-item {
+  display: none;
+}
+
 .logo {
   width: 20px;
 }

@@ -3,8 +3,16 @@
 }
 
 .documentation-inner-wrapper {
-  width: calc(100vw - 370px);
+  width: calc(100% - 370px);
   overflow-y: scroll;
+}
+
+.divider {
+  width: 100%;
+  height: 24px;
+  margin: 24px 0 16px;
+  background: #f5f5f5;
+  border-radius: 2px;
 }
 
 .documentation-header {
@@ -15,12 +23,11 @@
   color: #212121;
 }
 
-.documentation-sub-title {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  color: #212121;
+.sub-border {
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #000;
+  border-radius: 2px;
 }
 
 .placement {
@@ -30,6 +37,10 @@
   overflow-y: scroll;
 }
 
+.placement-height {
+  max-height: 2224px;
+}
+
 .documentation-item {
   padding: 8px 0;
   border-bottom: 2px dashed #eee;
@@ -37,6 +48,7 @@
 
 .documentation-item p {
   margin: 24px 0;
+  line-height: 24px;
 }
 
 .documentation-item ul {
@@ -98,6 +110,16 @@
   gap: 4px;
 }
 
+.documentation-sub-title {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+  color: #212121;
+}
+
 .enabled {
   color: #212121;
   background: #fae2d2;
@@ -136,6 +158,10 @@
   padding-right: 24px;
 }
 
+.img-spread {
+  width: 100%;
+}
+
 .text {
   font-size: 16px;
   font-style: normal;
@@ -150,4 +176,13 @@
 
 .badge-image-height {
   height: 90px;
+}
+
+.sub-border p {
+  margin: 0 0 24px;
+}
+
+
+.documentation-sub-title p {
+  margin: 8px 0;
 }

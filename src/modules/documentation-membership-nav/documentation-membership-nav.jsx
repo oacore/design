@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
+import Icon from '../../elements/icon'
 
 const DocumentationMembershipNav = ({
   textData,
@@ -31,23 +33,28 @@ const DocumentationMembershipNav = ({
 
   return (
     <ul className={styles.sider}>
-      {Object.keys(textData.navItems).map((item, i) => (
+      {Object.values(textData.navItems).map((item, i) => (
         // eslint-disable-next-line max-len
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events
         <li
           className={classNames.use(styles.siderItem, {
+            [styles.hiddenItem]: item.hidden,
             [styles.activeItem]: !activeIndex
-              ? activeItem === item
+              ? activeItem === i
               : activeIndex === i,
           })}
-          key={textData.navItems[item].item}
-          onClick={() => handleClick(textData.navItems[item], item)}
+          key={item.item}
+          onClick={() => handleClick(item, i)}
         >
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles.siderItemLink}>{textData.navItems[item].item}</a>
-          {activeItem === item || activeIndex === i ? (
+          <ReactMarkdown className={styles.siderItemLink}>
+            {item.item}
+          </ReactMarkdown>
+          {activeItem === i || activeIndex === i ? (
             // eslint-disable-next-line react/no-unescaped-entities
-            <span className={styles.logo}>></span>
+            <span className={styles.logo}>
+              <Icon src="#active-arrow" />
+            </span>
           ) : (
             ''
           )}
