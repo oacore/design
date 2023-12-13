@@ -4,6 +4,7 @@
 
 .documentation-inner-wrapper {
   width: calc(100% - 370px);
+  padding-right: 5px;
   overflow-y: scroll;
 }
 
@@ -45,8 +46,24 @@
   overflow-y: scroll;
 }
 
+.placement::-webkit-scrollbar {
+  width: 0;
+}
+
+.placement::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
 .placement-height {
   max-height: 2224px;
+}
+
+.placement-height::-webkit-scrollbar {
+  width: 0;
+}
+
+.placement-height::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 .documentation-item {
