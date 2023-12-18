@@ -4,8 +4,6 @@ import ReactMarkdown from 'react-markdown'
 import styles from './styles.css'
 import { classNames } from '../../utils'
 
-const ASSETS_BASE_URL = 'https://oacore.github.io/content/'
-
 const DocumentationMembership = ({
   headerTitle,
   headerCaption,
@@ -78,9 +76,7 @@ const DocumentationMembership = ({
                           [styles.badgeImageHeight]:
                             img.source?.includes('square'),
                         })}
-                        src={
-                          imageSource ? ASSETS_BASE_URL + img.file : img.file
-                        }
+                        src={img.file}
                         alt="image"
                         // eslint-disable-next-line react/no-array-index-key
                         key={item.id + i}
