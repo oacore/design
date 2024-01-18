@@ -1,13 +1,13 @@
 .sider-wrapper {
   width: 350px;
   height: calc(100vh - 146px);
-  overflow-y: scroll;
   margin-right: 32px;
+  overflow-y: scroll;
 }
 
 .sider-mullty {
-  background: #f5f5f5;
   margin-bottom: 0;
+  background: #f5f5f5;
 }
 
 .sider-wrapper::-webkit-scrollbar {
@@ -22,7 +22,7 @@
   width: 100%;
   height: max-content;
   min-height: 100%;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 
@@ -64,13 +64,13 @@
 .placeholder {
   display: flex;
   align-items: center;
+  padding-left: 16px;
   margin-right: 25px;
-  color: #212121;
+  margin-bottom: 20px;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 130%;
-  letter-spacing: 0.035px;
-  margin-bottom: 20px;
-  padding-left: 16px;
+  color: #212121;
+  letter-spacing: .035px;
 }
