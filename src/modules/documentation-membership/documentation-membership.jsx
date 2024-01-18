@@ -11,9 +11,17 @@ const DocumentationMembership = ({
   nav,
   docs,
   imageSource,
+  docsTitle,
+  mulltyDocs,
 }) => (
-  <div className={styles.documentationWrapper}>
-    <h2 className={styles.documentationHeader}>{headerTitle}</h2>
+  <div
+    className={classNames.use(styles.documentationWrapper, {
+      [styles.mulltyWrapper]: mulltyDocs,
+    })}
+  >
+    {headerTitle && (
+      <h2 className={styles.documentationHeader}>{headerTitle}</h2>
+    )}
     {headerCaption}
     <div
       className={classNames.use(styles.placement, {
@@ -21,7 +29,12 @@ const DocumentationMembership = ({
       })}
     >
       {nav}
-      <div className={styles.documentationInnerWrapper}>
+      <div
+        className={classNames.use(styles.documentationInnerWrapper, {
+          [styles.innerSpacing]: mulltyDocs,
+        })}
+      >
+        <div className={styles.docsTitle}>{docsTitle}</div>
         {docs?.map((item, index) => (
           <>
             {item.divider && <div className={styles.divider} />}
