@@ -2,6 +2,12 @@
   margin: 15px 0;
 }
 
+.mullty-wrapper {
+  margin: 0;
+  padding: 20px 0;
+}
+
+
 .documentation-inner-wrapper {
   width: calc(100% - 370px);
   padding-right: 5px;
@@ -42,8 +48,7 @@
 .placement {
   display: flex;
   justify-content: space-between;
-  max-height: 1472px;
-  overflow-y: scroll;
+  height: calc(100vh - 146px);
 }
 
 .placement::-webkit-scrollbar {
@@ -210,4 +215,13 @@
 
 .documentation-sub-title p {
   margin: 8px 0;
+}
+
+.docs-title {
+  color: #212121;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  padding: 0 0 16px 0;
 }
