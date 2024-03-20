@@ -40,7 +40,7 @@ To develop the library you need to run these commands:
 
 ```sh
 npm install        # to install all dependencies
-npm run build      # to complile files and run docs in dev mode
+npm run build      # to compile files and run docs in dev mode
 ```
 
 If you want to develop this library simultaneously with other project you can link them as follows:
