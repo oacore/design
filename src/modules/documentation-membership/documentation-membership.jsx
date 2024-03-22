@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
-import tutorial from '../../../assets/tutorial.svg'
 
 const DocumentationMembership = ({
   headerTitle,
@@ -15,6 +14,7 @@ const DocumentationMembership = ({
   docsTitle,
   mulltyDocs,
   handleContentOpen,
+  videoIcon,
 }) => (
   <div
     className={classNames.use(styles.documentationWrapper, {
@@ -74,7 +74,7 @@ const DocumentationMembership = ({
                       className={styles.tutorialWrapper}
                     >
                       {item.tutorial?.text}
-                      <img src={tutorial} alt="tutorial icon" />
+                      <img src={videoIcon} alt="tutorial icon" />
                     </div>
                   )}
                 </div>
