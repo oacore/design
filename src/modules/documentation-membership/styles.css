@@ -228,6 +228,7 @@
 
 
 .tutorial-wrapper {
+  cursor: pointer;
   display: flex;
   align-items: center;
   margin-left: 32px;

@@ -66,17 +66,17 @@ const DocumentationMembership = ({
                       {value[0]}
                     </span>
                   ))}
-                  {item.tutorial && (
-                    // eslint-disable-next-line max-len
-                    // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events
-                    <div
-                      onClick={() => handleContentOpen(item.tutorial)}
-                      className={styles.tutorialWrapper}
-                    >
-                      {item.tutorial?.text}
-                      <img src={videoIcon} alt="tutorial icon" />
-                    </div>
-                  )}
+                  {/*{item.tutorial && (*/}
+                  {/*  // eslint-disable-next-line max-len*/}
+                  {/*  // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events*/}
+                  {/*  <div*/}
+                  {/*    onClick={() => handleContentOpen(item.tutorial)}*/}
+                  {/*    className={styles.tutorialWrapper}*/}
+                  {/*  >*/}
+                  {/*    {item.tutorial?.text}*/}
+                  {/*    <img src={videoIcon} alt="tutorial icon" />*/}
+                  {/*  </div>*/}
+                  {/*)}*/}
                 </div>
               )}
               <ReactMarkdown linkTarget="_blank" className={styles.test}>
