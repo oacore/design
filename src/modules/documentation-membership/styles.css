@@ -237,5 +237,6 @@
   line-height: 24px;
   color: #8bc34a;
   letter-spacing: .035px;
+  cursor: pointer;
   gap: 4px;
 }

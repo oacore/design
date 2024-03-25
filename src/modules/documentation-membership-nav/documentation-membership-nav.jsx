@@ -53,12 +53,10 @@ const DocumentationMembershipNav = ({
             key={item.item}
             onClick={() => handleClick(item, i)}
           >
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <ReactMarkdown className={styles.siderItemLink}>
               {item.item}
             </ReactMarkdown>
             {activeItem === i || activeIndex === i ? (
-              // eslint-disable-next-line react/no-unescaped-entities
               <span className={styles.logo}>
                 <Icon src="#active-arrow" />
               </span>
