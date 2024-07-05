@@ -15,6 +15,7 @@ const DocumentationMembership = ({
   mulltyDocs,
   handleContentOpen,
   videoIcon,
+  redirectLink,
 }) => (
   <div
     className={classNames.use(styles.documentationWrapper, {
@@ -52,33 +53,50 @@ const DocumentationMembership = ({
               >
                 {item.title}
               </h3>
-              {item.membershipTypes && (
-                <div className={styles.typeWrapper}>
-                  {Object.entries(item?.membershipTypes).map((value) => (
-                    <span
-                      key={item.id + value[0] + value[1]}
-                      className={classNames
-                        .use(styles.membership)
-                        .join(
-                          value[1] === 'Yes' ? styles.enabled : styles.disabled
-                        )}
-                    >
-                      {value[0]}
+              <div className={styles.subTitleWrapper}>
+                {item.membershipTypes && (
+                  <div className={styles.typeWrapper}>
+                    {Object.entries(item?.membershipTypes).map((value) => (
+                      <span
+                        key={item.id + value[0] + value[1]}
+                        className={classNames
+                          .use(styles.membership)
+                          .join(
+                            value[1] === 'Yes'
+                              ? styles.enabled
+                              : styles.disabled
+                          )}
+                      >
+                        {value[0]}
+                      </span>
+                    ))}
+                    {item.tutorial && (
+                      // eslint-disable-next-line max-len
+                      // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+                      <div
+                        onClick={() => handleContentOpen(item.tutorial)}
+                        className={styles.tutorialWrapper}
+                      >
+                        {item.tutorial?.text}
+                        <img src={videoIcon} alt="tutorial icon" />
+                      </div>
+                    )}
+                  </div>
+                )}
+                {item.redirect && (
+                  <a
+                    target="_blank"
+                    href={item.redirect?.link}
+                    className={styles.linkWrapper}
+                    rel="noreferrer"
+                  >
+                    <span className={styles.linkText}>
+                      {item.redirect?.text}
                     </span>
-                  ))}
-                  {item.tutorial && (
-                    // eslint-disable-next-line max-len
-                    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-                    <div
-                      onClick={() => handleContentOpen(item.tutorial)}
-                      className={styles.tutorialWrapper}
-                    >
-                      {item.tutorial?.text}
-                      <img src={videoIcon} alt="tutorial icon" />
-                    </div>
-                  )}
-                </div>
-              )}
+                    <img alt="redirect" src={redirectLink} />
+                  </a>
+                )}
+              </div>
               <ReactMarkdown linkTarget="_blank" className={styles.test}>
                 {item.descriptionAbout}
               </ReactMarkdown>
