@@ -134,10 +134,33 @@
   width: 50%;
 }
 
+.sub-title-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
 .type-wrapper {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-text {
+  color: #8BC34A;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.035px;
+  text-decoration-line: underline;
+  margin-right: 4px;
+  cursor: pointer;
 }
 
 .documentation-sub-title {
