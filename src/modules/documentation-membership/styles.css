@@ -147,20 +147,20 @@
 
 .link-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .link-text {
-  color: #8BC34A;
+  margin-right: 4px;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.035px;
-  text-decoration-line: underline;
-  margin-right: 4px;
+  color: #8bc34a;
+  letter-spacing: .035px;
   cursor: pointer;
+  text-decoration-line: underline;
 }
 
 .documentation-sub-title {
