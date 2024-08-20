@@ -14,6 +14,7 @@ const DocumentationMembershipNav = ({
 }) => {
   const [activeItem, setActiveItem] = useState(null)
   const headerHeight = 56
+  const mobileHeaderHeight = 150
 
   const handleClick = (obj, item) => {
     window.location.href = obj.href
@@ -23,9 +24,11 @@ const DocumentationMembershipNav = ({
     const element = document.getElementById(obj.href.replace('#', ''))
     if (element) {
       const rect = element.getBoundingClientRect()
+      const isMobile = window.matchMedia('(max-width: 768px)').matches
+      const adjustedHeaderHeight = isMobile ? mobileHeaderHeight : headerHeight
 
       window.scrollTo({
-        top: rect.top + window.scrollY - headerHeight,
+        top: rect.top + window.scrollY - adjustedHeaderHeight,
         behavior: 'smooth',
         block: 'center',
       })
