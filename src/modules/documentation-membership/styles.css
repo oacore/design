@@ -12,6 +12,9 @@
   width: calc(100% - 370px);
   padding-right: 5px;
   overflow-y: scroll;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .documentation-inner-wrapper::-webkit-scrollbar {
@@ -46,9 +49,17 @@
 }
 
 .placement {
+  position: relative;
   display: flex;
   justify-content: space-between;
   height: calc(100vh - 146px);
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: unset;
+    max-height: max-content;
+  }
 }
 
 .placement::-webkit-scrollbar {
@@ -61,6 +72,9 @@
 
 .placement-height {
   max-height: 2224px;
+  @media (max-width: 768px) {
+    max-height: unset;
+  }
 }
 
 .placement-height::-webkit-scrollbar {
@@ -262,4 +276,26 @@
   letter-spacing: .035px;
   cursor: pointer;
   gap: 4px;
+}
+
+.navigator {
+  position: fixed;
+  right: 52px;
+  bottom: 52px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background: #e0e0e0;
+  border: 1px solid #b75400;
+  border-radius: 2px;
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.navigator-logo {
+  transform: rotate(-90deg);
 }

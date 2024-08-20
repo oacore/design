@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
+import Icon from '../../elements/icon'
 
 const DocumentationMembership = ({
   headerTitle,
@@ -16,6 +17,8 @@ const DocumentationMembership = ({
   handleContentOpen,
   videoIcon,
   redirectLink,
+  showNavigator,
+  handleScrollToTop,
 }) => (
   <div
     className={classNames.use(styles.documentationWrapper, {
@@ -155,6 +158,15 @@ const DocumentationMembership = ({
           </>
         ))}
       </div>
+      {showNavigator && (
+        // eslint-disable-next-line max-len
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+        <div className={styles.navigator} onClick={handleScrollToTop}>
+          <span className={styles.navigatorLogo}>
+            <Icon src="#active-arrow" />
+          </span>
+        </div>
+      )}
     </div>
   </div>
 )

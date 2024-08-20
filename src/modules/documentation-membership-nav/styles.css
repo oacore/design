@@ -3,6 +3,12 @@
   height: calc(100vh - 146px);
   margin-right: 32px;
   overflow-y: scroll;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: max-content;
+    margin-bottom: 16px;
+    overflow-y: unset;
+  }
 }
 
 .sider-mullty {
@@ -36,6 +42,10 @@
   line-height: 24px;
   color: #424242;
   cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 16px;
+    font-size: 16px;
+  }
 }
 
 .sider-item-link {
@@ -73,4 +83,7 @@
   line-height: 130%;
   color: #212121;
   letter-spacing: .035px;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
