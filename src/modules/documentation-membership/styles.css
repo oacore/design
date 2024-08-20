@@ -151,18 +151,34 @@
 .sub-title-wrapper {
   display: flex;
   gap: 24px;
+  @media (max-width: 876px) {
+    flex-wrap: wrap;
+    gap: 0;
+  }
 }
 
 .type-wrapper {
   display: flex;
   align-items: center;
   gap: 4px;
+  @media (max-width: 876px) {
+    flex-wrap: wrap;
+  }
 }
 
 .link-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 876px) {
+    margin-top: 16px;
+    margin-left: 8px;
+  }
+  @media (max-width: 780px) {
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: unset;
+  }
 }
 
 .link-text {
@@ -276,6 +292,14 @@
   letter-spacing: .035px;
   cursor: pointer;
   gap: 4px;
+  @media (max-width: 876px) {
+    margin-left: 8px;
+  }
+  @media (max-width: 780px) {
+    width: 100%;
+    margin-top: 16px;
+    margin-left: unset;
+  }
 }
 
 .navigator {
