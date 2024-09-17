@@ -51,6 +51,7 @@ const icons = [
   path.resolve(__dirname, './assets/active-arrow.svg'),
   path.resolve(__dirname, './assets/metadata-validator.svg'),
   path.resolve(__dirname, './assets/deduplication.svg'),
+  path.resolve(__dirname, './assets/sdg.svg'),
   path.resolve(__dirname, './assets/fresh-finds.svg'),
 ]
 
