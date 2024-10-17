@@ -272,7 +272,7 @@
   @media (--header-breakpoint-up) {
     & .menu-list {
       flex-wrap: wrap;
-      width: calc(3 * var(--header-menu-width));
+      width: max-content;
       max-height: 20rem;
     }
   }
