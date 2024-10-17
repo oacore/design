@@ -176,6 +176,7 @@
 .menu-list {
   display: none;
   flex-direction: column;
+  width: max-content;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -314,6 +315,15 @@
     grid-column-end: 3;
   }
 }
+
+.item-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 220px;
+}
+
 
 .services-overview-item-label {
   margin-bottom: .5rem;
