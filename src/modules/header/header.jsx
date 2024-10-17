@@ -168,6 +168,10 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'services'}
           onExpand={() => toggleMenu('services')}
         >
+          <Item className={styles.researchItem} href="/about/research-outputs">
+            <span className={styles.itemText}>Research</span>
+          </Item>
+
           <Item className={styles.servicesOverviewItem} href="/services">
             <img src={`data:image/svg+xml,${SERVICES_ILLUSTRATION}`} alt="" />
             <span className={styles.servicesOverviewItemLabel}>
