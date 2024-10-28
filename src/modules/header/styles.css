@@ -267,6 +267,12 @@
   }
 }
 
+.research-item {
+  & .item-link {
+    background: #fff4ea;
+  }
+}
+
 /* Special menus */
 .services-menu {
   @media (--header-breakpoint-up) {
