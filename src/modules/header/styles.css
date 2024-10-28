@@ -270,6 +270,29 @@
 .research-item {
   & .item-link {
     background: #fff4ea;
+
+    &:hover {
+      text-decoration: none;
+      background-color:
+        hsl(
+          var(
+            --app-bar-overlay,
+            var(--component-overlay) / var(--component-overlay-hover)
+          )
+        );
+    }
+
+    &:focus {
+      text-decoration: none;
+      background-color:
+        hsl(
+          var(
+            --app-bar-overlay,
+            var(--component-overlay) / var(--component-overlay-focus)
+          )
+        );
+      outline: 0;
+    }
   }
 }
 
