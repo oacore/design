@@ -155,7 +155,7 @@ const SearchResult = ({
                 itemType="https://schema.org/Person"
               >
                 <a
-                  href={`/search?q=author:(${a.name})?t=${searchId}-${workId}`}
+                  href={`/search?q=author:(${a.name})&t=${searchId}-${workId}`}
                   className={styles.link}
                 >
                   <span itemProp="name">{a.name.replace(',', ' ')}</span>
