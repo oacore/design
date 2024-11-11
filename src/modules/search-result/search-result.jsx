@@ -54,6 +54,7 @@ const fullTextStatus = ({ title, fullTextLink } = {}) => {
 }
 
 const SearchResult = ({
+  renderRedirectLink,
   children,
   id,
   className,
@@ -155,7 +156,11 @@ const SearchResult = ({
                 itemType="https://schema.org/Person"
               >
                 <a
-                  href={`/search?q=author:(${a.name})&t=${searchId}-${workId}`}
+                  href={
+                    renderRedirectLink
+                      ? `/search?q=author:(${a.name})&t=${searchId}-${workId}`
+                      : `/search?q=author:(${a.name})`
+                  }
                   className={styles.link}
                 >
                   <span itemProp="name">{a.name.replace(',', ' ')}</span>
@@ -210,7 +215,11 @@ const SearchResult = ({
                 className={styles.dataProvider}
               >
                 <Link
-                  href={`//core.ac.uk/data-providers/${dataProvider.id}?t=${searchId}-${workId}`}
+                  href={
+                    renderRedirectLink
+                      ? `//core.ac.uk/data-providers/${dataProvider.id}?t=${searchId}-${workId}`
+                      : `//core.ac.uk/data-providers/${dataProvider.id}`
+                  }
                   className={styles.repositoryLink}
                 >
                   <span itemProp="name">{dataProvider.name}</span>
@@ -227,6 +236,7 @@ SearchResult.propTypes = {
   id: PropTypes.string.isRequired,
   searchId: PropTypes.string,
   useLogo: PropTypes.bool,
+  renderRedirectLink: PropTypes.bool,
   data: PropTypes.shape({
     workId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
