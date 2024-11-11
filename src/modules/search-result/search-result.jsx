@@ -236,6 +236,7 @@ SearchResult.propTypes = {
   id: PropTypes.string.isRequired,
   searchId: PropTypes.string,
   useLogo: PropTypes.bool,
+  renderRedirectLink: PropTypes.bool,
   data: PropTypes.shape({
     workId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
