@@ -218,8 +218,8 @@ const SearchResult = ({
                 <Link
                   href={
                     renderRedirectLink || renderKeys
-                      ? `//core.ac.uk/data-providers/${dataProvider.id}?t=${searchId}-${workId}`
-                      : `//core.ac.uk/data-providers/${dataProvider.id}`
+                      ? `/data-providers/${dataProvider.id}?t=${searchId}-${workId}`
+                      : `/data-providers/${dataProvider.id}`
                   }
                   className={styles.repositoryLink}
                 >
