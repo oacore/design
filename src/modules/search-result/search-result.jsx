@@ -55,7 +55,7 @@ const fullTextStatus = ({ title, fullTextLink } = {}) => {
 
 const SearchResult = ({
   renderRedirectLink,
-                        renderKeys,
+  renderKeys,
   children,
   id,
   className,
@@ -158,7 +158,7 @@ const SearchResult = ({
               >
                 <a
                   href={
-                    (renderRedirectLink || renderKeys)
+                    renderRedirectLink || renderKeys
                       ? `/search?q=author:(${a.name})&t=${searchId}-${workId}`
                       : `/search?q=author:(${a.name})`
                   }
@@ -217,7 +217,7 @@ const SearchResult = ({
               >
                 <Link
                   href={
-                    (renderRedirectLink || renderKeys)
+                    renderRedirectLink || renderKeys
                       ? `//core.ac.uk/data-providers/${dataProvider.id}?t=${searchId}-${workId}`
                       : `//core.ac.uk/data-providers/${dataProvider.id}`
                   }
