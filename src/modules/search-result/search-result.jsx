@@ -55,7 +55,6 @@ const fullTextStatus = ({ title, fullTextLink } = {}) => {
 
 const SearchResult = ({
   renderRedirectLink,
-  renderKeys,
   children,
   id,
   className,
@@ -158,7 +157,7 @@ const SearchResult = ({
               >
                 <a
                   href={
-                    renderRedirectLink || renderKeys
+                    renderRedirectLink
                       ? `/search?q=author:(${a.name})&t=${searchId}-${workId}`
                       : `/search?q=author:(${a.name})`
                   }
@@ -217,7 +216,7 @@ const SearchResult = ({
               >
                 <Link
                   href={
-                    renderRedirectLink || renderKeys
+                    renderRedirectLink
                       ? `/data-providers/${dataProvider.id}?t=${searchId}-${workId}`
                       : `/data-providers/${dataProvider.id}`
                   }
@@ -238,7 +237,6 @@ SearchResult.propTypes = {
   searchId: PropTypes.string,
   useLogo: PropTypes.bool,
   renderRedirectLink: PropTypes.bool,
-  renderKeys: PropTypes.bool,
   data: PropTypes.shape({
     workId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
