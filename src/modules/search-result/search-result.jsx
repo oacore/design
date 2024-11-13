@@ -157,7 +157,7 @@ const SearchResult = ({
               >
                 <a
                   href={
-                    renderRedirectLink
+                    renderRedirectLink && searchId
                       ? `/search?q=author:(${a.name})&t=${searchId}-${workId}`
                       : `/search?q=author:(${a.name})`
                   }
@@ -216,7 +216,7 @@ const SearchResult = ({
               >
                 <Link
                   href={
-                    renderRedirectLink
+                    renderRedirectLink && searchId
                       ? `/data-providers/${dataProvider.id}?t=${searchId}-${workId}`
                       : `/data-providers/${dataProvider.id}`
                   }
