@@ -42,7 +42,8 @@
 
 .popup-button {
   margin: 0 .5rem;
-  color: var(--white);
+  color: var(--primary);
+  background-color: var(--white);
 }
 
 .popup-button:nth-child(2) {
