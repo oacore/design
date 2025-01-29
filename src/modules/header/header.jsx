@@ -206,7 +206,13 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'communities'}
           onExpand={() => toggleMenu('communities')}
         >
-          <Group id="membership" label="Support us" tag="li" labelTag="a">
+          <Group
+            id="membership"
+            label="Support us"
+            tag="li"
+            labelTag="a"
+            className={styles.supportMenu}
+          >
             <Button
               href="/membership"
               variant="contained"
@@ -237,6 +243,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           label="About"
           expanded={expandedMenu === 'about'}
           onExpand={() => toggleMenu('about')}
+          className={styles.aboutMenu}
         >
           <Group id="about" label="About" tag="li" labelTag="a">
             <Item href="/about">About us</Item>
