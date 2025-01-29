@@ -168,10 +168,6 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'services'}
           onExpand={() => toggleMenu('services')}
         >
-          <Item className={styles.researchItem} href="/about/research-outputs">
-            <span className={styles.itemText}>Research</span>
-          </Item>
-
           <Item className={styles.servicesOverviewItem} href="/services">
             <img src={`data:image/svg+xml,${SERVICES_ILLUSTRATION}`} alt="" />
             <span className={styles.servicesOverviewItemLabel}>
@@ -210,13 +206,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'communities'}
           onExpand={() => toggleMenu('communities')}
         >
-          <Group
-            id="membership"
-            label="Support us"
-            tag="li"
-            labelTag="a"
-            href="/membership"
-          >
+          <Group id="membership" label="Support us" tag="li">
             <Button
               href="/membership"
               variant="contained"
@@ -231,14 +221,35 @@ const Header = ({ children, className, id, ...passProps }) => {
             >
               <span className={styles.memberMenuText}>Sponsorship</span>
             </Button>
+            <Button
+              href="/governance/research"
+              variant="contained"
+              className={styles.memberMenuItem}
+            >
+              <span className={styles.memberMenuText}>
+                Research partnership
+              </span>
+            </Button>
           </Group>
-          <Group
-            id="community"
-            label="Community governance"
-            labelTag="a"
-            tag="li"
-            href="/governance"
-          >
+        </Menu>
+        <Menu
+          id="about"
+          label="About"
+          expanded={expandedMenu === 'about'}
+          onExpand={() => toggleMenu('about')}
+        >
+          <Group id="about" label="About" tag="li">
+            <Item href="/about">About us</Item>
+            <Item href="/about#mission">Our mission</Item>
+            <Item href="/about#team">Team</Item>
+            <Item href="//blog.core.ac.uk">Blog</Item>
+            <Item href="/faq">FAQs</Item>
+            <Item href="/contact">Contact us</Item>
+          </Group>
+          <Group id="community" label="Community governance" tag="li">
+            <Item href="/governance" className={styles.communitiesMenuItem}>
+              Governance
+            </Item>
             <Item
               href="/governance/advisory"
               className={styles.communitiesMenuItem}
@@ -258,19 +269,10 @@ const Header = ({ children, className, id, ...passProps }) => {
               Research network
             </Item>
           </Group>
-        </Menu>
-        <Menu
-          id="about"
-          label="About"
-          expanded={expandedMenu === 'about'}
-          onExpand={() => toggleMenu('about')}
-        >
-          <Item href="/about">About us</Item>
-          <Item href="/about#mission">Our mission</Item>
-          <Item href="/about#team">Team</Item>
-          <Item href="//blog.core.ac.uk">Blog</Item>
-          <Item href="/faq">FAQs</Item>
-          <Item href="/contact">Contact us</Item>
+          <Group id="innovations" label="Innovations" tag="li">
+            <Item href="/about/research-outputs">Our research</Item>
+            <Item href="/innovations/labs">CORE Labs</Item>
+          </Group>
         </Menu>
       </AppBar.Item>
     </AppBar>
