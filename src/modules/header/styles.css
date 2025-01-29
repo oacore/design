@@ -423,12 +423,6 @@
   }
 }
 
-.communities-menu-item a {
-  padding: 1.25rem;
-  color: var(--gray-900);
-  border-bottom: 1px dashed var(--gray-300);
-}
-
 .member-menu-item  {
   position: relative;
   display: flex;
@@ -439,18 +433,12 @@
   min-width: 172px;
   height: 68px;
   padding: .5rem;
+  margin-top: 1rem;
   background: #b75400;
   border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
 }
 
-.member-menu-item:first-child {
-  margin-top: 1rem;
-}
-
-.member-menu-item:nth-child(2) {
-  margin-top: .75rem;
-}
 
 .member-menu-text {
   position: absolute;
