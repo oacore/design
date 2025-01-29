@@ -430,11 +430,7 @@
       flex-direction: row;
       width: max-content;
       max-height: 20rem;
-    }
-
-    & .group:nth-child(1) {
-      text-align: center;
-      border-right: 1px dashed var(--gray-300);
+      gap: 16px;
     }
   }
 }
@@ -532,6 +528,15 @@
 .support-menu {
   display: flex;
   flex-direction: column;
+}
+
+.support-menu  .group-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.support-menu .group-title {
+  text-align: start;
 }
 
 @media (--header-breakpoint-up) {
