@@ -206,7 +206,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'communities'}
           onExpand={() => toggleMenu('communities')}
         >
-          <Group id="membership" label="Support us" tag="li">
+          <Group id="membership" label="Support us" tag="li" labelTag="a">
             <Button
               href="/membership"
               variant="contained"
@@ -238,7 +238,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           expanded={expandedMenu === 'about'}
           onExpand={() => toggleMenu('about')}
         >
-          <Group id="about" label="About" tag="li">
+          <Group id="about" label="About" tag="li" labelTag="a">
             <Item href="/about">About us</Item>
             <Item href="/about#mission">Our mission</Item>
             <Item href="/about#team">Team</Item>
@@ -246,30 +246,20 @@ const Header = ({ children, className, id, ...passProps }) => {
             <Item href="/faq">FAQs</Item>
             <Item href="/contact">Contact us</Item>
           </Group>
-          <Group id="community" label="Community governance" tag="li">
+          <Group
+            id="community"
+            label="Community governance"
+            tag="li"
+            labelTag="a"
+          >
             <Item href="/governance" className={styles.communitiesMenuItem}>
               Governance
             </Item>
-            <Item
-              href="/governance/advisory"
-              className={styles.communitiesMenuItem}
-            >
-              Advisory Board
-            </Item>
-            <Item
-              href="/governance/supporters"
-              className={styles.communitiesMenuItem}
-            >
-              Board of supporters
-            </Item>
-            <Item
-              href="/governance/research"
-              className={styles.communitiesMenuItem}
-            >
-              Research network
-            </Item>
+            <Item href="/governance/advisory">Advisory Board</Item>
+            <Item href="/governance/supporters">Board of supporters</Item>
+            <Item href="/governance/research">Research network</Item>
           </Group>
-          <Group id="innovations" label="Innovations" tag="li">
+          <Group id="innovations" label="Innovations" tag="li" labelTag="a">
             <Item href="/about/research-outputs">Our research</Item>
             <Item href="/innovations/labs">CORE Labs</Item>
           </Group>
