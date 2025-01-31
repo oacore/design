@@ -222,6 +222,7 @@
   font-size: .875rem;
   font-weight: 400;
   color: hsl(var(--component-color) / var(--component-disabled));
+  text-align: start;
   letter-spacing: .01em;
 }
 
@@ -430,19 +431,19 @@
       flex-direction: row;
       width: max-content;
       max-height: 20rem;
-      gap: 16px;
+      gap: 24px;
+      padding: 10px;
     }
   }
 }
 
 .member-menu-item  {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: max-content;
-  min-width: 172px;
+  min-width: 215px;
   height: 68px;
   padding: .5rem;
   margin-top: 1rem;
@@ -451,13 +452,6 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
 }
 
-
-.member-menu-text {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translate(-50%, -50%);
-}
 
 /* search item styles */
 .search-bar-item {
