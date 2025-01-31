@@ -80,6 +80,7 @@ const Footer = ({ className }) => (
           <MenuList.Item href="/services">Services</MenuList.Item>
           <MenuList.Item href="/membership">Membership</MenuList.Item>
           <MenuList.Item href="/sponsorship">Sponsorship</MenuList.Item>
+          <MenuList.Item href="/innovations/labs">Labs</MenuList.Item>
         </MenuList>
         <MenuList title="Organisation">
           <MenuList.Item href="/about">About us</MenuList.Item>
