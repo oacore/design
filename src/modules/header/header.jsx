@@ -210,7 +210,6 @@ const Header = ({ children, className, id, ...passProps }) => {
             id="membership"
             label="Support us"
             tag="li"
-            labelTag="a"
             className={styles.supportMenu}
           >
             <Button
