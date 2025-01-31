@@ -222,7 +222,6 @@
   font-size: .875rem;
   font-weight: 400;
   color: hsl(var(--component-color) / var(--component-disabled));
-  text-align: start;
   letter-spacing: .01em;
 }
 
@@ -412,6 +411,7 @@
     font-weight: 500;
     line-height: 1;
     color: var(--primary);
+    text-align: start;
 
     &::after {
       position: absolute;
@@ -437,10 +437,11 @@
   }
 }
 
+/* stylelint-disable declaration-no-important */
 .member-menu-item  {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: max-content;
   min-width: 215px;
@@ -529,9 +530,6 @@
   flex-direction: column;
 }
 
-.support-menu .group-title {
-  text-align: start;
-}
 
 @media (--header-breakpoint-up) {
   .select {
