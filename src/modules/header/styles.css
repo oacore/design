@@ -222,8 +222,8 @@
   font-size: .875rem;
   font-weight: 400;
   color: hsl(var(--component-color) / var(--component-disabled));
-  letter-spacing: .01em;
   text-align: start;
+  letter-spacing: .01em;
 }
 
 .group-list {

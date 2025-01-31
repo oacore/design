@@ -253,11 +253,7 @@ const Header = ({ children, className, id, ...passProps }) => {
             <Item href="/faq">FAQs</Item>
             <Item href="/contact">Contact us</Item>
           </Group>
-          <Group
-            id="community"
-            label="Community governance"
-            tag="li"
-          >
+          <Group id="community" label="Community governance" tag="li">
             <Item href="/governance" className={styles.communitiesMenuItem}>
               Governance
             </Item>
