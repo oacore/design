@@ -262,7 +262,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           </Group>
           <Group id="innovations" label="Innovations" tag="li">
             <Item href="/about/research-outputs">Our research</Item>
-            <Item href="/innovations/labs">CORE Labs</Item>
+            <Item href="/innovations/labs">Labs</Item>
           </Group>
         </Menu>
       </AppBar.Item>
