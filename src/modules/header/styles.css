@@ -379,7 +379,6 @@
     }
 
     & .group:nth-child(1) {
-      text-align: center;
       border-right: 1px dashed var(--gray-300);
     }
   }
@@ -444,7 +443,7 @@
   align-items: flex-start;
   justify-content: center;
   width: max-content;
-  min-width: 215px;
+  min-width: 225px;
   height: 68px;
   padding: .5rem;
   margin-top: 1rem;
