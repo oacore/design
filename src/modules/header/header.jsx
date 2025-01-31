@@ -245,7 +245,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           onExpand={() => toggleMenu('about')}
           className={styles.aboutMenu}
         >
-          <Group id="about" label="About" tag="li" labelTag="a">
+          <Group id="about" label="About" tag="li">
             <Item href="/about">About us</Item>
             <Item href="/about#mission">Our mission</Item>
             <Item href="/about#team">Team</Item>
@@ -257,7 +257,6 @@ const Header = ({ children, className, id, ...passProps }) => {
             id="community"
             label="Community governance"
             tag="li"
-            labelTag="a"
           >
             <Item href="/governance" className={styles.communitiesMenuItem}>
               Governance
@@ -266,7 +265,7 @@ const Header = ({ children, className, id, ...passProps }) => {
             <Item href="/governance/supporters">Board of supporters</Item>
             <Item href="/governance/research">Research network</Item>
           </Group>
-          <Group id="innovations" label="Innovations" tag="li" labelTag="a">
+          <Group id="innovations" label="Innovations" tag="li">
             <Item href="/about/research-outputs">Our research</Item>
             <Item href="/innovations/labs">CORE Labs</Item>
           </Group>
