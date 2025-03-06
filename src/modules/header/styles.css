@@ -303,8 +303,6 @@
     & .menu-list {
       flex-wrap: wrap;
       width: max-content;
-      width: max-content;
-      width: max-content;
       min-width: 600px;
       max-height: 20rem;
     }
@@ -378,8 +376,6 @@
     & .menu-list {
       flex-direction: row;
       width: max-content;
-      width: max-content;
-      width: max-content;
       min-width: 258px;
       max-height: 20rem;
     }
@@ -434,8 +430,6 @@
   @media (--header-breakpoint-up) {
     & .menu-list {
       flex-direction: row;
-      width: max-content;
-      width: max-content;
       width: max-content;
       min-width: 491px;
       max-height: 20rem;
