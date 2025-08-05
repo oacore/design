@@ -579,24 +579,26 @@
 .separator {
   width: 1px;
   height: 12px;
-  background: #E0E0E0;
+  background: #e0e0e0;
 }
 
 .peace {
-  color: #212121;
+  display: flex;
+  width: max-content;
   font-family: Roboto;
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
-  letter-spacing: 0.3px;
-  display: flex;
+  color: #212121;
+  letter-spacing: .3px;
   gap: 3px;
-  width: max-content;
+
   .item-wrapper {
     display: flex;
+
     .indicator {
-      color: #B75400;
+      color: #b75400;
     }
   }
 }
