@@ -132,12 +132,15 @@ const Header = ({ children, className, id, ...passProps }) => {
       <AppBar.Item className={styles.logoContainer}>
         <a href="https://core.ac.uk/" className={styles.logoLink}>
           <Logo className={styles.logo} />
-          <p className={styles.peace}>
-            <span role="img" aria-label="Ukranian Flag">
-              🇺🇦&nbsp;
-            </span>
-            <i>&nbsp; make metadata, not war</i>
-          </p>
+          <div className={styles.separator} />
+          <div className={styles.peace}>
+            <div className={styles.itemWrapper}>
+              <span className={styles.indicator}>CO</span>nnecting
+            </div>
+            <div className={styles.itemWrapper}>
+              <span className={styles.indicator}>RE</span>positories
+            </div>
+          </div>
         </a>
       </AppBar.Item>
 

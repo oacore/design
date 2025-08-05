@@ -68,8 +68,8 @@ const Footer = ({ className }) => (
           </LinkFoot>
         </div>
         <p className={styles.text}>
-          CORE is a not-for-profit service delivered by The Open University
-          supported by{' '}
+          CORE (COnnecting REpositories) is a not-for-profit service delivered
+          by The Open University supported by{' '}
           <Link href="https://core.ac.uk/governance/supporters#membership-list">
             <MathMarkdown>CORE Members.</MathMarkdown>
           </Link>
