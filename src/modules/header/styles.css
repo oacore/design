@@ -53,7 +53,7 @@
 .logo-container {
   flex: 1;
   min-width: var(--logo-min-width);
-  max-width: calc(var(--page-padding-x) + 1rem);
+  max-width: max-content;
   max-height: 3rem;
   padding: 0;
   margin-right: auto;
@@ -68,6 +68,7 @@
   margin-right: .5rem;
   color: initial;
   text-decoration: none;
+  gap: 10px;
 }
 
 .logo-link:hover,
@@ -82,7 +83,7 @@
 }
 
 .logo {
-  min-width: calc(var(--logo-min-width) - 1.5rem);
+  min-width: max-content;
   max-width: var(--page-padding-x);
   height: 1rem;
 }
@@ -575,18 +576,32 @@
   }
 }
 
-.peace {
-  margin-top: 1em;
-  font-size: .6rem;
-  font-weight: 400;
+.separator {
+  width: 1px;
+  height: 12px;
+  background: #E0E0E0;
 }
-@media (max-width: 768px) {
-  .peace i {
-    display: none;
+
+.peace {
+  color: #212121;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  display: flex;
+  gap: 3px;
+  width: max-content;
+  .item-wrapper {
+    display: flex;
+    .indicator {
+      color: #B75400;
+    }
   }
 }
-@media (min-width: 768px) {
-  .logo-container {
-    max-width: calc(var(--page-padding-x) + 10rem);
+@media (max-width: 768px) {
+  .peace {
+    display: none;
   }
 }
