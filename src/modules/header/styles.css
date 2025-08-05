@@ -579,12 +579,14 @@
 .separator {
   width: 1px;
   height: 12px;
+  margin-top: 2px;
   background: #e0e0e0;
 }
 
 .peace {
   display: flex;
   width: max-content;
+  margin-top: 2px;
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
@@ -603,6 +605,10 @@
 }
 @media (max-width: 768px) {
   .peace {
+    display: none;
+  }
+
+  .separator {
     display: none;
   }
 }
