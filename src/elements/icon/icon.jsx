@@ -13,7 +13,7 @@ const resolve = (url) =>
  * The component creates an inline SVG image based on
  * `src` and `alt` attributes.
  */
-const Icon = ({ src, alt, className, ...restProps }) => (
+const Icon = ({ src, alt, className, srcPrefix = null, ...restProps }) => (
   <svg
     className={classNames.use(iconClassNames.icon).join(className)}
     role="img"
@@ -22,7 +22,7 @@ const Icon = ({ src, alt, className, ...restProps }) => (
     height="24"
     {...restProps}
   >
-    <use href={resolve(src)} />
+    <use href={srcPrefix ? `${srcPrefix}/${resolve(src)}` : resolve(src)} />
   </svg>
 )
 
@@ -38,6 +38,10 @@ Icon.propTypes = {
    * Alternative text for accessibility
    */
   alt: PropTypes.string,
+  /**
+   * Prefix for src assets. Byr default is null
+   */
+  srcPrefix: PropTypes.string,
 }
 
 export default Icon
