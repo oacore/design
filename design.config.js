@@ -83,4 +83,3 @@ const config = {
 }
 
 module.exports = config
-d
