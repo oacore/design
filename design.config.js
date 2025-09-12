@@ -40,6 +40,7 @@ const icons = [
   'office-building',
   path.resolve(__dirname, './assets/core-symbol.svg'),
   path.resolve(__dirname, './assets/copy-document.svg'),
+  path.resolve(__dirname, './assets/sw.svg'),
   path.resolve(__dirname, './assets/collaborators.svg'),
   path.resolve(__dirname, './assets/writing.svg'),
   path.resolve(__dirname, './assets/jisc-logo.svg'),
