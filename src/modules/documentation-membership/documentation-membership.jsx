@@ -56,7 +56,7 @@ const DocumentationMembership = ({
               })
             }
           >
-            {tutorial.text}
+            {tutorial?.text}
             <img src={tutorialIcon} alt="video icon" />
           </div>
         </div>
