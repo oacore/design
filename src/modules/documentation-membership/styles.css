@@ -286,18 +286,18 @@
 }
 
 .video-wrapper {
-  cursor: pointer;
-  border-radius: 4px;
-  background: #FEF5EF;
   display: flex;
-  padding: 16px;
   align-items: center;
-  gap: 10px;
-  color: #B75400;
+  padding: 16px;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 130%;
+  color: #b75400;
+  cursor: pointer;
+  background: #fef5ef;
+  border-radius: 4px;
+  gap: 10px;
 }
 
 .video-wrapper:hover {
