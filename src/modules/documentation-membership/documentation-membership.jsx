@@ -16,6 +16,8 @@ const DocumentationMembership = ({
   mulltyDocs,
   handleContentOpen,
   videoIcon,
+  tutorialIcon,
+  tutorial,
   redirectLink,
   showNavigator,
   handleScrollToTop,
@@ -40,7 +42,24 @@ const DocumentationMembership = ({
           [styles.innerSpacing]: mulltyDocs,
         })}
       >
-        <div className={styles.docsTitle}>{docsTitle}</div>
+        <div className={styles.headerWrapper}>
+          <div className={styles.docsTitle}>{docsTitle}</div>
+          {/* eslint-disable-next-line max-len */}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div
+            className={styles.videoWrapper}
+            rel="noreferrer"
+            onClick={() =>
+              handleContentOpen({
+                src: tutorial.src,
+                title: tutorial.title,
+              })
+            }
+          >
+            {tutorial.text}
+            <img src={tutorialIcon} alt="video icon" />
+          </div>
+        </div>
         {docs?.map((item, index) => (
           <>
             {item.divider && <div className={styles.divider} />}
