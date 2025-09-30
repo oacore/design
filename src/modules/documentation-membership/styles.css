@@ -270,6 +270,12 @@
   margin: 8px 0;
 }
 
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .docs-title {
   padding: 0 0 16px;
   font-size: 22px;
@@ -277,6 +283,25 @@
   font-weight: 700;
   line-height: 130%;
   color: #212121;
+}
+
+.video-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  color: #b75400;
+  cursor: pointer;
+  background: #fef5ef;
+  border-radius: 4px;
+  gap: 10px;
+}
+
+.video-wrapper:hover {
+  text-decoration: none;
 }
 
 
