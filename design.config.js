@@ -50,6 +50,7 @@ const icons = [
   path.resolve(__dirname, './assets/github.svg'),
   path.resolve(__dirname, './assets/bin.svg'),
   path.resolve(__dirname, './assets/active-arrow.svg'),
+  path.resolve(__dirname, './assets/drop-arrow.svg'),
   path.resolve(__dirname, './assets/metadata-validator.svg'),
   path.resolve(__dirname, './assets/deduplication.svg'),
   path.resolve(__dirname, './assets/orcid.svg'),

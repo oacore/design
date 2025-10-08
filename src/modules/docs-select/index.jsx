@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import styles from './styles.css'
-import arrow from '../../../assets/active-arrow.svg'
+import Icon from '../../elements/icon'
 
 const DocumentSelect = ({ list, handleSelect, selectedOption }) => {
   const [showOptions, setShowOptions] = useState(false)
@@ -34,7 +34,7 @@ const DocumentSelect = ({ list, handleSelect, selectedOption }) => {
         className={styles.documentSelectLabel}
       >
         {selectedOption}
-        <img className={styles.arrow} src={arrow} alt="" />
+        <Icon src="#drop-arrow" />
       </div>
       {showOptions && (
         <ul className={styles.documentDropdown}>
