@@ -113,6 +113,14 @@ module.exports = {
             'src/modules/documentation-membership-nav/documentation-membership-nav.jsx',
           ],
         },
+        {
+          name: 'DocumentSelect',
+          components: () => ['src/modules/docs-select/docs-select.jsx'],
+        },
+        {
+          name: 'Video',
+          components: () => ['src/modules/video/video.jsx'],
+        },
       ],
     },
   ],
