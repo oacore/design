@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './styles.css'
-import { Modal } from '../../modules'
+import Modal from '../modal'
 
 const Video = ({ video, visibleModal, closeModal }) =>
   visibleModal && (
