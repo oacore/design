@@ -34,7 +34,7 @@ const DocumentSelect = ({ list, handleSelect, selectedOption }) => {
         className={styles.documentSelectLabel}
       >
         {selectedOption}
-        <Icon src="#drop-arrow" />
+        <Icon className={styles.arrow} src="#drop-arrow" />
       </div>
       {showOptions && (
         <ul className={styles.documentDropdown}>
