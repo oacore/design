@@ -53,7 +53,7 @@
 .logo-container {
   flex: 1;
   min-width: var(--logo-min-width);
-  max-width: max-content;
+  max-width: calc(var(--page-padding-x) + 1rem);
   max-height: 3rem;
   padding: 0;
   margin-right: auto;
@@ -83,7 +83,7 @@
 }
 
 .logo {
-  min-width: max-content;
+  min-width: calc(var(--logo-min-width) - 1.5rem);
   max-width: var(--page-padding-x);
   height: 1rem;
 }
