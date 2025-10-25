@@ -21,15 +21,13 @@ const optimizeOne = ({ data: source, ...meta }, options) => {
   const svgo =
     typeof options.optimize == 'function' ? options : new SVGO(options)
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const result = svgo.optimize(source)
-
     return resolve({
-        ...meta,
-        ...result.info,
-        data: result.data,
-      })
-
+      ...meta,
+      ...result.info,
+      data: result.data,
+    })
   })
 }
 

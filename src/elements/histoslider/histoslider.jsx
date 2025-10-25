@@ -92,20 +92,30 @@ Histoslider.propTypes = {
     })
   ).isRequired,
   selectFunc: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/no-unused-prop-types
   selectedBarColor: PropTypes.string,
+  // eslint-disable-next-line react/no-unused-prop-types
   unselectedColor: PropTypes.string,
+  // eslint-disable-next-line react/no-unused-prop-types
   rangeColor: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,
   selection: PropTypes.arrayOf(PropTypes.number),
+  // eslint-disable-next-line react/no-unused-prop-types
   barBorderRadius: PropTypes.number,
+  // eslint-disable-next-line react/no-unused-prop-types
   barPadding: PropTypes.number,
   padding: PropTypes.number,
+  // eslint-disable-next-line react/no-unused-prop-types
   showOnDrag: PropTypes.bool,
   sliderHeight: PropTypes.number,
+  // eslint-disable-next-line react/no-unused-prop-types
   handleLabelFormat: PropTypes.string,
+  // eslint-disable-next-line react/no-unused-prop-types
   formatLabelFunction: PropTypes.func,
+  // eslint-disable-next-line react/no-unused-prop-types
   disableHistogram: PropTypes.bool,
+  // eslint-disable-next-line react/no-unused-prop-types
   showLabels: PropTypes.bool,
 }
 

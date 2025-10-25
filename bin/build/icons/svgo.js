@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 const { optimize } = require('svgo')
 
 const processOptions = (options = {}) => {
@@ -12,6 +13,7 @@ function MySVGO(options = {}) {
   this.options = processOptions(options)
 }
 
+// eslint-disable-next-line func-names
 MySVGO.prototype.optimize = function (svgString, info = {}) {
   return optimize(svgString, {
     ...this.options,
