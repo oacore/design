@@ -91,9 +91,9 @@
   },
   "scripts": {
     "postinstall": "node bin build",
-    "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
+    "lint:json": "prettier --ignore-path .gitignore --check **/*.json",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
-    "lint:css": "stylelint --ignore-path .gitignore 'src/**/*.css'",
+    "lint:css": "stylelint --ignore-path .gitignore src/**/*.css",
     "lint": "run-p lint:*",
     "format": "eslint --ignore-path .gitignore --ext .js,.jsx --fix .",
     "clean": "if [ -d lib ]; then rm -r lib; fi",
