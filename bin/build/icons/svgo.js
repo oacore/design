@@ -1,19 +1,22 @@
-const SVGO = require('svgo')
+const { optimize } = require('svgo')
 
 const processOptions = (options = {}) => {
-  const plugins = Object.entries(options.plugins).map(([name, flag]) => ({
-    [name]: flag,
+  const plugins = Object.entries(options.plugins || {}).map(([name, flag]) => ({
+    name,
+    active: flag,
   }))
   return { ...options, plugins }
 }
 
-const MySVGO = function MySVGO(options) {
-  SVGO.call(this, processOptions(options))
+function MySVGO(options = {}) {
+  this.options = processOptions(options)
 }
 
-MySVGO.prototype = Object.create(SVGO.prototype)
-MySVGO.prototype.constructor = MySVGO
-
-MySVGO.Config = (options) => SVGO.Config(processOptions(options))
+MySVGO.prototype.optimize = function (svgString, info = {}) {
+  return optimize(svgString, {
+    ...this.options,
+    path: info.path,
+  })
+}
 
 module.exports = MySVGO

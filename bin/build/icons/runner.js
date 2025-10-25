@@ -22,13 +22,14 @@ const optimizeOne = ({ data: source, ...meta }, options) => {
     typeof options.optimize == 'function' ? options : new SVGO(options)
 
   return new Promise((resolve, reject) => {
-    svgo.optimize(source).then((result) => {
-      resolve({
+    const result = svgo.optimize(source)
+
+    return resolve({
         ...meta,
         ...result.info,
         data: result.data,
       })
-    }, reject)
+
   })
 }
 
@@ -85,7 +86,6 @@ const run = async () => {
     plugins: {
       ...config.svgo.plugins,
       removeUselessDefs: false,
-      cleanupIDs: false,
     },
   })
 
