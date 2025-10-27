@@ -100,6 +100,17 @@ On 'package.json' set:
    }
 ```
 
+## npm update
+```
+npm install [package-name]@[version] --save-dev
+npm uninstall <package_name>
+
+npm audit --audit-level=high
+npm audit fix
+
+npm outdated
+```
+
 For CHANGELOG refer [here][changelog].
 
 

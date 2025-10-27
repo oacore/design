@@ -54,11 +54,26 @@
 %clip-heading {
   clip-path:
     polygon(
-      0  .25em, 58%  .25em, 58% 1.25em, 0 1.25em,
-      0 1.75em, 57% 1.75em, 57% 2.75em, 0 2.75em,
-      0 3.25em, 54% 3.25em, 54% 4.25em, 0 4.25em,
-      0 4.75em, 57% 4.75em, 57% 5.75em, 0 5.75em,
-      0 6.25em, 35% 6.25em, 35% 7.25em, 0 7.25em
+      0 .25em,
+      58% .25em,
+      58% 1.25em,
+      0 1.25em,
+      0 1.75em,
+      57% 1.75em,
+      57% 2.75em,
+      0 2.75em,
+      0 3.25em,
+      54% 3.25em,
+      54% 4.25em,
+      0 4.25em,
+      0 4.75em,
+      57% 4.75em,
+      57% 5.75em,
+      0 5.75em,
+      0 6.25em,
+      35% 6.25em,
+      35% 7.25em,
+      0 7.25em
     );
 }
 /* stylelint-enable function-comma-newline-after */
