@@ -157,7 +157,8 @@
      */
     @supports (clip-path: path('M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z')) {
       clip-path:
-        path('M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z'
+        path(
+          'M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z'
         );
     }
   }
@@ -188,8 +189,10 @@
     top: 3.3rem;
     right: 0;
     z-index:
-      var(--header-z-index,
-        calc(var(--app-bar-fixed-z-index, 1020) + 10));
+      var(
+        --header-z-index,
+        calc(var(--app-bar-fixed-z-index, 1020) + 10)
+      );
     width: var(--header-menu-width);
     background: hsl(var(--app-bar-background, var(--component-background)));
     box-shadow: var(--elevation-04);
@@ -197,14 +200,11 @@
 }
 
 .group {
-  padding:
-    var(--app-bar-padding-y, var(--component-padding-y)) var(--app-bar-padding-x, var(--component-padding-x));
+  padding: var(--app-bar-padding-y, var(--component-padding-y)) var(--app-bar-padding-x, var(--component-padding-x));
 
   & .item {
-    margin-right:
-      calc(-1 * var(--app-bar-padding-x, var(--component-padding-x)));
-    margin-left:
-      calc(-1 * var(--app-bar-padding-x, var(--component-padding-x)));
+    margin-right: calc(-1 * var(--app-bar-padding-x, var(--component-padding-x)));
+    margin-left: calc(-1 * var(--app-bar-padding-x, var(--component-padding-x)));
   }
 }
 
@@ -237,15 +237,23 @@
   &:hover {
     text-decoration: none;
     background-color:
-      hsl(var(--app-bar-overlay,
-          var(--component-overlay) / var(--component-overlay-hover)));
+      hsl(
+        var(
+          --app-bar-overlay,
+          var(--component-overlay) / var(--component-overlay-hover)
+        )
+      );
   }
 
   &:focus {
     text-decoration: none;
     background-color:
-      hsl(var(--app-bar-overlay,
-          var(--component-overlay) / var(--component-overlay-focus)));
+      hsl(
+        var(
+          --app-bar-overlay,
+          var(--component-overlay) / var(--component-overlay-focus)
+        )
+      );
     outline: 0;
   }
 }
@@ -258,15 +266,23 @@
     &:hover {
       text-decoration: none;
       background-color:
-        hsl(var(--app-bar-overlay,
-            var(--component-overlay) / var(--component-overlay-hover)));
+        hsl(
+          var(
+            --app-bar-overlay,
+            var(--component-overlay) / var(--component-overlay-hover)
+          )
+        );
     }
 
     &:focus {
       text-decoration: none;
       background-color:
-        hsl(var(--app-bar-overlay,
-            var(--component-overlay) / var(--component-overlay-focus)));
+        hsl(
+          var(
+            --app-bar-overlay,
+            var(--component-overlay) / var(--component-overlay-focus)
+          )
+        );
       outline: 0;
     }
   }
@@ -338,8 +354,12 @@
 .services-overview-item-description {
   font-size: .875rem;
   color:
-    hsl(var(--app-bar-color,
-        var(--component-color) / var(--component-medium-emphasis)));
+    hsl(
+      var(
+        --app-bar-color,
+        var(--component-color) / var(--component-medium-emphasis)
+      )
+    );
 }
 
 .communities-menu {
@@ -435,8 +455,8 @@
 
   flex: 1 1 auto;
   align-self: center;
-  margin-right: .5rem;
   min-width: 200px;
+  margin-right: .5rem;
 }
 
 .search-bar-item-icon {
@@ -461,7 +481,7 @@
   padding: calc(.25rem - 1px) 0 .25rem;
 }
 
-.select ul>* {
+.select ul > * {
   padding: .25rem;
 }
 
@@ -482,7 +502,7 @@
   border-bottom: 1px solid var(--primary);
 }
 
-.select div:nth-child(2)>* {
+.select div:nth-child(2) > * {
   border: none;
 }
 
@@ -509,8 +529,7 @@
 @media (--header-breakpoint-up) {
   .select {
     position: relative;
-    max-width:
-      calc((100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio));
+    max-width: calc((100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio));
   }
 
   .select:focus-within {
@@ -529,13 +548,11 @@
 */
 @media (max-width: 93rem) and (min-width: 768px) {
   .select {
-    max-width:
-      calc((100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio) - var(--logo-min-width) + var(--page-padding-x));
+    max-width: calc((100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio) - var(--logo-min-width) + var(--page-padding-x));
   }
 }
 
 @media (max-width: 35rem) {
-
   .select label,
   .select input::placeholder {
     overflow: hidden;
