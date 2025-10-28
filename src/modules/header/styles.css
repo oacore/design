@@ -51,9 +51,9 @@
 }
 
 .logo-container {
-  flex: 1;
+  flex: 0 1 auto;
   min-width: var(--logo-min-width);
-  max-width: calc(var(--page-padding-x) + 1rem);
+  max-width: none;
   max-height: 3rem;
   padding: 0;
   margin-right: auto;
@@ -69,6 +69,7 @@
   color: initial;
   text-decoration: none;
   gap: 10px;
+  white-space: nowrap;
 }
 
 .logo-link:hover,
@@ -154,10 +155,7 @@
      * This is only to support dynamic colours, i.e. transitions,
      * and custom properties for colour setting.
      */
-    @supports (
-      clip-path:
-      path('M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z')
-    ) {
+    @supports (clip-path: path('M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z')) {
       clip-path:
         path(
           'M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z'
@@ -202,19 +200,11 @@
 }
 
 .group {
-  padding:
-    var(--app-bar-padding-y, var(--component-padding-y))
-    var(--app-bar-padding-x, var(--component-padding-x));
+  padding: var(--app-bar-padding-y, var(--component-padding-y)) var(--app-bar-padding-x, var(--component-padding-x));
 
   & .item {
-    margin-right:
-      calc(
-        -1 * var(--app-bar-padding-x, var(--component-padding-x))
-      );
-    margin-left:
-      calc(
-        -1 * var(--app-bar-padding-x, var(--component-padding-x))
-      );
+    margin-right: calc(-1 * var(--app-bar-padding-x, var(--component-padding-x)));
+    margin-left: calc(-1 * var(--app-bar-padding-x, var(--component-padding-x)));
   }
 }
 
@@ -428,6 +418,7 @@
 
 .about-menu {
   flex-direction: column;
+
   @media (--header-breakpoint-up) {
     & .menu-list {
       flex-direction: row;
@@ -441,7 +432,7 @@
 }
 
 /* stylelint-disable declaration-no-important */
-.member-menu-item  {
+.member-menu-item {
   display: flex !important;
   flex-direction: column;
   align-items: flex-start;
@@ -462,8 +453,9 @@
   --app-bar-padding-y: 0;
   --app-bar-padding-x: 0;
 
-  flex: 1;
+  flex: 1 1 auto;
   align-self: center;
+  min-width: 200px;
   margin-right: .5rem;
 }
 
@@ -537,10 +529,7 @@
 @media (--header-breakpoint-up) {
   .select {
     position: relative;
-    max-width:
-      calc(
-        (100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio)
-      );
+    max-width: calc((100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio));
   }
 
   .select:focus-within {
@@ -559,11 +548,7 @@
 */
 @media (max-width: 93rem) and (min-width: 768px) {
   .select {
-    max-width:
-      calc(
-        (100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio) -
-        var(--logo-min-width) + var(--page-padding-x)
-      );
+    max-width: calc((100vw - 2 * var(--page-padding-x)) * var(--main-content-ratio) - var(--logo-min-width) + var(--page-padding-x));
   }
 }
 
@@ -603,6 +588,7 @@
     }
   }
 }
+
 @media (max-width: 768px) {
   .peace {
     display: none;
