@@ -55,6 +55,7 @@ const icons = [
   path.resolve(__dirname, './assets/deduplication.svg'),
   path.resolve(__dirname, './assets/orcid.svg'),
   path.resolve(__dirname, './assets/sdg.svg'),
+  path.resolve(__dirname, './assets/enrichment.svg'),
   path.resolve(__dirname, './assets/das.svg'),
   path.resolve(__dirname, './assets/fresh-finds.svg'),
 ]
