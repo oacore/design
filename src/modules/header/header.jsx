@@ -197,6 +197,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           </Group>
           <Group id="managing-content" label="Managing content" tag="li">
             <Item href="/services/repository-dashboard">Dashboard</Item>
+            <Item href="/services/fair-certification">Fair Certification</Item>
           </Group>
           <Group id="contracts" label="Bespoke contracts" tag="li">
             <Item href="/services/consultancy">Consultancy services</Item>
