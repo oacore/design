@@ -7,7 +7,6 @@ import {
   Heading,
   MetadataList,
   ExpandableList,
-  MathMarkdown,
   LogoGroup,
   DataProviderLogo,
 } from '../../elements'
@@ -131,7 +130,7 @@ const SearchResult = ({
         <Heading level="3" className={styles.title} itemProp="name">
           {metadataLink ? (
             <Link href={metadataLink}>
-              <MathMarkdown>{title}</MathMarkdown>
+              {title}
             </Link>
           ) : (
             title
@@ -200,7 +199,7 @@ const SearchResult = ({
       </figure>
 
       <div className={styles.content} itemProp="abstract">
-        <MathMarkdown>{children}</MathMarkdown>
+        {children}
       </div>
 
       <div className={styles.footnote}>
