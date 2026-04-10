@@ -7,6 +7,7 @@ import {
   Heading,
   MetadataList,
   ExpandableList,
+  MathMarkdown,
   LogoGroup,
   DataProviderLogo,
 } from '../../elements'
@@ -128,7 +129,13 @@ const SearchResult = ({
       {isRecommended ? textUpperHeader : ''}
       <header className={styles.header}>
         <Heading level="3" className={styles.title} itemProp="name">
-          {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
+          {metadataLink ? (
+            <Link href={metadataLink}>
+              <MathMarkdown>{title}</MathMarkdown>
+            </Link>
+          ) : (
+            title
+          )}
         </Heading>
         {useLogo && (
           <LogoGroup>
@@ -193,7 +200,7 @@ const SearchResult = ({
       </figure>
 
       <div className={styles.content} itemProp="abstract">
-        {children}
+        <MathMarkdown>{children}</MathMarkdown>
       </div>
 
       <div className={styles.footnote}>
