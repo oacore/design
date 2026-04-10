@@ -128,13 +128,7 @@ const SearchResult = ({
       {isRecommended ? textUpperHeader : ''}
       <header className={styles.header}>
         <Heading level="3" className={styles.title} itemProp="name">
-          {metadataLink ? (
-            <Link href={metadataLink}>
-              {title}
-            </Link>
-          ) : (
-            title
-          )}
+          {metadataLink ? <Link href={metadataLink}>{title}</Link> : title}
         </Heading>
         {useLogo && (
           <LogoGroup>
