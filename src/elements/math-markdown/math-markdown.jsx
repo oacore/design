@@ -13,7 +13,12 @@ const MathMarkdown = (props) => {
   )
     rest.output = 'htmlAndMathml'
 
-  if (children === null || children === undefined) return <span />
+  if (
+    children === null ||
+    children === undefined ||
+    typeof children !== 'string'
+  )
+    return <span />
 
   const renderUs = utils.latexify(children, rest)
   return <span>{renderUs}</span>
