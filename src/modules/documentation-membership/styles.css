@@ -116,9 +116,9 @@
 
 .docs-table {
   width: 100%;
-  table-layout: fixed;
   font-size: 16px;
   line-height: 24px;
+  table-layout: fixed;
   border-collapse: collapse;
   border: 1px solid #000;
 }
@@ -136,23 +136,37 @@
 }
 
 .docs-table tbody td:first-child {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
 }
 
 .table-description-cell {
   font-size: 13px;
   line-height: 18px;
-  overflow-wrap: anywhere;
   word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .code-block {
-  margin: 16px 0;
   padding: 16px;
+  margin: 16px 0;
   overflow-x: auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
   font-size: 14px;
   line-height: 1.5;
   color: #212121;
@@ -167,9 +181,16 @@
 
 .inline-code {
   padding: 2px 4px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
-  font-size: 0.9em;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
+  font-size: .9em;
   background: #f5f5f5;
   border-radius: 2px;
 }
