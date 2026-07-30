@@ -17,6 +17,16 @@ const Histoslider = ({
   selection: propsSelection,
   selectFunc,
   className,
+  selectedBarColor,
+  unselectedColor,
+  rangeColor,
+  barBorderRadius,
+  barPadding,
+  showOnDrag,
+  handleLabelFormat,
+  formatLabelFunction,
+  disableHistogram,
+  showLabels,
   ...props
 }) => {
   const [dragging, setDragging] = React.useState(false)
@@ -69,6 +79,20 @@ const Histoslider = ({
     width: innerWidth,
   }
 
+  const forwardedProps = {
+    selectedBarColor,
+    unselectedColor,
+    rangeColor,
+    barBorderRadius,
+    barPadding,
+    showOnDrag,
+    handleLabelFormat,
+    formatLabelFunction,
+    disableHistogram,
+    showLabels,
+    ...props,
+  }
+
   return (
     <div
       style={{
@@ -77,8 +101,10 @@ const Histoslider = ({
       }}
       className={classNames.use(styles.histoslider).join(className)}
     >
-      <Histogram {...{ ...props, ...overrides, height: histogramHeight }} />
-      <Slider {...{ ...props, ...overrides, height: sliderHeight }} />
+      <Histogram
+        {...{ ...forwardedProps, ...overrides, height: histogramHeight }}
+      />
+      <Slider {...{ ...forwardedProps, ...overrides, height: sliderHeight }} />
     </div>
   )
 }
