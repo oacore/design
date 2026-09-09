@@ -61,15 +61,15 @@ const Footer = ({ className }) => (
         <div className={styles.logos}>
           <LinkFoot href="https://www.open.ac.uk">
             <IconFoot
-              src="#ou-logo"
+              src="#coreLogo"
               alt="Ou logo"
               className={styles.footerMainLogo}
             />
           </LinkFoot>
         </div>
         <p className={styles.text}>
-          CORE (COnnecting REpositories) is a not-for-profit service hosted by
-          The Open University supported by{' '}
+          CORE (COnnecting REpositories) is a not-for-profit service supported
+          by
           <Link href="https://core.ac.uk/governance/supporters#membership-list">
             <MathMarkdown>CORE Members.</MathMarkdown>
           </Link>

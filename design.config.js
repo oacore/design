@@ -45,6 +45,7 @@ const icons = [
   path.resolve(__dirname, './assets/writing.svg'),
   path.resolve(__dirname, './assets/jisc-logo.svg'),
   path.resolve(__dirname, './assets/ou-logo.svg'),
+  path.resolve(__dirname, './assets/coreLogo.svg'),
   path.resolve(__dirname, './assets/twitter.svg'),
   path.resolve(__dirname, './assets/linkedin.svg'),
   path.resolve(__dirname, './assets/github.svg'),
