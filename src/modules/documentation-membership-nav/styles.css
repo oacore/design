@@ -63,32 +63,6 @@
   background: #e0e0e0;
 }
 
-.sider-item-level-1 {
-  padding-left: 32px;
-}
-
-.sider-item-level-2 {
-  padding-left: 48px;
-}
-
-.sider-item-level-3 {
-  padding-left: 64px;
-}
-
-.sider-item-level-4 {
-  padding-left: 80px;
-}
-
-.sider-item-level-5 {
-  padding-left: 96px;
-}
-
-.sider-group-item {
-  font-weight: 600;
-  color: #212121;
-  cursor: default;
-}
-
 .hidden-item {
   display: none;
 }
