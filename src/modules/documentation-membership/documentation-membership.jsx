@@ -1,11 +1,9 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 import styles from './styles.css'
 import { classNames } from '../../utils'
 import Icon from '../../elements/icon'
-import DocumentationMarkdown, {
-  getItemDescription,
-} from './documentation-markdown'
 
 const DocumentationMembership = ({
   headerTitle,
@@ -123,9 +121,9 @@ const DocumentationMembership = ({
                   </a>
                 )}
               </div>
-              <DocumentationMarkdown className={styles.documentationContent}>
-                {getItemDescription(item)}
-              </DocumentationMarkdown>
+              <ReactMarkdown linkTarget="_blank" className={styles.test}>
+                {item.descriptionAbout}
+              </ReactMarkdown>
               <div>
                 {item?.images?.map((img, i) => (
                   <div className={styles.cardWrapper}>
@@ -161,12 +159,12 @@ const DocumentationMembership = ({
                 ))}
               </div>
               {item?.subTitle && (
-                <DocumentationMarkdown className={styles.documentationSubTitle}>
+                <ReactMarkdown className={styles.documentationSubTitle}>
                   {item?.subTitle}
-                </DocumentationMarkdown>
+                </ReactMarkdown>
               )}
               {item?.subDescription && (
-                <DocumentationMarkdown
+                <ReactMarkdown
                   className={classNames.use(
                     styles.documentationSubDescription,
                     {
@@ -175,7 +173,7 @@ const DocumentationMembership = ({
                   )}
                 >
                   {item?.subDescription}
-                </DocumentationMarkdown>
+                </ReactMarkdown>
               )}
             </div>
           </>
