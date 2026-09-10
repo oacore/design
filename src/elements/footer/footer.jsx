@@ -69,7 +69,7 @@ const Footer = ({ className }) => (
         </div>
         <p className={styles.text}>
           CORE (COnnecting REpositories) is a not-for-profit service supported
-          by
+          by{' '}
           <Link href="https://core.ac.uk/governance/supporters#membership-list">
             <MathMarkdown>CORE Members.</MathMarkdown>
           </Link>
