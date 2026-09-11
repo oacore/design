@@ -125,7 +125,7 @@
 .bottom {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem var(--footer-padding-x);
   border-top: 1px solid var(--gray-300);
 }
 
@@ -135,7 +135,7 @@
   color: var(--gray-700);
 }
 
-.bottom-link {
+.bottom-link:not(:first-child) {
   padding-left: 2rem;
   color: var(--gray-700);
 }

@@ -2,12 +2,7 @@ import React from 'react'
 
 import styles from './footer.css'
 // eslint-disable-next-line import/no-cycle
-import {
-  Logo as LogoFoot,
-  Icon as IconFoot,
-  Link as LinkFoot,
-  MathMarkdown,
-} from '..'
+import { Icon as IconFoot, Link as LinkFoot, MathMarkdown } from '..'
 import { classNames } from '../../utils'
 import { BaseLink as Link } from '../link'
 
@@ -129,9 +124,6 @@ const Footer = ({ className }) => (
       </div>
     </div>
     <div className={styles.bottom}>
-      <LinkFoot href="/" className={styles.logoLink}>
-        <LogoFoot className={styles.logo} />
-      </LinkFoot>
       <LinkFoot className={styles.bottomLink} href="/accessibility">
         Accessibility
       </LinkFoot>
