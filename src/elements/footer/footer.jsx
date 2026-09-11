@@ -54,10 +54,10 @@ const Footer = ({ className }) => (
     <div className={styles.container}>
       <div className={classNames.use(styles.sectionLogos)}>
         <div className={styles.logos}>
-          <LinkFoot href="https://www.open.ac.uk">
+          <LinkFoot href="https://core.ac.uk">
             <IconFoot
               src="#coreLogo"
-              alt="Ou logo"
+              alt="core logo"
               className={styles.footerMainLogo}
             />
           </LinkFoot>
