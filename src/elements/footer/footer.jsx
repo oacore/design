@@ -129,9 +129,6 @@ const Footer = ({ className }) => (
       </div>
     </div>
     <div className={styles.bottom}>
-      <LinkFoot href="/" className={styles.logoLink}>
-        <LogoFoot className={styles.logo} />
-      </LinkFoot>
       <LinkFoot className={styles.bottomLink} href="/accessibility">
         Accessibility
       </LinkFoot>
