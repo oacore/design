@@ -188,6 +188,7 @@ const Header = ({ children, className, id, ...passProps }) => {
           </Group>
 
           <Group id="content-discovery" label="Content discovery" tag="li">
+            <Item href="https://core.ac.uk/fresh-finds">FreshFinds</Item>
             <Item href="/services/recommender">Recommender</Item>
             <Item href="/services/discovery">Discovery</Item>
           </Group>
